@@ -1,0 +1,5 @@
+ - biblicism's main problem: pervasive interpretive pluralism
+	 - Page 8: "Of the Scriptures be a plain book, and the Spirit performs the functions of a teacher to all the children of God, it follows inevitably that they must agree in all essential matters in their interpretation of the Bible" - Charles Hodge
+	 - As a result of prevasive interpretive pluralism, claims to biblical sufficiency and authority arent proved to be outright wrong, but are *defeated in relevance* by lack of interpretive agreement between biblicists
+ - the bible is an extremely complex book where different passages might need cultural context, some may be irrelevant to current day christians, and some passages may be simply strange. biblicism brushes over the complexities of the bible and simply ignores the very idiosyncrasies that make interpretation so important
+ - 

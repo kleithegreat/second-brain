@@ -4,11 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "700a8c2ed6157f52",
+        "id": "72171f6d8417879b",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "!inbox/the bible made impossible.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -73,6 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "!inbox/the bible made impossible.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "!inbox/the bible made impossible.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -110,7 +116,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "!inbox/the bible made impossible.md"
+              }
             }
           }
         ]
@@ -120,10 +128,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "b3b819f25c336d24",
+  "active": "72171f6d8417879b",
   "lastOpenFiles": [
-    "reference notes/Untitled.md",
-    "templates/atomic note template.md",
-    "templates/reference note template.md"
+    "!inbox/Untitled 7.md",
+    "!inbox/Untitled 6.md",
+    "!inbox/Untitled 5.md",
+    "!inbox/Untitled 4.md",
+    "!inbox/Untitled 3.md",
+    "!inbox/the bible made impossible.md",
+    "!inbox/Untitled 2.md",
+    "!inbox/Untitled 1.md",
+    "zettelkasten/Untitled.md",
+    "templates/atomic note template.md"
   ]
 }

@@ -4,8 +4,8 @@
 #
 # Name:         Kevin Lei
 # Section:      522
-# Assignment:   
-# Date:         
+# Assignment:   4.19.1: LAB: Calculate roots
+# Date:         16 September 2022
 
 a = float(input("Please enter the coefficient A: "))
 b = float(input("Please enter the coefficient B: "))

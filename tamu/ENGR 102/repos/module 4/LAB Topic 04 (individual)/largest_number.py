@@ -4,14 +4,15 @@
 #
 # Name:         Kevin Lei
 # Section:      522
-# Assignment:   
-# Date:         
+# Assignment:   4.16.1: LAB: Largest number
+# Date:         16 September 2022
 
 userinput = list()
 
+# for loop takes input and compares to current maximum
 for i in range(3):
     userinput.append(float(input(f"Enter number {i + 1}: ")))
-    if userinput[i] > userinput[i - 1]:
+    if userinput[i] >= userinput[i - 1]:
         maximum = userinput[i]
 
 print(f"The largest number is {maximum}")
