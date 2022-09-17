@@ -5,7 +5,7 @@
 # Names:        Kevin Lei
 #               Bryan Sanchez Chavez
 #               Euijin Kim
-#               NAME OF TEAM MEMBER 4
+#               Agustin Portillo
 # Section:      522
 # Assignment:   4.13 LAB: Make change
 # Date:         16 September 2022

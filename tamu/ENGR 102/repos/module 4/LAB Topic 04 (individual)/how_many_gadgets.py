@@ -19,7 +19,9 @@ if (days < 11):
     total += 5 * days
 elif (days < 61):
     total += 50 + (days - 10) * 50
+elif (days < 101):
+    total += 3775 - (109 - days) * (110 - days) / 2
 else:
-    total += 2550 + (days - 60) * (110 * days - (days ** 2 / 2) - 4800)
+    total = 3730
 
-print(f"The total number of gadgets produced on day {days} is {total} ")
+print(f"The total number of gadgets produced on day {days} is {int(total)} ")
