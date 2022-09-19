@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "72171f6d8417879b",
+        "id": "0117104dd263ad9e",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "!inbox/the bible made impossible.md",
+            "file": "templates/atomic note template.md",
             "mode": "source",
             "source": false
           }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "!inbox/the bible made impossible.md",
+                "file": "templates/atomic note template.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "!inbox/the bible made impossible.md",
+                "file": "templates/atomic note template.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "!inbox/the bible made impossible.md"
+                "file": "templates/atomic note template.md"
               }
             }
           }
@@ -128,17 +128,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "72171f6d8417879b",
+  "active": "0117104dd263ad9e",
   "lastOpenFiles": [
+    "zettelkasten/Untitled.md",
+    "templates/atomic note template.md",
+    "!inbox/historical theology.md",
+    "!inbox/the bible made impossible.md",
+    "templates/reference note template.md",
+    "!inbox/Untitled.md",
     "!inbox/Untitled 7.md",
     "!inbox/Untitled 6.md",
     "!inbox/Untitled 5.md",
-    "!inbox/Untitled 4.md",
-    "!inbox/Untitled 3.md",
-    "!inbox/the bible made impossible.md",
-    "!inbox/Untitled 2.md",
-    "!inbox/Untitled 1.md",
-    "zettelkasten/Untitled.md",
-    "templates/atomic note template.md"
+    "!inbox/Untitled 4.md"
   ]
 }
