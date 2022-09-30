@@ -16,6 +16,7 @@ length = float(input("Enter the side length in meters: "))
 layers = int(input("Enter the number of layers: "))
 area = 0
 
+# calculates the area given the layer number and adds to total
 for i in range(1, layers + 1):
     area += 3 * i * length ** 2 + ((sqrt(3) / 4) * length ** 2) * i ** 2 - ((sqrt(3) / 4) * length ** 2) * (i - 1) ** 2
 

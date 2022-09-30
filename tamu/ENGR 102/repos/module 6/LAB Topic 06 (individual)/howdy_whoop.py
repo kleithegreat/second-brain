@@ -12,10 +12,13 @@ input2 = int(input("Enter another integer: "))
 
 i = 1
 while i < 101:
+    # checks if divisible by both
     if i % input1 == 0 and i % input2 == 0:
         print("Howdy Whoop")
+    # checks if divisible by second
     elif i % input2 == 0:
         print("Whoop")
+    # checks if divisible by first
     elif i % input1 == 0:
         print("Howdy")
     else:

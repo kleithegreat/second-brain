@@ -12,6 +12,7 @@ count = 0
 print(f"The Juggler sequence starting at {term} is:")
 print(f"{term}", end = "")
 
+# executes the algorithm until the term is equal to 1
 while term != 1:
     if term % 2 == 0:
         term = int(term ** (1/2))

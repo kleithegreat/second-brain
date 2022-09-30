@@ -10,6 +10,7 @@
 n = int(input("Enter a value for n: "))
 
 r = 0
+# increments r until the left side of number n is greater than the right
 while ((n + r) * (n + r + 1)) / 2 - (n * (n + 1)) / 2 <= (n * (n - 1)) / 2:
     if ((n + r) * (n + r + 1)) / 2 - (n * (n + 1)) / 2 == (n * (n - 1)) / 2:
         print(f"{n} is a balancing number with r={r}")
