@@ -30,7 +30,13 @@ y = cos(k * t)
 print(f"k = {solve(4 * diff(y, t, 2) + 25 * y, k)}")
 
 # part b
-'''???'''
+A, B = symbols("A, B")
+eq = A * sin(k * t) + B * cos(k * t)
+for i in solve(4 * diff(y, t, 2) + 25 * y, k):
+    if (4 * diff(eq, t, 2) + 25 * eq).subs(k, i) == 0:
+        print(f"Every member of the family of functions y = A sin(kt) + B cos(kt) is also a solution for k = {i}.")
+    else:
+        print(f"Not every member of the family of functions y = A sin(kt) + B cos(kt) is also a solution for k = {i}.")
 
 # problem 3
 
