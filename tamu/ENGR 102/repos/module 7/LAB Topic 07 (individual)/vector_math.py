@@ -9,11 +9,30 @@
 
 from math import sqrt
 
-vectorA = input("Enter the elements for vector A: ").split()
+vectorA = input("Enter the elements for vector A: ").split() # takes user input and parses it into an array for vectors A and B
 vectorB = input("Enter the elements for vector B: ").split()
 
-print(f"The magnitude of vector A is {sqrt(int(vectorA[0]) ** 2 + int(vectorA[1]) ** 2 + int(vectorA[2]) ** 2):.5f}")
-print(f"The magnitude of vector B is {sqrt(int(vectorB[0]) ** 2 + int(vectorB[1]) ** 2 + int(vectorB[2]) ** 2):.5f}")
-print(f"A + B is: {[float(int(x)) + float(int(vectorB[vectorA.index(x)])) for x in vectorA]}")
-print(f"A - B is: {[float(int(x)) - float(int(vectorB[vectorA.index(x)])) for x in vectorA]}")
-print(f"The dot product is {sum([float(int(x)) * float(int(vectorB[vectorA.index(x)])) for x in vectorA]):.2f}")
+magnitudeA = 0
+for i in vectorA:
+    magnitudeA += float(i) ** 2
+print(f"The magnitude of vector A is {sqrt(magnitudeA):.5f}")
+
+magnitudeB = 0
+for i in vectorB:
+    magnitudeB += float(i) ** 2
+print(f"The magnitude of vector B is {sqrt(magnitudeB):.5f}")
+
+vectorSum = []
+for i in range(len(vectorA)):
+    vectorSum.append(float(vectorA[i]) + float(vectorB[i]))
+print(f"A + B is {vectorSum}")
+
+vectorDifference = []
+for i in range(len(vectorA)):
+    vectorDifference.append(float(vectorA[i]) - float(vectorB[i]))
+print(f"A - B is {vectorDifference}")
+
+dotProduct = 0
+for i in range(len(vectorA)):
+    dotProduct += float(vectorA[i]) * float(vectorB[i])
+print(f"The dot product is {dotProduct:.2f}")

@@ -18,7 +18,7 @@ conversions = {
 userInput = input("Enter some text: ").split()
 leetString = []
 
-for i in userInput:
+for i in userInput: # replaces each letter that corresponds with a key in the dictionary to its value pair
     translate = i.maketrans(conversions)
     leetString.append(i.translate(translate))
 

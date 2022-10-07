@@ -9,7 +9,7 @@
 
 userInput = input("Enter word(s) to convert to Pig Latin: ").split()
 pigLatin = []
-for i in userInput:
+for i in userInput: # rearranges the letters based on the pig latin rules
     if i[0].lower() in ["a", "e", "i", "o", "u", "y"]:
         pigLatin.append(i + "yay")
     else:

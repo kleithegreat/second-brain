@@ -8,11 +8,11 @@
 # Date:         07 October 2022
 
 userInput = input("Enter a four-digit integer: ")
-ascending = [int(x) for x in userInput]
+ascending = [int(userInput) // 1000, (int(userInput) // 100) % 10, (int(userInput) // 10) % 10, int(userInput) % 10]
 count = 0
 print(userInput, end = "")
 
-while True:
+while not (ascending[0] == ascending[1] and ascending[1] == ascending[2] and ascending[2] == ascending[3]): # checks if at least two unique digits present
     ascending.sort()
     descending = [x for x in reversed(ascending)]
 
@@ -31,6 +31,11 @@ while True:
     print(f" > {int(''.join(map(str,ascending)))}", end = "")
     if ascending == [6, 1, 7, 4]:
         break
+else:
+    count = 1
+    print(" > 0")
+    print(f"{userInput} reaches 0 via Kaprekar's routine in {count} iterations")
+    exit()
 
 print()
 print(f"{userInput} reaches 6174 via Kaprekar's routine in {count} iterations")

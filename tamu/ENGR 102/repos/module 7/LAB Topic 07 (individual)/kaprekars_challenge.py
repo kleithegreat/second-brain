@@ -22,17 +22,14 @@ def increment():
 
 iteration = 0
 while iteration < 10000:
-    if ascending[0] == ascending[1] and ascending[1] == ascending[2] and ascending[2] == ascending[3]:
-        increment()
-        continue
-
-    while True:
+    while not (ascending[0] == ascending[1] and ascending[1] == ascending[2] and ascending[2] == ascending[3]):
         ascending.sort()
         descending = [x for x in reversed(ascending)]
 
         for i in range(4):
             ascending[i] = descending[i] - ascending[i]
         count += 1
+
         i = 0
         while i < len(ascending):
             if ascending[i] < 0:
@@ -44,7 +41,6 @@ while iteration < 10000:
 
         if ascending == [6, 1, 7, 4]:
             break
-    
     increment()
     iteration += 1
 
