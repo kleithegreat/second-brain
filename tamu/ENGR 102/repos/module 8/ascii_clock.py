@@ -33,7 +33,7 @@ for i in userInput:
         try:
             if i != ":" and userInput[userInput.index(i) + 1] != ":":
                 grid[j] += " "
-        except:
+        except IndexError:
             continue
 
 for i in range(5):
