@@ -7,10 +7,8 @@
 # Assignment:   9.16.1: LAB: Small functions
 # Date:         24 October 2022
 
-from math import pi, sqrt
-
-def parta(rSphere, rHole):
-    return (4 / 3 * pi * rSphere ** 3) - (pi * rHole ** 2 * sqrt(rSphere ** 2 - rHole ** 2)) - 2 * ((pi * (rSphere - sqrt(rHole ** 2 - rSphere ** 2)) ** 2 / 3) * (3 * rSphere - (rSphere - sqrt(rHole ** 2 - rSphere ** 2))))
+def parta(rSphere: float, rHole: float):
+    return (4 / 3) * (rSphere ** 2 - rHole ** 2) ** (3 / 2)
 
 def partb(n):
     
