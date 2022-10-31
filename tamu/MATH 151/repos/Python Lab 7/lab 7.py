@@ -1,5 +1,5 @@
 from sympy import *
-"""
+
 # problem 1
 x = symbols("x")
 
@@ -60,25 +60,30 @@ print(f"The absolute maximum for f(x) is {maximum.evalf()} and the absolute mini
 
 # part d
 plot((piece1, (x, -10, 0)), (piece2, (x, 0, 10)), ylim = [-10, 10])
-"""
+
 # problem 2
-k, r0, r = symbols("k r0 r")
-velocity = k * (r0 - r) * r**2
+k, r0, r = symbols('k r0 r')
+v = k*r0*r**2 - k*r**3
 
 # part a
-candidates = [0.5 * r0, r0]
-print(solve(diff(velocity, r)))
+half_r0 = v.subs(r, .5*r0)
+twothirds_r0 = v.subs(r, 2/3*r0)
+one_r0 = v.subs(r, r0)
+print(f'{twothirds_r0} is greater than {half_r0} and {one_r0} on [.5r0, r0], so v has an abs max at r = (2/3)*r0 on [.5r0, r0]')
 
 # part b
-
+print()
+print(f'the abs max value of v on [.5r0, r0] is {twothirds_r0}')
 
 # part c
-
+print()
+vsub = v.subs({k:15000, r0: .65})
+print(f'the maximum value of the function is {vsub.subs(r,130/300)} and it occurs at r = 130/300 (or r = .4333)')
 
 # part d
+vplot = plot(vsub,(r,0,.65))
 
-
-"""# problem 3
+# problem 3
 x = symbols("x")
 fx = atan(x)
 gx = acot(x)
@@ -99,4 +104,3 @@ print("The function is arctan(x) + arccot(x) + pi when x <= 0, and arctan(x) + a
 
 # part d
 print("This makes sense for x > 0 because tan x is equal to cot(pi / 2 - x)")
-"""
