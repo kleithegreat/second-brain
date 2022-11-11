@@ -60,12 +60,21 @@ print(f"The inflection points include -1 and 1 when b = {solve(solve(diff(gx, x,
 plot((gx.subs(b, -3/2), (x, -3, 3)), (gx.subs(b, -1/2), (x, -3, 3)), (gx.subs(b, -3), (x, -3, 3)), ylim = (-1, 1))
 
 # problem 3
+a, b, x = symbols("a b x")
 
 # part a
-
+fx = ln(5 - x)
+a, b = 1, 4
+secant = (fx.subs(x, b) - fx.subs(x, a)) / (b - a)
+print(f"c = {solve(diff(fx, x, 1) - secant, x)[0].evalf()} or {solve(diff(fx, x, 1) - secant, x)[0]}")
 
 # part b
-
+gx = (x - 5)**(-1 * 5)
+print("The Mean Value Theorem cannot be applied here since g(x) is not continuous on the open interval (0, 8).")
+plot(gx, (x, 0, 8), ylim = (-10, 10))
 
 # part c
-
+hx = 8*x**2 * cos(4*x)
+a, b = pi/4, 3*pi/4
+secant = (hx.subs(x, b) - hx.subs(x, a)) / (b - a)
+print(f"c = {nsolve(diff(hx, x, 1) - secant, x, 1.7)}")
