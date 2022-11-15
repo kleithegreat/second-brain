@@ -16,11 +16,17 @@ with open("WeatherDataCLL.csv", "r") as weatherDataCSV:
     for i in csv.reader(weatherDataCSV, delimiter = ","):
         data.append(i)
 data = data[1:]
-"""DATES ARE STRINGS, CAST TO INT WHEN PROCESSING, TODO: ADD DAYS SINCE STARTING WITH 0"""
-data = np.array(data) 
-print(data)
+for index, value in enumerate(data): # adds days since
+    data[index].append(index)
+data = np.array(data)
+
 # plot 1 - line graph: max temp (f) and avg wind speed (mph) vs days
-fig, ax = plt.subplots()
+x = data[0:, 6] # LIST OF STRINGS?!
+maxTemps = data[0:, 4] # ALSO STRINGS? (doesnt matter?)
+
+fig, host = plt.subplots()
+par1 = host.twinx()
+par2 = host.twinx()
 
 # plot 2 - histogram of average wind speed
 
