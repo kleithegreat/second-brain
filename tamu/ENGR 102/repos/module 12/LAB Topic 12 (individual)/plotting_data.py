@@ -22,7 +22,7 @@ data = np.array(data)
 
 # plot 1 - line graph: max temp (f) and avg wind speed (mph) vs days
 x = data[0:, 6] # LIST OF STRINGS?!
-maxTemps = data[0:, 4] # ALSO STRINGS? (doesnt matter?)
+maxTemps = data[0:, 4] # ALSO STRINGS? (doesnt matter?, map function?)
 
 fig, host = plt.subplots()
 par1 = host.twinx()
