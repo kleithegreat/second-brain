@@ -68,6 +68,8 @@ ax1.scatter(minTemps, avgWindSpeed, color = "black", s = 10)
 plt.show()
 
 # plot 4 - bar chart of one bar per month months 1-12: bars are avg temp (f), lines of highest high and lowest low of the month
-avgTemps = data[0:, 3]
-
+# avgTemps = data[0:, 3]
+bars = {}
+highs = 
+lows = 
 fig4, ax1 = plt.subplots()
