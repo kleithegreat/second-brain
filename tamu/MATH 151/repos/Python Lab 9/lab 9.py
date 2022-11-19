@@ -1,4 +1,5 @@
 from sympy import *
+import math
 
 # problem 1
 
@@ -32,17 +33,23 @@ criticalValue = solve(diff(Area, frameWidth))[0]
 print(f"The dimensions a = {criticalValue - 8} and b = {frameHeight.subs(frameWidth, criticalValue) - 20} would maximize the area of the picture in the frame.")
 
 # problem 3
-R1, R2, h = symbols("R1 R2 h")
-R2 = 2 * R1
-V = 1/3 * pi * h * (R1**2 + R2**2 + R1*R2)
-SA = pi * (R1 + R2) * sqrt((R2 - R1)**2 + h**2) + pi * (R1**2 + R2**2)
 
 # part a
-SA = SA.subs([(R2, 2 * R1), (h, solve(V - 590, h)[0])])
-plot(diff(SA, R1), (R1, 0, 5), ylim = (300, 800))
+R1, R2, h = symbols('R1 R2 h')
+Vh = 1770/(math.pi*(R1**2+R2**2+R1*R2))
+SA = math.pi*(R1 + R2)*sqrt((R2 - R1)**2 + h**2) + math.pi*(R1**2 + R2**2)
+SA = SA.subs(h, Vh)
+SA = SA.subs(R2, 2*R1)
+dSA = diff(SA, R1)
+mini = solve(dSA, R1)
+
+plot(dSA, (R1,0,5), ylim = (-300,800))
 
 # part b
-
+print(f"There is a minimum on SA at R1 = {mini[0]} because because f' = 0 and f'' > 0")
+print(f'R1 = {mini[0]}')
+print(f'R2 = {2*mini[0]}')
+print(f'h = {Vh.subs([(R1, mini[0]),(R2,2*mini[0])])}')
 
 # problem 4
 x = symbols("x")
