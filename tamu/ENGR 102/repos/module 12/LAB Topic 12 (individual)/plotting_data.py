@@ -7,9 +7,7 @@
 # Assignment:   12.17.1: LAB: Plotting data
 # Date:         14 November 2022
 
-import csv
-import numpy as np
-import matplotlib.pyplot as plt
+import csv, numpy as np, matplotlib.pyplot as plt
 
 data = []
 with open("WeatherDataCLL.csv", "r") as weatherDataCSV:
@@ -25,7 +23,8 @@ for index, value in enumerate(data):
 for i, v in enumerate(data): # change all elements of data to float before converting to numpy array
     for j, v2 in enumerate(v):
         data[i][j] = float(data[i][j])
-    
+
+data2D = list(data)
 data = np.array(data, dtype = float) # converts to numpy array with float data type
 
 # plot 1 - line graph: max temp (f) and avg wind speed (mph) vs days
@@ -68,19 +67,45 @@ ax1.scatter(minTemps, avgWindSpeed, color = "black", s = 10)
 plt.show()
 
 # plot 4 - bar chart of one bar per month months 1-12: bars are avg temp (f), lines of highest high and lowest low of the month
-# avgTemps = data[0:, 3]
-monthData = {} #TODO: create a dictionary with month numbers as keys and a list of lists (data entries) with the corresponding month
-monthAverages = [ for i in monthData]
-highs = max()
-lows = min()
+dataByMonths = []
+for i in range(1, 13, 1):
+    currentMonth = []
+    for j in data2D:
+        if j[0] == i:
+            currentMonth.append(j)
+    dataByMonths.append(currentMonth)
+
+monthAverages = []
+for i in range(12):
+    total = 0
+    for j in dataByMonths[i]:
+        total += j[3]
+    monthAverages.append(total / len(dataByMonths[i]))
+    
+highs = []
+for i in range(12):
+    high = 0
+    for j in dataByMonths[i]:
+        if j[4] > high:
+            high = j[4]
+    highs.append(high)
+    
+lows = []
+for i in range(12):
+    low = 9999
+    for j in dataByMonths[i]:
+        if j[5] < low:
+            low = j[5]
+    lows.append(low)
 
 fig4, ax1 = plt.subplots()
 fig4.suptitle("Temperature by Month")
 ax1.set_xlabel("Month")
-ax1.set_ ylabel("Average Temperature, F")
-ax1.bar(monthData.keys(), monthAverages)
-ax1.plot(monthData.keys(), highs)
-ax1.plot(monthData.keys(), lows)
+ax1.set_ylabel("Average Temperature, F")
+ax1.bar(range(1, 13, 1), monthAverages, color = "darkkhaki")
+ax1.plot(range(1, 13, 1), highs, color = "red", label = "High T")
+ax1.plot(range(1, 13, 1), lows, color = "blue", label = "Low T")
+plt.xticks(range(1, 13, 1))
 plt.legend()
 
 plt.show()
