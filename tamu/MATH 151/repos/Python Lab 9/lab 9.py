@@ -45,9 +45,19 @@ plot(diff(SA, R1), (R1, 0, 5), ylim = (300, 800))
 
 
 # problem 4
+x = symbols("x")
+f2dx = 5 / (x + 1) ** 2
 
 # part a
-
+fdx = integrate(f2dx, x) + 3 - integrate(f2dx, x).subs(x, 0)
+print(f"f'(x) = {fdx}")
+fx = integrate(fdx, x) + 9 - integrate(fdx, x).subs(x, 0)
+print(f"f(x) = {fx}")
 
 # part b
-
+c1, c2 = symbols("c1 c2")
+fdx = integrate(f2dx, x) + c1
+fx = integrate(fdx, x) + c2
+solns = list(linsolve([fx.subs(x, 1) - 10, fx.subs(x, 4) - 10], (c1, c2)))[0]
+print(solns)
+print(f"f(x) = {fx.subs([(c1, solns[0]), (c2, solns[1])])}")
