@@ -69,7 +69,18 @@ plt.show()
 
 # plot 4 - bar chart of one bar per month months 1-12: bars are avg temp (f), lines of highest high and lowest low of the month
 # avgTemps = data[0:, 3]
-bars = {}
-highs = 
-lows = 
+monthData = {} #TODO: create a dictionary with month numbers as keys and a list of lists (data entries) with the corresponding month
+monthAverages = [ for i in monthData]
+highs = max()
+lows = min()
+
 fig4, ax1 = plt.subplots()
+fig4.suptitle("Temperature by Month")
+ax1.set_xlabel("Month")
+ax1.set_ ylabel("Average Temperature, F")
+ax1.bar(monthData.keys(), monthAverages)
+ax1.plot(monthData.keys(), highs)
+ax1.plot(monthData.keys(), lows)
+plt.legend()
+
+plt.show()
