@@ -11,63 +11,45 @@
 # Assignment:   Lab: Topic 13
 # Date:         21 November 2022
 
-def displayRules():
-    print("Rules")
+#TODO: ADD TURTLE GRAPHICS
 
-def displayOptions():
-    print("[1] Show instructions")
-    print("[2] Show rules")
-    print("[3] Play")
-    print("[4] Open saved game")
-    print("[5] Quit")
-
-def displayInstructions():
-    print("Instructions")
-
-def startGame():
-    currentGame = Game()
-    currentGame.play()
-
-def getChoice():
-    while True:
-        try:
-            choice = int(input())
-            if choice in [1, 2, 3, 4, 5]:
-                return choice
-            else:
-                print("Invalid input! Try again.")
-                continue
-        except:
-            print("Invalid input! Try again.")
-            continue
-        
-class Game:    
+class Game:
     def __init__(self):
         self.board = [[f" {chr(9675)} " for i in range(7)] for j in range(6)]
+        self.turn = True
         
     def play(self):
-        turn = True
+        self.displayBoard()
         while True:
-            self.displayBoard()
-            if turn:
+            if self.turn:
                 print("Player 1 to move.")
             else:
                 print("Player 2 to move.")
             try:
-                self.move(turn, self.getMove())
-                turn = not turn
+                if self.move(self.turn, self.getMove()) == -1:
+                    break
+                self.displayBoard()
             except ValueError:
                 print("Column is full! Try again.")
-            if turn:
+                continue
+            except ZeroDivisionError:
+                return
+            if self.turn:
                 if self.checkWin(" x "):
                     print("Player 1 wins!")
                     break
+                self.turn = not self.turn
             else:
                 if self.checkWin(f" {chr(9679)} "):
                     print("Player 2 wins!")
                     break
+                self.turn = not self.turn
+                
+    def playExisting(self):
+        self.openGameFromFile()
+        self.play()
             
-    def checkWin(self, turn: str): # TODO: DOESNT WORK PROPERLY
+    def checkWin(self, turn: str):
         for i, v in enumerate(self.board):
             for j, b in enumerate(v):
                 if b != f" {chr(9675)} ":
@@ -75,48 +57,57 @@ class Game:
                         for k in range(4):
                             if self.board[i][j + k] != turn:
                                 break
-                            else:
+                            elif k == 3:
                                 return True
                     except:
                         continue
                     try:
-                        for i in range(4):
+                        for k in range(4):
                             if self.board[i + k][j] != turn:
                                 break
-                            else:
+                            elif k == 3:
                                 return True
                     except:
                         continue
                     try:
-                        for i in range(4):
+                        for k in range(4):
                             if self.board[i + k][j + k] != turn:
                                 break
-                            else:
+                            elif k == 3:
                                 return True
                     except:
                         continue
                     try:
-                        for i in range(4):
+                        for k in range(4):
                             if self.board[i + k][j - k] != turn:
                                 break
-                            else:
+                            elif k == 3:
                                 return True
                     except:
                         continue
         return False
             
     def getMove(self):
-        validCols = ["a", "b", "c", "d", "e", "f", "g"]
+        validCols = ["a", "b", "c", "d", "e", "f", "g", "q", "s"]
         while True:
-            column = input("Enter a column (Q to quit): ")
-            if column.lower() == "q":
-                exit()
+            column = input("Enter a column (Enter Q to quit, S to save game): ")
             if column.lower() in validCols:
                 return validCols.index(column)
             else:
                 print("Invalid input! Please try again.")
         
     def move(self, turn: bool, col: int):
+        if col == 7:
+            raise ZeroDivisionError
+        elif col == 8:
+            while True:
+                try:
+                    if input("Saving will overwrite the previous game. Would you like to continue? (Type \"yes\" to continue) ").lower() == "yes":
+                        self.saveGameToFile()
+                        return -1
+                except:
+                    print("Invalid input! Try again.")
+                    continue
         for i, v in enumerate(reversed(self.board)):
             if v[col] not in [" x ", f" {chr(9679)} "]:
                 if turn:
@@ -132,18 +123,79 @@ class Game:
             print(f" {chr(i + 65).upper()} ", end = "")
         print()
         for i, v in enumerate(self.board):
-            for j in self.board[i]:
+            for j in v:
                 print(j, end="")
             print()
     
     def saveGameToFile(self):
-        with open("connect4game.txt", "w") as f: # WILL OVERWRITE PREVIOUS SAVED GAME, TODO: inform player, open saved game feature?
-            f.write(self.board)
+        boardInfo = ""
+        for i in self.board:
+            for j in i:
+                if j == " x ":
+                    boardInfo += "1,"
+                elif j == f" {chr(9679)} ":
+                    boardInfo += "2,"
+                else:
+                    boardInfo += "x,"
+        boardInfo += f"\n{self.turn}"
+        with open("connect4game.txt", "w") as f:
+            f.write(boardInfo)
         
-    def openGameFromFile(self): # TODO: check file format, make sure is readable
+    def openGameFromFile(self): # TODO: DOESNT WORK; ALSO ADD TRY EXCEPT WHEN NO EXISTING FILE
         with open("connect4game.txt", "r") as f:
-            self.board = f.read()
+            boardData = f.readline()
+            self.turn = bool(f.readline())
+        
+        boardData = boardData[:len(boardData) - 2]
+        boardData = boardData.replace("x", f" {chr(9675)} ")
+        boardData = boardData.replace("1", " x ")
+        boardData = boardData.replace("2", f" {chr(9679)} ")
+        boardData = boardData.split(",")
+        
+        self.board = []
+        row = []
+        for i, v in enumerate(boardData):
+            if (i + 1) % 7 != 0 and i != 0:
+                row.append(v)
+            self.board.append(row)
+            row = []
+
+def displayRules():
+    print()
+    print("Rules")
+
+def displayOptions():
+    print("[1] Show instructions")
+    print("[2] Show rules")
+    print("[3] Play")
+    print("[4] Open saved game")
+    print("[5] Exit")
+
+def displayInstructions():
+    print()
+    print("Instructions")
+
+def startGame():
+    currentGame = Game()
+    currentGame.play()
     
+def openGame():
+    currentGame = Game()
+    currentGame.playExisting()
+
+def getChoice():
+    while True:
+        try:
+            choice = int(input())
+            if choice in [1, 2, 3, 4, 5]:
+                return choice
+            else:
+                print("Invalid input! Try again.")
+                continue
+        except:
+            print("Invalid input! Try again.")
+            continue
+
 def main():
     while True:
         print("\nWelcome to Connect 4! What would you like to do? (Type a number)")
@@ -157,9 +209,9 @@ def main():
         elif choice == 3:
             startGame()
         elif choice == 4:
-            pass #TODO: add startgame with existing game
+            openGame()
         else:
-            exit()
+            break
         
 if __name__ == "__main__":
     main()
