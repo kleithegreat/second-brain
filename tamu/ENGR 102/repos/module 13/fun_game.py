@@ -11,8 +11,6 @@
 # Assignment:   Lab: Topic 13
 # Date:         21 November 2022
 
-#TODO: ADD TURTLE GRAPHICS
-
 class Game:
     def __init__(self):
         self.board = [[f" {chr(9675)} " for i in range(7)] for j in range(6)]
@@ -46,7 +44,11 @@ class Game:
                 self.turn = not self.turn
                 
     def playExisting(self):
-        self.openGameFromFile()
+        try:
+            self.openGameFromFile()
+        except:
+            print("There is no saved game!")
+            return
         self.play()
             
     def checkWin(self, turn: str):
@@ -141,7 +143,7 @@ class Game:
         with open("connect4game.txt", "w") as f:
             f.write(boardInfo)
         
-    def openGameFromFile(self): # TODO: DOESNT WORK; ALSO ADD TRY EXCEPT WHEN NO EXISTING FILE
+    def openGameFromFile(self):
         with open("connect4game.txt", "r") as f:
             boardData = f.readline()
             self.turn = bool(f.readline())
@@ -155,10 +157,12 @@ class Game:
         self.board = []
         row = []
         for i, v in enumerate(boardData):
-            if (i + 1) % 7 != 0 and i != 0:
+            if (i + 1) % 7 != 0:
                 row.append(v)
-            self.board.append(row)
-            row = []
+            else:
+                row.append(v)
+                self.board.append(row)
+                row = []
 
 def displayRules():
     print()
@@ -198,7 +202,7 @@ def getChoice():
 
 def main():
     while True:
-        print("\nWelcome to Connect 4! What would you like to do? (Type a number)")
+        print("\nWelcome to Connect 4! What would you like to do? (Type a number and press enter)")
         displayOptions()
         
         choice = getChoice()
@@ -211,6 +215,7 @@ def main():
         elif choice == 4:
             openGame()
         else:
+            #TODO: ADD TURTLE GRAPHICS
             break
         
 if __name__ == "__main__":
