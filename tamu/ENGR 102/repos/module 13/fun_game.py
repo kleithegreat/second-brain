@@ -121,7 +121,7 @@ class Game:
         while True:
             column = input("Enter a column (Enter Q to quit, S to save game): ")
             if column.lower() in validCols: # checks if user input is valid
-                return validCols.index(column)
+                return validCols.index(column.lower())
             else:
                 print("Invalid input! Please try again.")
         
@@ -309,5 +309,3 @@ if __name__ == "__main__":
 #	 - instructions for running
 #	 - valid inputs and expected outputs
 #	 - description of how code works
-#
-# comment code
