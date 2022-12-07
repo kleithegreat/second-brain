@@ -303,9 +303,3 @@ def main():
         
 if __name__ == "__main__":
     main()
-
-#TODO:
-# planning doc:
-#	 - instructions for running
-#	 - valid inputs and expected outputs
-#	 - description of how code works
