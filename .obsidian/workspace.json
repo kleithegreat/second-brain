@@ -18,8 +18,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "b24886109409f36d",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.0.3"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -136,10 +147,7 @@
     "width": 300,
     "collapsed": true
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
-  "active": "0117104dd263ad9e",
+  "active": "b24886109409f36d",
   "lastOpenFiles": [
     "zettelkasten/Untitled.md",
     "templates/atomic note template.md",
