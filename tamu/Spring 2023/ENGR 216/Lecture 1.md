@@ -1,5 +1,5 @@
 # Lecture 1
-
+---
 ## Experimental error
 - error leads to uncertainty in answers, which places limits on designs in engineering
 - error is the difference between the measured and expected/calculated value
