@@ -17,5 +17,10 @@ meanCement = data["Cement (component 1)(kg in a m^3 mixture)"].mean()
 errorCement = data["Cement (component 1)(kg in a m^3 mixture)"].sem()
 
 #d) The mean and standard error of the concrete compressive strength
-meanCompress = data["Concrete compressive strength(MPa, megapascals)"].mean()
-errorCompress = data["Concrete compressive strength(MPa, megapascals)"].sem()
+meanCompress = data["Concrete compressive strength(MPa, megapascals) "].mean()
+errorCompress = data["Concrete compressive strength(MPa, megapascals) "].sem()
+
+print(f"{meanWater}, {medianWater}, {modeWater}")
+print(f"{rangeFineAgg}, {varianceFineAgg}, {stdevFineAgg}")
+print(f"{meanCement}, {errorCement}")
+print(f"{meanCompress}, {errorCompress}")
