@@ -22,7 +22,8 @@ volume = integrate(pi * cos(x)**2, (x, 0, solve(sin(x) - cos(x))[0])) - integrat
 print(N(volume))
 
 # Part B
-
+volume = pi * integrate(asin(y)**2, (y, 0, sqrt(2)/2)) + pi * integrate(acos(y)**2, (y, sqrt(2)/2, pi))
+print(N(volume))
 
 # Part C
 
