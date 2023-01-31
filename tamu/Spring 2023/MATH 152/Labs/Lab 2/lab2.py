@@ -44,11 +44,29 @@ print(N(volume))
 # Problem 4
 
 # Part A
+"""
 i = integrate( E**(-1 * sqrt(x)), (x, 0, 1) )
 ii = integrate( (E**(-cos(x))) * sin(2*x), (x, 0, pi / 2) )
 iii = integrate( 2 * x * E**(-1 * x), (x, 0, 1) )
 
 print(i == ii and ii == iii)
+"""
+
+f=(E**(-sqrt(x)))
+g=((E**(-cos(x)))*(sin(2*x)))
+h=((2*x)*(E**(-x)))
+
+fint=integrate(f,(x,0,1))
+gint=integrate(g,(x,0,pi/2))
+hint=integrate(h,(x,0,1))
+
+print("Integration of f is ", fint.evalf())
+print("Integration of g is ", gint.evalf())
+print("Integration of h is ", hint.evalf())
+
+print("Therefore, all three integrals are equal")
 
 # Part B
-print("For the first integral, u should be equal to ")
+print("For the first integral (i), u has to be square root of x, which will make du as 1/2*u. Bound will not change as 0 and 1 stays the same under square root of x")
+print("\n")
+print("For the second integral (ii), u has to be cos(x), which will make du as -sin(x). Then change sin(2x) into 2sin(x)cos(x). sin(x) should be canceled out and bound will be changed [0,1]")
