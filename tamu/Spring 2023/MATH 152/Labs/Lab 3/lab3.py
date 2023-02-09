@@ -35,7 +35,7 @@ rho = 1000
 g = 9.8
 low = 0
 high = 2
-Ai = 3*y
+Ai = (15/2)*y
 di = 3 - y
 work = rho * g * integrate(Ai * di, (y, low, high))
 print(f"{work} newton meters of work")
