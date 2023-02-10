@@ -30,6 +30,9 @@ for i, v in enumerate(dataSorted):
 #print(len(dataSorted))
 
 
+
+
+
 # pink to orange
 widths = []
 # calculating and storing the widths into array 
@@ -37,50 +40,18 @@ for i in dataSorted[1:]:
     width = math.sqrt( (i[4]-i[2])**2 + (i[5]-i[3])**2 )
     widths.append(width)
 avgWidth = sum(widths)/len(widths)
-print(avgWidth)
+print(f"Average width: {avgWidth}")
 
 # orange to green
 length = []
 for i in dataSorted:
     length.append(math.sqrt((i[0] - i[4])**2 + (i[1] - i[5])**2))
 avgLength = sum(length) / len(length)
-print(avgLength)
-
-# calculating areas
-# area from average length and width + uncertainty
-
-temp = 0
-for i in widths:
-    temp += i - avgWidth
-stdevWidths = math.sqrt( (1/len(widths)) * temp**2 )
-print(stdevWidths)
-
-# error of lengths using sample standard dev
-temp = 0
-for i in length:
-    temp += i - avgLength
-stdevLength = math.sqrt( (1/len(length)) * temp**2 )
-print(stdevLength)
-
-#propagated error of area
-avgArea = avgLength * avgWidth
-print(avgArea)
-avgAreaError = avgArea * math.sqrt( (stdevLength/avgLength)**2 + (stdevWidths/avgWidth)**2 )
-print(avgAreaError)
+print(f"Average length: {avgLength}")   
 
 
-# area from average of sum of areas + uncertainty
-areas = []
-for i, k in enumerate(length):
-    areas.append(k * widths[i])
-statAvgArea = sum(areas)/len(areas)
-print(statAvgArea)
 
-temp = 0
-for i in areas:
-    temp += i - statAvgArea
-stdevAreas = math.sqrt( (1/len(areas)) * temp**2 )
-print(stdevAreas)
+
 
 # histogram of width
 plt.hist(widths, bins=10, ec='black')
@@ -95,3 +66,44 @@ plt.xlabel('Length in Pixels')
 plt.ylabel('Count')
 plt.title('Measruements of Length')
 plt.show()
+
+
+
+# error of widths using sample standard dev
+temp = 0
+for i in widths:
+    temp += (i - avgWidth)**2
+stdevWidths = math.sqrt( (temp/len(widths))  )
+stdErrWidths = stdevWidths / math.sqrt(len(widths))
+print(f"Width error: {stdevWidths}")
+
+# error of lengths using sample standard dev
+temp = 0
+for i in length:
+    temp += (i - avgLength)**2
+stdevLength = math.sqrt( (temp/len(length)) )
+stdErrLengths = stdevLength / math.sqrt(len(length))
+print(f"Length error: {stdevLength}")
+
+
+#propagated error of area using average l and w
+avgArea = avgLength * avgWidth
+print(f"Average area using average len * width: {avgArea}")
+avgAreaError = avgArea * math.sqrt( (stdErrLengths / avgLength)**2 + (stdErrWidths / avgWidth)**2 )
+print(f"Error: {avgAreaError}")
+
+
+
+
+# area from average of sum of areas + uncertainty
+areas = []
+for i, k in enumerate(length):
+    areas.append(k * widths[i-1])
+statAvgArea = sum(areas)/len(areas)
+print(f"Average of individual areas: {statAvgArea}")
+
+temp = 0
+for i in areas:
+    temp += (i - statAvgArea)** 2
+stdevAreas = math.sqrt( (1/len(areas)) * temp )
+print(f"Error: {stdevAreas/math.sqrt(len(areas))}")
