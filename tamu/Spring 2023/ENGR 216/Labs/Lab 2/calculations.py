@@ -34,8 +34,13 @@ puckData = puckData.drop(puckData.index[:300]) # removes still frames from puck 
 # populating velocity and acceleration for both x and y components
 puckData["xvelocity"] = puckData["position_px_x-hotpink"].diff() / puckData["timestamp"].diff()
 puckData["yvelocity"] = puckData["position_px_y-hotpink"].diff() / puckData["timestamp"].diff()
-puckData["xaccel"] = puckData["xvelocity"].diff() / puckData["timestamp"].diff()
-puckData["yaccel"] = puckData["yvelocity"].diff() / puckData["timestamp"].diff()
+puckData["xvelavg"] = puckData["xvelocity"].rolling(window=10).mean()
+puckData["yvelavg"] = puckData["yvelocity"].rolling(window=10).mean()
+
+puckData["xaccel"] = puckData["xvelavg"].diff() / puckData["timestamp"].diff()
+puckData["yaccel"] = puckData["yvelavg"].diff() / puckData["timestamp"].diff()
+puckData["xaccelavg"] = puckData["xaccel"].rolling(window=10).mean()
+puckData["yaccelavg"] = puckData["yaccel"].rolling(window=10).mean()
 
 # plotting position vs time
 plt.figure()
@@ -47,18 +52,18 @@ plt.title("dy vs t")
 
 # plotting velocity vs time
 plt.figure()
-plt.plot(puckData["timestamp"], puckData["xvelocity"])
+plt.plot(puckData["timestamp"], puckData["xvelavg"])
 plt.title("vx vs t")
 plt.figure()
-plt.plot(puckData["timestamp"], puckData["yvelocity"])
+plt.plot(puckData["timestamp"], puckData["yvelavg"])
 plt.title("vy vs t")
 
 # plotting acceleration vs time
 plt.figure()
-plt.plot(puckData["timestamp"], puckData["xaccel"])
+plt.plot(puckData["timestamp"], puckData["xaccelavg"])
 plt.title("ax vs t")
 plt.figure()
-plt.plot(puckData["timestamp"], puckData["yaccel"])
+plt.plot(puckData["timestamp"], puckData["yaccelavg"])
 plt.title("ay vs t")
 
 plt.show()
@@ -67,3 +72,6 @@ plt.show()
 #print(rulerData.describe())
 #print(puckData.describe())
 #puckData.to_csv("puckDataProcessed.csv", index=False)
+
+
+# TODO: isolate section of data where only falling and see resulting graphs?
