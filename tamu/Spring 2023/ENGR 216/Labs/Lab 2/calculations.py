@@ -2,7 +2,7 @@ from math import sqrt
 import pandas as pd
 import matplotlib.pyplot as plt
 
-### CLEAING UP DATA
+### CLEANING UP DATA
 
 rulerData = pd.read_csv("ruler.csv")
 puckData = pd.read_csv("puck.csv")
@@ -30,40 +30,48 @@ rulerData["length"] = rulerData.apply(distance, axis=1)
 
 ### PUCK STUFF
 puckData = puckData.drop(puckData.index[:300]) # removes still frames from puck data
+puckData = puckData.loc[puckData.timestamp < 10900] # removes everything after bounce
 
 # populating velocity and acceleration for both x and y components
 puckData["xvelocity"] = puckData["position_px_x-hotpink"].diff() / puckData["timestamp"].diff()
 puckData["yvelocity"] = puckData["position_px_y-hotpink"].diff() / puckData["timestamp"].diff()
-puckData["xvelavg"] = puckData["xvelocity"].rolling(window=10).mean()
-puckData["yvelavg"] = puckData["yvelocity"].rolling(window=10).mean()
 
+# moving averages
+movAvgPeriod = 20
+
+puckData["xvelavg"] = puckData["xvelocity"].rolling(window=movAvgPeriod).mean()
+puckData["yvelavg"] = puckData["yvelocity"].rolling(window=movAvgPeriod).mean()
+
+# acceleration from moving averages
 puckData["xaccel"] = puckData["xvelavg"].diff() / puckData["timestamp"].diff()
 puckData["yaccel"] = puckData["yvelavg"].diff() / puckData["timestamp"].diff()
-puckData["xaccelavg"] = puckData["xaccel"].rolling(window=10).mean()
-puckData["yaccelavg"] = puckData["yaccel"].rolling(window=10).mean()
+
+# smoothed accelerations
+puckData["xaccelavg"] = puckData["xaccel"].rolling(window=movAvgPeriod).mean()
+puckData["yaccelavg"] = puckData["yaccel"].rolling(window=movAvgPeriod).mean()
 
 # plotting position vs time
-plt.figure()
-plt.plot(puckData["timestamp"], puckData["position_px_x-hotpink"])
-plt.title("dx vs t")
+#plt.figure()
+#plt.plot(puckData["timestamp"], puckData["position_px_x-hotpink"])
+#plt.title("dx vs t")
 plt.figure()
 plt.plot(puckData["timestamp"], puckData["position_px_y-hotpink"])
 plt.title("dy vs t")
 
 # plotting velocity vs time
-plt.figure()
-plt.plot(puckData["timestamp"], puckData["xvelavg"])
-plt.title("vx vs t")
+#plt.figure()
+#plt.plot(puckData["timestamp"], puckData["xvelavg"])
+#plt.title("vx vs t")
 plt.figure()
 plt.plot(puckData["timestamp"], puckData["yvelavg"])
 plt.title("vy vs t")
 
 # plotting acceleration vs time
+#plt.figure()
+#plt.plot(puckData["timestamp"], puckData["xaccelavg"])
+#plt.title("ax vs t")
 plt.figure()
-plt.plot(puckData["timestamp"], puckData["xaccelavg"])
-plt.title("ax vs t")
-plt.figure()
-plt.plot(puckData["timestamp"], puckData["yaccelavg"])
+plt.plot(puckData["timestamp"], puckData["yaccel"]) # NOT FUCKING WORKING
 plt.title("ay vs t")
 
 plt.show()
@@ -72,6 +80,3 @@ plt.show()
 #print(rulerData.describe())
 #print(puckData.describe())
 #puckData.to_csv("puckDataProcessed.csv", index=False)
-
-
-# TODO: isolate section of data where only falling and see resulting graphs?
