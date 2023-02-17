@@ -13,12 +13,12 @@ for col_name in rulerData.columns:
         del rulerData[col_name]
 
 for col_name in puckData.columns:
-    if col_name not in ["frame_no", "timestamp", "size_px-hotpink", "position_px_x-hotpink", "position_px_y-hotpink"]:
+    if col_name not in ["frame_no", "timestamp", "position_px_x-hotpink", "position_px_y-hotpink"]:
         del puckData[col_name]
 
 # drop all empty rows
-rulerData.dropna(subset=["size_px-hotpink"], inplace=True)
-puckData.dropna(subset=["size_px-hotpink"], inplace=True)
+rulerData.dropna(subset=["position_px_x-hotpink"], inplace=True)
+puckData.dropna(subset=["position_px_y-hotpink"], inplace=True)
 
 ### RULER STUFF
 
@@ -27,34 +27,41 @@ def distance(row):
     return sqrt( (row["position_px_x-hotpink"] - row["position_px_x-lightorange"])**2 + (row["position_px_y-hotpink"] - row["position_px_y-lightorange"])**2 )
 
 rulerData["length"] = rulerData.apply(distance, axis=1)
+averageLength = rulerData["length"].mean()
+print(f"Average ruler length in pixels: {averageLength}")
 
 ### PUCK STUFF
-puckData = puckData.drop(puckData.index[:300]) # removes still frames from puck data
-puckData = puckData.loc[puckData.timestamp < 10900] # removes everything after bounce
+startTime = 9600
+endTime = 10900
+puckData = puckData[(puckData['timestamp'] >= startTime) & (puckData['timestamp'] <= endTime)]
 
-# populating velocity and acceleration for both x and y components
-puckData["xvelocity"] = puckData["position_px_x-hotpink"].diff() / puckData["timestamp"].diff()
-puckData["yvelocity"] = puckData["position_px_y-hotpink"].diff() / puckData["timestamp"].diff()
+puckData.to_csv("puckDataProcessed.csv", index=False)
+# moving averages and finite differences
+period = 16
 
-# moving averages
-movAvgPeriod = 20
+#puckData["xposavg"] = puckData["position_px_x-hotpink"].rolling(window=period).mean()
+puckData["yposavg"] = puckData["position_px_y-hotpink"].rolling(window=period).mean()
 
-puckData["xvelavg"] = puckData["xvelocity"].rolling(window=movAvgPeriod).mean()
-puckData["yvelavg"] = puckData["yvelocity"].rolling(window=movAvgPeriod).mean()
+#puckData["xvelocity"] = puckData["xposavg"].diff() / puckData["timestamp"].diff()
+puckData["yvelocity"] = puckData["yposavg"].diff() / puckData["timestamp"].diff()
 
-# acceleration from moving averages
-puckData["xaccel"] = puckData["xvelavg"].diff() / puckData["timestamp"].diff()
+period = 10
+#puckData["xvelavg"] = puckData["xvelocity"].rolling(window=period).mean()
+puckData["yvelavg"] = puckData["yvelocity"].rolling(window=period).mean()
+
+#puckData["xaccel"] = puckData["xvelavg"].diff() / puckData["timestamp"].diff()
 puckData["yaccel"] = puckData["yvelavg"].diff() / puckData["timestamp"].diff()
 
-# smoothed accelerations
-puckData["xaccelavg"] = puckData["xaccel"].rolling(window=movAvgPeriod).mean()
-puckData["yaccelavg"] = puckData["yaccel"].rolling(window=movAvgPeriod).mean()
+period = 5
+#puckData["xaccelavg"] = puckData["xaccel"].rolling(window=period).mean()
+puckData["yaccelavg"] = puckData["yaccel"].rolling(window=period).mean()
 
 # plotting position vs time
 #plt.figure()
 #plt.plot(puckData["timestamp"], puckData["position_px_x-hotpink"])
 #plt.title("dx vs t")
 plt.figure()
+plt.plot(puckData["timestamp"], puckData["yposavg"])
 plt.plot(puckData["timestamp"], puckData["position_px_y-hotpink"])
 plt.title("dy vs t")
 
@@ -64,6 +71,7 @@ plt.title("dy vs t")
 #plt.title("vx vs t")
 plt.figure()
 plt.plot(puckData["timestamp"], puckData["yvelavg"])
+plt.plot(puckData["timestamp"], puckData["yvelocity"])
 plt.title("vy vs t")
 
 # plotting acceleration vs time
@@ -71,7 +79,8 @@ plt.title("vy vs t")
 #plt.plot(puckData["timestamp"], puckData["xaccelavg"])
 #plt.title("ax vs t")
 plt.figure()
-plt.plot(puckData["timestamp"], puckData["yaccel"]) # NOT FUCKING WORKING
+plt.plot(puckData["timestamp"], puckData["yaccelavg"])
+plt.plot(puckData["timestamp"], puckData["yaccel"])
 plt.title("ay vs t")
 
 plt.show()
@@ -79,4 +88,3 @@ plt.show()
 ### DEBUGGING
 #print(rulerData.describe())
 #print(puckData.describe())
-#puckData.to_csv("puckDataProcessed.csv", index=False)
