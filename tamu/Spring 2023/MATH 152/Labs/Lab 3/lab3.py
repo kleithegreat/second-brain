@@ -23,9 +23,7 @@ v = integrate(pi * blue**2, (x, 0, 2)) - integrate(pi * grey**2, (x, 0, 2))
 print(f"{v} or {N(v)}")
 
 # Part D
-expr = y - (x**2 / 2)
-invGreen = sqrt(2*y)#solve(expr, x)[1]
-v = pi * integrate((2.5 - y)**2 - (2.5 - invGreen)**2, (y, 0, 2))
+v = 2 * pi * integrate( (2.5 - x) * (x - x**2/2) , (x, 0, 2) )
 print(f"{v} or {N(v)}")
 
 # Question 2
@@ -41,9 +39,8 @@ work = rho * g * integrate(Ai * di, (y, low, high))
 print(f"{work} newton meters of work")
 
 # Part B
-high = y
-height = solve(rho * g * integrate(Ai * di, (y, low, high)) - 3 * 10**4, real=True)
-print(f"The remaining water is {re(height[1])} meters deep.")
+height = solve( work.subs(low, x) - 30000 )
+print(f"The remaining water is {height} meters deep.")
 
 # Question 3
 fx = cos(x)**2
