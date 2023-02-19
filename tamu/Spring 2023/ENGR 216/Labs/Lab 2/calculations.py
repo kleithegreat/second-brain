@@ -30,57 +30,51 @@ rulerData["length"] = rulerData.apply(distance, axis=1)
 averageLength = rulerData["length"].mean()
 print(f"Average ruler length in pixels: {averageLength}")
 
+# to meters
+metersPerPixel = 0.5 / averageLength
+
 ### PUCK STUFF
 startTime = 9600
 endTime = 10900
 puckData = puckData[(puckData['timestamp'] >= startTime) & (puckData['timestamp'] <= endTime)]
 
+puckData["time_s"] = puckData["timestamp"] / 1000
+
 puckData.to_csv("puckDataProcessed.csv", index=False)
+
 # moving averages and finite differences
 period = 16
-
-#puckData["xposavg"] = puckData["position_px_x-hotpink"].rolling(window=period).mean()
 puckData["yposavg"] = puckData["position_px_y-hotpink"].rolling(window=period).mean()
 
-#puckData["xvelocity"] = puckData["xposavg"].diff() / puckData["timestamp"].diff()
-puckData["yvelocity"] = puckData["yposavg"].diff() / puckData["timestamp"].diff()
+puckData["yvelocity"] = puckData["yposavg"].diff() * metersPerPixel / puckData["time_s"].diff()
 
 period = 10
-#puckData["xvelavg"] = puckData["xvelocity"].rolling(window=period).mean()
 puckData["yvelavg"] = puckData["yvelocity"].rolling(window=period).mean()
 
-#puckData["xaccel"] = puckData["xvelavg"].diff() / puckData["timestamp"].diff()
-puckData["yaccel"] = puckData["yvelavg"].diff() / puckData["timestamp"].diff()
+puckData["yaccel"] = puckData["yvelavg"].diff() / puckData["time_s"].diff()
 
 period = 5
-#puckData["xaccelavg"] = puckData["xaccel"].rolling(window=period).mean()
 puckData["yaccelavg"] = puckData["yaccel"].rolling(window=period).mean()
 
 # plotting position vs time
-#plt.figure()
-#plt.plot(puckData["timestamp"], puckData["position_px_x-hotpink"])
-#plt.title("dx vs t")
+
 plt.figure()
-plt.plot(puckData["timestamp"], puckData["yposavg"])
-plt.plot(puckData["timestamp"], puckData["position_px_y-hotpink"])
+plt.plot(puckData["time_s"], puckData["yposavg"])
+plt.plot(puckData["time_s"], puckData["position_px_y-hotpink"])
 plt.title("dy vs t")
 
 # plotting velocity vs time
-#plt.figure()
-#plt.plot(puckData["timestamp"], puckData["xvelavg"])
-#plt.title("vx vs t")
+
 plt.figure()
-plt.plot(puckData["timestamp"], puckData["yvelavg"])
-plt.plot(puckData["timestamp"], puckData["yvelocity"])
+plt.plot(puckData["time_s"], puckData["yvelavg"])
+plt.plot(puckData["time_s"], puckData["yvelocity"])
 plt.title("vy vs t")
 
 # plotting acceleration vs time
-#plt.figure()
-#plt.plot(puckData["timestamp"], puckData["xaccelavg"])
-#plt.title("ax vs t")
+
 plt.figure()
-plt.plot(puckData["timestamp"], puckData["yaccelavg"])
-plt.plot(puckData["timestamp"], puckData["yaccel"])
+plt.plot(puckData["time_s"], puckData["yaccelavg"])
+plt.plot(puckData["time_s"], puckData["yaccel"])
 plt.title("ay vs t")
 
 plt.show()
