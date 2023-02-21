@@ -25,13 +25,16 @@ def distance(row):
     return sqrt( (row["position_px_x-hotpink"] - row["position_px_x-lightorange"])**2 + (row["position_px_y-hotpink"] - row["position_px_y-lightorange"])**2 )
 rulerData["length"] = rulerData.apply(distance, axis=1)
 averageLength = rulerData["length"].mean()
+avgLenSEM = rulerData["length"].sem()
 
 print(f"Average ruler length in pixels: {averageLength}")
+print(f"Standard error of the mean (ruler length in pixels): {avgLenSEM}")
 
 # conversion factor
 metersPerPixel = 0.5 / averageLength
+print(f"Meters per pixel: {metersPerPixel}")
 
-# error propagation TODO: FIGURE THIS SHIT OUT
+# error propagation TODO: copy formulas in code
 
 
 ### PUCK STUFF
@@ -61,29 +64,40 @@ puckData.to_csv("puckDataProcessed.csv", index=False)
 # plotting position vs time
 
 plt.figure()
-plt.plot(puckData["time_s"], puckData["yposavg"])
-plt.plot(puckData["time_s"], puckData["position_px_y-hotpink"])
-plt.title("dy vs t")
+plt.plot(puckData["time_s"], puckData["yposavg"], label="Smoothed position (period = 3)")
+plt.plot(puckData["time_s"], puckData["position_px_y-hotpink"], label="Raw position")
+plt.title("Position (m) vs Time (s)")
+plt.xlabel("Position (m)")
+plt.ylabel("Time (s)")
+plt.legend()
 
 # plotting velocity vs time
 
 plt.figure()
-plt.plot(puckData["time_s"], puckData["yvelavg"])
-plt.plot(puckData["time_s"], puckData["yvelocity"])
-plt.title("vy vs t")
+plt.plot(puckData["time_s"], puckData["yvelavg"], label="Smoothed velocity (period = 4)")
+plt.plot(puckData["time_s"], puckData["yvelocity"], label="Raw Velocity")
+plt.title("Velocity (m/s) vs Time (s)")
+plt.xlabel("Velocity (m/s)")
+plt.ylabel("Time (s)")
+plt.legend()
 
 # plotting acceleration vs time
 
 plt.figure()
-plt.plot(puckData["time_s"], puckData["yaccelavg"])
-plt.plot(puckData["time_s"], puckData["yaccel"])
-plt.title("ay vs t")
+plt.plot(puckData["time_s"], puckData["yaccelavg"], label="Smoothed acceleration (period = 3)")
+plt.plot(puckData["time_s"], puckData["yaccel"], label="Raw acceleration")
+plt.title("Acceleration (m/s^2) vs Time (s)")
+plt.xlabel("Acceleration (m/s^2)")
+plt.ylabel("Time (s)")
+plt.legend()
 
 plt.show()
 
 # average acceleration
 a = puckData["yaccelavg"].mean()
 print(f"Average acceleration: {a}")
+accelSEM = puckData["yaccel"].sem()
+print(f"Standard error of the mean (acceleration): {accelSEM}")
 
 # finding g
 g = puckData["yaccelavg"].mean() / sin(3.6 * pi / 180)
