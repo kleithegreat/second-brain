@@ -34,7 +34,7 @@ print(f"Standard error of the mean (ruler length in pixels): {avgLenSEM}")
 metersPerPixel = 0.5 / averageLength
 print(f"Meters per pixel: {metersPerPixel}")
 
-# error propagation TODO: copy formulas in code
+# error propagation
 
 
 ### PUCK STUFF
@@ -106,3 +106,6 @@ print(f"Average g: {g}")
 ### DEBUGGING
 #print(rulerData.describe())
 #print(puckData.describe())
+
+# TODO: make error propagation formulas in code
+# ADD X COMPONENT TOO ALL GRAPHS
