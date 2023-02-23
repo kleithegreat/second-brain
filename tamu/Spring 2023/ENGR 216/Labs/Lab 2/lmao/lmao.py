@@ -1,4 +1,4 @@
-from math import sqrt, sin, pi
+from math import sqrt, sin, cos, pi
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -13,7 +13,7 @@ for col_name in rulerData.columns:
         del rulerData[col_name]
 
 for col_name in puckData.columns:
-    if col_name not in ["frame_no", "timestamp", "position_px_y-hotpink"]:
+    if col_name not in ["frame_no", "timestamp", "position_px_x-hotpink", "position_px_y-hotpink"]:
         del puckData[col_name]
 
 puckData.dropna(subset=["position_px_y-hotpink"], inplace=True) # drops all empty rows
@@ -44,17 +44,22 @@ puckData = puckData[(puckData['timestamp'] >= startTime) & (puckData['timestamp'
 puckData["time_s"] = puckData["timestamp"] / 1000
 
 # moving averages and finite differences
-period = 1
+period = 3
+puckData["xposavg"] = puckData["position_px_x-hotpink"].rolling(window=period).mean()
 puckData["yposavg"] = puckData["position_px_y-hotpink"].rolling(window=period).mean()
 
+puckData["xvelocity"] = puckData["xposavg"].diff() * metersPerPixel / puckData["time_s"].diff()
 puckData["yvelocity"] = puckData["yposavg"].diff() * metersPerPixel / puckData["time_s"].diff()
 
-period = 4
+period = 3
+puckData["xvelavg"] = puckData["xvelocity"].rolling(window=period).mean()
 puckData["yvelavg"] = puckData["yvelocity"].rolling(window=period).mean()
 
+puckData["xaccel"] = puckData["xvelavg"].diff() / puckData["time_s"].diff()
 puckData["yaccel"] = puckData["yvelavg"].diff() / puckData["time_s"].diff()
 
-period = 2
+period = 3
+puckData["xaccelavg"] = puckData["xaccel"].rolling(window=period).mean()
 puckData["yaccelavg"] = puckData["yaccel"].rolling(window=period).mean()
 
 puckData.to_csv("puckDataProcessed.csv", index=False)
@@ -62,33 +67,42 @@ puckData.to_csv("puckDataProcessed.csv", index=False)
 # plotting position vs time
 
 plt.figure()
-plt.plot(puckData["time_s"], puckData["yposavg"])
-plt.plot(puckData["time_s"], puckData["position_px_y-hotpink"])
-plt.title("dy vs t")
+plt.plot(puckData["time_s"], puckData["position_px_y-hotpink"], label="y position")
+plt.plot(puckData["time_s"], puckData["position_px_x-hotpink"], label="x position")
+plt.title("Position (m) vs Time (s)")
+plt.legend()
 
 # plotting velocity vs time
 
 plt.figure()
-plt.plot(puckData["time_s"], puckData["yvelavg"])
-plt.plot(puckData["time_s"], puckData["yvelocity"])
-plt.title("vy vs t")
+plt.plot(puckData["time_s"], puckData["yvelocity"], label="y velocity")
+plt.plot(puckData["time_s"], puckData["xvelocity"], label="x velocity")
+plt.title("Velocity (m/s) vs Time (s)")
+plt.legend()
 
 # plotting acceleration vs time
 
 plt.figure()
-plt.plot(puckData["time_s"], puckData["yaccelavg"])
-plt.plot(puckData["time_s"], puckData["yaccel"])
-plt.title("ay vs t")
+plt.plot(puckData["time_s"], puckData["yaccel"], label="y acceleration")
+plt.plot(puckData["time_s"], puckData["xaccel"], label="x acceleration")
+plt.title("Acceleration (m/s^2) vs Time (s)")
+plt.legend()
 
 plt.show()
 
 # average acceleration
 a = puckData["yaccelavg"].mean()
 print(f"Average acceleration: {a}")
+accelSEM = puckData["yaccel"].sem()
+print(f"Standard error of the mean (acceleration): {accelSEM}")
 
 # finding g
-g = puckData["yaccelavg"].mean() / sin(3.6 * pi / 180)
+g = a / sin(3.6 * pi / 180)
 print(f"Average g: {g}")
+# propagating error for g
+errorSinTheta = cos(3.6 * pi/180) * 0.2 * pi/180
+errorG = sqrt( ( accelSEM / a )**2 + ( errorSinTheta / sin(3.6 * pi/180) )**2 ) * g
+print(f"Propagated error of g: {errorG}")
 
 ### DEBUGGING
 #print(rulerData.describe())
