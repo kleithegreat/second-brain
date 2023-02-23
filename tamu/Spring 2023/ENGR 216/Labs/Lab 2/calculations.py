@@ -115,7 +115,7 @@ g = a / sin(3.6 * pi / 180)
 print(f"Average g: {g}")
 # propagating error for g
 errorSinTheta = cos(3.6 * pi/180) * 0.2 * pi/180
-errorG = sqrt( ( accelSEM / a )**2 + ( errorSinTheta / sin(3.6 * pi/180) )**2 )
+errorG = sqrt( ( accelSEM / a )**2 + ( errorSinTheta / sin(3.6 * pi/180) )**2 ) * g
 print(f"Propagated error of g: {errorG}")
 
 ### DEBUGGING
