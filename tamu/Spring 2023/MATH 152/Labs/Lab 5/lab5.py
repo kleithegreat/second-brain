@@ -31,17 +31,37 @@ assert integrate(decomposed) == integrate(pdf) and integrate(pdf) == integrate(f
 print("The integrals from part A, B, and C are the same.")
 
 # question 2
+x, a = symbols("x a", positive=True)
 
 # part a
+ub = symbols("ub")
+lim = limit(integrate(x**2/(x**4 + a**2), (x, 0, ub)), ub, oo)
+sol = solve(lim - 0.1, a)
+print(f"The value of a is: {sol[0]}")
 
 # part b
+eq1 = integrate(x**6 * E**(-x**7), (x, 1, a))
+eq2 = limit(integrate(x**6 * E**(-x**7), (x, a, ub)), ub, oo)
+#sol = nsolve(eq1 - eq2, a)
+#print(f"The value of a is: {sol}")
 
 # part c
+
 
 # question 3
+x = symbols("x")
+fx = (abs(x) * cos(x)**2) / x**3
+gx = 1/x**2
 
 # part a
+expr = limit(integrate(gx, (x, 1, ub)), ub, oo)
+print(f"The improper integral converges to: {expr}")
 
 # part b
+plot(fx, gx, (x, 1, 10))
 
 # part c
+fx = (x * cos(x)**2) / x**3
+expr = limit(integrate(fx, (x, 1, ub)), ub, oo)
+print(f"The exact value of the improper integral is: {expr}")
+print(f"The approximate value of the improper integral is: {N(expr)}")
