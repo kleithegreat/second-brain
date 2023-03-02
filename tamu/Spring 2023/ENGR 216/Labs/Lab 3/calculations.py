@@ -1,9 +1,7 @@
-import warnings
 import pandas as pd
+# import matplotlib.pyplot as plt
 from functools import reduce
 from math import sqrt, sin, cos, tan, atan
-
-warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 def clean_cols(df: pd.DataFrame, kinetic=False):
@@ -46,17 +44,17 @@ def find_theta(df: pd.DataFrame, kinetic=False) -> float:
 
 
 # Large side
-staticL = pd.read_csv("large side static.csv")  # SECOND RUN
-frames = []  # Frames where the block overcomes static friction, one frame per trial
+staticL = pd.read_csv("large side static.csv")
+frames = [319, 912, 1316, 1710, 2239, 2700, 3055, 3331, 3610]
 staticL_calculations = pd.Series([tan(find_theta(staticL.loc[staticL["frame_no"] == i])) for i in frames])
 
 # Small side
 staticS = pd.read_csv("small side static.csv")
-frames = []
+frames = [354, 549, 773, 957, 1128, 1279, 1431, 1572, 1731]
 staticS_calculations = pd.Series([tan(find_theta(staticS.loc[staticS["frame_no"] == i])) for i in frames])
 
 static_coefficients = pd.DataFrame(
-    {"Large Area": staticL_calculations, "Small Area": staticS_calculations}, index=range(1, 10))
+    {"Large Area": staticL_calculations, "Small Area": staticS_calculations})
 
 
 # KINETIC FRICTION CALCULATION
@@ -65,7 +63,7 @@ def calculate_coefficients(df: pd.DataFrame) -> float:
     ay = df["ay-green"].mean()
 
     abs_a = sqrt(ax ** 2 + ay ** 2) / 100
-    angle = find_theta(df.loc[df["frame_no"] == df["frame_no"].median()], kinetic=True)
+    angle = find_theta(df.loc[df["frame_no"] == int(df["frame_no"].median())], kinetic=True)
 
     mu = (9.807 * sin(angle) - abs_a) / (9.807 * cos(angle))
     return mu
@@ -90,7 +88,7 @@ kineticS_calculations = pd.Series([calculate_coefficients(
     kineticS.loc[(kineticS['timestamp'] >= i[0]) & (kineticS['timestamp'] <= i[1])]) for i in timeframes])
 
 kinetic_coefficients = pd.DataFrame(
-    {"Large Area": kineticL_calculations, "Small Area": kineticS_calculations}, index=range(1, 10))
+    {"Large Area": kineticL_calculations, "Small Area": kineticS_calculations})
 
 
 print("STATIC CALCULATIONS")
@@ -102,6 +100,3 @@ print("KINETIC CALCULATIONS")
 print(kinetic_coefficients)
 print(f"Large mean and error: {kineticL_calculations.mean()} +/- {kineticL_calculations.sem()}")
 print(f"Small mean and error: {kineticS_calculations.mean()} +/- {kineticS_calculations.sem()}")
-
-# TODO: find frames for static coefficient calculations
-# TODO: fix NaN values for some kinetic mu calculations, use pycharm for debugging?
