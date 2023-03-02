@@ -104,4 +104,4 @@ print(f"Large mean and error: {kineticL_calculations.mean()} +/- {kineticL_calcu
 print(f"Small mean and error: {kineticS_calculations.mean()} +/- {kineticS_calculations.sem()}")
 
 # TODO: find frames for static coefficient calculations
-# TODO: fix NaN values for some kinetic mu calculations
+# TODO: fix NaN values for some kinetic mu calculations, use pycharm for debugging?
