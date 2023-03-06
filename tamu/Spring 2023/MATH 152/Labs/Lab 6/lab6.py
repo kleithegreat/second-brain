@@ -37,7 +37,7 @@ plt.legend()
 plt.show()
 
 # Part c
-print(N(Sum(bn, (n, 1, oo)))) #TODO: infinite or finite series? how do exact form?
+print(f"The sum of the series is: {summation(bn, (n, 1, oo))}")
 
 # Question 3
 an = 3 / (n**2 + 4*n)
@@ -53,7 +53,8 @@ print(f"First 12 partial sums: {cumsum([an.subs(n, i) for i in range(1, 13)])}")
 print(f"The partial fraction decomposition of the series is: {apart(an)}")
 
 # Part d
-# TODO: how do
+sn = 3/4 * ( 1 + 1/2 + 1/3 + 1/4 - 1/(n+1) - 1/(n+2) - 1/(n+3) - 1/(n+4) )
+print(f"The sum of the series is: {limit(sn, n, oo)}")
 
 
 # Question 4
