@@ -85,26 +85,63 @@ def find_angle(df: pd.DataFrame, timestamp: int, degree: bool=False) -> float:
     return theta
 
 
-def find_momentum():
+def find_momentum(df: pd.DataFrame, timestamp: int, before: bool) -> float:
+    """
+    Calculates and returns the momentum of the pucks before or after collision
+
+    Args:
+        df (pd.DataFrame): dataframe to calculate
+        timestamp (int): timestamp where the pucks collide
+        before (bool): calculate momentum before or after collision
+
+    Returns:
+        float: momentum of pucks in kg m/s
+    """
     pass
 
 
-def find_kinetic_energy():
+def find_kinetic_energy(df: pd.DataFrame, timestamp: int, before: bool) -> float:
+    """
+    Calculates and returns the kinetic energy of the pucks before or after collision
+
+    Args:
+        df (pd.DataFrame): dataframe to calculate
+        timestamp (int): timestamp where the pucks collide
+        before (bool): calculate kinetic energy before or after collision
+
+    Returns:
+        float: kinetic energy of pucks in J
+    """
     pass
 
 
 def main():
-    data = {i: clean_data(pd.read_csv(i), 1000) for i in file_names}
-    
-    # Replace keys with angle calculations
-    for i in data:
-        pass
+    data = {find_angle(clean_data(pd.read_csv(i), 1000), contact_timestamp(clean_data(pd.read_csv(i), 1000)), degree=True): 
+            clean_data(pd.read_csv(i), 1000) for i in file_names}
 
     # Plotting total momentum before and after collision for each angle (two graphs x and y)
+    plt.figure()
+    plt.title("Horizontal Momentum")
+    degrees = [int(i) for i in list(data.keys())]  # use for all graphs
+    #momentum_before = 
+    #momentum_after = 
+
+    plt.figure()
+    plt.title("Vertical Momentum")
 
     # Plotting ratio of momentum before to momentum after collision for each angle (two graphs for x and y)
+    plt.figure()
+    plt.title("Ratio of Horizontal Momentum Before to After Collision")
+
+    plt.figure()
+    plt.title("Ratio of Vertical Momentum Before to After Collision")
 
     # Plotting kinetic energy before and after collision for each angle
+    plt.figure()
+    plt.title("Kinetic Energy")
+
+
+    # plt.show()
 
 
 if __name__ == "__main__":
