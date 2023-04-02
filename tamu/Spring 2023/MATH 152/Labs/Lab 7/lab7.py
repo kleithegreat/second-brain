@@ -106,4 +106,7 @@ plt.plot(range(1, 51), bnvals,"o",label="bn")
 plt.legend()
 plt.show()
 
-print(f"The sequence ")
+print(f"The sequence bn is smaller than an.")
+
+print(f"The sum of bn is divergent by the integral test.")
+print(f"It can be concluded that an is divergent by comparison to bn.")
