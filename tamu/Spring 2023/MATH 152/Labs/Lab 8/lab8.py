@@ -49,3 +49,31 @@ print(f"The number of terms needed to approximate the series to 0.0001 is: {ceil
 
 # Part F
 print(f"The sum of the series within 0.0001 using the alternating series estimation theorem is {N(Sum((-1)**n * an, (n, 1, ceiling(terms))))}")
+
+
+# Question 3
+x, n = symbols('x n')
+expr = factorial(n)**2 / factorial(2*n) * x**n
+s = Sum(expr, (n, 0, oo))
+
+# Part A
+print(f"The limit of the ratio test as n approaches infinity is: {limit(abs(simplify(expr.subs(n, n+1) / expr.subs(n, n))), n, oo)}")
+
+# Part B
+print(f"The radius of convergence is 4. The endpoints of the interval of convergence are -4 and 4.")
+
+# Part C
+try:
+    print(f"The sum of the series when x = 4 is: {N(s.subs(x, 4))}")
+except ValueError:
+    print("The series diverges for x = 4.")
+
+# Part D
+nvals = [10, 100, 1000, 10000]
+for i in nvals:
+    print(f"The value of |an| when n = {i} is: {N(abs(expr.subs(x, -4).subs(n, i)))}")
+
+print(f"Based on the values of |an|, the series diverges for x = -4.")
+
+# Part E
+plot(Sum(expr, (n, 0, 1)), Sum(expr, (n, 0, 3)), Sum(expr, (n, 0, 5)), (x, -4, 4))
