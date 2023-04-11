@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 moment_L = (0.00097, 0.00007)  # moment of inertia, uncertainty both in kg m^2
 moment_mass = (0.00000132, 0.00000005)
 mass = 0.02  # kg
-colors = ("darkorange", "yellowneon", "green")  # center, shape, mass
+colors = ("lightorange", "hotpink", "yellowneon")  # center, shape, mass
 
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
@@ -62,7 +62,7 @@ def recenter(df: pd.DataFrame) -> pd.DataFrame:
     return df_recentered
 
 
-def make_polar(df: pd.DataFrame) -> pd.DataFrame:  # TODO: add uncertainty(?)
+def make_polar(df: pd.DataFrame) -> pd.DataFrame:
     """
     Creates a new dataframe with polar coordinates and angular velocity for the moving point on the shape and the mass.
 
@@ -127,7 +127,6 @@ def main():
     plt.scatter(lshape["timestamp"], lshape["total-L"], label="Total")
     plt.xlabel("Time (s)")
     plt.ylabel("Angular Momentum (kg m^2/s)")
-    plt.title("Angular Momentum of the L-Shape")
     plt.legend()
     plt.savefig("figures/angular_momentum.png")
     
@@ -168,4 +167,3 @@ def main():
 
 if __name__ == '__main__':
     main()
- 
