@@ -127,6 +127,7 @@ def main():
     plt.scatter(lshape["timestamp"], lshape["total-L"], label="Total")
     plt.xlabel("Time (s)")
     plt.ylabel("Angular Momentum (kg m^2/s)")
+    plt.title("Angular Momentum of the L-Shape")
     plt.legend()
     plt.savefig("figures/angular_momentum.png")
     
