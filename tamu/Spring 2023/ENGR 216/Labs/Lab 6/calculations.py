@@ -82,16 +82,38 @@ def find_k(T: unc.ufloat, m: unc.ufloat) -> unc.ufloat:
 
 
 def main():
-    green_k = find_k(find_period(isolate(clean_data(pd.read_csv(files[0][0]), cols), 5053, 15817)), 
-                     files[0][1])
-    red_k = find_k(find_period(isolate(clean_data(pd.read_csv(files[1][0]), cols),5611 ,23444)), 
-                   files[1][1])
-    white_k = find_k(find_period(clean_data(pd.read_csv(files[2][0]), cols)), 
-                     files[2][1])
+    green = isolate(clean_data(pd.read_csv(files[0][0]), cols), 5053, 15817)
+    red = isolate(clean_data(pd.read_csv(files[1][0]), cols), 5611, 23444)
+    white = clean_data(pd.read_csv(files[2][0]), cols)
+
+    green_k = find_k(find_period(green), files[0][1])
+    red_k = find_k(find_period(red), files[1][1])
+    white_k = find_k(find_period(white), files[2][1])
 
     print(f"Green spring: {green_k}")
     print(f"Red spring: {red_k}")
     print(f"White spring: {white_k}")
+
+    plt.figure()
+    plt.plot(green["timestamp"], green["position_px_y-green"], color="green", label="Green spring")
+    plt.title("Height vs time for green spring")
+    plt.xlabel("Time (milliseconds)")
+    plt.ylabel("Height (pixels)")
+    plt.savefig("figures/green_height_vs_time.png")
+
+    plt.figure()
+    plt.plot(red["timestamp"], red["position_px_y-green"], color="red", label="Red spring")
+    plt.title("Height vs time for red spring")
+    plt.xlabel("Time (milliseconds)")
+    plt.ylabel("Height (pixels)")
+    plt.savefig("figures/red_height_vs_time.png")
+
+    plt.figure()
+    plt.plot(white["timestamp"], white["position_px_y-green"], color="black", label="White spring")
+    plt.title("Height vs time for white spring")
+    plt.xlabel("Time (milliseconds)")
+    plt.ylabel("Height (pixels)")
+    plt.savefig("figures/white_height_vs_time.png")
 
 
 if __name__ == "__main__":
