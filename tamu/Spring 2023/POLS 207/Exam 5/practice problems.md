@@ -256,139 +256,142 @@ Individuals with healthcare insurance can still end up paying directly for some 
 
 
 ### 10. Using the 2013 Milliman Medical Index, describe the different parts of the breakdown of the annual medical costs for a middle-class family of four, and who pays for each part.  Characterize the overall and component costs.
-
+According to the 2013 Milliman Medical Index, the annual medical costs for a middle-class family of four were broken down into the following components: employer contribution to insurance premiums, employee contribution to insurance premiums, and out-of-pocket expenses. The employer paid the majority of the insurance premium, while the employee contributed a smaller portion. The out-of-pocket expenses were paid directly by the family. The overall cost was significant and had been increasing over time.
 
 ### 11. Explain the nature and size of the increase in medical costs for that same notional family between 2002 and 2013. 
-
+Between 2002 and 2013, the annual medical costs for the same notional family increased substantially. Factors contributing to the increase included rising healthcare costs, increased utilization of healthcare services, and higher prices for prescription medications.
 
 ### 12. Describe the percentage of Americans with unpaid medical bills and the relationship between these bills and personal bankruptcies in the US.
-
+A significant percentage of Americans had unpaid medical bills, and these bills were one of the leading causes of personal bankruptcies in the US. Medical debt could lead to financial difficulties and, in some cases, force individuals to file for bankruptcy protection.
 
 ### 13. Explain the trend between 2008 and 2012 in how Americans were obtaining or forgoing health insurance.  Describe the possible role of the Great Recession in those trends.
-
+Between 2008 and 2012, there was a trend of Americans either obtaining health insurance through government-sponsored programs, such as Medicaid or the Children's Health Insurance Program, or forgoing health insurance altogether. The Great Recession might have played a role in these trends, as job losses and economic hardships made it more difficult for people to afford private health insurance.
 
 ### 14. Compare and contrast the 2008-2012 picture with the 2001-2017 trends in types of health insurance and who pays for it.
-
+Comparing 2008-2012 to the 2001-2017 trends in types of health insurance and who pays for it, there was a shift towards more people being covered by government-sponsored programs and fewer people being covered by employer-sponsored insurance. This shift can be attributed to changes in the economy, including the Great Recession, and the implementation of the Affordable Care Act (ACA).
 
 ### 15. Describe how types of jobs, and types of healthcare plans affect the availability of affordable, high-quality healthcare for Americans.
-
+The types of jobs people have and the types of healthcare plans available can significantly affect the availability of affordable, high-quality healthcare for Americans. People with full-time jobs or jobs that offer comprehensive health insurance benefits are more likely to have access to affordable healthcare. In contrast, part-time or contract workers, or those in jobs with limited health insurance benefits, may struggle to find affordable healthcare options.
 
 # CHAPTER 12B2
 
 ### 1. Describe the inherent problems associated with delaying or avoiding necessary healthcare, as well as those connected to seeking indigent care in hospital emergency rooms.
-
+Delaying or avoiding necessary healthcare can lead to worsening health conditions, increased complications, and higher healthcare costs in the long run. Seeking indigent care in hospital emergency rooms can result in inefficient use of resources, overburdened emergency departments, and higher costs for everyone, including taxpayers.
 
 ### 2. Explain who the ACA is designed to help, how it does so, and why it is not free for the participants.
-
+The ACA (Affordable Care Act) is designed to help people who do not have access to employer-sponsored health insurance, particularly those with low to moderate incomes. It does so by expanding Medicaid, providing subsidies to help people purchase insurance on the marketplace, and implementing consumer protections. The ACA is not free for participants because it is funded through a combination of taxes, fees, and individual premiums.
 
 ### 3. Explain who Medicaid is designed to help, how it does so, and how the federal-state partnership works.
-
+Medicaid is designed to help low-income individuals and families, pregnant women, elderly individuals, and people with disabilities. It does so by providing comprehensive health coverage at little or no cost to the beneficiaries. The federal-state partnership works by the federal government providing funding to states, which then administer their Medicaid programs within federal guidelines.
 
 ### 4. Map out the Texas Medicaid caseload and costs based on the 3 major groups of recipients.  Describe patterns that are present.
-
+Texas Medicaid caseload and costs can be divided into three major groups of recipients: children and pregnant women, elderly and disabled individuals, and other low-income adults. Patterns show that a significant portion of the caseload and costs are attributed to elderly and disabled individuals, even though they make up a smaller percentage of the total number of recipients.
 
 ### 5. Describe how individuals, based on their income,  obtained healthcare before and after ACA.
-
+Before the ACA, individuals primarily obtained healthcare through employer-sponsored insurance, individual private insurance, or government-sponsored programs like Medicaid and Medicare. After the ACA, more people gained coverage through expanded Medicaid and the health insurance marketplaces, in addition to the traditional sources of insurance.
 
 ### 6. Describe the players that helped craft the ACA and their motivations.
-
+The players that helped craft the ACA included legislators, healthcare providers, insurance companies, and various interest groups. Their motivations included increasing access to healthcare, reducing healthcare costs, and improving the overall healthcare system.
 
 ### 7. List the changes to healthcare insurance that ACA caused, even though many Americans don’t realize that the ACA was the reason.
-
+The ACA caused several changes to healthcare insurance, including the prohibition of denying coverage based on pre-existing conditions, the requirement for insurers to cover essential health benefits, and the extension of dependent coverage up to age 26.
 
 ### 8. Explain the state mandate in the ACA, the Supreme Court decision regarding it, and the situation that was created.
-
+The state mandate in the ACA required states to expand Medicaid coverage to more low-income individuals. The Supreme Court ruled that states could choose whether to expand Medicaid, creating a situation where some states expanded coverage, while others did not.
 
 ### 9. Characterize the various positions of the states on the ACA-sanctioned expansion of Medicaid.  Do the same for the variations in percentages of uninsured residents in each state and note any patterns with each state’s position on expansion.
-
+States' positions on the ACA-sanctioned expansion of Medicaid vary, with some embracing the expansion and others resisting it. Variations in percentages of uninsured residents in each state tend to correlate with each state's position on expansion, with states that expanded Medicaid generally having lower uninsured rates.
 
 ### 10. Describe the nature of the shift in states’ positions on expansion between 2013 and 2018.
-
+Between 2013 and 2018, some states shifted their positions on expansion, with more states choosing to expand Medicaid over time.
 
 ### 11. Describe the positions of the Texas populace and the Texas Legislature regarding Medicaid expansion here.
-
+The Texas populace and the Texas Legislature have been divided on Medicaid expansion, with many residents supporting expansion while the Legislature has resisted it.
 
 ### 12. Explain the profile that Texas uses to determine who is eligible for Medicaid in the state, as well as how it would change if Texas decided to expand Medicaid access under the ACA.  Discuss how this highlights the conservative values that Texas references for not expanding.
-
+The profile Texas uses to determine Medicaid eligibility is based on income and specific categories such as children, pregnant women, elderly, and disabled individuals. If Texas decided to expand Medicaid access under the ACA, eligibility would be based primarily on income levels. This highlights the conservative values of Texas, which prioritize limited government involvement and personal responsibility.
 
 ### 13. Discuss the gap in provision of healthcare in states like Texas that have not expanded Medicaid.  Characterize which states and regions have residents that fall into this gap.
-
+In states like Texas that have not expanded Medicaid, there is a gap in healthcare provision for those who earn too much to qualify for Medicaid but not enough to afford private insurance. This gap affects residents in many states and regions, particularly in the South.
 
 ### 14. Describe the various reasons that Texas politicians have given for not expanding Medicaid in the state.  Explain possible counterpoints for each.
-
+Texas politicians have cited concerns about the cost of expanding Medicaid, potential inefficiency, and a preference for state-level solutions over federal mandates. Counterpoints include the availability of federal funding, potential improvements in healthcare access, and reduced costs in other areas such as emergency care.
 
 ### 15. Describe the healthcare situation for Texans in 2014 and compare it to other states.
-
+In 2014, Texas had one of the highest uninsured rates in the country, with a higher percentage of residents lacking health insurance compared to other states.
 
 ### 16. Define the individual mandate within the ACA and explain why it was necessary given the private-insurance-based approach used in the law.
-
+The individual mandate within the ACA required most people to have health insurance or face a tax penalty. This mandate was necessary to maintain a balanced risk pool within the private-insurance-based approach, encouraging healthier individuals to enroll and share the cost of insuring sicker individuals.
 
 ### 17. Explain how the loss of insurers from the ACA marketplace was a normal occurrence within insurance markets.
-
+The loss of insurers from the ACA marketplace can be seen as a normal occurrence within insurance markets, as companies adjust their participation based on their ability to manage risk, maintain financial stability, and compete in the market.
 
 # CHAPTER 12C
 
 ### 1. Explain the challenges in analyzing data in the area of education or other social policies.
-
+Challenges in analyzing data in the area of education or other social policies include controlling for confounding variables, establishing causality, and accounting for differences in data collection methods or definitions across time and regions.
 
 ### 2. Define educational attainment as it is used in this lecture.
-
+Educational attainment, as used in this lecture, refers to the highest level of education an individual has completed, such as high school or college graduation.
 
 ### 3. Characterize the correlations of economic, health, and crime measures with high school and college graduation rates in 2014.
-
+In 2014, high school and college graduation rates were positively correlated with economic measures, such as income and employment, and negatively correlated with health problems and crime rates.
 
 ### 4. Characterize the correlations of high school and college graduation rates with poverty rates from 1970-2014.
-
+From 1970-2014, high school and college graduation rates were negatively correlated with poverty rates, meaning that as graduation rates increased, poverty rates generally decreased.
 
 ### 5. Discuss the similarities and differences between #4 and the correlations over the same period between infant mortality rate and high school and college graduation rates.
-
+The correlation between infant mortality rates and high school/college graduation rates from 1970-2014 is similar to the correlation with poverty rates in that both infant mortality and poverty rates are negatively correlated with graduation rates. However, the relationship between infant mortality and graduation rates may be influenced by other factors, such as healthcare access and socioeconomic status.
 
 ### 6. Explain why the correlations between contemporary public education spending and graduation rates are much weaker than those between lagged public spending and graduation rates.
-
+The weaker correlations between contemporary public education spending and graduation rates compared to lagged public spending and graduation rates could be due to the fact that the effects of education spending may not be immediately observable and may take years to manifest in graduation rates.
 
 ### 7. Discuss the per-student public education spending in Texas, compare it to other states’ spending, and explain the significance of the difference.  Also, briefly describe the connection between Texas education spending and its culture and politics.
-
+Texas has lower per-student public education spending compared to many other states. The difference in spending is significant as it may impact the quality of education and resources available to students. Texas education spending is influenced by its culture and politics, which emphasize limited government spending and local control.
 
 ### 8. Describe the inequity issue in Texas involving per-student funding in public schools, how policy has been adjusted in the past, and the outcome. Discuss how Texas falls behind in public education funding even in many of the years where it increases its education budget.
-
+The inequity issue in Texas involves disparities in per-student funding across public schools, often due to differences in local property tax revenue. Policy adjustments, such as the "Robin Hood" plan, have aimed to redistribute funding more equitably, but the outcome has not fully resolved the issue. Texas lags behind in public education funding even in years when its education budget increases.
 
 ### 9. Describe the rationales and actions of the Texas state government regarding the public education budget in response to the Great Recession.  Put that in context with respect to per-student funding in Texas from 2007-2016.
-
+In response to the Great Recession, the Texas state government cut public education spending to balance the budget. As a result, per-student funding in Texas decreased from 2007-2016, further widening the gap between Texas and the national average.
 
 ### 10. Discuss the differences between the FY16 revenue source weights in school funding in Texas and in the average US state.  Also describe the difference between the per-student spending in Texas versus the average US state from 2007-2016.
-
+The FY16 revenue source weights for school funding in Texas relied more heavily on local property taxes than the average US state, which relied more on state funding. Per-student spending in Texas was consistently lower than the national average from 2007-2016.
 
 ### 11. Explain the issue at the heart of the 2013 suit by Texas school districts against the state, as well as the intermediate and final outcomes of that court action.
-
+The 2013 suit by Texas school districts against the state focused on the inadequacy and inequity of the school funding system. The court initially found the system unconstitutional, but the Texas Supreme Court ultimately ruled that the system met minimum constitutional requirements.
 
 ### 12. Describe the results of education funding reform efforts in the 2017 legislative session and how what funding resulted.
-
+The 2017 legislative session resulted in modest increases in education funding, but many argued that the changes were not enough to address long-standing inequities and inadequacies in the system.
 
 ### 13. Discuss the impact of less funding for schools in poorer districts in Texas.
-
+Less funding for schools in poorer districts in Texas can lead to fewer resources, less experienced teachers, and ultimately, lower educational outcomes for students in those districts.
 
 ### 14. Explain the extent of inequities of per-student funding in Texas between districts and the role that the state and local governments play in any shortfalls that result in a given district.
-
+Inequities in per-student funding in Texas between districts are largely driven by differences in local property tax revenue. State and local governments play a role in funding shortfalls, with state funding sometimes not adequately compensating for disparities in local revenue.
 
 ### 15. Characterize the fairness ratios calculated for each of the US states and the picture they form.  Compare Texas to its border-sharing neighbors.
-
+Fairness ratios across the US states show variations in the degree of funding equity. Texas has a lower fairness ratio compared to its border-sharing neighbors, indicating more funding inequities within the state.
 
 ### 16. Compare and contrast the amount of Ohio per-student revenue in each of the poverty-rate quintiles to those of Texas.  What are the potential pros/cons of each?
+Ohio has implemented a more progressive funding system that allocates more resources to districts with higher poverty rates, attempting to address the needs of students in these areas. The potential pros of this approach include greater equity in educational opportunities and additional support for students from low-income backgrounds, which could lead to improved academic outcomes. The cons may involve concerns about overburdening wealthier districts and potential inefficiencies in resource allocation.
 
+In contrast, Texas has a more regressive funding system, which means that wealthier districts often receive more per-student funding than poorer districts. The pros of this approach might include stability for wealthier districts and encouraging local investment in education. However, the cons involve exacerbating educational disparities between districts, limiting opportunities for students in lower-income areas, and potentially perpetuating a cycle of poverty.
 
 ### 17. Describe the outcome of education funding in the 2020-2021 biennial budget in Texas.
-
+The outcome of education funding in the 2020-2021 biennial budget in Texas saw an increase in funding due to the passage of House Bill 3, which aimed to address school finance reform and teacher pay.
 
 ### 18. Characterize the Texas high school graduation rates from 2007-2016.
-
+Texas high school graduation rates increased from 2007-2016, with some years showing substantial growth, suggesting an overall improvement in high school completion.
 
 ### 19. Discuss possible reasons that recent graduation rates may be inflated or inaccurate and why this is suspected.
-
+Possible reasons that recent graduation rates may be inflated or inaccurate include changes in reporting methods, lowered academic standards, or pressure on schools to show improved outcomes, leading to "gaming" the system.
 
 ### 20. Describe the problem posed by the number of high schools in Texas reporting a 100% graduation rate in 2017.
-
+The problem posed by the number of high schools in Texas reporting a 100% graduation rate in 2017 is that it raises questions about the accuracy of the data, the validity of graduation standards, and whether schools are manipulating the numbers to appear successful.
 
 ### 21. Explain what happened at Ballou High School in 2017, whether it is an isolated event, and what this means about measuring educational attainment.
-
+In 2017, Ballou High School made headlines when an investigation revealed that a large number of students who had not met graduation requirements were still allowed to graduate. While it is unclear if this is an isolated event, it raises concerns about the accuracy and reliability of educational attainment measures.
 
 ### 22. Discuss the questions about excellence and equity that should be raised in Texas based on how it funds its public schools and how it measures educational attainment.
+The questions about excellence and equity that should be raised in Texas based on how it funds its public schools and measures educational attainment include: Are resources being allocated fairly and effectively across all districts? Are educational standards being maintained, or are they being compromised to show improved outcomes? How can Texas ensure that all students, regardless of socioeconomic background, have access to a quality education?
