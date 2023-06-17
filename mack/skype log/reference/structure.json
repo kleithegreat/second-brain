@@ -1,0 +1,422 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Messages2",
+  "definitions": {
+    "Messages2": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "exportDate": {
+          "type": "string"
+        },
+        "conversations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Conversation"
+          }
+        }
+      },
+      "required": [
+        "conversations",
+        "exportDate",
+        "userId"
+      ],
+      "title": "Messages2"
+    },
+    "Conversation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "version": {
+          "type": "integer"
+        },
+        "properties": {
+          "$ref": "#/definitions/ConversationProperties"
+        },
+        "threadProperties": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/ThreadProperties"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "MessageList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MessageList"
+          }
+        }
+      },
+      "required": [
+        "MessageList",
+        "displayName",
+        "id",
+        "properties",
+        "threadProperties",
+        "version"
+      ],
+      "title": "Conversation"
+    },
+    "MessageList": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "originalarrivaltime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "messagetype": {
+          "$ref": "#/definitions/Messagetype"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "content": {
+          "type": "string"
+        },
+        "conversationid": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "properties": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/MessageListProperties"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "amsreferences": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "amsreferences",
+        "content",
+        "conversationid",
+        "displayName",
+        "from",
+        "id",
+        "messagetype",
+        "originalarrivaltime",
+        "properties",
+        "version"
+      ],
+      "title": "MessageList"
+    },
+    "MessageListProperties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "urlpreviews": {
+          "type": "string"
+        },
+        "edittime": {
+          "type": "string"
+        },
+        "isserversidegenerated": {
+          "$ref": "#/definitions/Isserversidegenerated"
+        },
+        "deletetime": {
+          "type": "string"
+        },
+        "albumId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "emotions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Emotion"
+          }
+        },
+        "call-log": {
+          "type": "string"
+        },
+        "forwardMetadata": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "MessageListProperties"
+    },
+    "Emotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        }
+      },
+      "required": [
+        "key",
+        "users"
+      ],
+      "title": "Emotion"
+    },
+    "User": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mri": {
+          "type": "string"
+        },
+        "time": {
+          "type": "integer"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "mri",
+        "time"
+      ],
+      "title": "User"
+    },
+    "ConversationProperties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "conversationblocked": {
+          "type": "boolean"
+        },
+        "lastimreceivedtime": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "consumptionhorizon": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "conversationstatus": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Conversationstatus"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "consumptionhorizon",
+        "conversationblocked",
+        "conversationstatus",
+        "lastimreceivedtime"
+      ],
+      "title": "ConversationProperties"
+    },
+    "ThreadProperties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "membercount": {
+          "type": "integer"
+        },
+        "members": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "topic": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "picture": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "description": {
+          "type": "null"
+        },
+        "guidelines": {
+          "type": "null"
+        },
+        "consumptionhorizons": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Consumptionhorizons"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "consumptionhorizons",
+        "description",
+        "guidelines",
+        "membercount",
+        "members",
+        "picture",
+        "topic"
+      ],
+      "title": "ThreadProperties"
+    },
+    "Consumptionhorizons": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "consumptionhorizons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Consumptionhorizon"
+          }
+        }
+      },
+      "required": [
+        "consumptionhorizons",
+        "version"
+      ],
+      "title": "Consumptionhorizons"
+    },
+    "Consumptionhorizon": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "consumptionhorizon": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "consumptionhorizon",
+        "id"
+      ],
+      "title": "Consumptionhorizon"
+    },
+    "Messagetype": {
+      "type": "string",
+      "enum": [
+        "RichText",
+        "Event/Call",
+        "RichText/Media_GenericFile",
+        "RichText/UriObject",
+        "RichText/Media_Video",
+        "RichText/Media_Album",
+        "RichText/Media_CallRecording",
+        "ThreadActivity/AddMember",
+        "ThreadActivity/HistoryDisclosedUpdate",
+        "ThreadActivity/TopicUpdate",
+        "ThreadActivity/JoiningEnabledUpdate",
+        "Text",
+        "ThreadActivity/RoleUpdate",
+        "PopCard",
+        "Notice",
+        "RichText/Media_Card",
+        "ThreadActivity/DeleteMember",
+        "RichText/Contacts",
+        "ThreadActivity/PictureUpdate",
+        "TranslationSettings",
+        "InviteFreeRelationshipChanged/Initialized"
+      ],
+      "title": "Messagetype"
+    },
+    "Isserversidegenerated": {
+      "type": "string",
+      "enum": [
+        "True"
+      ],
+      "title": "Isserversidegenerated"
+    },
+    "Conversationstatus": {
+      "type": "string",
+      "enum": [
+        "Accepted",
+        "AcceptPendingRecipient",
+        "AcceptPendingSender"
+      ],
+      "title": "Conversationstatus"
+    }
+  }
+}

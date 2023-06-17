@@ -1,0 +1,221 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema#",
+    "type": "object",
+    "properties": {
+        "userId": {
+            "type": "string",
+            "examples": ["8:david.mack052"],
+            "default": ""
+        },
+        "exportDate": {
+            "type": "string",
+            "examples": ["2023-05-15T22:52"],
+            "default": ""
+        },
+        "conversations": {"$ref": "#/$defs/conversations_type"}
+    },
+    "required": [
+        "userId",
+        "exportDate",
+        "conversations"
+    ],
+    "unevaluatedProperties": false,
+    "$defs": {
+        "properties_type": {
+            "type": "object",
+            "properties": {
+                "conversationblocked": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "lastimreceivedtime": {
+                    "type": "string",
+                    "examples": ["2017-03-12T15:51:52.268Z"],
+                    "default": ""
+                },
+                "consumptionhorizon": {
+                    "type": "string",
+                    "examples": ["1489333912377;1489333912000;1489333912268"],
+                    "default": ""
+                },
+                "conversationstatus": {"type": "null"}
+            },
+            "required": [
+                "conversationblocked",
+                "lastimreceivedtime",
+                "consumptionhorizon",
+                "conversationstatus"
+            ],
+            "unevaluatedProperties": false
+        },
+        "consumptionhorizons_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "examples": ["8:david.mack052"],
+                        "default": ""
+                    },
+                    "consumptionhorizon": {
+                        "type": "string",
+                        "default": ""
+                    }
+                },
+                "required": [
+                    "id",
+                    "consumptionhorizon"
+                ],
+                "unevaluatedProperties": false
+            },
+            "unevaluatedItems": false
+        },
+        "consumptionhorizons2_type": {
+            "type": "object",
+            "properties": {
+                "version": {
+                    "type": "string",
+                    "examples": ["1684190185715"],
+                    "default": ""
+                },
+                "consumptionhorizons": {"$ref": "#/$defs/consumptionhorizons_type"}
+            },
+            "required": [
+                "version",
+                "consumptionhorizons"
+            ],
+            "unevaluatedProperties": false
+        },
+        "threadProperties_type": {
+            "type": "object",
+            "properties": {
+                "membercount": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "members": {
+                    "type": "string",
+                    "examples": ["[\"8:david.mack052\"]"],
+                    "default": ""
+                },
+                "topic": {
+                    "type": "string",
+                    "examples": ["david.mack052"],
+                    "default": ""
+                },
+                "picture": {"type": "null"},
+                "description": {"type": "null"},
+                "guidelines": {"type": "null"},
+                "consumptionhorizons": {"$ref": "#/$defs/consumptionhorizons2_type"}
+            },
+            "required": [
+                "membercount",
+                "members",
+                "topic",
+                "picture",
+                "description",
+                "guidelines",
+                "consumptionhorizons"
+            ],
+            "unevaluatedProperties": false
+        },
+        "MessageList_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "examples": ["1683167582561"],
+                        "default": ""
+                    },
+                    "displayName": {"type": "null"},
+                    "originalarrivaltime": {
+                        "type": "string",
+                        "examples": ["2023-05-04T02:33:02.092Z"],
+                        "default": ""
+                    },
+                    "messagetype": {
+                        "type": "string",
+                        "examples": ["Event/Call"],
+                        "default": ""
+                    },
+                    "version": {
+                        "type": "number",
+                        "default": 0
+                    },
+                    "content": {
+                        "type": "string",
+                        "examples": ["<partlist type=\"ended\" alt=\"\" callId=\"5803cb81-a834-4b6e-894b-a383679ec952\"><part identity=\"david.mack052\"><name>David Mack</name><duration>4349.577</duration></part><part identity=\"live:kevinlei2000\"><name>Kevin Lei</name><duration>4349.577</duration></part></partlist>"],
+                        "default": ""
+                    },
+                    "conversationid": {
+                        "type": "string",
+                        "examples": ["8:live:kevinlei2000"],
+                        "default": ""
+                    },
+                    "from": {
+                        "type": "string",
+                        "examples": ["8:david.mack052"],
+                        "default": ""
+                    },
+                    "properties": {"type": "null"},
+                    "amsreferences": {"type": "null"}
+                },
+                "required": [
+                    "id",
+                    "displayName",
+                    "originalarrivaltime",
+                    "messagetype",
+                    "version",
+                    "content",
+                    "conversationid",
+                    "from",
+                    "properties",
+                    "amsreferences"
+                ],
+                "unevaluatedProperties": false
+            },
+            "unevaluatedItems": false
+        },
+        "conversations_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "examples": ["8:live:kevinlei2000"],
+                        "default": ""
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "examples": ["Kevin Lei"],
+                        "default": ""
+                    },
+                    "version": {
+                        "type": "number",
+                        "default": 0
+                    },
+                    "properties": {"$ref": "#/$defs/properties_type"},
+                    "threadProperties": {"$ref": "#/$defs/threadProperties_type"},
+                    "MessageList": {"$ref": "#/$defs/MessageList_type"}
+                },
+                "required": [
+                    "id",
+                    "displayName",
+                    "version",
+                    "properties",
+                    "threadProperties",
+                    "MessageList"
+                ],
+                "unevaluatedProperties": false
+            },
+            "unevaluatedItems": false
+        }
+    }
+}
