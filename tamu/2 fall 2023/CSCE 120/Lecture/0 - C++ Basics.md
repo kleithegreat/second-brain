@@ -1,4 +1,4 @@
-# **Lecture 1: C++ Basics**
+# **C++ Basics**
 
 ## **1. Prerequisites**
 

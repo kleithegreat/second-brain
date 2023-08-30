@@ -1,0 +1,4 @@
+$ g++ -std=c++17 -Wall -Werror -g -pedantic -Weffc++ boolean_functions.cpp boolean.cpp
+$ ./a.out
+program output
+
