@@ -53,7 +53,16 @@
     >       - As a result, its covariance matrix can be represented with just a vector
     - diagonal gaussian policies always use a neural network that maps observations to mean actions
 
+    # wtf??
+
 ### **Trajectories**
+- A **trajectory** is a sequence of states and actions in an environment
+$$\tau = (s_0, a_0, s_1, a_1, ...)$$
+- The first state in the world s_0 is *randomly sampled* from the **start-state distribution**
+    - # randomly sampled as in statistics jargon or rl jargon?
+- Changes in the state are determined by the environment
+    - These changes cam be either deterministic of stochastic
+> Good to know: trajectories are sometimes also called **episodes** or **rollouts**
 
 ### **Reward and Return**
 
