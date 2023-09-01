@@ -57,7 +57,7 @@
 
 ### **Trajectories**
 - A **trajectory** is a sequence of states and actions in an environment
-$$\tau = (s_0, a_0, s_1, a_1, ...)$$
+- $\tau = (s_0, a_0, s_1, a_1, ...)$
 - The first state in the world s_0 is *randomly sampled* from the **start-state distribution**
     - # randomly sampled as in statistics jargon or rl jargon?
 - Changes in the state are determined by the environment
@@ -65,6 +65,23 @@ $$\tau = (s_0, a_0, s_1, a_1, ...)$$
 > Good to know: trajectories are sometimes also called **episodes** or **rollouts**
 
 ### **Reward and Return**
+- The reward function is critical to RL
+    - Reward is a function of current state, action just taken, and next state
+    - Reward is oftentimes simplified to a function of just the current state or the current state and current action
+- Goal in RL is the maximize *cumulative reward* over a trajectory
+- Two main types of return:
+    - **Finite-horizon undiscounted return**
+        - sum of reward in a fixed window of steps
+        - $R(\tau) = \sum_{t=0}^T r_t$
+    - **Infinite-horizon discounted return**
+        - sum of every reward ever obtained by the agent
+        - rewards further in the future are *discounted*
+        - discount factor $\gamma \in (0,1)$
+            - Intuitively this is like instant gratification
+            - Mathmatically, makes it so that infinite sum will converge and is easier to work with
+        - $R(\tau) = \sum_{t=0}^{\infty} \gamma^t r_t$
+
+# add equations with single $ for inline lmao
 
 ### **The RL Problem**
 
