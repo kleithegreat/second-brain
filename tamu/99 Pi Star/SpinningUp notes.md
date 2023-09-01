@@ -6,7 +6,7 @@
 - Agent-Environment action loop:
     - The agent observes the environment
         - This could either be a whole or partial observation
-    - The agent decides on an action depnding on its observation
+    - The agent decides on an action depending on its observation
     - The environment changes based on the agents action
         - The environment can also change on its own
 - The agent is given a **reward** from the environment for each action it takes
@@ -57,7 +57,7 @@
 
 ### **Trajectories**
 - A **trajectory** is a sequence of states and actions in an environment
-- $\tau = (s_0, a_0, s_1, a_1, ...)$
+- Represented by $\tau = (s_0, a_0, s_1, a_1, ...)$
 - The first state in the world s_0 is *randomly sampled* from the **start-state distribution**
     - # randomly sampled as in statistics jargon or rl jargon?
 - Changes in the state are determined by the environment
