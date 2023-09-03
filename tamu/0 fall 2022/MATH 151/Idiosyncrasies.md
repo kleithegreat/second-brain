@@ -1,4 +1,4 @@
-born march 22nd bring gift?
+birthday march 22nd
 
 - email is preferred over group me dm
 
