@@ -104,24 +104,48 @@ In in the form of $v_i - v_{i+1} - v_{i+2} - \ldots$, the knight's graph is a1-b
 \begin{problem} (2 points $\times$ 5 subproblems = 10 points) Section 2.1, Exercise 2.1
 \end{problem}
 \begin{solution}
+a. Yes, this is a mathematical statement because it can be proven either true or false that $\pi$ is the smallest irrational real number.
+
+b. Yes, this is a mathematical statement because it is a true statement due to the fact that $\pi$ is a well known irrational number.
+
+c. Yes, this is a mathematical statement because it can be determined to be either true or false by solving for its solutions.
+
+d. Yes, this is a mathematical statement because it can be determined to be true or false by comparing each side.
+
+e. No, this is not a mathematical statement because we must know the value of x in order to know whether it can be a true or false statement.
 \end{solution}
 
 \newpage
 \begin{problem} (3 points $\times$ 5 subproblems = 15 points) Section 2.1, Exercise 2.3
 \end{problem}
 \begin{solution}
+a. True. Evaluating 1/9 in decimal form gives 0.111 repeating.
+
+b. False. 0.121212 is a repeating decimal, which means it can be represented as a fraction of two integers. Therefore, it fits within the definition of a rational number and thus the statement is false.
+
+c. False. The greatest common denominator between 1111 and 11111111 is 1111, which is not 1, and thus the statement is false.
+
+d. True. The product of -1 and -1 is equal to positive 1.
+
+e. True. The set of positive integers is infinite because you can always find a larger positive integer for every positive integer.
 \end{solution}
 
 \newpage
 \begin{problem} (2 points $\times$ 2 subproblems = 4 points) Section 2.2, Exercise 2.7 (a) and (b)
 \end{problem}
 \begin{solution}
+a. Albert cooks pasta and Emmy is not happy
+
+b. If Albert cooks pasta, then Albert and Emmy are happy
 \end{solution}
 
 \newpage
 \begin{problem} (3 points $\times$ 2 subproblems = 6 points) Section 2.2, Exercise 2.8 (a) and (d)
 \end{problem}
 \begin{solution}
+a. C $\rightarrow$ $\neg$S
+
+d. S $\leftrightarrow$ $\neg$C
 \end{solution}
 
 \newpage
@@ -132,6 +156,19 @@ Example \LaTeX\ source for how to draw a truth table is shown
 in the truth-table.tex and truth-table.pdf files.
 \end{problem}
 \begin{solution}
+Inhabitant A saying "I am a knave or B is a knight" can be formalized as A $\leftrightarrow$ ($\neg$A $\lor$ B) where A being true represents inhabitant A is a knight and B being true represents inhabitant B being a knight.
+The statement has the following truth table:
+\begin{displaymath}
+\begin{array}{|c c||c|}
+A & B & A \leftrightarrow (\neg A \lor B)\\
+\hline
+\text{False} & \text{False} & \text{False} \\
+\text{False} & \text{True} & \text{False} \\
+\text{True} & \text{False} & \text{False} \\
+\text{True} & \text{True} & \text{True} \\
+\end{array}
+\end{displaymath}
+As we can see from the truth table, the statement is true if and only if both A and B are true. If A is true, the B must also be true for the statement to be true. If A is false, then there is a contradiction since $(\neg A \lor B)$ evaluates to true. Hence, both A and B must be true in order for the statement to hold, which means both inhabitants A and B are knights.
 \end{solution}
 
 \newpage
@@ -139,6 +176,18 @@ in the truth-table.tex and truth-table.pdf files.
 Use a truth table.
 \end{problem}
 \begin{solution} 
+$(A \rightarrow B) \land (B \rightarrow A)$ and $A \leftrightarrow B$ are logically equivalent because their logical outcomes are the same for the same values of A and B, as shown by the truth table below.
+\begin{displaymath}
+\begin{array}{|c c||c|c|}
+A & B & (A \rightarrow B) \land (B \rightarrow A) & A \leftrightarrow B \\
+\hline
+\text{False} & \text{False} & \text{True} & \text{True} \\
+\text{False} & \text{True} & \text{False} & \text{False} \\
+\text{True} & \text{False} & \text{False} & \text{False} \\
+\text{True} & \text{True} & \text{True} & \text{True} \\
+\end{array}
+\end{displaymath}
+    
 \end{solution}
 
 \newpage
