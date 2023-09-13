@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/nixos.org) (preloaded format=pdflatex 1980.1.1)  6 SEP 2023 15:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/nixos.org) (preloaded format=pdflatex 1980.1.1)  11 SEP 2023 22:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -163,8 +163,7 @@ exmfdist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count272
 \l__pdf_internal_box=\box53
-)
-No file hw2.aux.
+) (./hw2.aux)
 \openout1 = `hw2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
@@ -224,8 +223,8 @@ al/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ] [2] [3] [4] [5] [6] [7] [8] [9] (./hw2.aux) ) 
 Here is how much of TeX's memory you used:
- 2166 strings out of 476024
- 33832 string characters out of 5764067
+ 2168 strings out of 476024
+ 33848 string characters out of 5764067
  1857388 words of memory out of 5000000
  22638 multiletter control sequences out of 15000+600000
  515431 words of font info for 47 fonts, out of 8000000 for 9000
@@ -244,7 +243,7 @@ wc8j7q54hjzc5v4fdjam4f21n3yy-texlive-combined-full-2022-final-texmfdist/fonts/t
 ype1/public/amsfonts/cm/cmtt10.pfb></nix/store/qm8wwc8j7q54hjzc5v4fdjam4f21n3yy
 -texlive-combined-full-2022-final-texmfdist/fonts/type1/public/amsfonts/latxfon
 t/lasy10.pfb>
-Output written on hw2.pdf (9 pages, 101423 bytes).
+Output written on hw2.pdf (9 pages, 101871 bytes).
 PDF statistics:
  69 PDF objects out of 1000 (max. 8388607)
  43 compressed objects within 1 object stream
