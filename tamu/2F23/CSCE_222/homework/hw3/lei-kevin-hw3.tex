@@ -1,0 +1,204 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist}
+\usepackage{fancyhdr}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+\newcommand{\name}[2]{\noindent\textbf{Name: #1}\hfill \textbf{UIN: #2}
+  \newcommand{\myName}{#1}
+  \newcommand{\myUIN}{#2}
+}
+\newcommand{\honor}{\noindent On my honor, as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the
+  academic work included in this assignment. Furthermore, I have
+  disclosed all resources (people, books, web sites, etc.) that have
+  been used to prepare this homework. \\[2ex]
+ \textbf{Electronic signature:} \underline{ \textbf{Kevin Lei} } } % type your full name here
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+\begin{compactitem}[$\Box$] 
+\item Did you type in your name and UIN? 
+\item Did you disclose all resources that you have used? \\
+(This includes all people, books, websites, etc.\ that you have consulted.)
+\item Did you sign that you followed the Aggie Honor Code? 
+\item Did you solve all problems? 
+\item Did you submit both the .tex and .pdf files of your homework to each correct link on Canvas? 
+\end{compactitem}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Problem Set #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due dates:} Electronic
+    submission of \textsl{yourLastName-yourFirstName-hw3.tex} and 
+    \textsl{yourLastName-yourFirstName-hw3.pdf} files of this homework is due on
+    \textbf{#1} on \texttt{https://canvas.tamu.edu}. You will see two separate links
+    to turn in the .tex file and the .pdf file separately. Please do not archive or compress the files.  
+    \textbf{If any of the two files are missing, you will receive zero points for this homework.}\end{quote} }
+
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Z}{\mathbf{Z}}
+
+\fancyhead[L]{\myName}
+\fancyhead[R]{\myUIN}
+\pagestyle{fancy}
+
+\begin{document}
+\begin{center}
+{\large
+CSCE 222 Discrete Structures for Computing -- Fall 2023\\[.5ex]
+Hyunyoung Lee\\}
+\end{center}
+\problemset{3}
+\duedate{Friday, 9/29/2023 11:59 p.m.}
+\name{Kevin Lei}{432009232}  % Type your first and last name and UIN here
+% Omit the parentheses surrounding name and UIN.
+% Your name should include your first and last names. 
+% Your name and UIN that you type in here are propagated by LaTeX 
+% to the header part of each page on the PDF output automatically.
+
+\begin{resources} (All people, books, articles, web pages, etc.\ that
+  have been consulted when producing your answers to this homework)
+\end{resources}
+\honor
+
+\bigskip
+
+\noindent
+Total $100+10$ (bonus) points.
+
+\bigskip
+
+\noindent
+The intended formatting is that this first page is a cover page and each 
+problem solved on a new page. You only need to fill in your solution between 
+the \verb|\begin{solution}| and \verb|\end{solution}| environment.  
+Please do not change this overall formatting.
+
+\vfill
+\checklist
+
+\newpage
+\begin{problem} (20 points) Section 3.4, Exercise 3.26.
+[Hint: Use the definition of set difference, the distributive laws, and de Morgan's
+laws involving the set complement. Starting from the right side of the equal sign
+may be easier.]
+\end{problem}
+\begin{solution} 
+The set equality $A \cap (B - C) = (A \cap B) - (A \cap C)$ can be proven if the right side can be transformed into the left side.
+Starting with the right side, $(A \cap B) - (A \cap C)$ is equal to $(A \cap B) \cap (A \cap C)^c$ by definition of set difference.
+Using De Morgan's laws, $(A \cap C)^c$ can be rewritten as $A^c \cup C^c$.
+Substituting this back into the right side, we now have $(A \cap B) \cap (A^c \cup C^c)$
+Using the distributive law we can rewrite as $(A \cap B \cap A^c) \cup (A \cap B \cap C^c)$.
+Since $A \cap A^c$ is the empty set, we can rewrite $(A \cap B \cap A^c) \cup (A \cap B \cap C^c)$ as just $A \cap B \cap C^c$.
+Using De Morgan's laws again, we can rewrite $B \cap C^c$ as $B - C$.
+Substituting this back, we now have $A \cap (B - C)$, which is equivalent to the original left hand side.
+Thus, the set equality is proven.
+\end{solution}
+
+\newpage
+\begin{problem} (20 points) Section 3.5, Exercise 3.33.
+[Hint: To show two sets $S_1$ and $S_2$ are equal ($S_1 = S_2$), you need to 
+show that (1) $S_1\subseteq S_2$ \textit{and} (2) $S_2\subseteq S_1$. Here, for each
+direction, you need to argue based on the definition of $\subseteq$.] 
+\end{problem}
+\begin{solution} 
+The set equality $(A \cup B) \times C = (A \times C) \cup (B \times C)$ can be proven if both sides are subsets of each other.
+First, proving that $(A \cup B) \times C \subseteq (A \times C) \cup (B \times C)$, suppose that the ordered pair $(x, y)$ is some element in $(A \cup B) \times C$.
+By definition of the cartesian product, we know that $x \in (A \cup B)$ and $y \in C$.
+Given that $x \in (A \cup B)$, we know that $x \in A$ or $x \in B$.
+$x \in A$ implies that $(x, y) \in A \times C$, and $x \in B$ implies that $(x, y) \in B \times C$.
+Regardless, $(x, y) \in (A \times C) \cup (B \times C)$, so $(A \cup B) \times C \subseteq (A \times C) \cup (B \times C)$.
+Now proving that $(A \times C) \cup (B \times C) \subseteq (A \cup B) \times C$, suppose that the ordered pair $(x, y)$ is some arbitrary element in $(A \times C) \cup (B \times C)$.
+In the case that $(x, y) \in (A \times C)$, we know that $x \in A$ and $y \in C$.
+$x \in A$ implies that $x \in (A \cup B)$, so $(x, y) \in (A \cup B) \times C$.
+Similarly, in the case that $(x, y) \in (B \times C)$, we know that $x \in B$ and $y \in C$.
+By the same logic, $x \in B$ implies that $x \in (A \cup B)$, so $(x, y) \in (A \cup B) \times C$.
+Regardless of whether $(x, y) \in (A \times C)$ or $(x, y) \in (B \times C)$, we know that $(x, y) \in (A \cup B) \times C$, so $(A \times C) \cup (B \times C) \subseteq (A \cup B) \times C$.
+Since both sides of the set equality are subsets of each other, the set equality is proven.
+\end{solution}
+
+\newpage
+\begin{problem} (20 points) Section 3.6, Exercise 3.37. \textit{Justify your answers.}
+\end{problem}
+\begin{solution} 
+(a) The relation "is sibling of" on the set of all people is not reflexive.
+A relation is reflexive if every element in the set is related to itself.
+However, a person cannot be their own sibling, so the relation is not reflexive.
+
+(b) The relation "is sibling of" on the set of all people is irreflexive.
+A relation is irreflexive if no element in the set is related to itself.
+Since all people are not their own sibling, no element in the set of all people fulfill the relation, so the relation is irreflexive.
+
+(c) The relation "is sibling of" on the set of all people is asymmetric.
+A relation is asymmetric if whenever $x$ is related to $y$, $y$ is not related to $x$.
+If a person is a sibling of another person, then the other person is not a sibling of the first person.
+Therefore, the relation "is sibling of" is not asymmetric.
+
+(d) The relation "is sibling of" on the set of all people is not antisymmetric.
+A relation is antisymmetric if whenever $x$ is related to $y$ and $y$ is related to $x$, then $x = y$.
+Since two people can be related to each other as siblings, but not be the same person, the relation "is sibling of" is not antisymmetric.
+
+(e) The relation "is sibling of" on the set of all people is symmetric.
+A relation is symmetric if whenever $x$ is related to $y$, then $y$ is related to $x$.
+If a person is a sibling of another person, then the other person is also a sibling of the first person.
+Therefore, the relation "is sibling of" is symmetric.
+
+(f) The relation "is sibling of" on the set of all people is transitive.
+A relation is transitive if whenever $x$ is related to $y$ and $y$ is related to $z$, then $x$ is related to $z$.
+If a person is a sibling of another person, and the other person is a sibling of a third person, then the first person is a sibling of the third person.
+Therefore, the relation "is sibling of" is transitive.
+\end{solution}
+
+\newpage
+\begin{problem} (30 points) Section 3.9, Exercise 3.60. Proving your function 
+is bijective by showing that it is injective and surjective is required.
+[Hint: Define a bijective function $f\colon \N_0\rightarrow \Z$ by
+considering the argument being even or odd. Then prove that your 
+function is indeed bijective by showing that it is injective and surjective.]
+\end{problem}
+\begin{solution} 
+Two sets $A$ and $B$ are said to have the same cardinality if there exists a bijective function $f\colon A\rightarrow B$.
+To prove that $|\N_0| = |\Z|$, we define a function $f\colon \N_0\rightarrow \Z$ where $f(n) = \frac{n}{2}$ if $n$ is even, and $f(n) = -\frac{n+1}{2}$ if $n$ is odd.
+To show that this function is bijective, it must be both injective and surjective.
+In order for the function to be injective, it must be that $f(a) = f(b)$ implies $a = b$.
+In the case that $a$ and $b$ are both even, then $f(a) = \frac{a}{2}$ and $f(b) = \frac{b}{2}$.
+If $f(a) = f(b)$, then $\frac{a}{2} = \frac{b}{2}$, then $a = b$ must be true.
+In the case that both $a$ and $b$ are odd, then $f(a) = -\frac{a+1}{2}$ and $f(b) = -\frac{b+1}{2}$.
+By the same logic, if $f(a) = f(b)$, then $-\frac{a+1}{2} = -\frac{b+1}{2}$, then algebraically, $a = b$ must be true.
+In the case that $a$ is even and $b$ is odd or vice versa, then it is impossible for $f(a) = f(b)$ to be true, since $f(a)$ and $f(b)$ will always have different signs by the definition of $f$.
+Considering all cases, it is true that $f(a) = f(b)$ implies $a = b$, so the function is injective.
+To prove that a function is surjective, we must show that every element in the codomain is mapped to by at least one element in the domain.
+The codomain of $f$ is $\Z$, so we must show that every integer is mapped to by at least one natural number which can be represented as $f(n) = z$.
+When $z = 0$, $f(0) = 0$, so $z$ is mapped to by $0$.
+When $z > 0$, $f(2z) = z$, so $z$ is mapped to by $2z$.
+When $z < 0$, $f(-2z-1) = z$, so $z$ is mapped to by $-2z-1$.
+Therefore, every element in the codomain is mapped to by at least one element in the domain, so the function is surjective.
+Since $f$ is both injective and surjective, it is bijective, so $|\N_0| = |\Z|$.
+\end{solution}
+
+\newpage
+\begin{problem} (20 points) Section 5.1, Exercise 5.4.
+\end{problem}
+\begin{solution} 
+Proving that $\sim$ is an equivalence relation, it must be reflexive, symmetric, and transitive.
+To show that $\sim$ is reflexive, we must show that $x \sim x$ for all $x \in \N_1$.
+The relation would give $\frac{x}{x} = 2^{k}$ for some $k \in \Z$.
+Since $\frac{x}{x} = 1$, $1 = 2^{0}$, and $0 \in \Z$, $x \sim x$ is true for all $x \in \N_1$, so $\sim$ is reflexive.
+To show that $\sim$ is symmetric, we must show that $x \sim y$ implies $y \sim x$ for all $x, y \in \N_1$.
+This requirement would mean that $\frac{y}{x}$ must equal $2^{k}$ for some $k \in \Z$.
+Since $\frac{y}{x}$ is just the reciprocal of $\frac{x}{y}$, $\frac{y}{x}$ should just be the inverse of $2^{k}$, which is $2^{-k}$.
+This shows that $x \sim y$ implies $y \sim x$ for all $x, y \in \N_1$, since $\frac{x}{y}$ and $\frac{y}{x}$ are both powers of $2$.
+Therefore, the relation is symmetric.
+To show that $\sim$ is transitive, we must show that $x \sim y$ and $y \sim z$ implies $x \sim z$ for all $x, y, z \in \N_1$.
+Given that $x \sim y$, we know that $\frac{x}{y} = 2^{k}$ for some $k \in \Z$.
+Likewise, given that $y \sim z$, we know that $\frac{y}{z} = 2^{j}$ for some $j \in \Z$.
+The relation between $x$ and $z$ would be $\frac{x}{z} = \frac{x}{y} \cdot \frac{y}{z} = 2^{k} \cdot 2^{j} = 2^{k+j}$.
+Since $k$ and $j$ are both integers, $k+j$ is also an integer, so the relation holds for $x \sim z$.
+Therefore, the relation is transitive.
+Since $\sim$ is reflexive, symmetric, and transitive, it is an equivalence relation.
+\end{solution}
+
+\end{document}
