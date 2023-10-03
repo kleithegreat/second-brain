@@ -90,36 +90,85 @@ lecture notes and how I solved in my videos.}
 \begin{problem} (15 points) Section 4.1, Exercise 4.3 
 \end{problem}
 \begin{solution}
+We want to prove that the sum of the first $n$ squares is given by \[\sum_{k=1}^{n} k^2 = 1^2 + 2^2 + ... + n^2 = \frac{n(n+1)(2n+1)}{6}\] for all $n \ge 1$.
+For the base case, the claim $P(n)$ holds for $n = 1$ since $\sum_{k=1}^{1} k^2 = 1^2 = \frac{1(1 + 1)(2 \times 1 + 1)}{6} = \frac{1\times2\times3}{3} =1$.
+In the inductive step, it is our goal to show that $P(n) \rightarrow P(n+1)$ $\forall n \ge 1$, which means we need to prove that \[\sum_{i=1}^{k+1} i^{2} = \frac{(k+1)(k+1+1)(2(k+1)+1)}{6}\]
+Using our base case, we can substitute the left side of the equation with $\sum_{i=1}^{k} i^{2} + (k+1)^{2}$.
+We can then substitute $\sum_{i=1}^{k} i^{2}$ with $\frac{k(k+1)(2k+1)}{6}$, so our equation then becomes \[\frac{k(k+1)(2k+1)}{6} + (k+1)^{2} = \frac{(k+1)(k+1+1)(2(k+1)+1)}{6}\]
+Multiply the equation by 6: \[k(k+1)(2k+1) + 6(k+1)^{2} = (k+1)(k+2)(2k+3)\]
+Expand both sides:\[2k^{3}+k^{2}+2k^{2}+k+6k^{2}+12k+6 = 2k^{3}+3k^{2}+6k^{2}+9k+4k+6\]
+Collect like terms: \[2k^{3}+9k^{2}+13k+6 = 2k^{3}+9k^{2}+13k+6\]
+And thus both sides of the equation are equal, so $P(n) \rightarrow P(n+1)$ $\forall n \ge 1$.
+Therefore, we have proven that the sum of the first $n$ squares is given by \[\sum_{k=1}^{n} k^2 = 1^2 + 2^2 + ... + n^2 = \frac{n(n+1)(2n+1)}{6}\] for all $n \ge 1$.
 \end{solution}
 
 \newpage
 \begin{problem} (15 points) Section 4.1, Exercise 4.4 
 \end{problem}
 \begin{solution}
+We want to prove by induction that the sum of the first $n$ cubes is given by \[\sum_{k=1}^{n} k^3 = 1^3 + 2^3 + ... + n^3 = (1 + 2 + .. + n)^2 = \frac{n^2 (n+1)^2}{4}\] for all $n\ge1$.
+To do this we must prove this in two parts, since there are two claims in the equation.
+In the first part we will prove that \[\sum_{k=1}^{n} k^3 = 1^3 + 2^3 + ... + n^3 = \frac{n^{2}(n+1)^{2}}{4}\] for all $n\ge1$.
+For the base case where $n=1$, the formula holds true since: \[\sum_{k=1}^{1} k^3 = 1^3 = (1)^2 = \frac{1^2 (1+1)^2}{4} = 1\]
+In the inductive step, we want to show that $P(n) \rightarrow P(n+1)$ $\forall n \ge 1$, which means we need to prove the following equation: \[\sum_{i=1}^{k+1} i^{3} = \frac{(k+1)^2 (k+2)^2}{4}\]
+Using the base case, we can substitute the left side of the equation with $\sum_{i=1}^{k} i^{3} + (k+1)^{3}$, and then substitute $\sum_{i=1}^{k} i^{3}$ with $\frac{k^2 (k+1)^2}{4}$, so our equation then becomes \[\frac{k^2 (k+1)^2}{4} + (k+1)^{3} = \frac{(k+1)^2 (k+2)^2}{4}\]
+Multiply the equation by 4: \[k^2 (k+1)^2 + 4(k+1)^{3} = (k+1)^2 (k+2)^2\]
+Expand both sides: \[k^4 + 2k^3 + k^2 + 4k^3 + 12k^2 + 12k + 4k^2 + 12k + 12 = k^4 + 4k^3 + 6k^2 + 4k + k^2 + 4k + 4\]
+Collect like terms: \[k^4 + 6k^3 + 19k^2 + 28k + 12 = k^4 + 6k^3 + 19k^2 + 28k + 12\]
+And thus both sides of the equation are equal, so $P(n) \rightarrow P(n+1)$ $\forall n \ge 1$.
+Therefore, we have proven that the sum of the first $n$ cubes is given by \[\sum_{k=1}^{n} k^3 = 1^3 + 2^3 + ... + n^3 = \frac{n^2 (n+1)^2}{4}\] for all $n\ge1$.
+In the second part, we want to prove that \[\sum_{k=1}^{n} k^3 = 1^3 + 2^3 + ... + n^3 = (1 + 2 + .. + n)^2\] for all $n\ge1$.
+For the base case where $n=1$, the formula holds true since: \[\sum_{k=1}^{1} k^3 = 1^3 = (1)^2 = 1\]
+In the inductive step, we need to prove the following equation: \[\sum_{i=1}^{k+1} i^{3} = (1 + 2 + .. + k + (k+1))^2\]
+Using the base case, we can substitute the left side of the equation with $\sum_{i=1}^{k} i^{3} + (k+1)^{3}$, and then substitute $\sum_{i=1}^{k} i^{3}$ with $(1 + 2 + .. + k)^2$, so our equation then becomes \[(1 + 2 + .. + k)^2 + (k+1)^{3} = (1 + 2 + .. + k + (k+1))^2\]
+Using the formula for the first $n$ natural numbers, we can substitute $(1 + 2 + .. + k)$ with $\frac{k(k+1)}{2}$, so our equation then becomes \[\frac{k(k+1)}{2}^2 + (k+1)^{3} = (\frac{k(k+1)}{2} + (k+1))^2\]
+Expanding both sides yields: \[\frac{k^4 + 2k^3 + k^2}{4} + k^3 + 3k^2 + 3k + 1 = \frac{k^4 + 2k^3 + k^2}{4} + k^3 + 3k^2 + 3k + 1\]
+And thus both sides of the equation are equal, so we have proven that \[\sum_{k=1}^{n} k^3 = 1^3 + 2^3 + ... + n^3 = (1 + 2 + .. + n)^2\] for all $n\ge1$.
+Since we have proven both parts of the equation, we have proven that the sum of the first $n$ cubes is given by \[\sum_{k=1}^{n} k^3 = 1^3 + 2^3 + ... + n^3 = (1 + 2 + .. + n)^2 = \frac{n^2 (n+1)^2}{4}\] for all $n\ge1$.
 \end{solution}
 
 \newpage
 \begin{problem} (15 points) Section 4.1, Exercise 4.5 
 \end{problem}
 \begin{solution}
+We want to prove by induction that the squares of the first $n$ odd positive integers is given by \[\sum_{k=1}^{n} (2k-1)^2 = 1^2 + 3^2 +5^2 + ... + (2n-1)^2 = \frac{1}{3} (4n^3 - n)\] for all positive integers $n$.
+In the base step, we want to show that the equation holds true for $n=1$, which it does since: \[\sum_{k=1}^{1} (2k-1)^2 = 1^2 = \frac{1}{3} (4(1)^3 - 1) = \frac{1}{3} (4 - 1) = \frac{3}{3} = 1\]
+In the inductive step, we want to show that $P(n) \rightarrow P(n+1)$ $\forall n \ge 1$, which means we need to prove the following equation: \[\sum_{i=1}^{k+1} (2i-1)^2 = \frac{1}{3} (4(k+1)^3 - (k+1))\]
+Starting with the left side, we can substitute the summation with $\sum_{i=1}^{k} (2i-1)^2 + (2(k+1)-1)^2$, and then substitute $\sum_{i=1}^{k} (2i-1)^2$ with $\frac{1}{3} (4k^3 - k)$.
+Our equation then becomes \[\frac{1}{3} (4k^3 - k) + (2(k+1)-1)^2 = \frac{1}{3} (4(k+1)^3 - (k+1))\]
+Expanding both sides yields: \[\frac{4k^3 - k}{3} + 4k^2 + 4k + 1 = \frac{4k^3 + 12k^2 + 12k + 3}{3}\]
+Collect like terms: \[\frac{4k^3 + 12k^2 + 12k + 3}{3} = \frac{4k^3 + 12k^2 + 12k + 3}{3}\]
+And thus, both sides of the equation are equal, so we have proven by induction that the squares of the first $n$ odd positive integers is given by \[\sum_{k=1}^{n} (2k-1)^2 = 1^2 + 3^2 +5^2 + ... + (2n-1)^2 = \frac{1}{3} (4n^3 - n)\] for all positive integers $n$.
 \end{solution}
 
 \newpage
 \begin{problem} (20 points) Section 4.1, Exercise 4.6 
 \end{problem}
 \begin{solution} 
+We want to prove using induction that for all integers $n\ge1$, the integer $2^{2n}-1$ is divisible by 3.
+In the base step, we want to show that the equation holds true for $n=1$.
+Substituting $n=1$ into the equation yields: $2^{2(1)}-1 = 2^2-1 = 4-1 = 3$, which is divisible by 3, so the base case holds true.
+In the inductive step, we want to show that $P(n) \rightarrow P(n+1)$ $\forall n \ge 1$, so we need to prove that $2^{2(n+1)}-1$ is also divisible by 3.
+To show this, lets first assume that the statement holds true for some integer $n$, so we can say that $2^{2n}-1 = 3m$ which is divisible by 3.
+Algebraically, $2^{2(n+1)}-1 = 2^{2n+2}-1$ can be rewritten as $2^{2n} \times 2^2 - 1$ which is $2^{2n} \times 4 - 1$.
+From our assumption, we can say that $2^{2n}=3m+1$, so we can substitute that into our equation to get $(3m+1) \times 4 - 1$.
+Simplyfing the equation yields $12m+3$, which is divisible by 3.
+Thus, we have shown that $2^{2(n+1)}-1$ is divisible by 3, so $P(n) \rightarrow P(n+1)$ $\forall n \ge 1$.
+Therefore, we have proven by induction that for all integers $n\ge1$, the integer $2^{2n}-1$ is divisible by 3.
 \end{solution}
 
 \newpage
 \begin{problem} (20 points) Section 4.3, Exercise 4.15
 \end{problem}
 \begin{solution} 
+
 \end{solution}
 
 \newpage
 \begin{problem} (20 points) Section 4.6, Exercise 4.31
 \end{problem}
 \begin{solution} 
+
 \end{solution}
 
 \end{document}
