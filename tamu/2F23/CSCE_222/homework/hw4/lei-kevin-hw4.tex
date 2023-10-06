@@ -161,6 +161,14 @@ Therefore, we have proven by induction that for all integers $n\ge1$, the intege
 \begin{problem} (20 points) Section 4.3, Exercise 4.15
 \end{problem}
 \begin{solution} 
+We want to prove by induction that the sum of the first $n$ terms of the fibonacci sequence that have an even index is given by \[\sum_{k=1}^{n} f_{2k} = f_{2} + f_{4} + ... + f_{2n} = f_{2n+1} - 1\]
+In the base step, we need to show that the equation holds for $n=1$, which it does since: $\sum_{k=1}^{1} f_{2k} = f_{2} = f_{2(1)+1} - 1 = f_{3} - 1 = 2 - 1 = 1$, and the second fibonacci number is 1.
+In the inductive step, we shall assume that the proposition holds true for some arbitray number $n$, so we need to prove that it also holds true for $n+1$.
+This means we need to prove the following equality: \[f_{2} + f_{4} + ... + f_{2n} + f_{2(n+1)} = f_{2(n+1)+1} - 1\]
+Using the induction hypothesis, we can substitute the left side of the equation with $f_{2n+1} - 1 + f_{2(n+1)}$.
+Simplifying the subscripts and adding $1$ to both sides, the equation then becomes \[f_{2n+1}+f_{2n+2} = f_{2n+3}\]
+This equation now matches the definition of the fibonacci sequence, since we have $f_{n}+f_{n+1}=f_{n+2}$.
+Therefore, we have proven the hypothesis using induction.
 
 \end{solution}
 
@@ -168,6 +176,13 @@ Therefore, we have proven by induction that for all integers $n\ge1$, the intege
 \begin{problem} (20 points) Section 4.6, Exercise 4.31
 \end{problem}
 \begin{solution} 
+Let $g_{0}=1, g_{1}=2, g_{2}=3$, and $g_{n}=g_{n-1} + g_{n-2} + g_{n-3}$ for all integers $n\ge3$.
+We want to prove using strong induction that $g_{n}\le2^{n}$ for all nonnegative integers $n$.
+First we need to show that the proposition holds for all base cases.
+For $n=0$, $g_{0}=1$, which is less than or equal to $2^{0}=1$, so the base case where $n=0$ holds true.
+For $n=1$, $g_{1}=2$, which is less than or equal to $2^{1}=2$, so the base case when $n=1$ is also true.
+Finally, for $n=2$, $g_{2}=3$, which is less than or equal to $2^{2}=4$, so the base case when $n=2$ still holds true.
+In the inductive step, ???
 
 \end{solution}
 
