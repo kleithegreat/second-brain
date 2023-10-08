@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+
+\begin{document}
+
+\section*{Question 1}
+Determine whether the following subsets are subspaces:
+
+\subsection*{Part a}
+$S_{1} := \{(x_{1},x_{2})^{T} \in \mathbb{R}^2 : x_{1} = \sqrt{123}x_{2}\}$
+
+\textbf{Answer:} This is a subspace of $\mathbb{R}^2$ since it is a straight line that passes through the origin.
+
+\begin{proof}
+Let $(a,b)$ and $(c,d)$ be two elements of $S_{1}$.
+We want to show that $(a,b) + (c,d) \in S_{1}$ and $n(a,b) \in S_{1} \forall n \in \mathbb{R}$.
+Using the definition of $S_{1}$, we have that $a=\sqrt{123}b$ and $c=\sqrt{123}d$.
+Adding elements $(a,b)$ and $(c,d)$, we have that $(a,b) + (c,d) = (a+c,b+d)$
+We can then substitute in the values of $a$ and $c$ to get $(a+c,b+d) = (\sqrt{123}b+\sqrt{123}d,b+d)$
+This can then be factored to $(\sqrt{123}(b+d),b+d)$
+Since this satisfies the definition of $S_{1}$, we have that $(a,b) + (c,d) \in S_{1}$.
+To show that $n(a,b) \in S_{1} \forall n \in \mathbb{R}$, we can use the definition of $S_{1}$ again.
+The element $(a,b)$ can be written as $(\sqrt{123}b,b)$.
+Multiplying this by $n$ gives us $(n\sqrt{123}b,nb)$.
+Since this satisfies the definition of $S_{1}$, we have that $n(a,b) \in S_{1} \forall n \in \mathbb{R}$.
+\end{proof}
+
+\subsection*{Part b}
+$S_{2} := \{(x_{1},x_{2})^{T} \in \mathbb{R}^2 : x_{1}x_{2} = 1\}$
+
+\textbf{Answer:} This is not a subspace of $\mathbb{R}^2$ since it does not satisfy the addition property.
+
+\begin{proof}
+Let $(a,b)$ and $(c,d)$ be two elements of $S_{2}$.
+Seeking a contradiction, lets assume that $(a,b) + (c,d) \in S_{2}$.
+Since we can write $(a,b) + (c,d)$ as $(a+c,b+d)$, our assumption would imply that $(a+c)(b+d) = 1$.
+Expanding this, we get $ab+ad+bc+cd = 1$.
+It is given that $ab=1$ and $cd=1$, so we can substitute these in to get $1+ad+bc+1 = 1$.
+This can be simplified to $ad+bc = -1$.
+However, $a$ and $b$ multiply to a positive number, and $c$ and $d$ multiply to a positive number.
+This implies that $ad+bc$ must be positive, so we have reached a contradiction.
+Therefore, $(a,b) + (c,d) \notin S_{2}$, so $S_{2}$ is not a subspace of $\mathbb{R}^2$.
+\end{proof}
+
+\subsection*{Part c}
+$S_{3} := \{\text{the set of singular } 2 \times 2 \text{ matrices}\}$
+
+\textbf{Answer:} This is not a subspace of $\mathbb{R}^{2 \times 2}$ since it does not satisfy the addition property.
+
+\textbf{Counterexample:} Let matrix $A = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$ and $B = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix}$ where A, B $\in S_{3}$.
+$A + B = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$, which is not a singular matrix.
+
+\subsection*{Part d}
+Let \( A \) be a fixed (but arbitrary) \( 2 \times 2 \) matrix. 
+
+\[ S_{4} := \{B \in \mathbb{R}^{2 \times 2} : BA = 0\} \]
+
+\textbf{Answer:} 
+
+% You will need to fill in the proof or explanation for this part.
+
+\subsection*{Part e}
+\[ S_{5} := \{\text{the set of all polynomials of degree 2 or 4}\} \]
+
+\textbf{Answer:} 
+
+% You will need to fill in the proof or explanation for this part.
+
+\subsection*{Part f}
+\[ S_{6} := \{\text{the set of upper triangular } 2 \times 2 \text{ matrices}\} \]
+
+\textbf{Answer:} 
+
+% You will need to fill in the proof or explanation for this part.
+
+\subsection*{Part g}
+\[ S_{7} := \{p \in \mathbb{P}_{4} : p(0) = 0\} \]
+
+\textbf{Answer:} 
+
+% You will need to fill in the proof or explanation for this part.
+
+\subsection*{Question 2}
+Find the null space of the following matrices:
+\begin{align*}
+A &= \begin{bmatrix} 2 & 1 & 0 \\ 4 & -1 & 1 \end{bmatrix}, \\
+B &= \begin{bmatrix} -1 & -2 & 2 & 1 \\ 2 & 4 & -4 & -2 \end{bmatrix}, \\
+C &= \begin{bmatrix} 0 & 1 & 4 \\ 1 & 0 & 3 \\ 4 & 3 & 0 \end{bmatrix}.
+\end{align*}
+
+\textbf{Answer:} 
+
+% You will need to fill in the answer for this question.
+
+\subsection*{Question 3}
+Show that the following matrices form a spanning set for \(\mathbb{R}^{2 \times 2}\). Also, show that these matrices are linearly independent.
+
+% Add the matrices for this question.
+
+\textbf{Answer:} 
+
+% You will need to fill in the answer for this question.
+
+\subsection*{Question 4}
+Let \(x_{1}\), \(x_{2}\), and \(x_{3}\) be linearly independent vectors in \(\mathbb{R}^{n}\). Define:
+\begin{align*}
+y_{1} &= x_{1} + x_{2}, \\
+y_{2} &= x_{2} + x_{3}, \\
+y_{3} &= x_{3} + x_{1}.
+\end{align*}
+Decide if \(y_{1}\), \(y_{2}\), and \(y_{3}\) are linearly independent or not.
+
+\textbf{Answer:} 
+
+% You will need to fill in the answer for this question.
+
+\end{document}
