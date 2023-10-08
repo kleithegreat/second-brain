@@ -176,14 +176,20 @@ Therefore, we have proven the hypothesis using induction.
 \begin{problem} (20 points) Section 4.6, Exercise 4.31
 \end{problem}
 \begin{solution} 
-Let $g_{0}=1, g_{1}=2, g_{2}=3$, and $g_{n}=g_{n-1} + g_{n-2} + g_{n-3}$ for all integers $n\ge3$.
-We want to prove using strong induction that $g_{n}\le2^{n}$ for all nonnegative integers $n$.
-First we need to show that the proposition holds for all base cases.
-For $n=0$, $g_{0}=1$, which is less than or equal to $2^{0}=1$, so the base case where $n=0$ holds true.
-For $n=1$, $g_{1}=2$, which is less than or equal to $2^{1}=2$, so the base case when $n=1$ is also true.
-Finally, for $n=2$, $g_{2}=3$, which is less than or equal to $2^{2}=4$, so the base case when $n=2$ still holds true.
-In the inductive step, ???
-
+Given that $f_{n}$ is a sequence of nonnegative integers satisfying the recurrence relation $f_{n} = (n^{3} - 3n^{2} + 2n)f_{n-3}$, and $f_{1}=1$, $f_{2}=2$, and $f_{3}=6$, we want to prove by strong induction that $f_{n} = n!$ holds for all $n \ge 1$.
+We have three base cases: $n=1$, $n=2$, and $n=3$.
+Since $f_{1}=1$ and $1!=1$, $f_{2}=2$ and $2!=2$, and $f_{3}=6$ and $3!=6$, the base cases hold true.
+In the inductive step, we shall assume that the proposition holds true for some arbitrary number $k$, so we need to prove that it also holds true for $k+1$.
+That means we are assuming that $f_{k} = k!$ holds true, and we need to prove that $f_{k+1} = (k+1)!$ also holds true.
+The following equation: $$f_{k+1}=(k+1)!$$
+Can be rewritten as: $$(k+1)! = ((k+1)^{3}-3(k+1)^{2}+2(k+1))f_{k-2}$$
+using the induction hypothesis. $f_{k-2}$ can be rewritten as $(k-2)!$.
+We can also simplify the inside of the parenthesis on the right side, so our equation turns into $$(k+1)! = (k^{3} - k)(k-2)!$$
+$k^{3} - k$ can be rewritten as $k(k^{2} - 1)$, which can be further simplified to $k(k+1)(k-1)$.
+We can then substitute $k(k+1)(k-1)$ into our equation to get $$(k+1)! = k(k+1)(k-1)(k-2)!$$
+At this point, we can rearrange the terms to see the equality better: $$(k+1)! = (k+1)k(k-1)(k-2)!$$
+More clearly, using the definition of the factorial, the left side of the equation can be rewritten as $(k+1)k(k-1)(k-2)!$.
+Since both sides of the equation are equal, we have proven the hypothesis using strong induction.
 \end{solution}
 
 \end{document}
