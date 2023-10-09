@@ -45,7 +45,7 @@ Therefore, $(a,b) + (c,d) \notin S_{2}$, so $S_{2}$ is not a subspace of $\mathb
 \subsection*{Part c}
 $S_{3} := \{\text{the set of singular } 2 \times 2 \text{ matrices}\}$
 
-\textbf{Answer:} This is not a subspace of $\mathbb{R}^{2 \times 2}$ since it does not satisfy the addition property.
+\textbf{Answer:} This is not a subspace of $\mathbb{R}^{2 \times 2}$ since it does not satisfy the addition property. % How do I prove rigorously?
 
 \textbf{Counterexample:} Let matrix $A = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$ and $B = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix}$ where A, B $\in S_{3}$.
 $A + B = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$, which is not a singular matrix.
@@ -55,63 +55,131 @@ Let \( A \) be a fixed (but arbitrary) \( 2 \times 2 \) matrix.
 
 \[ S_{4} := \{B \in \mathbb{R}^{2 \times 2} : BA = 0\} \]
 
-\textbf{Answer:} 
+\textbf{Answer:} This is a subspace of $\mathbb{R}^{2 \times 2}$ .
 
-% You will need to fill in the proof or explanation for this part.
+\begin{proof}
+Let $J$ and $K$ be two arbitrary elements in $S_{4}$.
+We want to show that $J$, $K$ $\in S_{4} \rightarrow J + K \in S_{4}$ and $aJ \in S_{4} \forall a \in \mathbb{R}$.
+In order for $J + K$ to be in $S_{4}$, we must have that $(J+K)A = 0$.
+We can rewrite this as $JA + KA = 0$.
+Since $J$ and $K$ are in $S_{4}$, we know that $JA = 0$ and $KA = 0$.
+Substituting these in, we get $0 + 0 = 0$, which is true.
+Therefore, $J + K \in S_{4}$.
+Additionally, in order for $aJ$ to be in $S_{4}$, we must show that $\forall n \in \mathbb{R}, J \in S_{4} \rightarrow aJ \in S_{4}$.
+To do this, we must verify the validity of $(aJ)A = 0$.
+Since scalar multiplication is commutative, we can rewrite this as $a(JA) = 0$.
+Since $J$ is in $S_{4}$, we know that $JA = 0$.
+Substituting this in, we get $a(0) = 0$, which is true.
+Therefore, $aJ \in S_{4}$, so $S_{4}$ is a subspace of $\mathbb{R}^{2 \times 2}$.
+\end{proof}
 
 \subsection*{Part e}
 \[ S_{5} := \{\text{the set of all polynomials of degree 2 or 4}\} \]
 
-\textbf{Answer:} 
+\textbf{Answer:} This is not a subspace of $\mathbb{P}_{n}$. % Pn or P4? How prove rigorously?
 
-% You will need to fill in the proof or explanation for this part.
+\textbf{Counterexample:}
+
+
+Let $p(x), q(x) \in S_{5}$.
+Suppose that $p(x) = x^2$ and $q(x) = -x^2$.
+
+
+Then $p(x) + q(x) = 0$, which is not a polynomial of degree 2 or 4.
 
 \subsection*{Part f}
 \[ S_{6} := \{\text{the set of upper triangular } 2 \times 2 \text{ matrices}\} \]
 
-\textbf{Answer:} 
+\textbf{Answer:} This is a subspace of $\mathbb{R}^{2 \times 2}$.
 
-% You will need to fill in the proof or explanation for this part.
+\begin{proof}
+Let \( A \) and \( B \) be two arbitrary elements in \( S_{6} \).
+To prove that \( S_{6} \) is a subspace of \( \mathbb{R}^{2 \times 2} \), we must show that \( A \), \( B \) \( \in S_{6} \rightarrow A + B \in S_{6} \) and \( \forall n \in \mathbb{R}, nA \in S_{6} \).
+Given that \( A \) and \( B \) are in \( S_{6} \), we know that \( A \) and \( B \) are upper triangular matrices.
+Writing these out, we have:
+\begin{align*} 
+    A &= \begin{bmatrix} a_{11} & a_{12} \\ 0 & a_{22} \end{bmatrix} \\ 
+    B &= \begin{bmatrix} b_{11} & b_{12} \\ 0 & b_{22} \end{bmatrix} 
+\end{align*}
+Since matrix addition is element-wise, we can write \( A + B \) as:
+\begin{align*} 
+    A + B &= \begin{bmatrix} a_{11} + b_{11} & a_{12} + b_{12} \\ 0 & a_{22} + b_{22} \end{bmatrix}
+\end{align*}
+It is clear in this form that \( A + B \) is an upper triangular matrix, so \( A + B \in S_{6} \).
 
+To show that \( \forall n \in \mathbb{R}, nA \in S_{6} \), we must show that \( nA \) is an upper triangular matrix.
+We know that \( nA \) is an upper triangular matrix if \( nA \) is of the form:
+\begin{align*} 
+    nA &= \begin{bmatrix} a_{11} & a_{12} \\ 0 & a_{22} \end{bmatrix}
+\end{align*}
+Since scalar multiplication is element-wise, we can write \( nA \) as:
+\begin{align*} 
+    nA &= \begin{bmatrix} na_{11} & na_{12} \\ 0 & na_{22} \end{bmatrix}
+\end{align*}
+In this form, it is clear that \( nA \) is an upper triangular matrix.
+Therefore, \( nA \in S_{6} \), so \( S_{6} \) is a subspace of \( \mathbb{R}^{2 \times 2} \).
+\end{proof}
+    
 \subsection*{Part g}
 \[ S_{7} := \{p \in \mathbb{P}_{4} : p(0) = 0\} \]
 
-\textbf{Answer:} 
+\textbf{Answer:} This is a subspace of $\mathbb{P}_{4}$.
 
-% You will need to fill in the proof or explanation for this part.
+\begin{proof}
+Let $f(x)$ and $g(x)$ be two arbitrary elements in $S_{7}$.
+To prove that $S_{7}$ is a subspace of $\mathbb{P}_{4}$, we must show that $f(x)$, $g(x)$ $\in S_{7} \rightarrow f(x) + g(x) \in S_{7}$ and $\forall n \in \mathbb{R}, nf(x) \in S_{7}$.
+Given that $f(x)$ and $g(x)$ are in $S_{7}$, we know that $f(0) = 0$ and $g(0) = 0$, which is by definition of $S_{7}$.
+This means that $f(x)$ and $g(x)$ are of the form:
+\begin{align*} 
+    f(x) &= a_{1}x^4 + a_{2}x^3 + a_{3}x^2 + a_{4}x + 0 \\ 
+    g(x) &= b_{1}x^4 + b_{2}x^3 + b_{3}x^2 + b_{4}x + 0
+\end{align*}
+This means we can write $f(x) + g(x)$ as:
+\begin{align*} 
+    f(x) + g(x) &= (a_{1} + b_{1})x^4 + (a_{2} + b_{2})x^3 + (a_{3} + b_{3})x^2 + (a_{4} + b_{4})x + 0
+\end{align*}
+In this form it is clear that $f(x) +g(x)$ satisfies the condition that $p(0) = 0$, so $f(x) + g(x) \in S_{7}$.
+
+To show that $\forall n \in \mathbb{R}, nf(x) \in S_{7}$, we can follow a similar process.
+We know that $nf(x)$ is of the form:
+\begin{align*} 
+    nf(x) &= na_{1}x^4 + na_{2}x^3 + na_{3}x^2 + na_{4}x + 0
+\end{align*}
+Regardless of the value of $n$, $nf(x)$ will always satisfy the condition that $p(0) = 0$, so $nf(x) \in S_{7}$.
+Therefore, $S_{7}$ is a subspace of $\mathbb{P}_{4}$.
+\end{proof}
 
 \subsection*{Question 2}
 Find the null space of the following matrices:
 \begin{align*}
-A &= \begin{bmatrix} 2 & 1 & 0 \\ 4 & -1 & 1 \end{bmatrix}, \\
-B &= \begin{bmatrix} -1 & -2 & 2 & 1 \\ 2 & 4 & -4 & -2 \end{bmatrix}, \\
-C &= \begin{bmatrix} 0 & 1 & 4 \\ 1 & 0 & 3 \\ 4 & 3 & 0 \end{bmatrix}.
+A = \begin{bmatrix} 2 & 1 & 0 \\ 4 & -1 & 1 \end{bmatrix}, \quad
+B = \begin{bmatrix} -1 & -2 & 2 & 1 \\ 2 & 4 & -4 & -2 \end{bmatrix}, \quad
+C = \begin{bmatrix} 0 & 1 & 4 \\ 1 & 0 & 3 \\ 4 & 3 & 0 \end{bmatrix}
 \end{align*}
 
 \textbf{Answer:} 
 
-% You will need to fill in the answer for this question.
 
 \subsection*{Question 3}
 Show that the following matrices form a spanning set for \(\mathbb{R}^{2 \times 2}\). Also, show that these matrices are linearly independent.
-
-% Add the matrices for this question.
+\begin{align*}
+A_{11} = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}, \quad
+A_{12} = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}, \quad
+A_{21} = \begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix}, \quad
+A_{22} = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix}
+\end{align*}
 
 \textbf{Answer:} 
 
-% You will need to fill in the answer for this question.
 
 \subsection*{Question 4}
-Let \(x_{1}\), \(x_{2}\), and \(x_{3}\) be linearly independent vectors in \(\mathbb{R}^{n}\). Define:
+Let \(x_{1}\), \(x_{2}\), and \(x_{3}\) be linearly independent vectors in \(\mathbb{R}^{n}\). Let
 \begin{align*}
-y_{1} &= x_{1} + x_{2}, \\
-y_{2} &= x_{2} + x_{3}, \\
-y_{3} &= x_{3} + x_{1}.
+y_{1} = x_{1} + x_{2}, \quad y_{2} = x_{2} + x_{3}, \quad y_{3} = x_{3} + x_{1}.
 \end{align*}
 Decide if \(y_{1}\), \(y_{2}\), and \(y_{3}\) are linearly independent or not.
 
 \textbf{Answer:} 
 
-% You will need to fill in the answer for this question.
 
 \end{document}
