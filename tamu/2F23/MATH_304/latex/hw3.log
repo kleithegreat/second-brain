@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1 Portable) (preloaded format=pdflatex 2023.8.21)  9 OCT 2023 23:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1 Portable) (preloaded format=pdflatex 2023.8.21)  10 OCT 2023 17:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -126,6 +126,20 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headsep=\skip55
 \dth@everypar=\toks26
 )
+(C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/fancyhdr\fan
+cyhdr.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip56
+\f@nch@O@elh=\skip57
+\f@nch@O@erh=\skip58
+\f@nch@O@olh=\skip59
+\f@nch@O@orh=\skip60
+\f@nch@O@elf=\skip61
+\f@nch@O@erf=\skip62
+\f@nch@O@olf=\skip63
+\f@nch@O@orf=\skip64
+)
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/l3backend\l3
 backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
@@ -134,66 +148,80 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 ) (hw3.aux)
 \openout1 = `hw3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
 
 
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
 a.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
 
 
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
 b.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+) [1{C:/Users/kevin/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdft
+ex.map}
 
-{C:/Users/kevin/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdftex.m
-ap}] [2] [3]
-Overfull \hbox (47.85913pt too wide) detected at line 211
+] [2] [3]
+Overfull \hbox (47.85913pt too wide) detected at line 217
 []
  []
 
-[4] [5] [6] (hw3.aux) ) 
+[4] [5]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
+91.
+
+(C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/base\omscmr.
+fd
+File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 291.
+
+Overfull \hbox (11.66681pt too wide) detected at line 318
+[] \OMS/cmsy/m/n/10 ^^X [] ^^X [] ^^X []
+ []
+
+[6] (hw3.aux) ) 
 Here is how much of TeX's memory you used:
- 1781 strings out of 476375
- 26326 string characters out of 5783765
- 1896299 words of memory out of 5000000
- 22205 multiletter control sequences out of 15000+600000
+ 1992 strings out of 476375
+ 29526 string characters out of 5783765
+ 1895299 words of memory out of 5000000
+ 22409 multiletter control sequences out of 15000+600000
  516469 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,15n,62p,220b,251s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/kevin/scoop/apps/miktex/current/texmfs/install
-/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/kevin/scoop/apps/miktex/cu
-rrent/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/kevin/
-scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.
-pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public
-/amsfonts/cm/cmmi10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/instal
-l/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/kevin/scoop/apps/miktex/cu
-rrent/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/kevin/s
-coop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb
-><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/f
-onts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/kevin/scoop/apps/miktex/curre
-nt/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/kevin/sco
-op/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm1
-0.pfb>
-Output written on hw3.pdf (6 pages, 141087 bytes).
+ 56i,15n,62p,222b,277s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/t
+ype1/public/amsfonts/cm/cmbx10.pfb><C:/Users/kevin/scoop/apps/miktex/current/te
+xmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/kevin/scoop/ap
+ps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
+Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfont
+s/cm/cmmi10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/kevin/scoop/apps/miktex/current/te
+xmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/kevin/scoop/app
+s/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Use
+rs/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/typ
+e1/public/amsfonts/cm/cmsy7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmf
+s/install/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/kevin/scoop/apps/
+miktex/current/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on hw3.pdf (6 pages, 144572 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -1,5 +1,12 @@
 \documentclass{article}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{4th Homework - MATH 304 508}
+\rhead{Kevin Lei}
+\renewcommand{\headrulewidth}{0.4pt}
 
 \begin{document}
 
@@ -151,7 +158,6 @@ Therefore, $S_{7}$ is a subspace of $\mathbb{P}_{4}$.
 \end{proof}
 
 \newpage
-
 \subsection*{Question 2}
 Find the null space of the following matrices:
 \begin{align*}
@@ -210,6 +216,7 @@ x_{3}\begin{bmatrix} -3 \\ -4 \\ 1 \end{bmatrix}
 \text{span}\left\{\begin{bmatrix} -3 \\ -4 \\ 1 \end{bmatrix}\right\}
 \end{align*}
 
+\newpage
 \subsection*{Question 3}
 Show that the following matrices form a spanning set for \(\mathbb{R}^{2 \times 2}\). Also, show that these matrices are linearly independent.
 \begin{align*}
@@ -269,6 +276,7 @@ From this it is clear that the only solution to the system is $c_{1} = c_{2} = c
 This is exactly the definition of linear independence, so we have proven that the matricies $A_{11}$, $A_{12}$, $A_{21}$, and $A_{22}$ are linearly independent.
 \end{proof}
 
+\newpage
 \subsection*{Question 4}
 Let \(x_{1}\), \(x_{2}\), and \(x_{3}\) be linearly independent vectors in \(\mathbb{R}^{n}\). Let
 \begin{align*}
@@ -280,8 +288,36 @@ Decide if \(y_{1}\), \(y_{2}\), and \(y_{3}\) are linearly independent or not.
 \textbf{Answer:} The vectors $y_{1}$, $y_{2}$, and $y_{3}$ are linearly independent.
 
 \begin{proof}
-A set of vectors is linearly independent if and only if 
+A set of vectors \{$v_{1}$, $v_{2}$, \ldots, $v_{n}$\} is linearly independent if and only if
 the only solution to $c_{1}v_{1} + c_{2}v_{2} + \cdots + c_{n}v_{n} = 0$ is $c_{1} = c_{2} = \cdots = c_{n} = 0$.
+This means we have the following equation:
+$$ c_{1}y_{1} + c_{2}y_{2} + c_{3}y_{3} = 0 $$
+For the set of vectors \{$y_{1}$, $y_{2}$, $y_{3}$\} to be linearly independent, 
+we must show that the only solution to this equation is $c_{1} = c_{2} = c_{3} = 0$.
+Using the definitions of $y_{1}$, $y_{2}$, and $y_{3}$, we can rewrite this equation as:
+$$ c_{1}(x_{1} + x_{2}) + c_{2}(x_{2} + x_{3}) + c_{3}(x_{3} + x_{1}) = 0 $$
+Distributing the coefficients, we get:
+$$ c_{1}x_{1} + c_{1}x_{2} + c_{2}x_{2} + c_{2}x_{3} + c_{3}x_{3} + c_{3}x_{1} = 0 $$
+Factoring out the $x_{i}$ terms, we get:
+$$ (c_{1} + c_{3})x_{1} + (c_{1} + c_{2})x_{2} + (c_{2} + c_{3})x_{3} = 0 $$
+Since it is given that $x_{1}$, $x_{2}$, and $x_{3}$ are linearly independent,
+the only way for this equation to equal zero is if $c_{1} + c_{3} = 0$, $c_{1} + c_{2} = 0$, and $c_{2} + c_{3} = 0$.
+This means we have the following system:
+$$ \begin{cases} c_{1} + c_{3} = 0 \\ c_{1} + c_{2} = 0 \\ c_{2} + c_{3} = 0 \end{cases} $$
+To solve this system we can use an augmented matrix.
+$$\left[\begin{array}{ccc|c}
+1 & 0 & 1 & 0 \\ 1 & 1 & 0 & 0 \\ 0 & 1 & 1 & 0 \\ \end{array}\right]$$
+Using row operations, we get the following equivalent matricies:
+$$\left[\begin{array}{ccc|c}
+1 & 0 & 1 & 0 \\ 0 & 1 & -1 & 0 \\ 0 & 1 & 1 & 0 \\ \end{array}\right] \sim
+\left[\begin{array}{ccc|c}
+1 & 0 & 1 & 0 \\ 0 & 1 & -1 & 0 \\ 0 & 0 & 2 & 0 \\ \end{array}\right] \sim
+\left[\begin{array}{ccc|c}
+1 & 0 & 1 & 0 \\ 0 & 1 & -1 & 0 \\ 0 & 0 & 1 & 0 \\ \end{array}\right] \sim
+\left[\begin{array}{ccc|c}
+1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ \end{array}\right]$$
+From this we can see that the only solution to the system is $c_{1} = c_{2} = c_{3} = 0$.
+Since this is the only solution to the system, we have proven that the vectors $y_{1}$, $y_{2}$, and $y_{3}$ are linearly independent.
 \end{proof}
 
 \end{document}
