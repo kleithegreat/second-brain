@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1 Portable) (preloaded format=pdflatex 2023.8.21)  10 OCT 2023 17:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1 Portable) (preloaded format=pdflatex 2023.8.21)  11 OCT 2023 15:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -179,30 +179,30 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ex.map}
 
 ] [2] [3]
-Overfull \hbox (47.85913pt too wide) detected at line 217
+Overfull \hbox (47.85913pt too wide) detected at line 213
 []
  []
 
 [4] [5]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
-91.
+87.
 
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/base\omscmr.
 fd
 File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 291.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 287.
 
-Overfull \hbox (11.66681pt too wide) detected at line 318
+Overfull \hbox (11.66681pt too wide) detected at line 314
 [] \OMS/cmsy/m/n/10 ^^X [] ^^X [] ^^X []
  []
 
 [6] (hw3.aux) ) 
 Here is how much of TeX's memory you used:
  1992 strings out of 476375
- 29526 string characters out of 5783765
- 1895299 words of memory out of 5000000
+ 29554 string characters out of 5783765
+ 1891299 words of memory out of 5000000
  22409 multiletter control sequences out of 15000+600000
  516469 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -221,7 +221,7 @@ m/cmsy10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/typ
 e1/public/amsfonts/cm/cmsy7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmf
 s/install/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/kevin/scoop/apps/
 miktex/current/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw3.pdf (6 pages, 144572 bytes).
+Output written on hw3.pdf (6 pages, 144491 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

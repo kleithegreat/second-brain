@@ -73,9 +73,9 @@ We can rewrite this as $JA + KA = 0$.
 Since $J$ and $K$ are in $S_{4}$, we know that $JA = 0$ and $KA = 0$.
 Substituting these in, we get $0 + 0 = 0$, which is true.
 Therefore, $J + K \in S_{4}$.
-Additionally, in order for $aJ$ to be in $S_{4}$, we must show that $\forall n \in \mathbb{R}, J \in S_{4} \rightarrow aJ \in S_{4}$.
+Additionally, in order for $aJ$ to be in $S_{4}$, we must show that $\forall a \in \mathbb{R}, J \in S_{4} \rightarrow aJ \in S_{4}$.
 To do this, we must verify the validity of $(aJ)A = 0$.
-Since scalar multiplication is commutative, we can rewrite this as $a(JA) = 0$.
+Since matrix multiplication is associative, we can rewrite this as $a(JA) = 0$.
 Since $J$ is in $S_{4}$, we know that $JA = 0$.
 Substituting this in, we get $a(0) = 0$, which is true.
 Therefore, $aJ \in S_{4}$, so $S_{4}$ is a subspace of $\mathbb{R}^{2 \times 2}$.
@@ -120,7 +120,7 @@ We know that \( nA \) is an upper triangular matrix if \( nA \) is of the form:
 \begin{align*} 
     nA &= \begin{bmatrix} a_{11} & a_{12} \\ 0 & a_{22} \end{bmatrix}
 \end{align*}
-Since scalar multiplication is element-wise, we can write \( nA \) as:
+Since scalar multiplication is distributed element-wise in matricies, we can write \( nA \) as:
 \begin{align*} 
     nA &= \begin{bmatrix} na_{11} & na_{12} \\ 0 & na_{22} \end{bmatrix}
 \end{align*}
@@ -207,13 +207,9 @@ x_{2}\begin{bmatrix} -2 \\ 1 \\ 0 \\ 0 \end{bmatrix} + x_{3}\begin{bmatrix} 2 \\
 \begin{bmatrix} 1 & 0 & 3 \\ 0 & 1 & 4 \\ 0 & 0 & -24 \end{bmatrix}
 \\
 &\begin{cases} x_{1} + 3x_{3} = 0 \\ x_{2} + 4x_{3} = 0 \\ -24x_{3} = 0 \end{cases} \rightarrow
-\begin{cases} x_{1} = -3x_{3} \\ x_{2} = -4x_{3} \\ x_{3} = 0 \end{cases} \rightarrow
-\begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \end{bmatrix} =
-\begin{bmatrix} -3x_{3} \\ -4x_{3} \\ x_{3} \end{bmatrix} =
-x_{3}\begin{bmatrix} -3 \\ -4 \\ 1 \end{bmatrix}
+x_{1} = x_{2} = x_{3} = 0
 \\
-&N(C) = \left\{a\begin{bmatrix} -3 \\ -4 \\ 1 \end{bmatrix} : a \in \mathbb{R}\right\} =
-\text{span}\left\{\begin{bmatrix} -3 \\ -4 \\ 1 \end{bmatrix}\right\}
+&N(C) = \left\{\begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}\right\}
 \end{align*}
 
 \newpage
