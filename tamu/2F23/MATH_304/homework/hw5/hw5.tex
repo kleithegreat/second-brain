@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{5th Homework - MATH 304 508}
+\rhead{Kevin Lei}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\section*{Question 1}
+Consider the following collections of polynomials in $\mathbb{P}_2$:
+\begin{enumerate}[(a)]
+    \item $p_1(x) = 1, \quad p_2(x) = x + 1, \quad p_3(x) = x^2$.
+    \item $p_1(x) = x - 1, \quad p_2(x) = x + 1, \quad p_3(x) = x^2 - 1$.
+    \item $p_1(x) = x^2 - 1, \quad p_2(x) = x^2 + 1, \quad p_3(x) = x^2$.
+\end{enumerate}
+Decide in each case if these vectors are linearly independent.
+Write the dimension of the subspace $S := span\{p_1, p_2, p_3\}$ in each case.
+In which case(s) would we have that $S = \mathbb{P}_2$? Explain your answer.
+
+\section*{Question 2}
+Consider the following collections of smooth functions $[0,1]$:
+\begin{enumerate}
+    \item $f_1(x) = x^2$, $f_2(x) = \frac{1}{x^2}$
+    \item $f_1(x) = \cos(x)$, $f_2(x) = \sin(x)$
+    \item $f_1(x) = 1$, $f_2(x) = \frac{e^x + e^{-x}}{2}$, $f_3(x) = \frac{e^x - e^{-x}}{2}$
+\end{enumerate}
+Decide in each case if these vectors (functions) are linearly independent.
+
+\section*{Question 3}
+Find the dimension of the space spanned by the functions
+$$1, \medspace \cos(2x), \medspace \cos^2(x)$$
+
+\section*{Question 4}
+For each of the following find the transition matrix corresponding to the change of basis from $\{u_1, u_2\}$ to the standard one $\{e_1, e_2\}$:
+\begin{enumerate}[(a)]
+    \item $u_1 = (1,1)^T$, $u_2 = (-1,1)^T$
+    \item $u_1 = (1,2)^T$, $u_2 = (2,5)^T$
+    \item $u_1 = (0,1)^T$, $u_2 = (1,0)^T$
+\end{enumerate}
+Let
+$$ v_1 = (3,2)^T, \quad v_2 = (4,3)^T $$
+For each of the basis above find the transition matrix from $[v_1, v_2]$ to $[u_1, u_2]$.
+\newline
+Let
+$$ x = (2,4)^T, \quad y = (1,1)^T, \quad z = (0,10) $$
+Find the coordinates of $x, y, z$ with respect to each of the basis mentioned above.
+
+\end{document}
