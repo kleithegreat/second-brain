@@ -39,8 +39,19 @@ int main() {
   // accept target dimensions
   cout << "Input target width: ";
   cin >> targetWidth;
+
+  if(cin.fail() || targetWidth <= 0 || targetWidth > MAX_WIDTH) {
+    cout << "Invalid target dimensions" << endl;
+    return 1;  // exit with an error
+  }
+
   cout << "Input target height: ";
   cin >> targetHeight;
+
+  if(cin.fail() || targetHeight <= 0 || targetHeight > MAX_HEIGHT) {
+    cout << "Invalid target dimensions" << endl;
+    return 1;  // exit with an error
+  }
 
   // TODO: add code to validate input
   // Exit program with error if there are problems with 
