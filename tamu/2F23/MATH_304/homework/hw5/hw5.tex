@@ -40,6 +40,20 @@ In which case(s) would we have that $S = \mathbb{P}_2$? Explain your answer.
         \begin{proof}
             To show that $S = \mathbb{P}_2$, we need to show that $span\{p_1, p_2, p_3\} = \mathbb{P}_2$.
             Let $p(x) = ax^2 + bx + c$ be an arbitrary polynomial in $\mathbb{P}_2$.
+            Our goal is to show that $p(x)$ can be shown as a linear combination of $p_1, p_2, p_3$.
+            That means we must find $\alpha, \beta, \gamma$ such that:
+            $$ \alpha p_1(x) + \beta p_2(x) + \gamma p_3(x) = ax^2 + bx + c $$
+            Substituting in $p_1, p_2, p_3$, we have:
+            $$ \alpha + \beta(x + 1) + \gamma x^2 = ax^2 + bx + c $$
+            $$ \alpha + \beta x + \beta + \gamma x^2 = ax^2 + bx + c $$
+            $$ \gamma x^2 + \beta x + (\alpha + \beta) = ax^2 + bx + c $$
+            Equating coefficients, we have:
+            $$ \gamma = a, \quad \beta = b, \quad \alpha + \beta = c $$
+            Since $\beta = b$, we have that $\alpha = c - b$.
+            Substituting everyting back into the original equation, we have:
+            $$ (c - b) + b(x + 1) + ax^2 = ax^2 + bx + c $$
+            Now we can see that $p(x)$ can be written as a linear combination of $p_1, p_2, p_3$.
+            Therefore, $span\{p_1, p_2, p_3\} = \mathbb{P}_2$, and $S = \mathbb{P}_2$.
         \end{proof}
     \item
         \begin{flalign*}
@@ -50,6 +64,30 @@ In which case(s) would we have that $S = \mathbb{P}_2$? Explain your answer.
         \newline
         Since $W(p_1, p_2, p_3) \neq 0$, the vectors are linearly independent.
         The dimension of the subspace $S := span\{p_1, p_2, p_3\}$ is 3, since there are 3 linearly independent vectors in its basis.
+        \newline
+        In this case, we have that $S = \mathbb{P}_2$.
+        \begin{proof}
+            To show that $S = \mathbb{P}_2$, we need to show that $span\{p_1, p_2, p_3\} = \mathbb{P}_2$.
+            Let $p(x) = ax^2 + bx + c$ be an arbitrary polynomial in $\mathbb{P}_2$.
+            Our goal is to show that $p(x)$ can be shown as a linear combination of $p_1, p_2, p_3$.
+            That means we must find $\alpha, \beta, \gamma$ such that:
+            $$ \alpha p_1(x) + \beta p_2(x) + \gamma p_3(x) = ax^2 + bx + c $$
+            Substituting in $p_1, p_2, p_3$, we have:
+            $$ \alpha(x - 1) + \beta(x + 1) + \gamma(x^2 - 1) = ax^2 + bx + c $$
+            $$ \alpha x - \alpha + \beta x + \beta + \gamma x^2 - \gamma = ax^2 + bx + c $$
+            $$ \gamma x^2 + (\alpha + \beta) x + (\beta - \alpha - \gamma) = ax^2 + bx + c $$
+            Equating coefficients, we have:
+            $$ \gamma = a, \quad \alpha + \beta = b, \quad \beta - \alpha - \gamma = c $$
+            Now we have arbitrary elements $a, b, c$ in terms of $\alpha, \beta, \gamma$.
+            To solve for $\alpha, \beta, \gamma$ in terms of $a, b, c$, we can use the augmented matrix:
+            $$ \left[\begin{array}{ccc|ccc}
+                0 & 0 & \gamma & a & 0 & 0 \\
+                \alpha & \beta & 0 & 0 & b & 0 \\
+                -\alpha & \beta & -\gamma & 0 & 0 & c
+            \end{array}\right] $$
+            Using row operations, we have the following equivalent matricies:
+            
+        \end{proof}
     \item
         \begin{flalign*}
             W(p_1, p_2, p_3) &= \begin{vmatrix} x^2 - 1 & x^2 + 1 & x^2 \\ 2x & 2x & 2x \\ 2 & 2 & 0 \end{vmatrix}
@@ -59,6 +97,9 @@ In which case(s) would we have that $S = \mathbb{P}_2$? Explain your answer.
         \newline
         Since $W(p_1, p_2, p_3) \neq 0$, the vectors are linearly independent.
         The dimension of the subspace $S := span\{p_1, p_2, p_3\}$ is 3, since there are 3 linearly independent vectors in its basis.
+        \newline
+        In this case, $S \neq \mathbb{P}_2$, since none of the polynomials in $S$ have a term of degree 1.
+        Therefore, there is no way to represent a polynomial of degree 1 as a linear combination of $p_1, p_2, p_3$.
 \end{enumerate}
 
 \section*{Question 2}
