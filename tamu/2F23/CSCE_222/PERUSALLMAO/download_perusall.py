@@ -25,7 +25,7 @@ print("Files downloaded:", image_files)
 # Merge every 6 images vertically
 merged_images = []
 for i in range(0, len(image_files), 6):
-    segment = image_files[i:i+6]
+    segment = [f'"{img}"' for img in image_files[i:i+6]]
     merged_image_path = os.path.join(abs_folder_path, f"merged_{i//6}.png")
     os.system(f'magick convert -append {" ".join(segment)} "{merged_image_path}"')
     merged_images.append(merged_image_path)
@@ -35,6 +35,9 @@ print("Merged images:", merged_images)
 # Convert merged images to a single PDF using img2pdf
 output_pdf_path = os.path.join(os.getcwd(), f"{title}.pdf")
 print(f'Converting: {" ".join(merged_images)} to {output_pdf_path}')
+
+# Ensure each image path in merged_images is wrapped in double quotes
+merged_images = [f'"{img}"' for img in merged_images]
 
 # Use img2pdf for conversion as it typically preserves original image size without extra margins
 os.system(f'img2pdf {" ".join(merged_images)} -o "{output_pdf_path}"')

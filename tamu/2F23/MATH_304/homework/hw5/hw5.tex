@@ -86,7 +86,25 @@ In which case(s) would we have that $S = \mathbb{P}_2$? Explain your answer.
                 -\alpha & \beta & -\gamma & 0 & 0 & c
             \end{array}\right] $$
             Using row operations, we have the following equivalent matricies:
-            
+            $$
+            \left[\begin{array}{ccc|ccc}
+                0 & 0 & \gamma & a & 0 & 0 \\
+                0 & 2\beta & -\gamma & 0 & b & c \\
+                -\alpha & \beta & 0 & a & 0 & c \\
+            \end{array}\right] \sim
+            \left[\begin{array}{ccc|ccc}
+                0 & 0 & \gamma & a & 0 & 0 \\
+                0 & 2\beta & 0 & a & b & c \\
+                \alpha & -\beta & 0 & -a & 0 & -c \\
+            \end{array}\right] \sim
+            \left[\begin{array}{ccc|ccc}
+                0 & 0 & \gamma & a & 0 & 0 \\
+                0 & \beta & 0 & \frac{a}{2} & \frac{b}{2} & \frac{c}{2} \\
+                \alpha & 0 & 0 & -\frac{a}{2} & \frac{b}{2} & -\frac{c}{2} \\
+            \end{array}\right]
+            $$
+            From the last matrix, we can see that $\alpha = -\frac{a}{2} + \frac{b}{2} - \frac{c}{2}$, $\beta = \frac{a}{2} + \frac{b}{2} + \frac{c}{2}$, and $\gamma = a$.
+            Since we can write $ax^2 + bx + c$ as a linear combination of $p_1, p_2, p_3$, we have proven that $span\{p_1, p_2, p_3\} = \mathbb{P}_2$, and $S = \mathbb{P}_2$.
         \end{proof}
     \item
         \begin{flalign*}
@@ -102,6 +120,8 @@ In which case(s) would we have that $S = \mathbb{P}_2$? Explain your answer.
         Therefore, there is no way to represent a polynomial of degree 1 as a linear combination of $p_1, p_2, p_3$.
 \end{enumerate}
 
+\newpage
+
 \section*{Question 2}
 Consider the following collections of smooth functions $[0,1]$:
 \begin{enumerate}
@@ -111,9 +131,60 @@ Consider the following collections of smooth functions $[0,1]$:
 \end{enumerate}
 Decide in each case if these vectors (functions) are linearly independent.
 
+\medskip
+\noindent
+\textbf{Answer:} To check for linear independence, we can use the Wronskian determinant.
+\begin{enumerate}
+    \item
+        \begin{flalign*}
+            W(f_1, f_2) &= \begin{vmatrix} x^2 & \frac{1}{x^2} \\ 2x & -\frac{2}{x^3} \end{vmatrix}
+            = (x^2 \cdot -\frac{2}{x^3}) - (\frac{1}{x^2} \cdot 2x) = -\frac{2}{x} - \frac{2}{x} = -\frac{4}{x} &&
+        \end{flalign*}
+        \newline
+        Since $W(f_1, f_2) \neq 0$, the vectors are linearly independent.
+    \item
+        \begin{flalign*}
+            W(f_1, f_2) &= \begin{vmatrix} \cos(x) & \sin(x) \\ -\sin(x) & \cos(x) \end{vmatrix}
+            = \cos^2(x) + \sin^2(x) = 1 &&
+        \end{flalign*}
+        \newline
+        Since $W(f_1, f_2) \neq 0$, the vectors are linearly independent.
+    \item
+        \begin{flalign*}
+            W(f_1, f_2, f_3) &= \begin{vmatrix} 1 & \frac{e^x + e^{-x}}{2} & \frac{e^x - e^{-x}}{2} \\ 0 & \frac{e^x - e^{-x}}{2} & \frac{e^x + e^{-x}}{2} \\ 0 & \frac{e^x + e^{-x}}{2} & \frac{e^x - e^{-x}}{2} \end{vmatrix}
+            = \begin{vmatrix} \frac{e^x - e^{-x}}{2} & \frac{e^x + e^{-x}}{2} \\ \frac{e^x + e^{-x}}{2} & \frac{e^x - e^{-x}}{2} \end{vmatrix} && \\
+            &= \frac{e^x - e^{-x}}{2} \cdot \frac{e^x - e^{-x}}{2} - \frac{e^x + e^{-x}}{2} \cdot \frac{e^x + e^{-x}}{2} && \\
+            &= \frac{e^{2x} - 2 + e^{-2x}}{4} - \frac{e^{2x} + 2 + e^{-2x}}{4} && \\
+            &= 0 &&
+        \end{flalign*}
+        \newline
+        Since $W(f_1, f_2, f_3) = 0$, the vectors are linearly dependent.
+\end{enumerate}
+
+\newpage
+
 \section*{Question 3}
 Find the dimension of the space spanned by the functions
 $$1, \medspace \cos(2x), \medspace \cos^2(x)$$
+\noindent
+\textbf{Answer:}
+To find the dimension of the space spanned by these vectors, first we need to check for linear independence.
+Since these vectors are functions, we can use the Wronskian determinant.
+\begin{flalign*}
+    W(1, \cos(2x), \cos^2(x)) &= \begin{vmatrix} 1 & \cos(2x) & \cos^2(x) \\ 0 & -2\sin(2x) & -2\sin(x)\cos(x) \\ 0 & -4\cos(2x) & 2\sin^2(x)-2cos^2(x) \end{vmatrix} && \\
+    &= (-2\sin(2x) \cdot (2\sin^2(x)-2\cos^2(x))) - (-4\cos(2x) \cdot (-2\sin(x)\cos(x))) && \\
+    &= -4\sin(2x)\sin^2(x) + 4\sin(2x)\cos^2(x) - 8\sin(x)\cos(x)\cos(2x) && \\
+    &= -4\sin(2x)(\sin^2(x) - \cos^2(x)) - 8\sin(x)\cos(x)\cos(2x) && \\
+    &= -4\sin(2x)(-\cos(2x)) - 8\sin(x)\cos(x)\cos(2x) && \\
+    &= 4\sin(2x)\cos(2x) - 4\sin(2x)\cos(2x) && \\
+    &= 0 &&
+\end{flalign*}
+At this point, it is obvious that the vectors are linearly dependent, since the Wronskian determinant is 0, 
+and there exists the double angle identity $\cos(2x) = \frac{1}{2}(1-\cos^2(x))$, which directly implies that one of the vectors can be written as a linear combination of the other two.
+This means that if you choose any two vectors in this set, one of them will be redundant.
+Therefore, the dimension of the space spanned by these vectors is 2.
+
+\newpage
 
 \section*{Question 4}
 For each of the following find the transition matrix corresponding to the change of basis from $\{u_1, u_2\}$ to the standard one $\{e_1, e_2\}$:
