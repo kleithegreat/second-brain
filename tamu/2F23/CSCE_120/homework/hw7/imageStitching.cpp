@@ -4,7 +4,11 @@
 #include <cmath>
 #include "functions.h"
 
-using std::cout, std::endl, std::cin, std::string, std::stringstream;
+using std::cout;
+using std::endl;
+using std::cin;
+using std::string;
+using std::stringstream;
 
 int main() {
   // 2D array of pixels
