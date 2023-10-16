@@ -103,8 +103,10 @@ In which case(s) would we have that $S = \mathbb{P}_2$? Explain your answer.
                 \alpha & 0 & 0 & -\frac{a}{2} & \frac{b}{2} & -\frac{c}{2} \\
             \end{array}\right]
             $$
-            From the last matrix, we can see that $\alpha = -\frac{a}{2} + \frac{b}{2} - \frac{c}{2}$, $\beta = \frac{a}{2} + \frac{b}{2} + \frac{c}{2}$, and $\gamma = a$.
-            Since we can write $ax^2 + bx + c$ as a linear combination of $p_1, p_2, p_3$, we have proven that $span\{p_1, p_2, p_3\} = \mathbb{P}_2$, and $S = \mathbb{P}_2$.
+            From the last matrix, we can see that $\alpha = -\frac{a}{2} + \frac{b}{2} - \frac{c}{2}$, 
+            $\beta = \frac{a}{2} + \frac{b}{2} + \frac{c}{2}$, and $\gamma = a$.
+            Since we can write $ax^2 + bx + c$ as a linear combination of $p_1, p_2, p_3$, 
+            we have proven that $span\{p_1, p_2, p_3\} = \mathbb{P}_2$, and $S = \mathbb{P}_2$.
         \end{proof}
     \item
         \begin{flalign*}
@@ -151,8 +153,12 @@ Decide in each case if these vectors (functions) are linearly independent.
         Since $W(f_1, f_2) \neq 0$, the vectors are linearly independent.
     \item
         \begin{flalign*}
-            W(f_1, f_2, f_3) &= \begin{vmatrix} 1 & \frac{e^x + e^{-x}}{2} & \frac{e^x - e^{-x}}{2} \\ 0 & \frac{e^x - e^{-x}}{2} & \frac{e^x + e^{-x}}{2} \\ 0 & \frac{e^x + e^{-x}}{2} & \frac{e^x - e^{-x}}{2} \end{vmatrix}
-            = \begin{vmatrix} \frac{e^x - e^{-x}}{2} & \frac{e^x + e^{-x}}{2} \\ \frac{e^x + e^{-x}}{2} & \frac{e^x - e^{-x}}{2} \end{vmatrix} && \\
+            W(f_1, f_2, f_3) 
+            &= \begin{vmatrix} 1 & \frac{e^x + e^{-x}}{2} & \frac{e^x - e^{-x}}{2} \\ 
+                0 & \frac{e^x - e^{-x}}{2} & \frac{e^x + e^{-x}}{2} \\ 
+                0 & \frac{e^x + e^{-x}}{2} & \frac{e^x - e^{-x}}{2} \end{vmatrix}
+            = \begin{vmatrix} \frac{e^x - e^{-x}}{2} & \frac{e^x + e^{-x}}{2} \\ 
+                \frac{e^x + e^{-x}}{2} & \frac{e^x - e^{-x}}{2} \end{vmatrix} && \\
             &= \frac{e^x - e^{-x}}{2} \cdot \frac{e^x - e^{-x}}{2} - \frac{e^x + e^{-x}}{2} \cdot \frac{e^x + e^{-x}}{2} && \\
             &= \frac{e^{2x} - 2 + e^{-2x}}{4} - \frac{e^{2x} + 2 + e^{-2x}}{4} && \\
             &= 0 &&
@@ -171,7 +177,8 @@ $$1, \medspace \cos(2x), \medspace \cos^2(x)$$
 To find the dimension of the space spanned by these vectors, first we need to check for linear independence.
 Since these vectors are functions, we can use the Wronskian determinant.
 \begin{flalign*}
-    W(1, \cos(2x), \cos^2(x)) &= \begin{vmatrix} 1 & \cos(2x) & \cos^2(x) \\ 0 & -2\sin(2x) & -2\sin(x)\cos(x) \\ 0 & -4\cos(2x) & 2\sin^2(x)-2cos^2(x) \end{vmatrix} && \\
+    W(1, \cos(2x), \cos^2(x)) 
+    &= \begin{vmatrix} 1 & \cos(2x) & \cos^2(x) \\ 0 & -2\sin(2x) & -2\sin(x)\cos(x) \\ 0 & -4\cos(2x) & 2\sin^2(x)-2cos^2(x) \end{vmatrix} && \\
     &= (-2\sin(2x) \cdot (2\sin^2(x)-2\cos^2(x))) - (-4\cos(2x) \cdot (-2\sin(x)\cos(x))) && \\
     &= -4\sin(2x)\sin^2(x) + 4\sin(2x)\cos^2(x) - 8\sin(x)\cos(x)\cos(2x) && \\
     &= -4\sin(2x)(\sin^2(x) - \cos^2(x)) - 8\sin(x)\cos(x)\cos(2x) && \\
@@ -180,7 +187,8 @@ Since these vectors are functions, we can use the Wronskian determinant.
     &= 0 &&
 \end{flalign*}
 At this point, it is obvious that the vectors are linearly dependent, since the Wronskian determinant is 0, 
-and there exists the double angle identity $\cos(2x) = \frac{1}{2}(1-\cos^2(x))$, which directly implies that one of the vectors can be written as a linear combination of the other two.
+and there exists the double angle identity $\cos(2x) = \frac{1}{2}(1-\cos^2(x))$, 
+which directly implies that one of the vectors can be written as a linear combination of the other two.
 This means that if you choose any two vectors in this set, one of them will be redundant.
 Therefore, the dimension of the space spanned by these vectors is 2.
 
@@ -200,5 +208,91 @@ For each of the basis above find the transition matrix from $[v_1, v_2]$ to $[u_
 Let
 $$ x = (2,4)^T, \quad y = (1,1)^T, \quad z = (0,10) $$
 Find the coordinates of $x, y, z$ with respect to each of the basis mentioned above.
+
+\medskip
+\noindent
+\textbf{Answer}
+\begin{enumerate}[(a)]
+    \item 
+    $u_1 = (1,1)^T$, $u_2 = (-1,1)^T$
+    \newline
+    The transition matrix from $\{u_1, u_2\}$ to $\{e_1, e_2\}$ is:
+    $$ U = \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix} $$
+    The transition matrix from $[v_1, v_2]$ to $[u_1, u_2]$ is $U^{-1}V$, 
+    where $U$ is the transition matrix from $\{u_1, u_2\}$ to $\{e_1, e_2\}$, 
+    and $V$ is the transition matrix from $\{v_1, v_2\}$ to $\{e_1, e_2\}$.
+    We have that:
+    $$ U^{-1} = \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & \frac{1}{2} \end{bmatrix} \quad 
+    V = \begin{bmatrix} 3 & 4 \\ 2 & 3 \end{bmatrix} $$
+    The transition matrix from $[v_1, v_2]$ to $[u_1, u_2]$ is:
+    $$ U^{-1}V = \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & \frac{1}{2} \end{bmatrix} \begin{bmatrix} 3 & 4 \\ 2 & 3 \end{bmatrix}
+     = \begin{bmatrix} \frac{3}{2} + \frac{2}{2} & \frac{4}{2} + \frac{3}{2} \\ -\frac{3}{2} - \frac{2}{2} & -\frac{4}{2} + \frac{3}{2} \end{bmatrix}
+     = \begin{bmatrix} \frac{5}{2} & \frac{7}{2} \\ -\frac{5}{2} & -\frac{1}{2} \end{bmatrix} $$
+    The coordinates of $x, y, z$ with respect to $\{u_1, u_2\}$ are:
+    $$ 
+    x = \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix}
+     = \begin{bmatrix} -2 \\ 6 \end{bmatrix} 
+    \quad
+    y = \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+     = \begin{bmatrix} 0 \\ 2 \end{bmatrix}
+    \quad
+    z = \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 0 \\ 10 \end{bmatrix}
+     = \begin{bmatrix} -10 \\ 10 \end{bmatrix}
+    $$
+    \newline
+    The coordinates of $x, y, z$ with respect to $\{v_1, v_2\}$ are:
+    $$
+    x = \begin{bmatrix} 3 & 4 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix}
+     = \begin{bmatrix} 22 \\ 16 \end{bmatrix}
+    \quad
+    y = \begin{bmatrix} 3 & 4 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+     = \begin{bmatrix} 7 \\ 5 \end{bmatrix}
+    \quad
+    z = \begin{bmatrix} 3 & 4 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 0 \\ 10 \end{bmatrix}
+     = \begin{bmatrix} 40 \\ 30 \end{bmatrix}
+    $$
+
+    \item
+    $u_1 = (1,2)^T$, $u_2 = (2,5)^T$
+    The transition matrix from $\{u_1, u_2\}$ to $\{e_1, e_2\}$ is:
+    $$ U = \begin{bmatrix} 1 & 2 \\ 2 & 5 \end{bmatrix} $$
+    The transition matrix from $[v_1, v_2]$ to $[u_1, u_2]$ is $U^{-1}V$.
+    We have the following:
+    $$ U^{-1} = \begin{bmatrix} 5 & -2 \\ -2 & 1 \end{bmatrix} \quad
+    V = \begin{bmatrix} 3 & 4 \\ 2 & 3 \end{bmatrix} $$
+    $$ U^{-1}V = \begin{bmatrix} 15-4 & 20-6 \\ -6+2 & -8+3 \end{bmatrix} = 
+    \begin{bmatrix} 11 & 14 \\ -4 & -5 \end{bmatrix} $$
+    The coordinates of $x, y, z$ with respect to $\{u_1, u_2\}$ are:
+    $$
+    x = \begin{bmatrix} 1 & 2 \\ 2 & 5 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix}
+     = \begin{bmatrix} 10 \\ 24 \end{bmatrix}
+    \quad
+    y = \begin{bmatrix} 1 & 2 \\ 2 & 5 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+     = \begin{bmatrix} 3 \\ 7 \end{bmatrix}
+    \quad
+    z = \begin{bmatrix} 1 & 2 \\ 2 & 5 \end{bmatrix} \begin{bmatrix} 0 \\ 10 \end{bmatrix}
+     = \begin{bmatrix} 20 \\ 50 \end{bmatrix}
+    $$
+    \item
+    $u_1 = (0,1)^T$, $u_2 = (1,0)^T$
+    The transition matrix from $\{u_1, u_2\}$ to $\{e_1, e_2\}$:
+    $$ U = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} $$
+    The transition matrix from $[v_1, v_2]$ to $[u_1, u_2]$:
+    $$ U^{-1} = \begin{bmatrix} 0 & -1 \\ -1 & 0 \end{bmatrix} \quad
+    V = \begin{bmatrix} 3 & 4 \\ 2 & 3 \end{bmatrix} $$
+    $$ U^{-1}V = \begin{bmatrix} 0-2 & 0-3 \\ -3-0 & -4-0 \end{bmatrix} =
+    \begin{bmatrix} -2 & -3 \\ -3 & -4 \end{bmatrix} $$
+    The coordinates of $x, y, z$ with respect to $\{u_1, u_2\}$ are:
+    $$
+    x = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix}
+     = \begin{bmatrix} 4 \\ 2 \end{bmatrix}
+    \quad
+    y = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+     = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+    \quad
+    z = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 \\ 10 \end{bmatrix}
+     = \begin{bmatrix} 10 \\ 0 \end{bmatrix}
+    $$
+\end{enumerate}
 
 \end{document}
