@@ -1,0 +1,4 @@
+ppm/image1.ppm
+ppm/image1_corners.txt
+ppm/image2.ppm
+ppm/image2_corners.txt
