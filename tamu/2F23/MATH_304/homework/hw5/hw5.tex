@@ -127,7 +127,7 @@ In which case(s) would we have that $S = \mathbb{P}_2$? Explain your answer.
 \section*{Question 2}
 Consider the following collections of smooth functions $[0,1]$:
 \begin{enumerate}
-    \item $f_1(x) = x^2$, $f_2(x) = \frac{1}{x^2}$
+    \item $f_1(x) = x^2$, $f_2(x) = x^{\frac{1}{2}}$
     \item $f_1(x) = \cos(x)$, $f_2(x) = \sin(x)$
     \item $f_1(x) = 1$, $f_2(x) = \frac{e^x + e^{-x}}{2}$, $f_3(x) = \frac{e^x - e^{-x}}{2}$
 \end{enumerate}
@@ -139,8 +139,8 @@ Decide in each case if these vectors (functions) are linearly independent.
 \begin{enumerate}
     \item
         \begin{flalign*}
-            W(f_1, f_2) &= \begin{vmatrix} x^2 & \frac{1}{x^2} \\ 2x & -\frac{2}{x^3} \end{vmatrix}
-            = (x^2 \cdot -\frac{2}{x^3}) - (\frac{1}{x^2} \cdot 2x) = -\frac{2}{x} - \frac{2}{x} = -\frac{4}{x} &&
+            W(f_1, f_2) &= \begin{vmatrix} x^2 & x^{\frac{1}{2}} \\ 2x & \frac{1}{2}x^{-\frac{1}{2}} \end{vmatrix}
+            = (x^2 \cdot \frac{1}{2}x^{-\frac{1}{2}}) - (x^{\frac{1}{2}} \cdot 2x) = \frac{1}{2}x^{\frac{3}{2}} - 2x^{\frac{3}{2}} = -\frac{3}{2}x^{\frac{3}{2}} &&
         \end{flalign*}
         \newline
         Since $W(f_1, f_2) \neq 0$, the vectors are linearly independent.
@@ -230,26 +230,29 @@ Find the coordinates of $x, y, z$ with respect to each of the basis mentioned ab
      = \begin{bmatrix} \frac{5}{2} & \frac{7}{2} \\ -\frac{5}{2} & -\frac{1}{2} \end{bmatrix} $$
     The coordinates of $x, y, z$ with respect to $\{u_1, u_2\}$ are:
     $$ 
-    x = \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix}
-     = \begin{bmatrix} -2 \\ 6 \end{bmatrix} 
+    x = \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & \frac{1}{2} \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix}
+     = \begin{bmatrix} 3 \\ 1 \end{bmatrix}
     \quad
-    y = \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
-     = \begin{bmatrix} 0 \\ 2 \end{bmatrix}
+    y = \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & \frac{1}{2} \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+     = \begin{bmatrix} 1 \\ 0 \end{bmatrix}
     \quad
-    z = \begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 0 \\ 10 \end{bmatrix}
-     = \begin{bmatrix} -10 \\ 10 \end{bmatrix}
+    z = \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & \frac{1}{2} \end{bmatrix} \begin{bmatrix} 0 \\ 10 \end{bmatrix}
+     = \begin{bmatrix} 5 \\ 5 \end{bmatrix}
     $$
     \newline
     The coordinates of $x, y, z$ with respect to $\{v_1, v_2\}$ are:
     $$
-    x = \begin{bmatrix} 3 & 4 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix}
-     = \begin{bmatrix} 22 \\ 16 \end{bmatrix}
+    V^{-1} = \begin{bmatrix} 3 & 4 \\ 2 & 3 \end{bmatrix}^{-1} = \begin{bmatrix} 3 & -4 \\ -2 & 3 \end{bmatrix}
+    $$
+    $$
+    x = \begin{bmatrix} 3 & -4 \\ -2 & 3 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix}
+     = \begin{bmatrix} -10 \\ 8 \end{bmatrix}
     \quad
-    y = \begin{bmatrix} 3 & 4 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
-     = \begin{bmatrix} 7 \\ 5 \end{bmatrix}
+    y = \begin{bmatrix} 3 & -4 \\ -2 & 3 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+     = \begin{bmatrix} -1 \\ 1 \end{bmatrix}
     \quad
-    z = \begin{bmatrix} 3 & 4 \\ 2 & 3 \end{bmatrix} \begin{bmatrix} 0 \\ 10 \end{bmatrix}
-     = \begin{bmatrix} 40 \\ 30 \end{bmatrix}
+    z = \begin{bmatrix} 3 & -4 \\ -2 & 3 \end{bmatrix} \begin{bmatrix} 0 \\ 10 \end{bmatrix}
+     = \begin{bmatrix} -40 \\ 30 \end{bmatrix}
     $$
 
     \item
@@ -264,14 +267,14 @@ Find the coordinates of $x, y, z$ with respect to each of the basis mentioned ab
     \begin{bmatrix} 11 & 14 \\ -4 & -5 \end{bmatrix} $$
     The coordinates of $x, y, z$ with respect to $\{u_1, u_2\}$ are:
     $$
-    x = \begin{bmatrix} 1 & 2 \\ 2 & 5 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix}
-     = \begin{bmatrix} 10 \\ 24 \end{bmatrix}
+    x = \begin{bmatrix} 5 & -2 \\ -2 & 1 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix}
+     = \begin{bmatrix} 2 \\ 0 \end{bmatrix}
     \quad
-    y = \begin{bmatrix} 1 & 2 \\ 2 & 5 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
-     = \begin{bmatrix} 3 \\ 7 \end{bmatrix}
+    y = \begin{bmatrix} 5 & -2 \\ -2 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+     = \begin{bmatrix} 3 \\ -1 \end{bmatrix}
     \quad
-    z = \begin{bmatrix} 1 & 2 \\ 2 & 5 \end{bmatrix} \begin{bmatrix} 0 \\ 10 \end{bmatrix}
-     = \begin{bmatrix} 20 \\ 50 \end{bmatrix}
+    z = \begin{bmatrix} 5 & -2 \\ -2 & 1 \end{bmatrix} \begin{bmatrix} 0 \\ 10 \end{bmatrix}
+     = \begin{bmatrix} -20 \\ 10 \end{bmatrix}
     $$
     \item
     $u_1 = (0,1)^T$, $u_2 = (1,0)^T$
@@ -284,14 +287,14 @@ Find the coordinates of $x, y, z$ with respect to each of the basis mentioned ab
     \begin{bmatrix} -2 & -3 \\ -3 & -4 \end{bmatrix} $$
     The coordinates of $x, y, z$ with respect to $\{u_1, u_2\}$ are:
     $$
-    x = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix}
-     = \begin{bmatrix} 4 \\ 2 \end{bmatrix}
+    x = \begin{bmatrix} 0 & -1 \\ -1 & 0 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix}
+     = \begin{bmatrix} -4 \\ -2 \end{bmatrix}
     \quad
-    y = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
-     = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+    y = \begin{bmatrix} 0 & -1 \\ -1 & 0 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+     = \begin{bmatrix} -1 \\ -1 \end{bmatrix}
     \quad
-    z = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 \\ 10 \end{bmatrix}
-     = \begin{bmatrix} 10 \\ 0 \end{bmatrix}
+    z = \begin{bmatrix} 0 & -1 \\ -1 & 0 \end{bmatrix} \begin{bmatrix} 0 \\ 10 \end{bmatrix}
+     = \begin{bmatrix} -10 \\ 0 \end{bmatrix}
     $$
 \end{enumerate}
 
