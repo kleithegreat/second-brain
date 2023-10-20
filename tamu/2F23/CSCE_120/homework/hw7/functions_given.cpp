@@ -3,7 +3,6 @@
 #include <fstream>
 #include <cmath>
 #include "functions.h"
-#include<bits/stdc++.h>
 using namespace std;
 
 #define N 9	 // Number of unknowns
@@ -36,6 +35,10 @@ void transformEstimation(double transformationMatrix[3][3], CornerPair pairs[MAX
     // find 3 pairs with least error
     CornerPair p[PAIRS];
     int least_error_indices[PAIRS];
+
+    for(int i = 0; i < PAIRS; i++){
+        least_error_indices[i] = matchCount + 1;
+    }
 
     for (int i = 0; i < PAIRS; i++){
         double min_error = INFINITY;

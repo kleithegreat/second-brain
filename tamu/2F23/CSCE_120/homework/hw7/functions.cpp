@@ -31,26 +31,27 @@ double errorCalculation(Pixel image1[][MAX_HEIGHT], const unsigned int width1, c
                         Corner image1corner,
                         Pixel image2[][MAX_HEIGHT], const unsigned int width2, const unsigned int height2,
                         Corner image2corner) {
-    double error = 0;
 
-    for (int i = -1; i <= 1; i++) {
-        for (int j = -1; j <= 1; j++) {
-            int x1 = image1corner.x + i;
-            int y1 = image1corner.y + j;
-            int x2 = image2corner.x + i;
-            int y2 = image2corner.y + j;
-
-            if (x1 < 0 || y1 < 0 || x1 >= static_cast<int>(width1) || y1 >= static_cast<int>(height1) ||
-                x2 < 0 || y2 < 0 || x2 >= static_cast<int>(width2) || y2 >= static_cast<int>(height2)) {
-                return INFINITY;
-            }
-
-            error += abs(image1[x1][y1].r - image2[x2][y2].r);
-            error += abs(image1[x1][y1].g - image2[x2][y2].g);
-            error += abs(image1[x1][y1].b - image2[x2][y2].b);
-        }
+    int hood = ERROR_NEIGHBORHOOD_SIZE;
+    
+    if (static_cast<int>(image1corner.x) - hood/2 < 0 || image1corner.x + hood/2 >= width1 ||
+        static_cast<int>(image1corner.y) - hood/2 < 0 || image1corner.y + hood/2 >= height1 ||
+        static_cast<int>(image2corner.x) - hood/2 < 0 || image2corner.x + hood/2 >= width2 ||
+        static_cast<int>(image2corner.y) - hood/2 < 0 || image2corner.y + hood/2 >= height2) {
+        return INFINITY;
     }
 
+    double error = 0;
+
+    for (int i = -hood/2; i <= hood/2; i++) {
+        for (int j = -hood/2; j <= hood/2; j++) {
+            int dr = image1[image1corner.x + i][image1corner.y + j].r - image2[image2corner.x + i][image2corner.y + j].r;
+            int dg = image1[image1corner.x + i][image1corner.y + j].g - image2[image2corner.x + i][image2corner.y + j].g;
+            int db = image1[image1corner.x + i][image1corner.y + j].b - image2[image2corner.x + i][image2corner.y + j].b;
+
+            error += abs(dr) + abs(dg) + abs(db);
+        }
+    }
     return error;
 }
 
@@ -60,49 +61,39 @@ void matchCorners(CornerPair matchedPairs[MAX_CORNERS], unsigned int &matched_co
                   Corner image1corners[], unsigned int image1CornerCount,
                   Pixel image2[][MAX_HEIGHT], const unsigned int width2, const unsigned int height2,
                   Corner image2corners[], unsigned int image2CornerCount) {
-
-    struct PossibleMatch {
-        double error;
-        unsigned int image1Index;
-        unsigned int image2Index;
-    };
-
-    PossibleMatch allMatches[MAX_CORNERS * MAX_CORNERS];
-    unsigned int allMatchesCount = 0;
-
+    
+    Corner usedCorners[MAX_CORNERS] = {};
+    
     for (unsigned int i = 0; i < image1CornerCount; i++) {
-        for (unsigned int j = 0; j < image2CornerCount; j++) {
-            double currentError = errorCalculation(image1, width1, height1, image1corners[i],
-                                                   image2, width2, height2, image2corners[j]);
-            allMatches[allMatchesCount] = {currentError, i, j};
-            allMatchesCount++;
-        }
-    }
+        double minError = INFINITY;
+        Corner img1min;
+        Corner img2min;
 
-    for (unsigned int i = 0; i < allMatchesCount - 1; i++) {
-        for (unsigned int j = 0; j < allMatchesCount - 1 - i; j++) {
-            if (allMatches[j].error > allMatches[j + 1].error) {
-                PossibleMatch temp = allMatches[j];
-                allMatches[j] = allMatches[j + 1];
-                allMatches[j + 1] = temp;
+        for (unsigned int j = 0; j < image2CornerCount; j++) {
+            bool used = false;
+            for (unsigned int k = 0; k < matched_count; k++) {
+                if (image2corners[j].x == usedCorners[k].x && image2corners[j].y == usedCorners[k].y) {
+                    used = true;
+                    break;
+                }
+            }
+
+            if (used) continue;
+
+            double error = errorCalculation(image1, width1, height1, image1corners[i],
+                                            image2, width2, height2, image2corners[j]);
+            if (error < minError) {
+                minError = error;
+                img1min = image1corners[i];
+                img2min = image2corners[j];
             }
         }
-    }
 
-    bool image1CornerMatched[MAX_CORNERS] = {false};
-    bool image2CornerMatched[MAX_CORNERS] = {false};
-
-    matched_count = 0;
-
-    for (unsigned int i = 0; i < allMatchesCount && matched_count < MAX_CORNERS; i++) {
-        if (!image1CornerMatched[allMatches[i].image1Index] && !image2CornerMatched[allMatches[i].image2Index]) {
-            matchedPairs[matched_count].image1Corner = image1corners[allMatches[i].image1Index];
-            matchedPairs[matched_count].image2Corner = image2corners[allMatches[i].image2Index];
-            matchedPairs[matched_count].error = allMatches[i].error;
-            
-            image1CornerMatched[allMatches[i].image1Index] = true;
-            image2CornerMatched[allMatches[i].image2Index] = true;
-            
+        if (minError < INFINITY){
+            matchedPairs[matched_count].image1Corner = img1min;
+            matchedPairs[matched_count].image2Corner = img2min;
+            matchedPairs[matched_count].error = minError;
+            usedCorners[matched_count] = img2min;
             matched_count++;
         }
     }
