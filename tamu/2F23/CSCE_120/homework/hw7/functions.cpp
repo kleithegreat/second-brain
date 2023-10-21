@@ -115,34 +115,39 @@ void mapCoordinates(const double H[3][3], unsigned int x, unsigned int y,
 void mergeImages(Pixel image1[][MAX_HEIGHT], unsigned int &width1, unsigned int &height1,
                  Pixel image2[][MAX_HEIGHT], const unsigned int width2, const unsigned int height2,
                  double H[3][3]) {
-    Pixel tempImage[MAX_WIDTH][MAX_HEIGHT] = {};
 
-    for (unsigned int col = 0; col < width1; col++) {
-        for (unsigned int row = 0; row < height1; row++) {
-            
-            double w = H[2][0] * col + H[2][1] * row + H[2][2];
-            double mappedX = (H[0][0] * col + H[0][1] * row + H[0][2]) / w;
-            double mappedY = (H[1][0] * col + H[1][1] * row + H[1][2]) / w;
+    for (unsigned int i = 0; i < MAX_WIDTH; i++) {
+        for (unsigned int j = 0; j < MAX_HEIGHT; j++) {
 
+            double mappedX;
+            double mappedY;
+            mapCoordinates(H, i, j, mappedX, mappedY);
+
+            bool I2Defined = false;
+            Pixel I2_pixel;
             if (mappedX >= 0 && mappedX < width2 && mappedY >= 0 && mappedY < height2) {
-                Pixel I2_pixel = bilinear_interpolation(image2, width2, height2, mappedX, mappedY);
-                Pixel I1_pixel = image1[col][row];
-
-                Pixel mergedPixel;
-                mergedPixel.r = (I1_pixel.r + I2_pixel.r) / 2;
-                mergedPixel.g = (I1_pixel.g + I2_pixel.g) / 2;
-                mergedPixel.b = (I1_pixel.b + I2_pixel.b) / 2;
-
-                tempImage[col][row] = mergedPixel;
-            } else {
-                tempImage[col][row] = image1[col][row];
+                I2_pixel = bilinear_interpolation(image2, width2, height2, mappedX, mappedY);
+                I2Defined = true;
             }
-        }
-    }
 
-    for (unsigned int col = 0; col < width1; col++) {
-        for (unsigned int row = 0; row < height1; row++) {
-            image1[col][row] = tempImage[col][row];
+            bool I1Defined = false;
+            Pixel I1_pixel;
+            if (i < width1 && j < height1) {
+                I1_pixel = image1[i][j];
+                I1Defined = true;
+            }
+
+            if (I1Defined && I2Defined) {
+                image1[i][j] = {static_cast<short>((I1_pixel.r + I2_pixel.r) / 2),
+                                static_cast<short>((I1_pixel.g + I2_pixel.g) / 2),
+                                static_cast<short>((I1_pixel.b + I2_pixel.b) / 2)};
+            } else if (I1Defined && !I2Defined) {
+                image1[i][j] = I1_pixel;
+            } else if (I2Defined && !I1Defined) {
+                image1[i][j] = I2_pixel;
+            } else {
+                image1[i][j] = {0, 0, 0};
+            }
         }
     }
 
