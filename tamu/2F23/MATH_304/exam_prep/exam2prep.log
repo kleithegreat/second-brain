@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  22 OCT 2023 21:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  22 OCT 2023 21:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./hw6.tex
-(hw6.tex
+**./exam2prep.tex
+(exam2prep.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
 
@@ -151,8 +151,9 @@ backend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count271
 \l__pdf_internal_box=\box53
-) (hw6.aux)
-\openout1 = `hw6.aux'.
+)
+No file exam2prep.aux.
+\openout1 = `exam2prep.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
@@ -168,100 +169,29 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
-
-
-(C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
-a.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
-
-
-(C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
-b.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Overfull \hbox (2.37218pt too wide) in paragraph at lines 21--22
-[]\OT1/cmr/m/n/10 Find the tran-si-tion ma-trix cor-re-spond-ing to the change 
-of ba-sis from $[]$
- []
-
-
-Overfull \hbox (30.55585pt too wide) detected at line 38
-[] \OMS/cmsy/m/n/10 ^^X [] ^^X []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--50
-
- []
-
-
-LaTeX Warning: The counter will not be printed.
-             The label is: (b) on input line 51.
-
-
-Overfull \hbox (3.50063pt too wide) in paragraph at lines 53--54
-[]\OT1/cmr/m/n/10 Find the tran-si-tion ma-trix cor-re-spond-ing to the change 
-of ba-sis from $[]$
- []
-
 [1{C:/Users/kevin/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdftex
 .map}
 
-]
-
-LaTeX Warning: The counter will not be printed.
-             The label is: (c) on input line 63.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
-
- []
-
-
-LaTeX Warning: The counter will not be printed.
-             The label is: (d) on input line 81.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--104
-
- []
-
-
-LaTeX Warning: The counter will not be printed.
-             The label is: (e) on input line 105.
-
-[2] [3] [4] (hw6.aux)
+] (exam2prep.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1978 strings out of 475248
- 28906 string characters out of 5752602
- 1943785 words of memory out of 5000000
- 23533 multiletter control sequences out of 15000+600000
- 560681 words of font info for 47 fonts, out of 8000000 for 9000
+ 1934 strings out of 475248
+ 28029 string characters out of 5752602
+ 1919785 words of memory out of 5000000
+ 23505 multiletter control sequences out of 15000+600000
+ 558674 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,11n,65p,222b,213s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 56i,11n,65p,228b,211s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/
-fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/kevin/scoop/apps/miktex/cur
-rent/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/kevin/s
-coop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.p
-fb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/
-amsfonts/cm/cmmi7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/
-fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/kevin/scoop/apps/miktex/curr
-ent/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/kevin/scoo
-p/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-<C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/ams
-fonts/cm/cmsy7.pfb>
-Output written on hw6.pdf (4 pages, 106688 bytes).
+msfonts/cm/cmbx12.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/
+fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on exam2prep.pdf (1 page, 26658 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
+ 16 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
