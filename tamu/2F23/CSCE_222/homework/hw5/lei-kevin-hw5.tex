@@ -87,7 +87,20 @@ Please do not change this overall formatting.
 \begin{problem} (10 points) Section 11.1, Exercise 11.3 
 \end{problem}
 \begin{solution}
-i)
+To determine who is correct in this situation, we can use the definition of asymptotic equality. 
+We have that $f(n) = n^2 + 2n$ and $g(n) = n^2$.
+Taking the limit of $\frac{f(n)}{g(n)}$ as $n$ approaches infinity, we have:
+$$ \lim_{n \to \infty} \frac{f(n)}{g(n)} = \lim_{n \to \infty} \frac{n^2 + 2n}{n^2} = \lim_{n \to \infty} \frac{n + 2}{n} $$
+Using L'Hopital's rule, we have:
+$$ \lim_{n \to \infty} \frac{n + 2}{n} = \lim_{n \to \infty} \frac{1}{1} = 1 $$
+This means that by definition, $f(n) \sim g(n)$, so Ernie is correct.
+Bert says that $f$ and $g$ cannot be asymptotically equal since $f(n) - g(n) \geq 2n$ for all $n \geq 1$.
+However, this is the wrong way to look at asymptotic equality.
+Asymptotic equality is supposed to describe the behavior of functions for large inputs.
+Bert is focusing on the absolute difference between the functions $f$ and $g$.
+However, asymptotic equality deals with the relative error $(f(n) - g(n)) / g(n)$.
+In the case of $f(n) = n^2 + 2n$ and $g(n) = n^2$, the relative error does vanish for large inputs,
+since it is this limit: $\lim_{n \to \infty} \frac{f(n) - g(n)}{g(n)} = \lim_{n \to \infty} \frac{2n}{n^2} = \lim_{n \to \infty} \frac{2}{n} = 0$.
 \end{solution}
 
 \newpage
@@ -96,6 +109,44 @@ i)
 and use the definition to answer the questions.] 
 \end{problem}
 \begin{solution}
+Given that $f: \N_1 \to \R$ and $g: \N_1 \to \R$,
+the functions $f$ and $g$ have the same order of growth (represented by $f \asymp g$) 
+if and only if there exist positive real constants $c$ and $C$ 
+and a positive integer $n_0$ such that $$c|g(n)| \leq |f(n)| \leq C|g(n)|$$ for all $n \geq n_0$.
+To show that this is an equivalence relation, we need to show the following:
+\begin{enumerate}[(i)]
+\item $f \asymp f$
+\newline
+Here we need to find positive real constants $c$ and $C$ and a positive integer $n_0$ 
+such that $c|f(n)| \leq |f(n)| \leq C|f(n)|$ for all $n \geq n_0$.
+The obvious choice is $c = C = 1$ and $n_0 = 1$, so the relation is reflexive.
+\item $f \asymp g$ if and only if $g \asymp f$.
+\newline
+Suppose that $f \asymp g$.
+This implies that there exist positive real constants $c$ and $C$ and a positive integer $n_0$
+such that $c|g(n)| \leq |f(n)| \leq C|g(n)|$ for all $n \geq n_0$.
+Splitting up this inequality, we have $c|g(n)| \leq |f(n)|$ and $|f(n)| \leq C|g(n)|$.
+Dividing by $c$ and $C$ respectively, we have $|g(n)| \leq \frac{1}{c}|f(n)|$ and $\frac{1}{C}|f(n)| \leq |g(n)|$,
+which still holds for all $n \geq n_0$.
+Using this, we can write the definition of $g \asymp f$ as an inequality:
+$$ \frac{1}{C}|f(n)| \leq |g(n)| \leq \frac{1}{c}|f(n)| $$
+Since this holds for all $n \geq n_0$, we have that $g \asymp f$, and $f \asymp g \rightarrow g \asymp f$.
+The same logic can be applied to show that given $g \asymp f$, $f \asymp g$ is true.
+Therefore, the relation is symmetric.
+\item $f \asymp g$ and $g \asymp h$ implies $f \asymp h$.
+\newline
+Given that $f \asymp g$ and $g \asymp h$, we know that there exist positive real constants $c_1$, $C_1$, $c_2$, and $C_2$
+and positive integers $n_1$ and $n_2$ such that $c_1|g(n)| \leq |f(n)| \leq C_1|g(n)|$ for all $n \geq n_1$
+and $c_2|h(n)| \leq |g(n)| \leq C_2|h(n)|$ for all $n \geq n_2$.
+Using this information, we want to show that there exist positive real constants $c$ and $C$ and a positive integer $n_0$
+such that $c|h(n)| \leq |f(n)| \leq C|h(n)|$ for all $n \geq n_0$.
+From the definitions, we have that $c_1|g(n)| \leq |f(n)|$ and $c_2|h(n)| \leq |g(n)|$.
+Multiplying the second inequality by $c_1$ and putting the two together, we have $c_1c_2|h(n)| \leq |f(n)|$.
+Doing the same for the upper bound, we have $|f(n)| \leq C_1C_2|h(n)|$.
+Now we have the inequality $c_1c_2|h(n)| \leq |f(n)| \leq C_1C_2|h(n)|$, which holds for all $n \geq max(n_1, n_2)$.
+This satisfies the definition of $f \asymp h$, so $f \asymp g$ and $g \asymp h$ implies $f \asymp h$.
+\end{enumerate}
+Therefore, $\asymp$ is an equivalence relation.
 \end{solution}
 
 \newpage
@@ -109,6 +160,18 @@ Then, you need to find a positive real constant $C$ and a positive integer $n_0$
 that satisfy the definition.
 \end{problem}
 \begin{solution}
+For functions $f: \N_1 \to \R$ and $g: \N_1 \to \R$, we say that $g$ is an asymptotic upper bound for $f$, 
+written as $f \in O(g)$, if and only if there exists a positive real constant $C$ and a positive integer $n_0$
+such that $$|f(n)| \leq C|g(n)|$$ for all $n \geq n_0$.
+Using the definition of big-$O$, we have that $3n^2 + 41 \in O(n^3)$ if and only if 
+there exist a positive real constant $C$ and and a positive integer $n_0$
+such that $|3n^2 + 41| \leq C|n^3|$ for all $n \geq n_0$.
+Since both sides of the inequality are positive for all $n \geq 1$, we can remove the absolute value signs,
+and we have $3n^2 + 41 \leq Cn^3$. This can be rewritten as $C \geq \frac{3n^2 + 41}{n^3}$.
+For $n = 1$, we have $C \geq \frac{3 + 41}{1} = 44$.
+For larger values of $n$, the fraction $\frac{3n^2 + 41}{n^3}$ approaches zero, so we can choose any value of $C$ greater than 44.
+This means we can choose $C = 44$ and $n_0 = 1$ to satisfy the definition of big-$O$.
+Therefore, we have directly proven that $3n^2 + 41 \in O(n^3)$.
 \end{solution}
 
 \newpage
@@ -122,6 +185,17 @@ to the definition. Then, you need to find a positive real constant $c$ and a pos
 integer $n_0$ that satisfy the definition.
 \end{problem}
 \begin{solution}
+For functions $f: \N_1 \to \R$ and $g: \N_1 \to \R$, we say that $g$ is an asymptotic lower bound for $f$,
+written as $f \in \Omega(g)$, if and only if there exists a positive real constant $c$ and a positive integer $n_0$
+such that $$ c|g(n)| \leq |f(n)| $$ for all $n \geq n_0$.
+To prove that $\frac{1}{2}n^2 + 5 \in \Omega(n)$, we need to find a positive real constant $c$ and a positive integer $n_0$
+such that $c|n| \leq |\frac{1}{2}n^2 + 5|$ for all $n \geq n_0$.
+Since both functions have a domain of $\N_1$, we can remove the absolute value signs, and we have $cn \leq \frac{1}{2}n^2 + 5$.
+Now we can rewrite the inequality as $c \leq \frac{n}{2} + \frac{5}{n}$.
+Starting with $n = 1$, we have $c \leq \frac{1}{2} + 5 = \frac{11}{2}$.
+As $n$ approaches infinity, the fraction $\frac{5}{n}$ approaches zero, so we can choose any value of $c$ less than or equal to $\frac{11}{2}$.
+This means we can choose $c = \frac{11}{2}$ and $n_0 = 1$ to satisfy the definition of big-$\Omega$.
+Therefore, we have directly proven that $\frac{1}{2}n^2 + 5 \in \Omega(n)$.
 \end{solution}
 
 \newpage
@@ -133,11 +207,11 @@ as shown in the Horner scheme (Example 11.40).
 \begin{verbatim}
 // search a key in an array a[1..n] of length n
 search(a, n, key)        cost   times
-  for k in (1..n) do      c1    [  ]   
-    if a[k]=key then      c2    [  ]
-       return k           c3    [  ]
-  endfor                  c4    [  ]
-  return false            c5    [  ]
+  for k in (1..n) do      c1    [ n ]   
+    if a[k]=key then      c2    [ n ]
+       return k           c3    [ 1 ]
+  endfor                  c4    [ n ]
+  return false            c5    [ 1 ]
 \end{verbatim}
 (a) Fill in the \verb|[  ]|s in the above code each with a number or an expression involving
 \verb|n| that expresses the step count for the line of code.
@@ -148,6 +222,17 @@ search(a, n, key)        cost   times
 Show your work and explain using the definition of $\Theta$ involving the inequalities. 
 \end{problem}
 \begin{solution} (For part (b))
+The time compexity of this algorithm is given by $T(n) = c_1n + c_2n + c_3 + c_4n + c_5$.
+Since the highest order term in this equation is $n$, we can say that $T(n) \in \Theta(n)$.
+According to the definition of $\Theta$, this means that there exist positive real constants $c$ and $C$
+and a positive integer $n_0$ such that $cn \leq T(n) \leq Cn$ for all $n \geq n_0$.
+Let's say that $n_0 = 1$.
+Starting with the lower bound, we have $cn \leq c_1n + c_2n + c_3 + c_4n + c_5$.
+Since $n$ only gets larger, that means $c$ can be any vaue less than or equal to $c_1 + c_2 + c_4$.
+For the upper bound, we have $c_1n + c_2n + c_3 + c_4n + c_5 \leq Cn$.
+Following the same logic, we can choose any value for $C$ as long as it is greater than or equal to $c_1 + c_2 + c_4$.
+Since there exits positive real constants $c$ and $C$ and a positive integer $n_0$ such that $cn \leq T(n) \leq Cn$ for all $n \geq n_0$,
+we have shown that $T(n) \in \Theta(n)$.
 \end{solution}
 
 \newpage
@@ -157,12 +242,12 @@ as shown in the Horner scheme (Example 11.40).
 \begin{verbatim}
 // determine the number of digits of an integer n
 binary_digits(n)            cost  times
-  int cnt = 1                c1   [  ]
-  while (n > 1) do           c2   [  ]
-    cnt = cnt + 1            c3   [  ]
-    n = floor( n/2.0 )       c4   [  ]
-  endwhile                   c5   [  ]
-  return cnt                 c6   [  ]
+  int cnt = 1                c1   [ 1 ]
+  while (n > 1) do           c2   [ log(n) ]
+    cnt = cnt + 1            c3   [ log(n) ]
+    n = floor( n/2.0 )       c4   [ log(n) ]
+  endwhile                   c5   [ log(n) ]
+  return cnt                 c6   [ 1 ]
 \end{verbatim}
 \noindent
 (a) Fill in the \verb|[  ]|s in the above code each with a number or an expression involving
@@ -175,6 +260,17 @@ and give it in the $\Theta$ notation.
 Show your work and explain using the definition of $\Theta$ involving the inequalities. 
 \end{problem}
 \begin{solution} (For part (b))
+The time complexity of this algorithm is given by $T(n) = c_1 + c_2\log(n) + c_3\log(n) + c_4\log(n) + c_5\log(n) + c_6$.
+Since the fastest growing term in this equation is $\log(n)$, we can say that $T(n) \in \Theta(\log(n))$.
+Using the definition of $\Theta$, this means that there exist constants $c$ and $C$ and a positive integer $n_0$
+such that $c\log(n) \leq T(n) \leq C\log(n)$ for all $n \geq n_0$.
+Going with $n_0 = 1$, we can analyze the lower and upper bounds separately.
+Starting with the lower bound, we need to find a real constant $c$ such that $c\log(n) \leq c_1 + c_2\log(n) + c_3\log(n) + c_4\log(n) + c_5\log(n) + c_6$.
+Dividing by $\log(n)$ and taking the limit as $n$ approaches infinity, we know that $c$ must be less than or equal to $c_2 + c_3 + c_4 + c_5$.
+Similarly, for the upper bound, there must be a real constant $C$ such that $c_1 + c_2\log(n) + c_3\log(n) + c_4\log(n) + c_5\log(n) + c_6 \leq C\log(n)$.
+Doing the same thing, $C$ must be greater than or equal to $c_2 + c_3 + c_4 + c_5$.
+Since there exist constants $c$ and $C$ and a positive integer $n_0$ such that $c\log(n) \leq T(n) \leq C\log(n)$ for all $n \geq n_0$,
+we have shown that $T(n) \in \Theta(\log(n))$.
 \end{solution}
 
 \end{document}
