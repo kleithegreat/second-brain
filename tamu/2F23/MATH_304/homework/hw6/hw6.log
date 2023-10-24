@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  22 OCT 2023 21:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  24 OCT 2023 10:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -233,20 +233,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--104
 LaTeX Warning: The counter will not be printed.
              The label is: (e) on input line 105.
 
-[2] [3] [4] (hw6.aux)
+[2] [3]
+Overfull \hbox (56.70148pt too wide) detected at line 190
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 ) = [] [] \OML/cmm/m/it/10
+ ;  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 ) = [] []
+ []
+
+[4]
+Overfull \hbox (15.92805pt too wide) detected at line 215
+[] \OMS/cmsy/m/n/10 ^^X [] ^^X [] ^^X []
+ []
+
+
+Overfull \hbox (32.91943pt too wide) detected at line 226
+[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 ) = [] [] \OML/cmm/m/it/10
+ ;  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 ) = [] []
+ []
+
+[5] [6] (hw6.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1978 strings out of 475248
- 28906 string characters out of 5752602
+ 1980 strings out of 475248
+ 28960 string characters out of 5752602
  1943785 words of memory out of 5000000
- 23533 multiletter control sequences out of 15000+600000
+ 23535 multiletter control sequences out of 15000+600000
  560681 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,11n,65p,222b,213s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 56i,11n,65p,241b,209s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/a
 msfonts/cm/cmbx10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/
 fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/kevin/scoop/apps/miktex/cur
@@ -258,10 +275,11 @@ fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/kevin/scoop/apps/miktex/curr
 ent/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/kevin/scoo
 p/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 <C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/ams
-fonts/cm/cmsy7.pfb>
-Output written on hw6.pdf (4 pages, 106688 bytes).
+fonts/cm/cmsy7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fon
+ts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on hw6.pdf (6 pages, 125204 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
+ 71 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

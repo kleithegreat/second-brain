@@ -134,11 +134,147 @@ B = \begin{bmatrix} -3 & 1 & 3 & 4 \\ 1 & 2 & -1 & -2 \\ -3 & 8 & 4 & 2 \end{bma
 C = \begin{bmatrix} 1 & 3 & -2 & 1 \\ 2 & 1 & 3 & 2 \\ 3 & 4 & 5 & 6 \end{bmatrix}
 $$
 
+\noindent\textbf{Solution:} \\
+\noindent\textbf{Matrix A} \\
+To find the row space, column space, and null space of the matrix, we can use gaussian elimination.
+Using row operations, we have the following equivalent matrices:
+$$
+\begin{bmatrix} 1 & 3 & 2 \\ 2 & 1 & 4 \\ 4 & 7 & 8 \end{bmatrix}
+\sim
+\begin{bmatrix} 1 & 3 & 2 \\ 0 & -5 & 0 \\ 0 & -5 & 0 \end{bmatrix}
+\sim
+\begin{bmatrix} 1 & 3 & 2 \\ 0 & -5 & 0 \\ 0 & 0 & 0 \end{bmatrix}
+$$
+Now we have two linearly independent rows in row echelon form.
+Thus, the row space of the matrix is spanned by the vectors:
+$$ \text{rowspace}(A) = \text{span}\left\{ \begin{bmatrix} 1 \\ 3 \\ 2 \end{bmatrix}, \begin{bmatrix} 0 \\ -5 \\ 0 \end{bmatrix} \right\} $$
+
+\noindent Identifying the columns of the leading 1's in the row echelon form, we have that the column space is spanned by the vectors:
+$$ \text{colspace}(A) = \text{span}\left\{ \begin{bmatrix} 1 \\ 2 \\ 4 \end{bmatrix}, \begin{bmatrix} 3 \\ 1 \\ 7 \end{bmatrix} \right\} $$
+
+\noindent The null space can be found by solving the homogeneous system:
+$$
+\left[\begin{array}{ccc|c} 1 & 3 & 2 & 0 \\ 0 & -5 & 0 & 0 \end{array}\right]
+\sim
+\left[\begin{array}{ccc|c} 1 & 0 & 2 & 0 \\ 0 & 1 & 0 & 0 \end{array}\right]
+\rightarrow
+\begin{cases} x_1 = -2x_3 \\ x_2 = 0 \\ x_3 = x_3 \end{cases}
+$$
+
+\noindent Thus, the null space is the following:
+$$
+N(A) = \{(-2a, 0, a)^T \mid a \in \mathbb{R}\} = \text{span}\left\{ \begin{bmatrix} -2 \\ 0 \\ 1 \end{bmatrix} \right\}
+$$
+
+\newpage
+\noindent\textbf{Matrix B} \\
+First, row reduce the matrix to row echelon form:
+$$
+\begin{bmatrix} -3 & 1 & 3 & 4 \\ 1 & 2 & -1 & -2 \\ -3 & 8 & 4 & 2 \end{bmatrix}
+\sim
+\begin{bmatrix} 1 & 2 & -1 & -2 \\ 0 & 7 & 0 & -2 \\ 0 & 14 & 1 & -4 \end{bmatrix}
+\sim
+\begin{bmatrix} 1 & 2 & -1 & -2 \\ 0 & 7 & 0 & -2 \\ 0 & 0 & 1 & 0 \end{bmatrix}
+$$ $$
+\sim
+\begin{bmatrix} 1 & 2 & 0 & -2 \\ 0 & 1 & 0 & -\frac{2}{7} \\ 0 & 0 & 1 & 0 \end{bmatrix}
+\sim
+\begin{bmatrix} 1 & 0 & 0 & -\frac{10}{7} \\ 0 & 1 & 0 & -\frac{2}{7} \\ 0 & 0 & 1 & 0 \end{bmatrix}
+$$
+
+\noindent From here we can observe the following:
+$$
+\text{rowspace}(B) = \text{span}\left\{ \begin{bmatrix} -3 \\ 1 \\ 3 \\ 4 \end{bmatrix}, \begin{bmatrix} 1 \\ 2 \\ -1 \\ -2 \end{bmatrix}, \begin{bmatrix} -3 \\ 8 \\ 4 \\ 2 \end{bmatrix} \right\}
+,\quad
+\text{colspace}(B) = \text{span}\left\{ \begin{bmatrix} -3 \\ 1 \\ -3 \end{bmatrix}, \begin{bmatrix} 1 \\ 2 \\ 8 \end{bmatrix}, \begin{bmatrix} 3 \\ -1 \\ 4 \end{bmatrix} \right\}
+$$
+
+\noindent Solving for the null space:
+$$
+\left[\begin{array}{cccc|c} 1 & 0 & 0 & -\frac{10}{7} & 0 \\ 0 & 1 & 0 & -\frac{2}{7} & 0 \\ 0 & 0 & 1 & 0 & 0 \end{array}\right]
+\rightarrow
+\begin{cases} x_1 = \frac{10}{7}x_4 \\ x_2 = \frac{2}{7}x_4 \\ x_3 = 0 \\ x_4 = x_4 \end{cases}
+$$
+
+$$
+N(B) = \left\{ \left(\frac{10}{7}a, \frac{2}{7}a, 0, a\right)^T \mid a \in \mathbb{R} \right\}
+= \text{span}\left\{ \begin{bmatrix} 10 \\ 2 \\ 0 \\ 7 \end{bmatrix} \right\}
+$$
+
+\newpage
+\noindent\textbf{Matrix C} \\
+Performing row reduction:
+$$
+\begin{bmatrix} 1 & 3 & -2 & 1 \\ 2 & 1 & 3 & 2 \\ 3 & 4 & 5 & 6 \end{bmatrix}
+\sim
+\begin{bmatrix} 1 & 3 & -2 & 1 \\ 0 & -5 & 7 & 0 \\ 0 & -5 & 11 & 3 \end{bmatrix}
+\sim
+\begin{bmatrix} 1 & 3 & -2 & 1 \\ 0 & -5 & 7 & 0 \\ 0 & 0 & 4 & 3 \end{bmatrix}
+\sim
+\begin{bmatrix} 1 & 3 & -2 & 1 \\ 0 & -5 & 0 & -\frac{21}{4} \\ 0 & 0 & 1 & \frac{3}{4} \end{bmatrix}
+$$ $$ \sim
+\begin{bmatrix} 1 & 3 & 0 & \frac{10}{4} \\ 0 & 1 & 0 & \frac{21}{20} \\ 0 & 0 & 1 & \frac{3}{4} \end{bmatrix}
+\sim
+\begin{bmatrix} 1 & 0 & 0 & -\frac{13}{20} \\ 0 & 1 & 0 & \frac{21}{20} \\ 0 & 0 & 1 & \frac{3}{4} \end{bmatrix}
+$$
+
+\noindent The row and column space are spanned by the following basis vectors:
+$$
+\text{rowspace}(C) = \text{span}\left\{ \begin{bmatrix} 1 \\ 3 \\ -2 \\ 1 \end{bmatrix}, \begin{bmatrix} 2 \\ 1 \\ 3 \\ 2 \end{bmatrix}, \begin{bmatrix} 3 \\ 4 \\ 5 \\ 6 \end{bmatrix} \right\}
+,\quad
+\text{colspace}(C) = \text{span}\left\{ \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}, \begin{bmatrix} 3 \\ 1 \\ 4 \end{bmatrix}, \begin{bmatrix} -2 \\ 3 \\ 5 \end{bmatrix} \right\}
+$$
+
+\noindent The null space is given by:
+$$
+\left[\begin{array}{cccc|c} 1 & 0 & 0 & -\frac{13}{20} & 0 \\ 0 & 1 & 0 & \frac{21}{20} & 0 \\ 0 & 0 & 1 & \frac{3}{4} & 0 \end{array}\right]
+\rightarrow
+\begin{cases} x_1 = \frac{13}{20}x_4 \\ x_2 = -\frac{21}{20}x_4 \\ x_3 = -\frac{3}{4}x_4 \\ x_4 = x_4 \end{cases}
+$$
+$$
+N(C) = \left\{ \left(\frac{13}{20}a, -\frac{21}{20}a, -\frac{3}{4}a, a\right)^T \mid a \in \mathbb{R} \right\}
+= \text{span}\left\{ \begin{bmatrix} 13 \\ -21 \\ -15 \\ 20 \end{bmatrix} \right\}
+$$
+
 \newpage
 \section*{Question 3}
 Let $E := [p_{1}(x) = 1, p_{2}(x) = x + 1, p_{3}(x) = x^2 - 1]$ and $F := q_{1}(x) = 1, q_{2}(x) = x, q_{3}(x) = x^2$.
 These are two basis of the vector space $P_2$ of all polynomials of degree at least 2. 
 Find the transition matrix from E to F and the transition matrix from F to E.
 Express the polynomial $$p(x) = 11x^2 - 2x + 5$$ with respect to the basis E.
+
+\vspace{0.5cm}
+\noindent\textbf{Solution:} \\
+To find the transition matrix from E to F, we can write the basis vectors of E as linear combinations of the basis vectors of F.
+$$
+\begin{cases} 1 = 1 \cdot 1 + 0 \cdot x + 0 \cdot x^2 \\ 
+    x + 1 = 1 \cdot 1 + 1 \cdot x + 0 \cdot x^2 \\ 
+    x^2 - 1 = -1 \cdot 1 + 0 \cdot x + 1 \cdot x^2 
+\end{cases}
+$$
+Thus, the transition matrix from E to F is:
+$$ \begin{bmatrix} 1 & 1 & -1 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} $$
+
+\noindent To find the transition matrix from F to E, we can do the same process.
+$$
+\begin{cases} 1 = 1 \cdot 1 + 0 \cdot (x + 1) + 0 \cdot (x^2 - 1) \\ 
+    x = -1 \cdot 1 + 1 \cdot (x + 1) + 0 \cdot (x^2 - 1) \\ 
+    x^2 = 1 \cdot 1 + 0 \cdot (x + 1) + 1 \cdot (x^2 - 1)
+\end{cases}
+$$
+Thus, the transition matrix from F to E is:
+$$ \begin{bmatrix} 1 & -1 & 1 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} $$
+
+\noindent The polynomial $p(x) = 11x^2 - 2x + 5$ can be written as a vector with respect to the standard basis as:
+$$ p(x) = \begin{bmatrix} 5 \\ -2 \\ 11 \end{bmatrix} $$
+\noindent To write $p(x)$ with respect to the basis E, we can multiply the vector by the transition matrix from the standard basis to E.
+Since the basis F is actually the standard basis, we can use the transition matrix from F to E as the transition matrix from the standard basis to E.
+That means we have:
+$$ 
+\begin{bmatrix} 1 & -1 & 1 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} 
+\begin{bmatrix} 5 \\ -2 \\ 11 \end{bmatrix} = \begin{bmatrix} 18 \\ -2 \\ 11 \end{bmatrix}
+, \quad
+p(x) = 18 p_1(x) - 2 p_2(x) + 11 p_3(x)
+$$
 
 \end{document}
