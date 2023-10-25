@@ -27,7 +27,10 @@ char** loadLevel(const string& fileName, int& maxRow, int& maxCol, Player& playe
     }
 
     file >> maxRow >> maxCol;
+    if(!file) return nullptr;
+
     file >> player.row >> player.col;
+    if(!file) return nullptr;
 
     if (maxRow <= 0 || maxCol <= 0 || maxRow > 999999 || maxCol > 999999 || player.row < 0 || player.col < 0 || player.row >= maxRow || player.col >= maxCol) {
         return nullptr;
@@ -35,15 +38,40 @@ char** loadLevel(const string& fileName, int& maxRow, int& maxCol, Player& playe
 
     char** map = createMap(maxRow, maxCol);
 
+    auto isValidTile = [](char tile) {
+        return tile == TILE_OPEN || tile == TILE_TREASURE || tile == TILE_AMULET || 
+               tile == TILE_MONSTER || tile == TILE_PILLAR || tile == TILE_DOOR || 
+               tile == TILE_EXIT;
+    };
+
     for (int i = 0; i < maxRow; i++) {
         for (int j = 0; j < maxCol; j++) {
             if (file.eof()) {
                 deleteMap(map, maxRow);
                 return nullptr;
             }
+
             file >> map[i][j];
+
+            if (!isValidTile(map[i][j])) {
+                deleteMap(map, maxRow);
+                return nullptr;
+            }
         }
     }
+
+    string remainingData;
+    getline(file, remainingData);
+
+    while (getline(file, remainingData)) {
+        for (char ch : remainingData) {
+            if (!isspace(ch)) {
+                deleteMap(map, maxRow);
+                return nullptr;
+            }
+        }
+    }
+
     map[player.row][player.col] = TILE_PLAYER;
 
     file.close();
@@ -115,21 +143,19 @@ char** createMap(int maxRow, int maxCol) {
  * @update map, maxRow
  */
 void deleteMap(char**& map, int& maxRow) {
+    int temp = maxRow;
+    maxRow = 0;
+
     if (map == nullptr) {
         return;
     }
 
-    if (maxRow <= 0) {
-        return;
-    }
-
-    for (int i = 0; i < maxRow; i++) {
+    for (int i = 0; i < temp; i++) {
         delete[] map[i];
     }
 
     delete[] map;
     map = nullptr;
-    maxRow = 0;
 }
 
 /**
