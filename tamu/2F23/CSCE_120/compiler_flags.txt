@@ -1,1 +1,3 @@
 g++ -std=c++17 -Wall -Wextra -pedantic -Weffc++
+
+g++ -std=c++17 -Wall -Wextra -pedantic-errors -Weffc++ -fsanitize=undefined,address

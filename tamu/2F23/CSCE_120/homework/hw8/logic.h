@@ -6,7 +6,11 @@
 #include <fstream>
 #include <string>
 
-using std::cin, std::cout, std::endl, std::string, std::ifstream;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::ifstream;
 
 // Player object container
 struct Player {

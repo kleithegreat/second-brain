@@ -1,6 +1,7 @@
 #include <iostream>
 #include "helper.h"
-using std::cout, std::endl;
+using std::cout;
+using std::endl;
 
 
 // do not change
