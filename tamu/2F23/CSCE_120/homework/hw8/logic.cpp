@@ -25,12 +25,39 @@ char** loadLevel(const string& fileName, int& maxRow, int& maxCol, Player& playe
     if (!file.is_open()) {
         return nullptr;
     }
+    
+    long long tempRow, tempCol;
 
-    file >> maxRow >> maxCol;
-    if(!file) return nullptr;
+    file >> tempRow >> tempCol;
+    if(file.fail()) return nullptr;
 
-    file >> player.row >> player.col;
-    if(!file) return nullptr;
+    if (tempRow > 2147483647 / tempCol || tempCol > 2147483647 / tempRow) {
+        return nullptr;
+    }
+
+    if (tempRow * tempCol > 2147483647) {
+        return nullptr;
+    }
+
+    maxRow = static_cast<int>(tempRow);
+    maxCol = static_cast<int>(tempCol);
+
+    file >> tempRow >> tempCol;
+    if(file.fail()) return nullptr;
+
+    if (tempCol != 0) {
+        if (tempRow > 2147483647 / tempCol) {
+            return nullptr;
+        }
+    }
+    if (tempRow != 0) {
+        if (tempCol > 2147483647 / tempRow) {
+            return nullptr;
+        }
+    }
+
+    player.row = static_cast<int>(tempRow);
+    player.col = static_cast<int>(tempCol);
 
     if (maxRow <= 0 || maxCol <= 0 || maxRow > 999999 || maxCol > 999999 || player.row < 0 || player.col < 0 || player.row >= maxRow || player.col >= maxCol) {
         return nullptr;
@@ -44,25 +71,34 @@ char** loadLevel(const string& fileName, int& maxRow, int& maxCol, Player& playe
                tile == TILE_EXIT;
     };
 
+    bool foundDoor = false;
     for (int i = 0; i < maxRow; i++) {
         for (int j = 0; j < maxCol; j++) {
-            if (file.eof()) {
+            if (file >> map[i][j]) {
+                if (file.eof() || file.fail() || file.bad()) {
                 deleteMap(map, maxRow);
                 return nullptr;
-            }
+                }
 
-            file >> map[i][j];
+                if (map[i][j] == TILE_DOOR || map[i][j] == TILE_EXIT) {
+                foundDoor = true;
+                }
 
-            if (!isValidTile(map[i][j])) {
-                deleteMap(map, maxRow);
-                return nullptr;
-            }
+                if (!isValidTile(map[i][j])) {
+                    deleteMap(map, maxRow);
+                    return nullptr;
+                }
+            }            
         }
+    }
+
+    if (!foundDoor) {
+        deleteMap(map, maxRow);
+        return nullptr;
     }
 
     string remainingData;
     getline(file, remainingData);
-
     while (getline(file, remainingData)) {
         for (char ch : remainingData) {
             if (!isspace(ch)) {
@@ -77,6 +113,7 @@ char** loadLevel(const string& fileName, int& maxRow, int& maxCol, Player& playe
     file.close();
     return map;
 }
+
 
 
 /**
