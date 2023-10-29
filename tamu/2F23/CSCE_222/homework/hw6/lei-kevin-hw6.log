@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  29 OCT 2023 17:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  29 OCT 2023 18:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./exam2prep.tex
-(exam2prep.tex
+**./lei-kevin-hw6.tex
+(lei-kevin-hw6.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
 
@@ -127,131 +127,124 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headsep=\skip55
 \dth@everypar=\toks27
 )
+(C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/base\latexsy
+m.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+)
+(C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/paralist\par
+alist.sty
+Package: paralist 2017/01/22 v2.7 Extended list environments
+\pltopsep=\skip56
+\plpartopsep=\skip57
+\plitemsep=\skip58
+\plparsep=\skip59
+\pl@lab=\toks28
+)
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/fancyhdr\fan
 cyhdr.sty
 Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 
-\f@nch@headwidth=\skip56
-\f@nch@O@elh=\skip57
-\f@nch@O@erh=\skip58
-\f@nch@O@olh=\skip59
-\f@nch@O@orh=\skip60
-\f@nch@O@elf=\skip61
-\f@nch@O@erf=\skip62
-\f@nch@O@olf=\skip63
-\f@nch@O@orf=\skip64
+\f@nch@headwidth=\skip60
+\f@nch@O@elh=\skip61
+\f@nch@O@erh=\skip62
+\f@nch@O@olh=\skip63
+\f@nch@O@orh=\skip64
+\f@nch@O@elf=\skip65
+\f@nch@O@erf=\skip66
+\f@nch@O@olf=\skip67
+\f@nch@O@orf=\skip68
 )
-(C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/tools\enumer
-ate.sty
-Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks28
-)
+\c@problem=\count271
+
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/l3backend\l3
 backend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count271
+\l__color_backend_stack_int=\count272
 \l__pdf_internal_box=\box53
-) (exam2prep.aux)
-\openout1 = `exam2prep.aux'.
+) (lei-kevin-hw6.aux)
+\openout1 = `lei-kevin-hw6.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+
+Overfull \hbox (3.84885pt too wide) in paragraph at lines 58--58
+[]\OT1/cmr/bx/n/10 Due dates: \OT1/cmr/m/n/10 Elec-tronic sub-mis-sion of \OT1/
+cmr/m/sl/10 yourLastName-yourFirstName-
+ []
+
+
+Overfull \hbox (9.59792pt too wide) in paragraph at lines 58--58
+\OT1/cmr/m/sl/10 hw6.tex \OT1/cmr/m/n/10 and \OT1/cmr/m/sl/10 yourLastName-your
+FirstName-hw6.pdf \OT1/cmr/m/n/10 files of this home-
+ []
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
 
 
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
 a.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
 
 
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
 b.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (13.08719pt too wide) in paragraph at lines 19--20
-[]$\OML/cmm/m/it/10 v[] \OT1/cmr/m/n/10 = (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 
-1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^@\OT
-1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)[]\OML/cmm/m/it/10 ; v[] \OT
-1/cmr/m/n/10 = (1\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1\OML/c
-mm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m
-/n/10 1)[]\OML/cmm/m/it/10 ; v[] \OT1/cmr/m/n/10 = (\OMS/cmsy/m/n/10 ^^@\OT1/cm
-r/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/1
-0 1\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1)[]\OML/cmm/m/it/10 
-; v[] \OT1/cmr/m/n/10 = (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 
-; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)[]$ 
- []
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 68
+.
 
-[1{C:/Users/kevin/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdftex
-.map}
+(C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/base\ulasy.f
+d
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+) [1{C:/Users/kevin/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdft
+ex.map}
 
-] [2]
-Overfull \hbox (46.66704pt too wide) detected at line 111
-[] \OMS/cmsy/m/n/10 ^^X [] ^^X [] ^^X []
- []
-
-
-Overfull \hbox (81.63892pt too wide) detected at line 120
-[] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 ;  [] \OT1/cmr/m/n/10 = [] []
- []
-
-[3] [4]
-Overfull \hbox (7.3722pt too wide) in paragraph at lines 165--166
-[]\OT1/cmr/m/n/10 Find the tran-si-tion ma-trix cor-re-spond-ing to the change 
-of ba-sis from $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 e[]; e[]; e[]\OMS/cmsy/m/n/1
-0 g$
- []
-
-
-Overfull \hbox (7.94508pt too wide) in paragraph at lines 166--167
-[]\OT1/cmr/m/n/10 Find the tran-si-tion ma-trix cor-re-spond-ing to the change 
-of ba-sis from $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 v[]; v[]; v[]\OMS/cmsy/m/n/1
-0 g$
- []
-
-[5] [6] [7] (exam2prep.aux)
+] [2] [3] [4] [5] [6] [7] [8] (lei-kevin-hw6.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1984 strings out of 475248
- 29142 string characters out of 5752602
- 1953785 words of memory out of 5000000
- 23539 multiletter control sequences out of 15000+600000
- 560681 words of font info for 47 fonts, out of 8000000 for 9000
+ 2160 strings out of 475248
+ 31969 string characters out of 5752602
+ 1925785 words of memory out of 5000000
+ 23701 multiletter control sequences out of 15000+600000
+ 562178 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,14n,65p,295b,288s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 56i,11n,65p,232b,225s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/a
 msfonts/cm/cmbx10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/
-fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/kevin/scoop/apps/miktex/cur
-rent/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/kevin/s
-coop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.p
-fb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/
-amsfonts/cm/cmmi7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/
-fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/kevin/scoop/apps/miktex/curr
-ent/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/kevin/scoo
-p/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/kevin/scoop/apps/miktex/cur
+rent/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/kevin/sc
+oop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb
+><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/am
+sfonts/cm/cmr7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fon
+ts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/kevin/scoop/apps/miktex/curren
+t/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/kevin/scoo
+p/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
 <C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/ams
-fonts/cm/cmsy7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fon
-ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on exam2prep.pdf (7 pages, 132049 bytes).
+fonts/latxfont/lasy10.pfb>
+Output written on lei-kevin-hw6.pdf (8 pages, 131350 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
+ 74 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
