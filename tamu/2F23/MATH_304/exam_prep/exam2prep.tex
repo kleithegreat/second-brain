@@ -200,13 +200,38 @@ $$
 
 \newpage
 \section*{Question 5}
-For each of the following choises of A, b, determine whether b is in the column space of A and state whether the system Ax = b is consistent or not.
+For each of the following choises of $A$, $b$, determine whether $b$ is in the column space of $A$ and state whether the system $Ax = b$ is consistent or not.
 \begin{enumerate}[a.]
     \item $A = \begin{bmatrix} 0 & 1 \\ -1 & 1 \end{bmatrix}, \; b = \begin{bmatrix} 1 \\ -1 \end{bmatrix}$
     \item $A = \begin{bmatrix} 0 & 1 \\ 1 & 0 \\ 0 & 1 \end{bmatrix}, \; b = \begin{bmatrix} 2 \\ 5 \\ 2 \end{bmatrix}$
     \item $A = \begin{bmatrix} 1 & 1 & 2 \\ 1 & 1 & 2 \\ 1 & 1 & 2 \end{bmatrix}, \; b = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$
 \end{enumerate}
 
+\noindent\textbf{Solution:} The system $Ax = b$ is consistent if and only if $b$ is in the column space of $A$.
+
+\vspace{0.25cm}
+\noindent\textbf{a.}
+$$
+\left[\begin{array}{cc|c} 0 & 1 & 1 \\ -1 & 1 & -1 \end{array}\right] \sim
+\left[\begin{array}{cc|c} 1 & -1 & 1 \\ 0 & 1 & 1 \end{array}\right] \sim
+\left[\begin{array}{cc|c} 1 & 0 & 2 \\ 0 & 1 & 1 \end{array}\right]
+$$
+Since the system is consistent, $b \in \text{colspace}(A)$.
+
+\vspace{0.25cm}
+\noindent\textbf{b.}
+$$
+\left[\begin{array}{cc|c} 0 & 1 & 2 \\ 1 & 0 & 5 \\ 0 & 1 & 2 \end{array}\right] \sim
+\left[\begin{array}{cc|c} 1 & 0 & 5 \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{array}\right]
+$$
+Since the system is consistent, $b \in \text{colspace}(A)$.
+
+\vspace{0.25cm}
+\noindent\textbf{c.}
+$$ \left[\begin{array}{ccc|c} 1 & 1 & 2 & 1 \\ 1 & 1 & 2 & 2 \\ 1 & 1 & 2 & 3 \end{array}\right] $$
+This system is obviously inconsistent, so $b \notin \text{colspace}(A)$.
+
+\newpage
 \section*{Question 6}
 Let
 $$
@@ -216,6 +241,14 @@ be a basis of $\mathbb{R}^3$. Define $: \mathbb{R}^2 \rightarrow \mathbb{R}^3$ a
 $$ L(x) := x_1u_1 + x_2u_2 + (x_1 + x_2)u_3 $$
 Find a matrix $A$ representing $L$ with respect to the ordered basis $e_1, e_2$ and $u_1, u_2, u_3$.
 
+\vspace{0.25cm}
+\noindent\textbf{Solution:}
+\newline\noindent Applying $L$ to $e_1$ and $e_2$:
+$$ L(e_1) = (u_1, 0, u_3)^T, \quad L(e_2) = (0, u_2, u_3)^T $$
+Thus, the matrix $A$ with respect to the ordered basis $e_1, e_2$ and $u_1, u_2, u_3$ is:
+$$ A = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 1 \end{bmatrix} $$
+
+\newpage
 \section*{Question 7}
 For each of the following transformations, find a matrix $A$ such that $L(x) = Ax$.
 \begin{enumerate}[a.]
@@ -225,25 +258,53 @@ For each of the following transformations, find a matrix $A$ such that $L(x) = A
     \item $L : P_3 \rightarrow P_3, \; P(a + bx + cx^2) = (c + bx + ax^2)$. (Consider the standard basis).
 \end{enumerate}
 
+\noindent\textbf{Solution:} Assuming that the basis of the domain and codomain are the standard basis:
+\newline\noindent\textbf{a.}
+$ L(e_1) = (1, 1, 1)^T, \; L(e_2) = (1, 1, 0)^T $
+$$ A = \begin{bmatrix} 1 & 1 \\ 1 & 1 \\ 1 & 0 \end{bmatrix} $$
+\textbf{b.}
+$ L(e_1) = (0, 0, 1)^T, \; L(e_2) = (0, 1, 0)^T, \; L(e_3) = (1, 0, 0)^T $
+$$ A = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{bmatrix} $$
+\textbf{c.}
+$ L(e_1) = [1], \; L(e_2) = [0], \; L(e_3) = [0] $
+$$ A = \begin{bmatrix} 1 & 0 & 0 \end{bmatrix} $$
+\textbf{d.}
+Assuming that the standard basis for $\mathbb{P}_3$ is $\{1, x, x^2\}$:
+$$ L(1) = x^2, \; L(x) = x, \; L(x^2) = 1 $$
+$$ A = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{bmatrix} $$
+
+\newpage
 \section*{Question 8}
-Determine which of the following sentences are true or false
-\begin{enumerate}
-    \item If $\{v_1, ..., v_n\}$ are linearly independent, then at least one of them can be written as a linear combination of the rest.
-        \newline\textbf{False.} If they are linearly independent, then none of them can be written as a linear combination of the rest.
-    \item If $L:V \rightarrow W$ is a linear map then maps $0_v$ to $0_w$.\
-    \item Let $S$ be a subspace of $V$ and dim($S$) = $n$ = dim($V$). Then $S = V$.
-    \item If $\{v_1, ..., v_n\} \subseteq V$ are linearly independent and dim($V$) = $n + 1$, then one can always find a $v_{n+1}$ such that $\{v_1, ..., v_{n+1}\}$ form a basis for $V$.
-    \item The only linear maps $L: \mathbb{R} \rightarrow \mathbb{R}$ are of the form $f(x) = ax$ for some $a \in \mathbb{R}$.
-    \item The map that reflects a point through the origin is a linear map.
-    \item The are vector spaces with infinite dimensions.
-    \item The every vector space has either only 1 element of infinitely many.
-    \item If 0 is inside a subset $S$ of $V$ then $S$ is a subspace.
-    \item If $S$ is a subspace then 0 is inside $S$.
-    \item If $L:V \rightarrow W$ is a linear map then $2L$ is also a linear map.
-    \item If $L:V \rightarrow W$ is a linear map then $L + 2$ is also a linear map.
-    \item If $A$ is a singular $3 \times 3$ matrix then the map $L(x) = A(x)$ is a linear map.
-    \item If $Ax = b$ has a solution then $b$ lies inside the row space of $A$.
-    \item IF $A^T$ is row equivalent with $B^T$, then $A, B$ have the same column space.
-\end{enumerate}
+Determine which of the following sentences are true or false \\
+1. If $\{v_1, ..., v_n\}$ are linearly dependent, then at least one of them can be written as a linear combination of the rest.
+    \newline\textbf{True.} By definition of linear dependence. \\
+2. If $L:V \rightarrow W$ is a linear map then maps $0_v$ to $0_w$.
+    \newline\textbf{True.} \\
+3. Let $S$ be a subspace of $V$ and dim($S$) = $n$ = dim($V$). Then $S = V$.
+    \newline\textbf{True.} $v$ and $S$ having the same dimension impies that they both span the same space, so $S = V$. \\
+4. If $\{v_1, ..., v_n\} \subseteq V$ are linearly independent and dim($V$) = $n + 1$, then one can always find a $v_{n+1}$ such that $\{v_1, ..., v_{n+1}\}$ form a basis for $V$.
+    \newline\textbf{True.} Since $V$ requires $n$ linearly independent vectors to form a basis, there must be at least one vector $v_{n+1}$ that is linearly independent from the rest. \\
+5. The only linear maps $L: \mathbb{R} \rightarrow \mathbb{R}$ are of the form $f(x) = ax$ for some $a \in \mathbb{R}$.
+    \newline\textbf{True.} Adding constants or exponents would make it so that $L$ is not closed under addition or scalar multiplication. \\
+6. The map that reflects a point through the origin is a linear map.
+    \newline\textbf{True.} It is closed under addition and scalar multiplication. \\
+7. The are vector spaces with infinite dimensions.
+    \newline\textbf{True.} The vector space of polynomials is an example. \\
+8. The every vector space has either only 1 element of infinitely many.
+    \newline\textbf{???} \\
+9. If 0 is inside a subset $S$ of $V$ then $S$ is a subspace.
+    \newline\textbf{False.} $S$ must also be closed under addition and scalar multiplication. \\
+10. If $S$ is a subspace then 0 is inside $S$.
+    \newline\textbf{True.} $S$ must contain the zero vector in order to be a subspace. \\
+11. If $L:V \rightarrow W$ is a linear map then $2L$ is also a linear map.
+    \newline\textbf{True.} Linear maps are closed under scalar multiplication. \\
+12. If $L:V \rightarrow W$ is a linear map then $L + 2$ is also a linear map.
+    \newline\textbf{False.} Adding a scalar to a linear map isn't meaningful. \\
+13. If $A$ is a singular $3 \times 3$ matrix then the map $L(x) = A(x)$ is a linear map.
+    \newline\textbf{True.} Matrix multiplication is always a linear operation. \\
+14. If $Ax = b$ has a solution then $b$ lies inside the row space of $A$.
+    \newline\textbf{False.} The theorem is that $b$ lies inside the column space of $A$ if and only if $Ax = b$ is consistent. \\
+15. IF $A^T$ is row equivalent with $B^T$, then $A, B$ have the same column space.
+    \newline\textbf{True.} Transposes just swap rows and columns, so row equivalence of a transpose is the same as column equivalence. \\
 
 \end{document}
