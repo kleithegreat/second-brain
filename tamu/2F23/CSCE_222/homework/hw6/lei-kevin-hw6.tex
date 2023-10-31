@@ -90,6 +90,10 @@ Please do not change this overall formatting.
 you are using.  Also explain carefully how you got your final answer.
 \end{problem}
 \begin{solution}
+We can use the multiplication principle here. 
+Since there are 26 ways to choose a letter and 10 ways to choose a digit, we can multiply them together to get the total number of license plates.
+Thus we have the following:
+$$ 26 \times 26 \times 26 \times 10 \times 10 \times 10 \times 10 = 175,760,000 \; \text{license plates} $$
 \end{solution}
 
 \newpage
@@ -97,6 +101,13 @@ you are using.  Also explain carefully how you got your final answer.
 you are using.  Also explain carefully how you got your final answer.
 \end{problem}
 \begin{solution}
+For this we need to use the multiplication principle and summation principle.
+First we need to find the number of password combinations for password lengths 6, 7, and 8.
+Then we can add them together to get the total number of password combinations.
+For each character, there are 36 choices since there are 26 lowercase letters and 10 digits.
+However, for the first character, there are only 26 choices since the first character must be a digit.
+Thus we have the following:
+$$ 26 \times 36^5 + 26 \times 36^6 + 26 \times 36^7 = 2,095,636,727,808 \; \text{password combinations} $$
 \end{solution}
 
 \newpage
@@ -104,6 +115,18 @@ you are using.  Also explain carefully how you got your final answer.
 you are using.  Also explain carefully how you got your final answer.
 \end{problem}
 \begin{solution}
+Here we can use the subtraction principle by first finding the total number of words of length $n$ over an alphabet of $k$ letters, 
+then subtracting all palindromes of length $n$.
+The number of words of length $n$ over an alphabet of $k$ letters is given by $k^n$,
+since there are $k$ choices for each of the $n$ characters.
+This is the multiplication principle.
+A word is a palindrome if it is the same forwards and backwards.
+This means that the first half of the word must be the same as the second half of the word.
+Since the word length can be either odd or even, we need to consider both cases.
+For both cases, the number of letters in the first half of the word is $\lceil n/2 \rceil$.
+Therefore, the number of palindromes of length $n$ is given by $k^{\lceil n/2 \rceil}$.
+Once again, this is the multiplication principle.
+Finally, the total number of non-palindrome words of length $n$ over an alphabet of $k$ letters is given by $k^n - k^{\lceil n/2 \rceil}$.
 \end{solution}
 
 \newpage
@@ -111,6 +134,12 @@ you are using.  Also explain carefully how you got your final answer.
 you are using.  Also explain carefully how you got your final answer.
 \end{problem}
 \begin{solution}
+Since Tom wants to keep the math books together, they can be treated as a single book in calculating the number of arrangements.
+We can use the multiplication principle by first finding the permutations of the math books within the novels, then multiplying by the number of permutations of the novels.
+The number of permutations of the novels and math books (math books stick together) is $21!$,
+since there are 20 novels, and we are treating the math books as a single book, since they must stick together.
+Now, within the math books, there are $7!$ permutations, since there are 7 math books.
+Thus, the total number of ways to arrange the bookshelf is $21! \times 7!$.
 \end{solution}
 
 \newpage

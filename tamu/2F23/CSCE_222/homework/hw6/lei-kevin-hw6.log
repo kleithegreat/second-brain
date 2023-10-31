@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  29 OCT 2023 18:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  30 OCT 2023 22:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -233,18 +233,22 @@ Here is how much of TeX's memory you used:
 <C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/a
 msfonts/cm/cmbx10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/
 fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/kevin/scoop/apps/miktex/cur
-rent/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/kevin/sc
-oop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb
+rent/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/kevin/sc
+oop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb
 ><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/am
-sfonts/cm/cmr7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fon
-ts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/kevin/scoop/apps/miktex/curren
-t/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/kevin/scoo
-p/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-<C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/ams
-fonts/latxfont/lasy10.pfb>
-Output written on lei-kevin-hw6.pdf (8 pages, 131350 bytes).
+sfonts/cm/cmr12.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fo
+nts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/kevin/scoop/apps/miktex/current
+/texmfs/install/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/kevin/scoop
+/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsf
+onts/cm/cmsy7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/font
+s/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/kevin/scoop/apps/miktex/current
+/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/kevin/scoop
+/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/latxfont/lasy10
+.pfb>
+Output written on lei-kevin-hw6.pdf (8 pages, 162214 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
+ 89 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
