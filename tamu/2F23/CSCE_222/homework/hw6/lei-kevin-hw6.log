@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  30 OCT 2023 22:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  3 NOV 2023 13:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -216,39 +216,56 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ) [1{C:/Users/kevin/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdft
 ex.map}
 
-] [2] [3] [4] [5] [6] [7] [8] (lei-kevin-hw6.aux)
+] [2] [3] [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--170
+
+ []
+
+[6] [7]
+Overfull \hbox (79.35316pt too wide) detected at line 220
+[]
+ []
+
+[8] [9] (lei-kevin-hw6.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2160 strings out of 475248
- 31969 string characters out of 5752602
- 1925785 words of memory out of 5000000
- 23701 multiletter control sequences out of 15000+600000
- 562178 words of font info for 54 fonts, out of 8000000 for 9000
+ 2167 strings out of 475248
+ 32119 string characters out of 5752602
+ 1927785 words of memory out of 5000000
+ 23707 multiletter control sequences out of 15000+600000
+ 562513 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,11n,65p,232b,225s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/
-fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/kevin/scoop/apps/miktex/cur
-rent/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/kevin/sc
-oop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb
-><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/am
-sfonts/cm/cmr12.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fo
-nts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/kevin/scoop/apps/miktex/current
-/texmfs/install/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/kevin/scoop
-/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsf
-onts/cm/cmsy7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/font
-s/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/kevin/scoop/apps/miktex/current
-/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/kevin/scoop
-/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/latxfont/lasy10
-.pfb>
-Output written on lei-kevin-hw6.pdf (8 pages, 162214 bytes).
+ 56i,12n,65p,232b,291s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\kevin\scoop\apps\miktex\current\texmfs/data\fonts/pk/ljfour/jknapp
+en/ec/dpi600\tcrm1000.pk><C:/Users/kevin/scoop/apps/miktex/current/texmfs/insta
+ll/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/kevin/scoop/apps/miktex/
+current/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/kevi
+n/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/insta
+ll/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/kevin/scoop/apps/miktex/c
+urrent/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/kevin/
+scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pf
+b><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/a
+msfonts/cm/cmsl10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/kevin/scoop/apps/miktex/cur
+rent/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/kevin/sc
+oop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pf
+b><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/a
+msfonts/cm/cmtt10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/
+fonts/type1/public/amsfonts/latxfont/lasy10.pfb>
+Output written on lei-kevin-hw6.pdf (9 pages, 180662 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
+ 102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

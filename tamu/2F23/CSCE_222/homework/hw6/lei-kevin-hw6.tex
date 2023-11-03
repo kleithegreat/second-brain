@@ -148,7 +148,26 @@ For (a), use the formula involving the factorials.  For (b), use the hint given 
 problem statement, and explain carefully your double counting (combinatorial) 
 proof in your own words.
 \end{problem}
-\begin{solution} 
+\begin{solution}
+\textbf{(a)} Using the definition with factorials: \\
+$$ \binom{n}{k} = \frac{n!}{k!(n-k)!} $$
+We need to show that the following is true:
+$$ \binom{n}{k} \cdot k = n \cdot \binom{n-1}{k-1} $$
+Starting with the right hand side, we have:
+$$ n \cdot \binom{n-1}{k-1} = n \cdot \frac{(n-1)!}{(k-1)!((n-1)-(k-1))!} = \frac{n!}{(k-1)!(n-k)!} $$
+The left hand side can be rewritten as follows:
+$$ \binom{n}{k} \cdot k = \frac{n!}{k!(n-k)!} \cdot k = \frac{k \cdot n!}{k (k-1)! (n-k)!} = \frac{n!}{(k-1)! (n-k)!} $$
+Now we can see that both sides of the equation are the same, so the equation is true.
+\newline
+\newline
+\textbf{(b)} Using a combinatorial proof: \\
+We can use two methods to choose a team of fixed size and their captain to show this is true.
+One way is to first choose a team of size $k$ from $n$ people, and then choose a captain from the team of size $k$.
+That means we have $\binom{n}{k} \cdot k$ ways to choose a team and their captain.
+The second way is to first choose the captain from $n$ people, and then choose the rest of the team of size $k-1$ from the remaining $n-1$ people.
+This means there are $n \cdot \binom{n-1}{k-1}$ ways to choose a team and their captain.
+Both methods count the same exact scenario, and since the outcome is the same, the two expressions must be equal.
+
 \end{solution}
 
 \newpage
@@ -158,7 +177,48 @@ carefully in your own words and show your work step-by-step.
 significant (1s) digit; set 2 with those that contain a 1 in the middle (10s) digit, and 
 set 3 with those that contain a 1 in the most significant (100s) digit.]
 \end{problem}
-\begin{solution} 
+\begin{solution}
+To use the inclusion-exclusion principle, we first define the following sets:
+\begin{itemize}
+  \item $S_1$: The set of all page numbers that contain a 1 in the least significant digit.
+  \item $S_2$: The set of all page numbers that contain a 1 in the middle digit.
+  \item $S_3$: The set of all page numbers that contain a 1 in the most significant digit.
+\end{itemize}
+We want to find the number of page numbers that do not contain a 1 in any of the digits.
+If the set $S$ is the set of all page numbers, then the number of pages that do not contain a 1 in any of the digits is given by 
+$|S \setminus (S_1 \cup S_2 \cup S_3)|$, which is the inclusion-exclusion principle.
+Since this is equivalent to $ |S| - |S_1 \cup S_2 \cup S_3| $, we need to find the cardinality of $S_1 \cup S_2 \cup S_3$, which is given by:
+$$ |S_1 \cup S_2 \cup S_3| = |S_1| + |S_2| + |S_3| - |S_1 \cap S_2| - |S_1 \cap S_3| - |S_2 \cap S_3| + |S_1 \cap S_2 \cap S_3| $$
+Every ten pages, there is a page that contains a 1 in the least significant digit.
+That means the cardinality of $S_1$ is given by:
+$$ |S_1| = \frac{500}{10} = 50 $$
+Each set of 100s has the numbers 10-19, 110-119, 210-219, etc.
+This means the cardinality of $S_2$ is given by:
+$$ |S_2| = \frac{500}{100} \times 10 = 50 $$
+The number of pages with 1 in the most significant digit is simply the pages from 100-199.
+Therefore, the cardinality of $S_3$ is given by:
+$$ |S_3| = 100 $$
+The set $S_1 \cap S_2$ is the set of all page numbers that end in 11.
+Since this only happens once every 100 pages, the cardinality of $S_1 \cap S_2$ is given by:
+$$ |S_1 \cap S_2| = \frac{500}{100} = 5 $$
+$S_1 \cap S_3$ are all the pages in the 100s that end in 1.
+Since this happens once every 10 pages and can only happen in the 100s, the cardinality of $S_1 \cap S_3$ is given by:
+$$ |S_1 \cap S_3| = 10 $$
+$S_2 \cap S_3$ are all the pages in the 100s with a 1 in the middle digit, such as 110, 111, 112, etc.
+Since this only happens 10 times in the 100s, the cardinality of $S_2 \cap S_3$ is given by:
+$$ |S_2 \cap S_3| = 10 $$
+Finally, $S_1 \cap S_2 \cap S_3$ is the set of all page numbers that are 111.
+Obviously, there is only one page number that is 111, so the cardinality of $S_1 \cap S_2 \cap S_3$ is 1.
+Now we can plug in all the values to get the cardinality of $S_1 \cup S_2 \cup S_3$.
+Thus, we have:
+\begin{align*}
+  |S \setminus (S_1 \cup S_2 \cup S_3)| &= |S| - |S_1 \cup S_2 \cup S_3| \\
+  &= |S| - (|S_1| + |S_2| + |S_3| - |S_1 \cap S_2| - |S_1 \cap S_3| - |S_2 \cap S_3| + |S_1 \cap S_2 \cap S_3|) \\
+  &= 500 - (50 + 50 + 100 - 5 - 10 - 10 + 1) \\
+  &= 500 - 176 \\
+  &= 324
+\end{align*}
+There are 324 pages from 1-500 that contain a 1 in at least one of the digits.
 \end{solution}
 
 \newpage
@@ -171,7 +231,18 @@ Explain your reasoning carefully.
 [Hint: This problem is about Pigeonhole Principle (Section 12.7). 
 Carefully think what are the pigeonholes and what are the pigeons here.]
 \end{problem}
-\begin{solution} 
+\begin{solution}
+In this problem we need to guarantee that there are three ordered pairs
+with the same $x \textbf{ mod } 5$ and $y \textbf{ mod } 4$.
+To do this, we should consider the worst case scenario, where the pairs are distributed as evenly as possible across the pigeonholes.
+$x \textbf{ mod } 5$ can be any number from 0 to 4, so it has 5 possible values.
+Similarly, $y \textbf{ mod } 4$ can be any number from 0 to 3, so there are 4 possible values for it.
+This means there are $5 \times 4 = 20$ possible combinations of $x \textbf{ mod } 5$ and $y \textbf{ mod } 4$.
+We need to find the number of pairs $n$ such that $ \lceil n/20 \rceil \geq 3 $.
+Since $n$ must be an integer, the ceiling function is unnecessary.
+Thus, we have:
+$$ n \geq 3 \times 20 = 60 $$
+Therefore, we need at least 60 ordered pairs to guarantee that there are three ordered pairs with the same $x \textbf{ mod } 5$ and $y \textbf{ mod } 4$.
 \end{solution}
 
 \end{document}
