@@ -1,0 +1,144 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{7th Homework - MATH 304 508}
+\rhead{Kevin Lei}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\section*{Question 1}
+Determine whether the following transformations are linear: Explain your answer.
+\begin{enumerate}[a.]
+    \item $ F((x_1, x_2, x_3)^T) = (x_1 - x_2, x_2 - x_1)^T $
+    \item $ F((x_1, x_2, x_3)^T) = (1, 2, x_1 + x_2 + x_3)^T $
+    \item $ F((x_1)) = (x_1, 2x_1, 3x_1)^T $
+    \item $ F((x_1, x_2, x_3, x_4)^T) = (x_1, 0, 0, 0, x_2^2 + x_3^2 + x_4^2)^T $
+\end{enumerate}
+
+\noindent\textbf{Solution:} To check for linearity, we need to check for additivity and homogeneity, which implies that the zero vector is preserved.
+That means a map is linear if $L(c(u + v)) = cL(u + v) = cL(u) + cL(v)$ for all $u, v$ in the domain and $c \in \mathbb{R}$.
+\vspace{0.25cm}
+\newline\noindent\textbf{a.} $ F((x_1, x_2, x_3)^T) = (x_1 - x_2, x_2 - x_1)^T $ \\
+Additivity:
+\begin{align*}
+    F((x_1, x_2, x_3)^T + (y_1, y_2, y_3)^T) &= F((x_1 + y_1, x_2 + y_2, x_3 + y_3)^T) \\
+    &= (x_1 + y_1 - x_2 - y_2, x_2 + y_2 - x_1 - y_1)^T \\
+    &= (x_1 - x_2, x_2 - x_1)^T + (y_1 - y_2, y_2 - y_1)^T \\
+    &= F((x_1, x_2, x_3)^T) + F((y_1, y_2, y_3)^T)
+\end{align*}
+Homogeneity:
+\begin{align*}
+    F(c(x_1, x_2, x_3)^T) &= F((cx_1, cx_2, cx_3)^T) \\
+    &= (cx_1 - cx_2, cx_2 - cx_1)^T \\
+    &= c(x_1 - x_2, x_2 - x_1)^T \\
+    &= cF((x_1, x_2, x_3)^T)
+\end{align*}
+Therefore, $F((x_1, x_2, x_3)^T) = (x_1 - x_2, x_2 - x_1)^T$ is linear.
+
+\vspace{0.25cm}
+\noindent\textbf{b.} $ F((x_1, x_2, x_3)^T) = (1, 2, x_1 + x_2 + x_3)^T $ \\
+Homogeneity:
+\begin{align*}
+    F((0, 0, 0)^T) &= (1, 2, 0)^T
+\end{align*}
+Since this transformation does not preserve the zero vector, it is not linear.
+
+\vspace{0.25cm}
+\noindent\textbf{c.} $ F((x_1)) = (x_1, 2x_1, 3x_1)^T $ \\
+Additivity:
+\begin{align*}
+    F((x_1) + (y_1)) &= F((x_1 + y_1)) \\
+    &= (x_1 + y_1, 2(x_1 + y_1), 3(x_1 + y_1))^T \\
+    &= (x_1, 2x_1, 3x_1)^T + (y_1, 2y_1, 3y_1)^T \\
+    &= F((x_1)) + F((y_1))
+\end{align*}
+Homogeneity:
+\begin{align*}
+    F(c(x_1)) &= F((cx_1)) \\
+    &= (cx_1, 2(cx_1), 3(cx_1))^T \\
+    &= c(x_1, 2x_1, 3x_1)^T \\
+    &= cF((x_1))
+\end{align*}
+Therefore, $F((x_1)) = (x_1, 2x_1, 3x_1)^T$ is linear.
+
+\vspace{0.25cm}
+\noindent\textbf{d.} $ F((x_1, x_2, x_3, x_4)^T) = (x_1, 0, 0, 0, x_2^2 + x_3^2 + x_4^2)^T $\\
+Since this transformation includes squared terms, it cannot satisfy additivity, and therefore is not linear.
+
+\section*{Question 2}
+Determine whether the following transformations are linear from $C([0,1])$ to $\mathbb{R}$.
+\begin{enumerate}[a.]
+    \item $ L(f) = f(0), (L := C([0,1]) \to \mathbb{R}) $
+    \item $ L(f) = |f(0)|, (L := C([0,1]) \to \mathbb{R}) $
+    \item $ L(f) = f'(0) + f(0). \; (L := C^1([0,1]) \to \mathbb{R}) $
+    \item $ L(f)(x) = x^2 + f(x), \; (L := C([0,1]) \to C([0,1])) $
+\end{enumerate}
+
+\noindent\textbf{Solution:}
+
+\section*{Question 3}
+For each of the following transformations, find a matrix $A$ such that $L(x) = Ax$.
+\begin{enumerate}[a.]
+    \item $ L((x_1, x_2, x_3)^T) = (x_1 + x_2)^T $
+    \item $ L((x_1, x_2, x_3)^T) = (x_1 + x_2, x_2 + x_3, x_1 + x_2 + x_3)^T $
+    \item $ L((x_1)) = (x_1, 2x_1, 3x_1)^T $
+    \item $ L((x_1, x_2, x_3, x_4)^T) = (x_1 + x_2 + x_3 + 2x_4)^T $
+\end{enumerate}
+
+\noindent\textbf{Solution:} To find a matrix A such that $L(x) = Ax$, we need to find the image of the standard basis vectors.
+
+\vspace{0.25cm}
+\noindent\textbf{a.} $ L((x_1, x_2, x_3)^T) = (x_1 + x_2)^T $ \\
+$$ L((1, 0, 0)^T) = (1, 0)^T, \quad L((0, 1, 0)^T) = (1, 0)^T, \quad L((0, 0, 1)^T) = (0, 0)^T $$
+$$ A = \begin{bmatrix} 1 & 1 & 0 \\ 0 & 0 & 0 \end{bmatrix} $$
+
+\vspace{0.25cm}
+\noindent\textbf{b.} $ L((x_1, x_2, x_3)^T) = (x_1 + x_2, x_2 + x_3, x_1 + x_2 + x_3)^T $ \\
+$$ L((1, 0, 0)^T) = (1, 0, 1)^T, \quad L((0, 1, 0)^T) = (1, 1, 1)^T, \quad L((0, 0, 1)^T) = (0, 1, 1)^T $$
+$$ A = \begin{bmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 1 & 1 & 1 \end{bmatrix} $$
+
+\vspace{0.25cm}
+\noindent\textbf{c.} $ L((x_1)) = (x_1, 2x_1, 3x_1)^T $ \\
+$$ L((1)) = (1, 2, 3)^T $$
+$$ A = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} $$
+
+\vspace{0.25cm}
+\noindent\textbf{d.} $ L((x_1, x_2, x_3, x_4)^T) = (x_1 + x_2 + x_3 + 2x_4)^T $ \\
+$$ L((1, 0, 0, 0)^T) = (1)^T, \quad L((0, 1, 0, 0)^T) = (1)^T $$
+$$ L((0, 0, 1, 0)^T) = (1)^T, \quad L((0, 0, 0, 1)^T) = (2)^T $$
+$$ A = \begin{bmatrix} 1 & 1 & 1 & 2 \end{bmatrix} $$
+
+
+\section*{Question 4}
+Let $L : \mathbb{R}^3 \to \mathbb{R}^2$ such that
+$$ L((x_1, x_2, x_3)^T) = (2x_1, x_1 + x_2). $$
+\begin{enumerate}[a.]
+    \item Find $A$ that represents $L$ with respect to the standard basis of $\mathbb{R}^3$.
+    \item Find $B$ that represents $L$ with respect to the following basis of $\mathbb{R}^3$. \\
+    $E := [v_1, v_2, v_3]$, where, $$ v_1 = (1,1,1)^T, \quad v_2 = (1,1,0)^T, \quad v_3 = (1,0,0)^T. $$
+\end{enumerate}
+
+\noindent\textbf{Solution:}
+\newline\noindent\textbf{a.} To find a matrix A such that $L(x) = Ax$, we need to find the image of the standard basis vectors.
+$$ L((1, 0, 0)^T) = (2, 1)^T, \quad L((0, 1, 0)^T) = (0, 1)^T, \quad L((0, 0, 1)^T) = (0, 0)^T $$
+$$ A = \begin{bmatrix} 2 & 0 & 0 \\ 1 & 1 & 0 \end{bmatrix} $$
+\noindent\textbf{b.} To find a matrix B such that $L(x) = Bx$ where $E$ is a basis of $\mathbb{R}^3$, we need to find the image of $v_1, v_2, v_3$.
+$$ L((1, 1, 1)^T) = (2, 2)^T, \quad L((1, 1, 0)^T) = (2, 2)^T, \quad L((1, 0, 0)^T) = (2, 1)^T $$
+$$ B = \begin{bmatrix} 2 & 2 & 2 \\ 2 & 2 & 1 \end{bmatrix} $$
+
+\section*{Question 5}
+In the vector space $C[-\pi, \pi]$ we define inner product
+$$ \langle f, g \rangle = \frac{1}{\pi} \int_{-\pi, \pi} f(x)g(x)dx. $$
+\begin{enumerate}[a.]
+    \item Show that the above is indeed an inner product.
+    \item Show that $f(x) = \cos(x), \; g(x) = \sin(x)$ are orthogonal and that they have length 1.
+\end{enumerate}
+
+\noindent\textbf{Solution:}
+
+\end{document}
