@@ -25,4 +25,36 @@ string Post::getPostText() {
 
 vector<string> Post::findTags() {
     // TODO: extracts candidate tags based on occurrences of # in the post
+    vector<string> tags = {};
+
+    for (int i = 0; i < postText.length(); i++) {
+        if (postText.at(i) == '#') {
+            string tag = "#";
+
+            for (int j = i; j < postText.length(); j++) {
+                if (postText.at(j) == ' ' || postText.at(j) == ',' || postText.at(j) == '.' || postText.at(j) == '?' || postText.at(j) == '!') {
+                    break;
+                }
+                tag += postText.at(j);
+            }
+            
+            for (int k = 0; k < tag.length(); k++) {
+                if (tag.at(k) >= 'A' && tag.at(k) <= 'Z') {
+                    tag.at(k) = tag.at(k) + 32;
+                }
+            }
+
+            try {
+                Tag newTag(tag);
+                for (int l = 0; l < tags.size(); l++) {
+                    if (tags.at(l) == tag) {
+                        throw exception();
+                    }
+                }
+                tags.push_back(tag);
+            } catch (std::invalid_argument& e) {
+                continue;
+            }
+        }
+    }
 }

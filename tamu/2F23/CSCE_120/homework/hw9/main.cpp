@@ -1,9 +1,13 @@
 # include <iostream>
 # include <string>
 # include <stdexcept>
-# include "Network.h"
+# include "Network.h"n cas
 
-using std::cout, std::cin, std::endl, std::string, std::vector;
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
+using std::vector;
 
 void printMenu() {
     cout << "Welcome to CPPeers" << endl;
@@ -47,7 +51,7 @@ int main() {
     //         printMenu();
     //         cin >> choice;
     //         switch(choice) {
-    //             case 1: {
+    //              e 1: {
     //                 processLoad(cppeers);
     //                 break;
     //             }
