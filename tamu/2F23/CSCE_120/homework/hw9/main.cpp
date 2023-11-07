@@ -1,7 +1,7 @@
 # include <iostream>
 # include <string>
 # include <stdexcept>
-# include "Network.h"n cas
+# include "Network.h"
 
 using std::cout;
 using std::cin;
@@ -29,49 +29,65 @@ void processLoad(Network& cppeers) {
 
 void processPostsByUser(Network& cppeers) {
     // TODO: implement
+    string userName = "";
+    cout << "Enter username: ";
+    cin >> userName;
+    vector<Post*> posts = cppeers.getPostsByUser(userName);
+    for (unsigned int i = 0; i < posts.size(); i++) {
+        cout << posts.at(i)->getPostText() << endl;
+    }
 }
 
 void processPostsWithHashtags(Network& cppeers) {
     // TODO: implement
+    string hashtag = "";
+    cout << "Enter tagname: ";
+    cin >> hashtag;
+    vector<Post*> posts = cppeers.getPostsWithTag(hashtag);
+    for (unsigned int i = 0; i < posts.size(); i++) {
+        cout << posts.at(i)->getPostText() << endl;
+    }
 }
 
 void processMostPopularHashtag(Network& cppeers) {
     // TODO: implement
+    vector<string> mostPopularHashtag = cppeers.getMostPopularHashtag();
+    for (unsigned int i = 0; i < mostPopularHashtag.size(); i++) {
+        cout << mostPopularHashtag.at(i) << endl;
+    }
 }
 
 int main() {
-    // TODO: uncomment at the end
+    try {
+        Network cppeers;
 
-    // try {
-    //     Network cppeers;
+        int choice = 0;
 
-    //     int choice = 0;
-
-    //     do {
-    //         printMenu();
-    //         cin >> choice;
-    //         switch(choice) {
-    //              e 1: {
-    //                 processLoad(cppeers);
-    //                 break;
-    //             }
-    //             case 2: {
-    //                 processPostsByUser(cppeers);
-    //                 break;
-    //             }
-    //             case 3: {
-    //                 processPostsWithHashtags(cppeers);
-    //                 break;
-    //             }
-    //             case 4: {
-    //                 processMostPopularHashtag(cppeers);
-    //                 break;
-    //             }
-    //         }
-    //     } while (choice != 9);
-    // } catch (std::exception& exc) {
-    //     std::cout << exc.what() << endl;
-    // }
+        do {
+            printMenu();
+            cin >> choice;
+            switch(choice) {
+                case 1: {
+                    processLoad(cppeers);
+                    break;
+                }
+                case 2: {
+                    processPostsByUser(cppeers);
+                    break;
+                }
+                case 3: {
+                    processPostsWithHashtags(cppeers);
+                    break;
+                }
+                case 4: {
+                    processMostPopularHashtag(cppeers);
+                    break;
+                }
+            }
+        } while (choice != 9);
+    } catch (std::exception& exc) {
+        std::cout << exc.what() << endl;
+    }
 
     return 0;
 }

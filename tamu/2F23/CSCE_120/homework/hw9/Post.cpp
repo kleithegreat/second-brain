@@ -3,7 +3,8 @@
 # include <stdexcept>
 # include "Post.h"
 
-using std::string, std::vector;
+using std::string;
+using std::vector;
 
 Post::Post(unsigned int postId, string userName, string postText) : postId(postId), userName(userName), postText(postText) {
     if (postId == 0 || userName == "" || postText == "") {
@@ -24,37 +25,42 @@ string Post::getPostText() {
 }
 
 vector<string> Post::findTags() {
-    // TODO: extracts candidate tags based on occurrences of # in the post
-    vector<string> tags = {};
+    vector<string> tags;
 
-    for (int i = 0; i < postText.length(); i++) {
-        if (postText.at(i) == '#') {
+    for (size_t i = 0; i < postText.length(); ++i) {
+        if (postText[i] == '#') {
             string tag = "#";
 
-            for (int j = i; j < postText.length(); j++) {
-                if (postText.at(j) == ' ' || postText.at(j) == ',' || postText.at(j) == '.' || postText.at(j) == '?' || postText.at(j) == '!') {
+            size_t j = i + 1;
+            for (; j < postText.length(); ++j) {
+                char currentChar = postText[j];
+                if (currentChar == ' ' || currentChar == ',' || currentChar == '.' ||
+                    currentChar == '?' || currentChar == '!' || currentChar == '\t' ||
+                    currentChar == '\n' || currentChar == '\r') {
                     break;
                 }
-                tag += postText.at(j);
+                if (currentChar >= 'A' && currentChar <= 'Z') {
+                    currentChar += 32;
+                }
+                tag += currentChar;
             }
-            
-            for (int k = 0; k < tag.length(); k++) {
-                if (tag.at(k) >= 'A' && tag.at(k) <= 'Z') {
-                    tag.at(k) = tag.at(k) + 32;
+
+            if (tag.length() > 1) {
+                bool isUnique = true;
+                for (const auto& existingTag : tags) {
+                    if (existingTag == tag) {
+                        isUnique = false;
+                        break;
+                    }
+                }
+                if (isUnique) {
+                    tags.push_back(tag);
                 }
             }
 
-            try {
-                Tag newTag(tag);
-                for (int l = 0; l < tags.size(); l++) {
-                    if (tags.at(l) == tag) {
-                        throw exception();
-                    }
-                }
-                tags.push_back(tag);
-            } catch (std::invalid_argument& e) {
-                continue;
-            }
+            i = j;
         }
     }
+
+    return tags;
 }

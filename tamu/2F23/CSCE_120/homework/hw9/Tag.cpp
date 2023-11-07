@@ -4,8 +4,7 @@
 
 using std::string, std::vector;
 
-Tag::Tag(string tagName) /* TODO: initialize */ {
-    // TODO: implement constructor checks
+Tag::Tag(string tagName) : tagName(), tagPosts() {
     if (tagName.length() < 2) {
         throw std::invalid_argument("tag constructor: invalid parameter values");
     }
@@ -17,7 +16,7 @@ Tag::Tag(string tagName) /* TODO: initialize */ {
         throw std::invalid_argument("tag constructor: invalid parameter values");
     }
 
-    for (int i = 0; i < tagName.length(); i++) {
+    for (unsigned int i = 0; i < tagName.length(); i++) {
         if (tagName.at(i) >= 'A' && tagName.at(i) <= 'Z') {
             throw std::invalid_argument("tag constructor: invalid parameter values");
         }
@@ -31,20 +30,17 @@ Tag::Tag(string tagName) /* TODO: initialize */ {
 }
 
 string Tag::getTagName() {
-    // TODO: implement getter
-    return this->tagName;
+    return tagName;
 }
 
 vector<Post*>& Tag::getTagPosts() {
-    // TODO: implement getter
-    return this->tagPosts;
+    return tagPosts;
 }
 
 void Tag::addTagPost(Post* post) {
-    // TODO: add post to tag posts
     if (post == nullptr) {
         throw std::invalid_argument("tag addTagPost: invalid parameter values");
     }
 
-    this->tagPosts.push_back(post);
+    tagPosts.push_back(post);
 }
