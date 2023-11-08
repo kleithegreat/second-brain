@@ -79,7 +79,10 @@ Determine whether the following transformations are linear from $C([0,1])$ to $\
     \item $ L(f)(x) = x^2 + f(x), \; (L := C([0,1]) \to C([0,1])) $
 \end{enumerate}
 
-\noindent\textbf{Solution:}
+\noindent\textbf{Solution:} Linear transformations must satisfy additivity and homogeneity.
+
+\vspace{0.25cm}
+\noindent\textbf{a.} $ L(f) = f(0), (L := C([0,1]) \to \mathbb{R}) $ \\
 
 \section*{Question 3}
 For each of the following transformations, find a matrix $A$ such that $L(x) = Ax$.
@@ -133,12 +136,47 @@ $$ B = \begin{bmatrix} 2 & 2 & 2 \\ 2 & 2 & 1 \end{bmatrix} $$
 
 \section*{Question 5}
 In the vector space $C[-\pi, \pi]$ we define inner product
-$$ \langle f, g \rangle = \frac{1}{\pi} \int_{-\pi, \pi} f(x)g(x)dx. $$
+$$ \langle f, g \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)g(x)dx. $$
 \begin{enumerate}[a.]
     \item Show that the above is indeed an inner product.
     \item Show that $f(x) = \cos(x), \; g(x) = \sin(x)$ are orthogonal and that they have length 1.
 \end{enumerate}
 
 \noindent\textbf{Solution:}
+
+\vspace{0.25cm}
+\noindent\textbf{a.} To show that the above is an inner product, we need to show that it satisfies the following properties:
+\begin{enumerate}[i.]
+    \item $\langle av_1 + bv_2, v_3 \rangle = a\langle v_1, v_3 \rangle + b\langle v_2, v_3 \rangle$
+    \item $\langle v_1, v_2 \rangle = \langle v_2, v_1 \rangle$
+    \item $\langle v_1, v_1 \rangle \geq 0$ and $\langle v_1, v_1 \rangle = 0$ if and only if $v_1 = 0$
+\end{enumerate}
+
+\noindent For the first property: \\
+\begin{align*}
+    \langle af + bg, h \rangle &= \frac{1}{\pi} \int_{-\pi}^{\pi} (af(x) + bg(x))h(x)\;dx \\
+    &= \frac{1}{\pi} \int_{-\pi}^{\pi} af(x)h(x) + bg(x)h(x)\;dx \\
+    &= \frac{1}{\pi} \int_{-\pi}^{\pi} af(x)h(x)\;dx + \frac{1}{\pi} \int_{-\pi}^{\pi} bg(x)h(x)\;dx \\
+    &= a \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)h(x)\;dx + b \frac{1}{\pi} \int_{-\pi}^{\pi} g(x)h(x)\;dx \\
+\end{align*}
+\begin{align*}
+    a \langle f, h \rangle + b \langle g, h \rangle &= a \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)h(x)\;dx + b \frac{1}{\pi} \int_{-\pi}^{\pi} g(x)h(x)\;dx \\
+\end{align*}
+
+\noindent For the second property: \\
+\begin{align*}
+    \langle f, g \rangle &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)g(x)\;dx \\
+    &= \frac{1}{\pi} \int_{-\pi}^{\pi} g(x)f(x)\;dx \\
+    &= \langle g, f \rangle
+\end{align*}
+
+
+\noindent For the third property: \\
+\begin{align*}
+    \langle f, f \rangle &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)f(x)\;dx \\
+    &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)^2\;dx \\
+\end{align*}
+We want to show that $\frac{1}{\pi} \int_{-\pi}^{\pi} f(x)^2\;dx$ is positive for all $f \in \mathbb{C}[-\pi, \pi]$ and that it is zero if and only if $f = 0$.
+
 
 \end{document}

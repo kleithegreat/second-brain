@@ -1,6 +1,7 @@
 # include <iostream>
 # include <string>
 # include <stdexcept>
+# include <cctype>
 # include "Post.h"
 
 using std::string;
@@ -27,40 +28,41 @@ string Post::getPostText() {
 vector<string> Post::findTags() {
     vector<string> tags;
 
-    for (size_t i = 0; i < postText.length(); ++i) {
+    for (unsigned int i = 0; i < postText.length(); i++) {
         if (postText[i] == '#') {
             string tag = "#";
 
-            size_t j = i + 1;
-            for (; j < postText.length(); ++j) {
+            unsigned int j = i + 1;
+            for (; j < postText.length(); j++) {
                 char currentChar = postText[j];
-                if (currentChar == ' ' || currentChar == ',' || currentChar == '.' ||
-                    currentChar == '?' || currentChar == '!' || currentChar == '\t' ||
-                    currentChar == '\n' || currentChar == '\r') {
+                if (isspace(currentChar) || currentChar == '#') {
                     break;
                 }
-                if (currentChar >= 'A' && currentChar <= 'Z') {
-                    currentChar += 32;
+                if (isupper(currentChar)) {
+                    currentChar = tolower(currentChar);
                 }
                 tag += currentChar;
             }
-
-            if (tag.length() > 1) {
-                bool isUnique = true;
-                for (const auto& existingTag : tags) {
-                    if (existingTag == tag) {
-                        isUnique = false;
-                        break;
-                    }
+            // remove trailing ,.!? on tag if any
+            while (tag.length() > 1 && (tag[tag.length() - 1] == ',' || tag[tag.length() - 1] == '.' || tag[tag.length() - 1] == '!' || tag[tag.length() - 1] == '?')) {
+                tag = tag.substr(0, tag.length() - 1);
+            }
+            
+            bool isUnique = true;
+            for (const auto& existingTag : tags) {
+                if (existingTag == tag) {
+                    isUnique = false;
+                    break;
                 }
-                if (isUnique) {
-                    tags.push_back(tag);
-                }
+            }
+            if (isUnique) {
+                tags.push_back(tag);
             }
 
             i = j;
+            }
         }
-    }
 
     return tags;
 }
+

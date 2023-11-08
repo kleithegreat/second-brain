@@ -24,25 +24,35 @@ void Network::loadFromFile(string fileName) {
             string username;
             ss >> username;
             if (ss.fail()) {
-                throw std::invalid_argument("loadFromFile: invalid file format");
+                throw std::runtime_error("loadFromFile: invalid file format");
             }
-            addUser(username);
+            try{
+                addUser(username);
+            } catch (std::invalid_argument& e) {
+                throw std::runtime_error("loadFromFile: invalid user name");
+            }
         } else if (userOrPost == "Post") {
             unsigned int postId;
             string username;
             string postText;
+
             ss >> postId >> username;
             if (ss.fail()) {
-                throw std::invalid_argument("loadFromFile: invalid file format");
+                throw std::runtime_error("loadFromFile: invalid file format");
             }
             ss >> std::ws;
             getline(ss, postText);
             if (ss.fail()) {
-                throw std::invalid_argument("loadFromFile: invalid file format");
+                throw std::runtime_error("loadFromFile: invalid file format");
             }
-            addPost(postId, username, postText);
+
+            try {
+                addPost(postId, username, postText);
+            } catch (std::invalid_argument& e) {
+                throw std::runtime_error("loadFromFile: invalid post");
+            }
         } else {
-            throw std::invalid_argument("loadFromFile: invalid file format");
+            throw std::runtime_error("loadFromFile: invalid file format");
         }
     }
 }
@@ -67,7 +77,7 @@ void Network::addUser(string userName) {
 void Network::addPost(unsigned int postId, string userName, string postText) {
     for (unsigned int i = 0; i < posts.size(); i++) {
         if (posts.at(i)->getPostId() == postId) {
-            throw std::invalid_argument("addPost: invalid parameter values");
+            throw std::invalid_argument("addPost: post id already exists");
         }
     }
 
@@ -78,7 +88,7 @@ void Network::addPost(unsigned int postId, string userName, string postText) {
         }
     }
     if (!userExists) {
-        throw std::invalid_argument("addPost: invalid parameter values");
+        throw std::invalid_argument("addPost: user does not exist");
     }
 
     Post* post = new Post(postId, userName, postText);
@@ -91,16 +101,23 @@ void Network::addPost(unsigned int postId, string userName, string postText) {
     }
 
     vector<string> postTags = post->findTags();
+
     for (unsigned int i = 0; i < postTags.size(); i++) {
         bool tagExists = false;
         for (unsigned int j = 0; j < tags.size(); j++) {
             if (tags.at(j)->getTagName() == postTags.at(i)) {
                 tagExists = true;
+                tags.at(j)->addTagPost(post);
             }
         }
         if (!tagExists) {
-            Tag* newTag = new Tag(postTags.at(i));
-            tags.push_back(newTag);
+            try {
+                Tag* newTag = new Tag(postTags.at(i));
+                tags.push_back(newTag);
+                tags.at(tags.size() - 1)->addTagPost(post);
+            } catch (std::invalid_argument& e) {
+                ;
+            }
         }
     }
 

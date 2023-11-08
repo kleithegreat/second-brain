@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  4 NOV 2023 15:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  7 NOV 2023 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -185,26 +185,46 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ex.map}
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
 
-[3] [4] (hw7.aux)
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
+
+ []
+
+[5] (hw7.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
@@ -231,9 +251,9 @@ p/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 <C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/ams
 fonts/cm/cmsy7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw7.pdf (4 pages, 115594 bytes).
+Output written on hw7.pdf (5 pages, 119710 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
+ 68 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
