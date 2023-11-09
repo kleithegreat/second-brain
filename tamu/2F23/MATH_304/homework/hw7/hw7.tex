@@ -79,10 +79,74 @@ Determine whether the following transformations are linear from $C([0,1])$ to $\
     \item $ L(f)(x) = x^2 + f(x), \; (L := C([0,1]) \to C([0,1])) $
 \end{enumerate}
 
-\noindent\textbf{Solution:} Linear transformations must satisfy additivity and homogeneity.
+\noindent\textbf{Solution:} Linear maps must satisfy additivity and homogeneity.
 
 \vspace{0.25cm}
 \noindent\textbf{a.} $ L(f) = f(0), (L := C([0,1]) \to \mathbb{R}) $ \\
+Additivity:
+\begin{align*}
+    L(f + g) &= (f + g)(0) \\
+    &= f(0) + g(0) \\
+    &= L(f) + L(g)
+\end{align*}
+
+\noindent Homogeneity:
+\begin{align*}
+    L(cf) &= (cf)(0) \\
+    &= cf(0) \\
+    &= cL(f)
+\end{align*}
+
+\noindent The transformation $L(f) = f(0)$ preserves additivity and homogeneity, and therefore is linear.
+
+\vspace{0.25cm}
+\noindent\textbf{b.} $ L(f) = |f(0)|, (L := C([0,1]) \to \mathbb{R}) $ \\
+Additivity:
+\begin{align*}
+    L(f + g) &= |(f + g)(0)| \\
+    &= |f(0) + g(0)| \\
+    &\neq |f(0)| + |g(0)| \\
+\end{align*}
+
+Counterexample: $f(x) = x + 1, \; g(x) = x - 1$
+\begin{align*}
+    L(f + g) &= |(f + g)(0)| \\
+    &= |f(0) + g(0)| \\
+    &= |1 + (-1)| \\
+    &= 0 \\
+\end{align*}
+\begin{align*}
+    L(f) + L(g) &= |f(0)| + |g(0)| \\
+    &= |1| + |-1| \\
+    &= 2 \\
+\end{align*}
+
+Since additivity is not preserved, this transformation is not linear.
+
+\vspace{0.25cm}
+\noindent\textbf{c.} $ L(f) = f'(0) + f(0). \; (L := C^1([0,1]) \to \mathbb{R}) $ \\
+Additivity:
+\begin{align*}
+    L(f + g) &= (f + g)'(0) + (f + g)(0) \\
+    &= f'(0) + g'(0) + f(0) + g(0) \\
+    &= f'(0) + f(0) + g'(0) + g(0) \\
+    &= L(f) + L(g)
+\end{align*}
+
+\noindent Homogeneity:
+\begin{align*}
+    L(cf) &= (cf)'(0) + (cf)(0) \\
+    &= cf'(0) + cf(0) \\
+    &= c(f'(0) + f(0)) \\
+    &= cL(f)
+\end{align*}
+
+\noindent The transformation $L(f) = f'(0) + f(0)$ preserves additivity and homogeneity, and therefore is linear.
+
+\vspace{0.25cm}
+\noindent\textbf{d.} $ L(f)(x) = x^2 + f(x), \; (L := C([0,1]) \to C([0,1])) $ \\
+Since $x^2$ is a constant in the domain, that means the zero vector cannot be preserved, and therefore this transformation is not linear.
+
 
 \section*{Question 3}
 For each of the following transformations, find a matrix $A$ such that $L(x) = Ax$.
@@ -177,6 +241,13 @@ $$ \langle f, g \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)g(x)dx. $$
     &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)^2\;dx \\
 \end{align*}
 We want to show that $\frac{1}{\pi} \int_{-\pi}^{\pi} f(x)^2\;dx$ is positive for all $f \in \mathbb{C}[-\pi, \pi]$ and that it is zero if and only if $f = 0$.
+The integrand $f(x)^2$ must be greater than or equal to zero, since it is the square of a real number.
+Additionally, we have that $f(x)^2 = 0$ if and only if $f(x) = 0$.
+Since the integrand is greater than or equal to zero, and is zero if and only if $f(x) = 0$, then the integral must be greater than or equal to zero, and is zero if and only if $f(x) = 0$.
+Therefore, $\langle f, f \rangle \geq 0$ and $\langle f, f \rangle = 0$ if and only if $f = 0$,
+and the above is an inner product.
 
+\vspace{0.25cm}
+\noindent\textbf{b.} To show that $f(x) = \cos(x), \; g(x) = \sin(x)$ are orthogonal, we need to show that $\langle f, g \rangle = 0$.
 
 \end{document}
