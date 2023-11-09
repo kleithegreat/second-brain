@@ -147,7 +147,7 @@ Additivity:
 \noindent\textbf{d.} $ L(f)(x) = x^2 + f(x), \; (L := C([0,1]) \to C([0,1])) $ \\
 Since $x^2$ is a constant in the domain, that means the zero vector cannot be preserved, and therefore this transformation is not linear.
 
-
+\newpage
 \section*{Question 3}
 For each of the following transformations, find a matrix $A$ such that $L(x) = Ax$.
 \begin{enumerate}[a.]
@@ -198,6 +198,7 @@ $$ A = \begin{bmatrix} 2 & 0 & 0 \\ 1 & 1 & 0 \end{bmatrix} $$
 $$ L((1, 1, 1)^T) = (2, 2)^T, \quad L((1, 1, 0)^T) = (2, 2)^T, \quad L((1, 0, 0)^T) = (2, 1)^T $$
 $$ B = \begin{bmatrix} 2 & 2 & 2 \\ 2 & 2 & 1 \end{bmatrix} $$
 
+\newpage
 \section*{Question 5}
 In the vector space $C[-\pi, \pi]$ we define inner product
 $$ \langle f, g \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)g(x)dx. $$
@@ -249,5 +250,32 @@ and the above is an inner product.
 
 \vspace{0.25cm}
 \noindent\textbf{b.} To show that $f(x) = \cos(x), \; g(x) = \sin(x)$ are orthogonal, we need to show that $\langle f, g \rangle = 0$.
+The inner product of $f$ and $g$ is:
+\begin{align*}
+    \langle f, g \rangle &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)g(x)\;dx = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(x)\sin(x)\;dx \\
+    &= \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(x) \; dx \int_{-\pi}^{\pi} \cos(x) \; dx \\
+    &= \frac{1}{\pi} \left[ -\cos(x) \right]_{-\pi}^{\pi} \left[ \sin(x) \right]_{-\pi}^{\pi} \\
+    &= \frac{1}{\pi} (-1 - (-1)) (0 - 0) \\
+    &= 0
+\end{align*}
+Since the inner product of $f$ and $g$ is zero, $f$ and $g$ are orthogonal. \\
+To show that $f$ and $g$ have length 1, we can take the euclidian norm of $f$ and $g$, which is just the square root of their inner product with themselves.
+\begin{align*}
+    \langle f, f \rangle &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)f(x)\;dx = \frac{1}{\pi} \int_{-\pi}^{\pi} \cos(x)^2\;dx \\
+    &= \frac{1}{2 \pi} \int_{-\pi}^{\pi} 1 + \cos(2x)\;dx \\
+    &= \frac{1}{2 \pi} \left[ x + \frac{1}{2} \sin(2x) \right]_{-\pi}^{\pi} = \frac{1}{2 \pi} \left( \pi + \frac{1}{2} \sin(2\pi) - (-\pi + \frac{1}{2} \sin(-2\pi)) \right) \\
+    &= \frac{1}{2 \pi} \left( \pi + 0 - (-\pi + 0) \right) = \frac{1}{2 \pi} (2\pi) = 1 \\
+    \sqrt{\langle f, f \rangle} &= \sqrt{1} = 1
+\end{align*}
+The inner product of $f$ and $f$ is 1, so the euclidian norm of $f$ is 1.
+\begin{align*}
+    \langle g, g \rangle &= \frac{1}{\pi} \int_{-\pi}^{\pi} g(x)g(x)\;dx = \frac{1}{\pi} \int_{-\pi}^{\pi} \sin(x)^2\;dx \\
+    &= \frac{1}{2 \pi} \int_{-\pi}^{\pi} 1 - \cos(2x)\;dx \\
+    &= \frac{1}{2 \pi} \left[ x - \frac{1}{2} \sin(2x) \right]_{-\pi}^{\pi} = \frac{1}{2 \pi} \left( \pi - \frac{1}{2} \sin(2\pi) - (-\pi - \frac{1}{2} \sin(-2\pi)) \right) \\
+    &= \frac{1}{2 \pi} \left( \pi + 0 - (-\pi - 0) \right) = \frac{1}{2 \pi} (2\pi) = 1 \\
+    \sqrt{\langle g, g \rangle} &= \sqrt{1} = 1
+\end{align*}
+The inner product of $g$ and $g$ is 1, so the euclidian norm of $g$ is 1.
+Therefore, $f$ and $g$ have length 1.
 
 \end{document}
