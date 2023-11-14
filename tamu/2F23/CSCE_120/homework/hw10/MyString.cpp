@@ -2,48 +2,77 @@
 #include <limits>
 #include "MyString.h"
 
-MyString::MyString() : chars(nullptr), _size(0), _capacity(0) {}
-
-MyString::MyString(const MyString& mystr) {
-    _size = mystr._size;
-    _capacity = mystr._capacity;
-    chars = new char[_capacity];
-    for (int i = 0; i < _size; i++) {
-        chars[i] = mystr.chars[i];
-    }
+MyString::MyString() : _size(0), _capacity(1), chars(nullptr) {
+    chars = new char[1];
+    chars[0] = '\0';
 }
 
-MyString::MyString(const char* s) {
-    _size = 0;
-    while(s[_size] != '\0') {
-        _size++;
+MyString::MyString(const MyString& mystr) : _size(0), _capacity(1), chars(nullptr) {
+    if (mystr.empty()) {
+        chars = new char[1];
+        chars[0] = '\0';
+    } else {
+        _size = mystr._size;
+        _capacity = mystr._capacity;
+        chars = new char[_capacity];
+        for (unsigned int i = 0; i < _size; i++) {
+            chars[i] = mystr.chars[i];
+        }
     }
-    _capacity = _size + 1;
-    chars = new char[_capacity];
-    for (int i = 0; i < _size; i++) {
-        chars[i] = s[i];
+    std::cout << "Copy constructor called " << chars << std::endl;
+}
+
+MyString::MyString(const char* s) : _size(0), _capacity(1), chars(nullptr) {
+    if (s == nullptr) {
+        _size = 0;
+        _capacity = 1;
+        chars = new char[_capacity];
+        chars[0] = '\0';
+    } else {
+        _size = 0;
+        while (s[_size] != '\0') {
+            _size++;
+        }
+        _capacity = _size + 1;
+        chars = new char[_capacity];
+        
+        for (unsigned int i = 0; i < _size; i++) {
+            chars[i] = s[i];
+        }
+        chars[_size] = '\0';
     }
 }
 
 MyString::~MyString() {
-    delete[] chars;
+    if (chars != nullptr) {
+        delete[] chars;
+        chars = nullptr;
+        _size = 0;
+        _capacity = 0;
+    } else {
+        _size = 0;
+        _capacity = 0;
+    }
 }
 
 void MyString::resize(unsigned int n) {
-    if (n > _capacity) {
-        _capacity = n + 1;
-        char* newChars = new char[_capacity];
-        if (chars != nullptr) {
-            for (int i = 0; i < _size; i++) {
-                newChars[i] = chars[i];
-            }
-            delete[] chars;
+    if (n >= _capacity) {
+        unsigned int new_capacity = n + 1;
+        char* newChars = new char[new_capacity]{0};
+
+        for (unsigned int i = 0; i < _size; i++) {
+            newChars[i] = chars[i];
         }
+
+        delete[] chars;
         chars = newChars;
+        _capacity = new_capacity;
     }
+
     _size = n;
     chars[_size] = '\0';
 }
+
 
 unsigned int MyString::capacity() const {
     return _capacity;
@@ -77,10 +106,18 @@ const char& MyString::at(unsigned int pos) const {
 
 void MyString::clear() {
     _size = 0;
-    chars[0] = '\0';
+    _capacity = 1;
+    if (chars != nullptr) {
+        delete[] chars;
+        chars = new char[_capacity];
+        chars[0] = '\0';
+    } else {
+        chars = new char[_capacity];
+        chars[0] = '\0';
+    }
 }
 
-ostream& operator<< (ostream& os, const MyString& mystr) {
+std::ostream& operator<< (std::ostream& os, const MyString& mystr) {
     os << mystr.chars;
     return os;
 }
@@ -91,7 +128,7 @@ MyString& MyString::operator= (const MyString& str) {
         _size = str._size;
         _capacity = str._capacity;
         chars = new char[_capacity];
-        for (int i = 0; i < _size; i++) {
+        for (unsigned int i = 0; i < _size; i++) {
             chars[i] = str.chars[i];
         }
     }
@@ -106,7 +143,7 @@ MyString& MyString::operator= (const char* s) {
     }
     _capacity = _size + 1;
     chars = new char[_capacity];
-    for (int i = 0; i < _size; i++) {
+    for (unsigned int i = 0; i < _size; i++) {
         chars[i] = s[i];
     }
     return *this;
@@ -128,7 +165,7 @@ MyString& MyString::operator+= (const MyString& str) {
         resize(new_size);
     }
 
-    for (unsigned int i = 0; i < str._size; ++i) {
+    for (unsigned int i = 0; i < str._size; i++) {
         chars[_size + i] = str.chars[i];
     }
 
@@ -138,6 +175,10 @@ MyString& MyString::operator+= (const MyString& str) {
 }
 
 MyString& MyString::operator+= (const char* s) {
+    if (s == nullptr) {
+        return *this;
+    }
+
     unsigned int s_length = 0;
     while (s[s_length] != '\0') {
         s_length++;
@@ -145,7 +186,11 @@ MyString& MyString::operator+= (const char* s) {
 
     unsigned int new_size = _size + s_length;
     if (new_size >= _capacity) {
-        resize(new_size);
+        if (new_size > _capacity * 2) {
+            resize(new_size);
+        } else {
+            resize(_capacity * 2);
+        }
     }
 
     for (unsigned int i = 0; i < s_length; ++i) {
@@ -158,8 +203,13 @@ MyString& MyString::operator+= (const char* s) {
 }
 
 MyString& MyString::operator+= (const char c) {
-    if (_size + 1 >= _capacity) {
-        resize(_size + 1);
+    unsigned int new_size = _size + 1;
+    if (new_size >= _capacity) {
+        if (new_size > _capacity * 2) {
+            resize(new_size);
+        } else {
+            resize(_capacity * 2);
+        }
     }
 
     chars[_size] = c;
@@ -185,7 +235,7 @@ unsigned int MyString::find(const char* s, unsigned int pos) const {
             return i;
         }
     }
-    return std::numeric_limits<unsigned int>::max();
+    return npos;
 }
 
 unsigned int MyString::find(const char* s, unsigned int pos, unsigned int n) const {
@@ -201,7 +251,7 @@ unsigned int MyString::find(const char* s, unsigned int pos, unsigned int n) con
             return i;
         }
     }
-    return std::numeric_limits<unsigned int>::max();
+    return npos;
 }
 
 unsigned int MyString::find(const char c, unsigned int pos) const {
@@ -210,5 +260,5 @@ unsigned int MyString::find(const char c, unsigned int pos) const {
             return i;
         }
     }
-    return std::numeric_limits<unsigned int>::max();
+    return npos;
 }
