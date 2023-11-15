@@ -38,4 +38,9 @@ class MyString {
         size_t find(const char c, size_t pos = 0) const;
 };
 
+bool operator== (const MyString& lhs, const MyString& rhs);
+bool operator== (const char* lhs, const MyString& rhs);
+bool operator== (const MyString& lhs, const char* rhs);
+MyString operator+ (const MyString& lhs, const MyString& rhs);
+
 #endif

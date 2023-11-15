@@ -259,3 +259,30 @@ size_t MyString::find(const char c, size_t pos) const {
     }
     return npos;
 }
+
+bool operator== (const MyString& lhs, const MyString& rhs) {
+    if (lhs.size() != rhs.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < lhs.size(); ++i) {
+        if (lhs.at(i) != rhs.at(i)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool operator== (const char* lhs, const MyString& rhs) {
+    MyString lhsMyStr = MyString(lhs);
+    return lhsMyStr == rhs;
+}
+
+bool operator== (const MyString& lhs, const char* rhs) {
+    return rhs == lhs;
+}
+
+MyString operator+ (const MyString& lhs, const MyString& rhs) {
+    MyString result = MyString(lhs);
+    result += rhs;
+    return result;
+}
