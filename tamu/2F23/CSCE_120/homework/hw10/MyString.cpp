@@ -19,7 +19,6 @@ MyString::MyString(const MyString& mystr) : _size(0), _capacity(1), chars(nullpt
             chars[i] = mystr.chars[i];
         }
     }
-    std::cout << "Copy constructor called " << chars << std::endl;
 }
 
 MyString::MyString(const char* s) : _size(0), _capacity(1), chars(nullptr) {
@@ -56,23 +55,17 @@ MyString::~MyString() {
 }
 
 void MyString::resize(unsigned int n) {
-    if (n >= _capacity) {
-        unsigned int new_capacity = n + 1;
-        char* newChars = new char[new_capacity]{0};
+    unsigned int new_capacity = n + 1;
+    char* newChars = new char[new_capacity]{0};
 
-        for (unsigned int i = 0; i < _size; i++) {
-            newChars[i] = chars[i];
-        }
-
-        delete[] chars;
-        chars = newChars;
-        _capacity = new_capacity;
+    for (unsigned int i = 0; i < _size; i++) {
+        newChars[i] = chars[i];
     }
 
-    _size = n;
-    chars[_size] = '\0';
+    delete[] chars;
+    chars = newChars;
+    _capacity = new_capacity;
 }
-
 
 unsigned int MyString::capacity() const {
     return _capacity;
@@ -235,7 +228,7 @@ unsigned int MyString::find(const char* s, unsigned int pos) const {
             return i;
         }
     }
-    return npos;
+    return -1;
 }
 
 unsigned int MyString::find(const char* s, unsigned int pos, unsigned int n) const {
@@ -251,7 +244,7 @@ unsigned int MyString::find(const char* s, unsigned int pos, unsigned int n) con
             return i;
         }
     }
-    return npos;
+    return -1;
 }
 
 unsigned int MyString::find(const char c, unsigned int pos) const {
@@ -260,5 +253,5 @@ unsigned int MyString::find(const char c, unsigned int pos) const {
             return i;
         }
     }
-    return npos;
+    return -1;
 }

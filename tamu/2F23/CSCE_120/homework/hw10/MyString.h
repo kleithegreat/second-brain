@@ -11,7 +11,6 @@ class MyString {
         char* chars;
 
     public:
-        static const unsigned int npos = std::numeric_limits<unsigned int>::max();
         MyString(); // default
         MyString(const MyString& mystr); // copy
         MyString(const char* s); // from c-string
