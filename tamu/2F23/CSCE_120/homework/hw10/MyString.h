@@ -11,18 +11,19 @@ class MyString {
         char* chars;
 
     public:
+        size_t npos = static_cast<size_t>(-1);
         MyString(); // default
         MyString(const MyString& mystr); // copy
         MyString(const char* s); // from c-string
         ~MyString();
-        void resize(unsigned int n);
-        unsigned int capacity() const;
-        unsigned int size() const;
-        unsigned int length() const;
+        void resize(size_t n);
+        size_t capacity() const;
+        size_t size() const;
+        size_t length() const;
         const char* data() const;
         bool empty() const;
         const char& front() const;
-        const char& at(unsigned int pos) const;
+        const char& at(size_t pos) const;
         void clear();
         friend std::ostream& operator<< (std::ostream& os, const MyString& mystr);
         MyString& operator= (const MyString& str);
@@ -31,10 +32,10 @@ class MyString {
         MyString& operator+= (const MyString& str);
         MyString& operator+= (const char* s);
         MyString& operator+= (const char c);
-        unsigned int find(const MyString& mystr, unsigned int pos = 0) const;
-        unsigned int find(const char* s, unsigned int pos = 0) const;
-        unsigned int find(const char* s, unsigned int pos, unsigned int n) const;
-        unsigned int find(const char c, unsigned int pos = 0) const;
+        size_t find(const MyString& mystr, size_t pos = 0) const;
+        size_t find(const char* s, size_t pos = 0) const;
+        size_t find(const char* s, size_t pos, size_t n) const;
+        size_t find(const char c, size_t pos = 0) const;
 };
 
 #endif

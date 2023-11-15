@@ -15,7 +15,7 @@ MyString::MyString(const MyString& mystr) : _size(0), _capacity(1), chars(nullpt
         _size = mystr._size;
         _capacity = mystr._capacity;
         chars = new char[_capacity];
-        for (unsigned int i = 0; i < _size; i++) {
+        for (size_t i = 0; i < _size; i++) {
             chars[i] = mystr.chars[i];
         }
     }
@@ -35,7 +35,7 @@ MyString::MyString(const char* s) : _size(0), _capacity(1), chars(nullptr) {
         _capacity = _size + 1;
         chars = new char[_capacity];
         
-        for (unsigned int i = 0; i < _size; i++) {
+        for (size_t i = 0; i < _size; i++) {
             chars[i] = s[i];
         }
         chars[_size] = '\0';
@@ -54,11 +54,11 @@ MyString::~MyString() {
     }
 }
 
-void MyString::resize(unsigned int n) {
-    unsigned int new_capacity = n + 1;
+void MyString::resize(size_t n) {
+    size_t new_capacity = n + 1;
     char* newChars = new char[new_capacity]{0};
 
-    for (unsigned int i = 0; i < _size; i++) {
+    for (size_t i = 0; i < _size; i++) {
         newChars[i] = chars[i];
     }
 
@@ -67,15 +67,15 @@ void MyString::resize(unsigned int n) {
     _capacity = new_capacity;
 }
 
-unsigned int MyString::capacity() const {
+size_t MyString::capacity() const {
     return _capacity;
 }
 
-unsigned int MyString::size() const {
+size_t MyString::size() const {
     return _size;
 }
 
-unsigned int MyString::length() const {
+size_t MyString::length() const {
     return _size;
 }
 
@@ -92,7 +92,7 @@ const char& MyString::front() const {
     return chars[0];
 }
 
-const char& MyString::at(unsigned int pos) const {
+const char& MyString::at(size_t pos) const {
     if (pos >= _size) throw std::out_of_range("Index out of bounds");
     return chars[pos];
 }
@@ -117,14 +117,18 @@ std::ostream& operator<< (std::ostream& os, const MyString& mystr) {
 
 MyString& MyString::operator= (const MyString& str) {
     if (this != &str) {
-        delete[] chars;
+        if (chars != nullptr) {
+            delete[] chars;
+        }
         _size = str._size;
-        _capacity = str._capacity;
+        _capacity = str._capacity + 1;
         chars = new char[_capacity];
         for (unsigned int i = 0; i < _size; i++) {
             chars[i] = str.chars[i];
         }
+        chars[_size] = '\0';
     }
+    
     return *this;
 }
 
@@ -211,11 +215,11 @@ MyString& MyString::operator+= (const char c) {
     return *this;
 }
 
-unsigned int MyString::find(const MyString& mystr, unsigned int pos) const {
-    return find(mystr.chars, pos);
+size_t MyString::find(const MyString& mystr, size_t pos) const {
+    return find(mystr.chars, pos, mystr._size);
 }
 
-unsigned int MyString::find(const char* s, unsigned int pos) const {
+size_t MyString::find(const char* s, size_t pos) const {
     for (unsigned int i = pos; i < _size; ++i) {
         bool found = true;
         for (unsigned int j = 0; s[j] != '\0'; ++j) {
@@ -228,10 +232,10 @@ unsigned int MyString::find(const char* s, unsigned int pos) const {
             return i;
         }
     }
-    return -1;
+    return npos;
 }
 
-unsigned int MyString::find(const char* s, unsigned int pos, unsigned int n) const {
+size_t MyString::find(const char* s, size_t pos, size_t n) const {
     for (unsigned int i = pos; i < _size; ++i) {
         bool found = true;
         for (unsigned int j = 0; j < n; ++j) {
@@ -244,14 +248,14 @@ unsigned int MyString::find(const char* s, unsigned int pos, unsigned int n) con
             return i;
         }
     }
-    return -1;
+    return npos;
 }
 
-unsigned int MyString::find(const char c, unsigned int pos) const {
+size_t MyString::find(const char c, size_t pos) const {
     for (unsigned int i = pos; i < _size; ++i) {
         if (chars[i] == c) {
             return i;
         }
     }
-    return -1;
+    return npos;
 }
