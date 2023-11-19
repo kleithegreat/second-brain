@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
 	} else {
 		TemperatureDatabase database;
 		database.loadData(argv[1]);
-		database.outputData(argv[1]); // comment out before submitting Part 2
-		database.performQuery(argv[2]); // will be done in Part 2
+		//database.outputData(argv[1]); // comment out before submitting Part 2
+		//database.performQuery(argv[2]); // will be done in Part 2
 	}
 }
