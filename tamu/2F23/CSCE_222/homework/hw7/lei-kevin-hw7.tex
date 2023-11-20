@@ -91,13 +91,40 @@ carefully, including (but not limited to) why you set up your generating functio
 in the way you do.
 \end{problem}
 \begin{solution}
-
+We know that albert must receive an even amount of cards that is at least 8 and at most 14.
+To represent this with a generating function, we can use the following:
+$$ A(z) = z^8 + z^{10} + z^{12} + z^{14} $$
+Here, the coefficient of $z^k$ represents the number of ways to give Albert $k$ cards.
+The same applies for Bella and Clara, but we have different restraints on the number of cards they can receive.
+Bella and Clara can both receive an odd number of cards that is at least 3 and at most 9.
+Therefore, we have the following:
+$$ B(z) = z^3 + z^5 + z^7 + z^9, \quad C(z) = z^3 + z^5 + z^7 + z^9 $$
+To find all combinations that satisfy the given conditions, we can multiply the generating functions together,
+and then find the coefficient of $z^{20}$, since Grandpa Dell has 20 cards to give out.
+\begin{align*}
+A(z)B(z)C(z) &= (z^8 + z^{10} + z^{12} + z^{14})(z^3 + z^5 + z^7 + z^9)(z^3 + z^5 + z^7 + z^9) \\
+             &= x^{32} + 3x^{30} + 6x^{28} + 10x^{26} + 12x^{24} + 12x^{22} + 10x^{20} + 6x^{18} + 3x^{16} + x^{14} \\
+[z^k]A(z)B(z)C(z) &= 10
+\end{align*}
+Thus, we have 10 different ways to give out the cards.
 \end{solution}
 
 \newpage
 \begin{problem} (15 points) Section 13.2, Exercise 13.7. Explain.
 \end{problem}
 \begin{solution}
+The sequence $(1, 0, 1, 0, ...)$ can be represented by the following generating function:
+$$ A(z) = 1z^0 + 0z^1 + 1z^2 + 0z^3 + ... $$
+since the first term is 1 which corresponds with $z^0$, and the second term is 0, and so on.
+This can be simplified as:
+$$ A(z) = 1 + z^2 + z^4 + z^6 + ... $$
+In summation notation, this can be represented as:
+$$ A(z) = \sum_{k=0}^{\infty} z^{2k} $$
+Since this is a geometric series with common ratio $z^2$ and first term 1, the closed form is:
+$$ A(z) = \frac{1}{1 - z^2} $$
+The multiplicative inverse of a generating function must multiply with the original generating function to be identically 1.
+This means the multiplicative inverse of $A(z)$ is simply just:
+$$ B(z) = 1 - z^2 $$
 \end{solution}
 
 \newpage
