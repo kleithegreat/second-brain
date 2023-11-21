@@ -131,6 +131,13 @@ $$ B(z) = 1 - z^2 $$
 \begin{problem} (15 points) Section 13.3, Exercise 13.12. Explain.
 \end{problem}
 \begin{solution}
+The sequence $(a, a + d, a + 2d, a + 3d, ...)$ can be rewritten as:
+$$ (a, a, a, a, ...) + (0, d, 2d, 3d, ...) $$
+Doing this, we can use the elementary generating functions for the sequences $(1, 1, 1, 1, ...)$ and $(0, 1, 2, 3, ...)$,
+which are $\frac{1}{1 - z}$ and $\frac{z}{(1 - z)^2}$, respectively.
+Since we need to multiply $(1, 1, 1, 1, ...)$ by $a$ and $(0, 1, 2, 3, ...)$ by $d$, we need to multiply the generating functions by $a$ and $d$, respectively and add them together.
+This gives us the following:
+$$ A(z) = a\frac{1}{1 - z} + d\frac{z}{(1 - z)^2} $$
 \end{solution}
 
 \newpage
@@ -146,10 +153,42 @@ solving video and in the lecture notes).
 \end{problem}
 \begin{solution}
 \ \\
-(a)
-
+(a) Given the recurrence relation $h_0 = 1, \; h_n = 2h_{n-1} + 1$, we can represent this as a generating function
+by pluggin in the values of $h_n$ into the ordinary generating function of the sequence $(h_0, h_1, h_2, ...)$:
+$$ H(z) = h_0 + \sum_{k=1}^{\infty} (2h_{k-1} + 1) z^k $$
+We know that $h_0 = 1$, and we can also distribute $z^k$ to get:
+$$ H(z) = 1 + \sum_{k=1}^{\infty} 2h_{k-1}z^k + \sum_{k=1}^{\infty} z^k $$
+We know that the series $\sum_{k=1}^{\infty} 2h_{k-1}z^k$ is just $2z$ times the function $H(z)$ itself but without the first term $h_0$.
+We also know that $\sum_{k=1}^{\infty} z^k$ is just $\frac{z}{1 - z}$ since it is a geometric series.
+Now we have the following:
+$$ H(z) = 1 + 2zH(z) + \frac{z}{1 - z} $$
+We can solve for $H(z)$ by moving the terms with $H(z)$ to the left side and the constant term to the right side:
+\begin{align*}
+H(z) - 2zH(z) &= 1 + \frac{z}{1 - z} \\
+H(z)(1 - 2z) &= 1 + \frac{z}{1 - z} \\
+H(z) &= \frac{1 + \frac{z}{1 - z}}{1 - 2z} \\
+H(z) &= \frac{1}{2z^2 - 3z + 1}
+\end{align*}
 \ \\
-(b)
+(b) First we need to find the partial fraction decomposition of $H(z)$.
+\begin{align*}
+&H(z) = \frac{1}{2z^2 - 3z + 1} = \frac{1}{(z - 1)(2z - 1)} = \frac{A}{z - 1} + \frac{B}{2z - 1} \\
+&1 = A(2z - 1) + B(z - 1) \\
+&z = \frac{1}{2}: 1 = B(\frac{1}{2} - 1) \implies B = -2 \\
+&z = 1: 1 = A(2 - 1) \implies A = 1 \\
+\end{align*}
+$$ H(z) = \frac{1}{z - 1} - \frac{2}{2z - 1} $$
+Now, we can turn the fractions into geometric series:
+\begin{align*}
+H(z) &= \frac{1}{z - 1} - \frac{2}{2z - 1} \\
+&= \sum_{k=0}^{\infty} z^k - 2 \sum_{k=0}^{\infty} (2z)^k \\
+&= \sum_{k=0}^{\infty} z^k - 2 \sum_{k=0}^{\infty} 2^k z^k \\
+&= \sum_{k=0}^{\infty} (1 - 2 \cdot 2^k) z^k \\
+&= \sum_{k=0}^{\infty} (1 - 2^{k+1}) z^k \\
+\end{align*}
+Now we have an explicit formula for $h_k$:
+$$ h_k = 1 - 2^{k+1} $$
+
 \end{solution}
 
 \newpage
@@ -158,6 +197,28 @@ in Section 14.7 and solve this exercise problem in a very similar way.  Also,
 \textit{explain} in a similar way as in Example 14.14.
 \end{problem}
 \begin{solution}
+We have a recurrence relation with the initial conditions $g_0 = 2 ,\; g_1 = 1$
+given by $g_n - 7g_{n-1} + 12g_{n-2} = 0$ for all $n \geq 2$.
+This sequence has the following characteristic function:
+$$\chi(z) = z^2 - 7z + 12 = (z - 3)(z - 4)$$
+By corollary 14.13 in the textbook, we know the closed form of the coefficients $g_n$ is of the form:
+$$ g_n = C_1 3^n + C_2 4^n $$
+for some complex numbers $C_1$ and $C_2$.
+Using the initial conditions, we can solve for $C_1$ and $C_2$:
+\begin{align*}
+g_0 = 2 &= C_1 3^0 + C_2 4^0 = C_1 + C_2 \\
+g_1 = 1 &= C_1 3^1 + C_2 4^1 = 3C_1 + 4C_2 \\
+\end{align*}
+Now, we have the system:
+$$ C_1 + C_2 = 2, \quad 3C_1 + 4C_2 = 1 $$
+\begin{align*} 
+  \left[\begin{array}{cc|c} 1 & 1 & 2 \\ 3 & 4 & 1 \\ \end{array}\right] \sim
+  \left[\begin{array}{cc|c} 1 & 1 & 2 \\ 0 & 1 & -5 \\ \end{array}\right] \sim
+  \left[\begin{array}{cc|c} 1 & 0 & 7 \\ 0 & 1 & -5 \\ \end{array}\right] \rightarrow
+  \begin{cases} C_1 = 7 \\ C_2 = -5 \end{cases}
+\end{align*}
+Therefore, the closed form of the coefficients $g_n$ is:
+$$ g_n = 7 \cdot 3^n - 5 \cdot 4^n $$
 \end{solution}
 
 \newpage
@@ -166,6 +227,25 @@ in Section 14.7 and solve this exercise problem in a very similar way.  Also,
 \textit{explain} in a similar way as in Example 14.15.
 \end{problem}
 \begin{solution}
+We have a sequence given by the initial conditions $g_0 = 1,\; g_1 = 1$ and the recurrence relation
+$g_n - 10g_{n-1} + 25g_{n-2} = 0$ for all $n \geq 2$.
+This sequence has the following characteristic function:
+$$ \chi(z) = z^2 - 10z + 25 = (z - 5)^2 $$
+By proposition 14.7 in the textbook, we know that the closed form of the coefficients $g_n$ is of the form:
+$$ g_n = D_{1, 1} 5^n + D_{1, 2} n 5^n $$
+for some complex coefficients $D_{1, 1}$ and $D_{1, 2}$.
+Substituting the initial conditions, we get this system of equations:
+\begin{align*}
+g_0 = 1 &= D_{1, 1} 5^0 + D_{1, 2} 0 5^0 = D_{1, 1} \\
+g_1 = 1 &= D_{1, 1} 5^1 + D_{1, 2} 1 5^1 = 5D_{1, 1} + 5D_{1, 2} \\
+\end{align*}
+We know that $D_{1, 1} = 1$, and we can solve for $D_{1, 2}$:
+\begin{align*}
+1 &= 5 + 5D_{1, 2} \\
+D_{1, 2} &= -\frac{4}{5}
+\end{align*}
+Now we have the closed form of the recurrence relation:
+$$ g_n = 5^n - \frac{4}{5} n 5^n = 5^n - 4n 5^{n-1} $$
 \end{solution}
 
 \end{document}
