@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  27 NOV 2023 17:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  28 NOV 2023 12:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -181,15 +181,35 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
 b.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Overfull \hbox (45.55005pt too wide) detected at line 71
+) [1{C:/Users/kevin/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdft
+ex.map}
+
+]
+Overfull \hbox (45.55005pt too wide) detected at line 81
 []
  []
 
-[1{C:/Users/kevin/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdftex
-.map}
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 101--129
 
-] [2] [3] (hw9.aux)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--129
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--129
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--129
+
+ []
+
+[3] [4] [5] [6] [7] (hw9.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
@@ -198,11 +218,11 @@ L3 programming layer <2023-08-29>
 Here is how much of TeX's memory you used:
  1986 strings out of 475248
  29085 string characters out of 5752602
- 1940785 words of memory out of 5000000
+ 1939785 words of memory out of 5000000
  23540 multiletter control sequences out of 15000+600000
  561027 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,15n,65p,331b,213s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 56i,15n,65p,331b,220s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/a
 msfonts/cm/cmbx10.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/
 fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/kevin/scoop/apps/miktex/cur
@@ -217,9 +237,9 @@ p/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 fonts/cm/cmsy7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fon
 ts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/kevin/scoop/apps/miktex/curren
 t/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw9.pdf (3 pages, 128992 bytes).
+Output written on hw9.pdf (7 pages, 136470 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
+ 81 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

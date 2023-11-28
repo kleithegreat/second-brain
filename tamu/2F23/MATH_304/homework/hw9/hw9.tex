@@ -22,9 +22,19 @@ Use the Gram-Schmidt process to obtain an orthonormal basis for $S$.
 \noindent\textbf{Solution:}
 \begin{align*}
     u_1 &= \frac{x_1}{\|x_1\|_2} = \frac{1}{5} (4, 2, 2, 1)^T \\
-    p_1 &= \langle x_2, u_1 \rangle u_1 = \frac{1}{5} \times 10 \times \frac{1}{5} (4, 2, 2, 1)^T = \frac{2}{5} (4, 2, 2, 1)^T \\
+    p_1 &= \langle x_2, u_1 \rangle u_1 = 2 \times \frac{1}{5} (4, 2, 2, 1)^T = \frac{2}{5} (4, 2, 2, 1)^T \\
+    u_2 &= \frac{x_2 - p_1}{\|x_2 - p_1\|_2} = \frac{(2 - \frac{8}{5}, 0 - \frac{4}{5}, 0 - \frac{4}{5}, 2 - \frac{2}{5})^T}{\sqrt{(2 - \frac{8}{5})^2 + (0 - \frac{4}{5})^2 + (0 - \frac{4}{5})^2 + (2 - \frac{2}{5})^2}} \\
+    &= \frac{1}{2} \left(\frac{2}{5}, -\frac{4}{5}, -\frac{4}{5}, \frac{8}{5}\right)^T = \frac{1}{5} (1, -2, -2, 4)^T \\
+    p_2 &= \langle x_3, u_1 \rangle u_1 + \langle x_3, u_2 \rangle u_2 \\ 
+    &= \frac{1}{5} (4 + 2 - 2 + 1) \times \frac{1}{5} (4, 2, 2, 1)^T + \frac{1}{5} (1 - 2 + 2 + 4) \times \frac{1}{5} (1, -2, -2, 4)^T \\
+    &= \frac{1}{5} (4, 2, 2, 1)^T + \frac{1}{5} (1, -2, -2, 4)^T = \frac{1}{5} (5, 0, 0, 5)^T \\
+    u_3 &= \frac{x_3 - p_2}{\|x_3 - p_2\|_2} = \frac{(1 - \frac{5}{5}, 1 - 0, -1 - 0, 1 - \frac{5}{5})^T}{\sqrt{(1 - \frac{5}{5})^2 + (1 - 0)^2 + (-1 - 0)^2 + (1 - \frac{5}{5})^2}} \\
+    &= \frac{1}{\sqrt{2}} (0, 1, -1, 0)^T
 \end{align*}
+Thus we have $S := \text{span} \{x_1, x_2, x_3\} = \text{span} \{u_1, u_2, u_3\}$ where
+$$ u_1 = \frac{1}{5} (4, 2, 2, 1)^T, \; u_2 =    \frac{1}{5} (1, -2, -2, 4)^T, \; u_3 = \frac{1}{\sqrt{2}} (0, 1, -1, 0)^T $$
 
+\newpage
 \section*{Question 2}
 Find the orthogonal complement of the subspace of $\mathbb{R}^3$ spanned by $(1, 2, 1)^T$, $(1, -1, 2)^T$.
 
@@ -79,6 +89,7 @@ $$ S^\perp = \left\{
     \begin{pmatrix} -\frac{5}{3} \\ \frac{1}{3} \\ 1 \end{pmatrix}
 \right\} $$
 
+\newpage
 \section*{Question 3}
 Let $A$ be an $m \times n$ matrix.
 Show that $A$ and $A^TA$ have the same rank.
@@ -89,19 +100,35 @@ Show that $$ N(A^T A) = N(A) $$
 \begin{proof}
     We have that $A$ is an $m \times n$ matrix.
     To show that $N(A^T A) = N(A)$, we need to show that $N(A^T A) \subseteq N(A)$ and $N(A) \subseteq N(A^T A)$.
+    \\ \\
     Let $x \in N(A)$.
     By definition of the null space, we have $Ax = 0$.
     Then we have $A^T A x = A^T 0 = 0$.
     Again, by definition of the null space, we have $x \in N(A^T A)$.
     Since $x \in N(A) \implies x \in N(A^T A)$, we have $N(A) \subseteq N(A^T A)$.
+    \\ \\
     Now let $x \in N(A^T A)$.
     By definition of the null space, $A^T A x = A^T (A x) = 0$.
     Therefore, $Ax \in N(A^T)$.
     However, $Ax$ is also in the column space of $A$, which means $Ax \in R(A)$.
     The Fundamental Theorem of Linear Algebra tells us that $N(A^T) \perp R(A)$.
-    This means that % some intersection shit implies x = 0
+    The only way for $Ax$ to be in both $N(A^T)$ and $R(A)$ is if $Ax = 0$,
+    since the only vector that is orthogonal to itself is the zero vector.
+    Since we have that $Ax=0$, that implies that $x \in N(A)$.
+    Since $x \in N(A^T A) \implies x \in N(A)$, we have $N(A^T A) \subseteq N(A)$.
+    \\ \\
+    Now that we have shown that $N(A^T A) \subseteq N(A)$ and $N(A) \subseteq N(A^T A)$,
+    we can conclude that $N(A^T A) = N(A)$.
+    \\ \\
+    To show that $A$ and $A^T A$ have the same rank, we can use the rank-nullity theorem.
+    We have that $\text{rank}(A) + \text{nullity}(A) = n$, so $\text{rank}(A) = n - \text{nullity}(A)$.
+    Matrix A is an $m \times n$ matrix, so its rank is given by $n - \text{nullity}(A)$.
+    Similarly, matrix $A^T A$ is an $n \times n$ matrix, so its rank is given by $n - \text{nullity}(A^T A)$.
+    We have already shown that $N(A^T A) = N(A)$, so $\text{nullity}(A^T A) = \text{nullity}(A)$.
+    Therefore, we have that $\text{rank}(A) = \text{rank}(A^T A)$.
 \end{proof}
 
+\newpage
 \section*{Question 4}
 Let $A$ be an $m \times n$ matrix and rank($A$) = $r$.
 What are the dimensions of $N(A)$ and $N(A^T)$?
@@ -116,6 +143,7 @@ $A$ and $A^T$ have the same rank.
 Therefore,
 $$ \text{nullity}(A^T) = m - \text{rank}(A^T) = m - r $$
 
+\newpage
 \section*{Question 5}
 For each of the following systems $Ax = b$ find all least squares solutions.
 $$
@@ -145,6 +173,7 @@ For the second system, we have:
     &= \begin{pmatrix} \frac{-1}{3} \\ \frac{2}{3} \\ \frac{1}{6} \end{pmatrix}
 \end{align*}
 
+\newpage
 \section*{Question 6}
 Consider the basis $\{x_1, x_2, x_3\}$ of $\mathbb{R}^3$ where
 $$ x_1 = (1, 2, -2)^T, \; x_2 = (4, 3, 2)^T, \; x_3 = (1, 2, 1)^T $$
@@ -152,5 +181,13 @@ Use the Gram-Schmidt process to obtain an orthonormal basis.
 
 \vspace{0.5cm}
 \noindent\textbf{Solution:}
+\begin{align*}
+    u_1 &= \frac{x_1}{\|x_1\|_2} = \frac{1}{3} (1, 2, -2)^T \\
+    p_1 &= \langle x_2, u_1 \rangle u_1 = 4 \times \frac{1}{3} (1, 2, -2)^T = \frac{4}{3} (1, 2, -2)^T \\
+    u_2 &= \frac{x_2 - p_1}{\|x_2 - p_1\|_2} = \frac{(4 - \frac{4}{3}, 3 - \frac{8}{3}, 2 + \frac{8}{3})^T}{\sqrt{(4 - \frac{4}{3})^2 + (3 - \frac{8}{3})^2 + (2 + \frac{8}{3})^2}} \\
+    &= \frac{1}{\sqrt{29}} \left(\frac{8}{3}, \frac{1}{3}, \frac{14}{3}\right)^T = \frac{1}{3 \sqrt{29}} (8, 1, 14)^T \\
+    p_2 &= \langle x_3, u_1 \rangle u_1 + \langle x_3, u_2 \rangle u_2 \\
+    u_3 &= \frac{x_3 - p_2}{\|x_3 - p_2\|_2} = 
+\end{align*}
 
 \end{document}
