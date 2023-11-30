@@ -1,0 +1,310 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{MATH 304}
+\rhead{Exam 2 Prep}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\section*{Question 1}
+Determine if the vectors are linearly independent.
+\begin{enumerate}[(a)]
+    \item $v_1 = (1, 2, 3)^T, v_2 = (2, 3, 4)^T, v_3 = (3, 4, 5)^T$
+    \item $v_2 = (0, 1, 0, 1)^T, v_2 = (1, 0, 1, 0)^T, v_3 = (2, 0 , 2, 0)^T, v_4 = (0, 2, 0, 2)^T$
+    \item $v_3 = (-1, 1, -1, 1)^T, v_2 = (1, -1, 1, -1)^T, v_3 = (-1, 1, 1, -1)^T, v_4 = (1, 1, 1, 1)^T$
+\end{enumerate}
+
+\noindent\textbf{Solution:}
+Use the determinant of the matrix formed by the vectors to determine if they are linearly independent. 
+If the determinant is non-zero, then the vectors are linearly independent. If the determinant is zero, then the vectors are linearly dependent.
+
+\noindent\textbf{(a)}
+$$ V = \begin{bmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \\ 3 & 4 & 5 \end{bmatrix} $$
+\begin{align*}
+    \det(V) &= 1 \times \left| \begin{matrix} 3 & 4 \\ 4 & 5 \end{matrix} \right| - 2 \times \left| \begin{matrix} 2 & 4 \\ 3 & 5 \end{matrix} \right| + 3 \times \left| \begin{matrix} 2 & 3 \\ 3 & 4 \end{matrix} \right| \\
+    &= 1 \times (15 - 16) - 2 \times (10 - 12) + 3 \times (8 - 9) \\
+    &= 1 \times (-1) - 2 \times (-2) + 3 \times (-1) \\
+    &= -1 + 4 - 3 \\
+    &= 0
+\end{align*}
+$ (1, 2, 3)^T, (2, 3, 4)^T, (3, 4, 5)^T $ are linearly dependent.
+
+\vspace{0.25cm}
+\noindent\textbf{(b)}
+$$ V = \begin{bmatrix} 0 & 1 & 2 & 0 \\ 1 & 0 & 0 & 2 \\ 0 & 1 & 2 & 0 \\ 1 & 0 & 0 & 2 \end{bmatrix} $$
+Rows 1 and 3 are identical, so the determinant is zero, and 
+\newline $ (0, 1, 0, 1)^T, (1, 0, 1, 0)^T, (2, 0 , 2, 0)^T, (0, 2, 0, 2)^T $ are linearly dependent.
+
+\vspace{0.25cm}
+\noindent\textbf{(c)}
+$$ V = \begin{bmatrix} -1 & 1 & -1 & 1 \\ 1 & -1 & 1 & 1 \\ -1 & 1 & 1 & 1 \\ 1 & -1 & -1 & 1 \end{bmatrix} $$
+Columns 1 and 2 are scalar multiples (by $-1$) of each other, so the determinant is zero, and $ (-1, 1, -1, 1)^T, (1, -1, 1, -1)^T, (-1, 1, 1, -1)^T, (1, 1, 1, 1)^T $ are linearly dependent.
+
+\newpage
+\section*{Question 2}
+Determine if the following vectors in the vector space of smooth functions in $[0, 1]$ are linearly independent.
+\begin{enumerate}[(a)]
+    \item $p_1(x) := x^2, \quad p_2(x) := x^3, \quad p_3(x) := x^{99}$
+    \item $f_1(x) := e^x, \quad f_2(x) := e^{3x}, \quad f_3(x) := e^{5x}, f_4(x) := e^{7x}$
+    \item $f_1(x) := \cos(x), \quad f_2(x) := \sin(x), \quad f_3(x) := x$
+\end{enumerate}
+
+\noindent\textbf{Solution:}
+We can use the Wronskian to determine if the vectors of functions are linearly independent.
+
+\vspace{0.25cm}
+\noindent\textbf{(a)}
+Since $x^2, x^3, x^{99}$ cannot be written as a linear combination of each other, they are linearly independent.
+
+\vspace{0.25cm}
+\noindent\textbf{(b)}
+Since $e^x, e^{3x}, e^{5x}, e^{7x}$ cannot be written as a linear combination of each other, they are linearly independent.
+
+\vspace{0.25cm}
+\noindent\textbf{(c)}
+\begin{align*}
+W(f_1, f_2, f_3) &= \begin{vmatrix} \cos(x) & \sin(x) & x \\ -\sin(x) & \cos(x) & 1 \\ -\cos(x) & -\sin(x) & 0 \end{vmatrix} \\
+&= x \times \begin{vmatrix} -\sin(x) & \cos(x) \\ -\cos(x) & -\sin(x) \end{vmatrix} - 1 \times \begin{vmatrix} \cos(x) & \sin(x) \\ -\cos(x) & -\sin(x) \end{vmatrix} \\
+&= x \times (\sin^2(x) + \cos^2(x)) - 1 \times (-\sin(x)\cos(x) + \sin(x)\cos(x)) \\
+&= x \times 1 - 1 \times 0 \\
+&= x
+\end{align*}
+Since $x$ is not identically zero, $f_1(x) := \cos(x), \quad f_2(x) := \sin(x), \quad f_3(x) := x$ are linearly independent.
+
+\newpage
+\section*{Question 3}
+Find a basis for the row space, column space, and null space for the following matrices.
+$$
+A = \begin{bmatrix} 1 & 1 & 0 \\ 3 & 1 & 4 \\ 2 & 3 & 5 \end{bmatrix}, \;
+B = \begin{bmatrix} 2 & 0 & 0 & 1 \\ 0 & 4 & -7 & -1 \\ 0 & -7 & 8 & 1 \\ 1 & -1 & 1 & -1 \end{bmatrix}, \;
+C = \begin{bmatrix} 1 & 1 \\ -1 & 1 \\ 2 & 0 \end{bmatrix}, \;
+D = \begin{bmatrix} 0 & 1 & 2 \\ -1 & 1 & 2 \end{bmatrix}
+$$
+
+\noindent\textbf{Solution:} Use Gaussian elimination to find the reduced row echelon form of each matrix.
+
+\vspace{0.25cm}
+\noindent\textbf{Matrix A}
+$$
+\begin{bmatrix} 1 & 1 & 0 \\ 3 & 1 & 4 \\ 2 & 3 & 5 \end{bmatrix} \sim
+\begin{bmatrix} 1 & 1 & 0 \\ 0 & -2 & 4 \\ 0 & 1 & 5 \end{bmatrix} \sim
+\begin{bmatrix} 1 & 1 & 0 \\ 0 & 1 & 5 \\ 0 & 0 & 14 \end{bmatrix}
+$$
+Here we can see that all three rows are linearly independent, so the row space is the span of the three rows.
+$$\text{rowspace}(A) = \text{span}\left\{ \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 3 \\ 1 \\ 4 \end{bmatrix}, \begin{bmatrix} 2 \\ 3 \\ 5 \end{bmatrix} \right\}$$
+Since dim(rowspace) $=$ dim(colspace), the column space is the span of the three columns.
+$$\text{colspace}(A) = \text{span}\left\{ \begin{bmatrix} 1 \\ 3 \\ 2 \end{bmatrix}, \begin{bmatrix} 1 \\ 1 \\ 3 \end{bmatrix}, \begin{bmatrix} 0 \\ 4 \\ 5 \end{bmatrix} \right\}$$
+By the Rank-Nullity Theorem:
+$$\text{nullspace}(A) = \text{span}\left\{ \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} \right\}$$
+
+\noindent\textbf{Matrix B}
+$$
+\begin{bmatrix} 2 & 0 & 0 & 1 \\ 0 & 4 & -7 & -1 \\ 0 & -7 & 8 & 1 \\ 1 & -1 & 1 & -1 \end{bmatrix} \sim
+\begin{bmatrix} 0 & 2 & -2 & 3 \\ 0 & -3 & 1 & 0 \\ 0 & -7 & 8 & 1 \\ 1 & -1 & 1 & -1 \end{bmatrix} \sim
+\begin{bmatrix} 0 & 2 & -2 & 3 \\ 0 & -1 & -1 & 3 \\ 0 & 7 & -8 & -1 \\ 1 & -1 & 1 & -1 \end{bmatrix} \sim
+\begin{bmatrix} 0 & 0 & -4 & 9 \\ 0 & -1 & -1 & 3 \\ 0 & 0 & -15 & 20 \\ 1 & -1 & 1 & -1 \end{bmatrix}
+$$ $$ \sim
+\begin{bmatrix} 1 & -1 & 1 & -1 \\ 0 & 1 & 1 & -3 \\ 0 & 0 & -4 & 9 \\ 0 & 0 & -15 & 20 \end{bmatrix} \sim
+\begin{bmatrix} 1 & -1 & 1 & -1 \\ 0 & 1 & 1 & -3 \\ 0 & 0 & -4 & 9 \\ 0 & 0 & 1 & -16 \end{bmatrix} \sim
+\begin{bmatrix} 1 & -1 & 1 & -1 \\ 0 & 1 & 1 & -3 \\ 0 & 0 & 1 & -16 \\ 0 & 0 & 0 & -55 \end{bmatrix}
+$$
+Since $\text{rank} = 4$:
+$$\text{rowspace} = \text{span}\left\{ \begin{bmatrix} 2 \\ 0 \\ 0 \\ 1 \end{bmatrix}, \begin{bmatrix} 0 \\ 4 \\ -7 \\ -1 \end{bmatrix}, \begin{bmatrix} 0 \\ -7 \\ 8 \\ 1 \end{bmatrix}, \begin{bmatrix} 1 \\ -1 \\ 1 \\ -1 \end{bmatrix} \right\}
+, \quad
+\text{colspace} = \text{span}\left\{ \begin{bmatrix} 2 \\ 0 \\ 0 \\ 1 \end{bmatrix}, \begin{bmatrix} 0 \\ 4 \\ -7 \\ -1 \end{bmatrix}, \begin{bmatrix} 0 \\ -7 \\ 8 \\ 1 \end{bmatrix}, \begin{bmatrix} 1 \\ -1 \\ 1 \\ -1 \end{bmatrix} \right\}
+$$ $$
+\text{nullspace} = \text{span}\left\{ \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \end{bmatrix} \right\}
+$$
+
+\noindent\textbf{Matrix C}
+$$
+\begin{bmatrix} 1 & 1 \\ -1 & 1 \\ 2 & 0 \end{bmatrix} \sim
+\begin{bmatrix} 1 & 1 \\ 0 & 2 \\ 0 & -2 \end{bmatrix} \sim
+\begin{bmatrix} 1 & 1 \\ 0 & 2 \\ 0 & 0 \end{bmatrix}
+$$
+Since row 3 can be written as row 1 - row 2, the row space is the span of the first two rows.
+$$ \text{rowspace}(C) = \text{span}\left\{ \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \begin{bmatrix} -1 \\ 1 \end{bmatrix} \right\} $$
+Since the column space is the span of the vectors in the columns of the original matrix corresponding to the columns with leading ones in the reduced row echelon form, 
+the column space is the span of the first two (or both) columns.
+$$ \text{colspace}(C) = \text{span}\left\{ \begin{bmatrix} 1 \\ -1 \\ 2 \end{bmatrix}, \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix} \right\} $$
+By the Rank-Nullity Theorem:
+$$ \text{nullspace}(C) = \text{span}\left\{ \begin{bmatrix} 0 \\ 0 \end{bmatrix} \right\} $$
+
+\noindent\textbf{Matrix D}
+$$
+\begin{bmatrix} 0 & 1 & 2 \\ -1 & 1 & 2 \end{bmatrix} \sim
+\begin{bmatrix} 1 & -1 & -2 \\ 0 & 1 & 2 \end{bmatrix} \sim
+\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 2 \end{bmatrix}
+$$
+Thus, we have:
+$$
+\text{rowspace}(D) = \text{span}\left\{ \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix}, \begin{bmatrix} -1 \\ 1 \\ 2 \end{bmatrix} \right\}, \quad
+\text{colspace}(D) = \text{span}\left\{ \begin{bmatrix} 0 \\ -1 \end{bmatrix}, \begin{bmatrix} 1 \\ 1 \end{bmatrix} \right\}
+$$
+Solving for the null space:
+$$
+\begin{cases} x_1 = 0 \\ x_2 + 2x_3 = 0 \end{cases}
+\rightarrow
+\begin{cases} x_1 = 0 \\ x_2 = -2x_3 \end{cases}
+$$
+$$
+\text{nullspace}(D) = \{(0, -2a, a)^T \mid a \in \mathbb{R} \} = \text{span}\left\{ \begin{bmatrix} 0 \\ -2 \\ 1 \end{bmatrix} \right\}
+$$
+
+\newpage
+\section*{Question 4}
+Let
+$$ u_1 := (1, 0 ,2)^T, \; u_2 := (-1, 1, 0)^T, \; u_3 := (1, 0, 1)^T $$
+$$ v_1 := (1, 1, -1)^T, \; v_2 := (-1, 0, 0)^T, \; v_3 := (-1, 1, 1)^T $$
+\begin{enumerate}[a.]
+    \item Find the transition matrix corresponding to the change of basis from $\{e_1, e_2, e_3\}$ to $\{u_1, u_2, u_3\}$.
+    \item Find the transition matrix corresponding to the change of basis from $\{v_1, v_2, v_3\}$ to $\{e_1, e_2, e_3\}$.
+    \item Find the transition matrix from $\{v_1, v_2, v_3\}$ to $\{u_1, u_2, u_3\}$.
+    \item Let $x = 1v_1 + 0v_2 - v_3$. Find the coordinates of $x$ with respect to $\{u_1, u_2, u_3\}$.
+    \item Verify your answer to the previous part by computing the coordinates in each case with respect to the standard basis.
+\end{enumerate}
+
+\noindent\textbf{Solution:}
+\newline\textbf{a.} Let the transition matrix from $\{e_1, e_2, e_3\}$ to $\{u_1, u_2, u_3\}$ be $U^{-1}$.
+If $U$ is the transition matrix from $\{u_1, u_2, u_3\}$ to $\{e_1, e_2, e_3\}$, then we just need to find the inverse of $U$.
+$$
+U = \begin{bmatrix} 1 & -1 & 1 \\ 0 & 1 & 0 \\ 2 & 0 & 1 \end{bmatrix}
+, \quad
+U^{-1} = \begin{bmatrix} -1 & -1 & 1 \\ 0 & 1 & 0 \\ 2 & 2 & -1 \end{bmatrix}
+$$
+\textbf{b.} Let the transition matrix from $\{v_1, v_2, v_3\}$ to $\{e_1, e_2, e_3\}$ be $V$.
+$$ V = \begin{bmatrix} 1 & -1 & -1 \\ 1 & 0 & 1 \\ -1 & 0 & 1 \end{bmatrix} $$
+\textbf{c.} Let the transition matrix from $\{v_1, v_2, v_3\}$ to $\{u_1, u_2, u_3\}$ be $U^{-1}V$.
+$$
+U^{-1}V = \begin{bmatrix} -1 & -1 & 1 \\ 0 & 1 & 0 \\ 2 & 2 & -1 \end{bmatrix} \begin{bmatrix} 1 & -1 & -1 \\ 1 & 0 & 1 \\ -1 & 0 & 1 \end{bmatrix} 
+= \begin{bmatrix} -3 & 1 & 1 \\ 1 & 0 & 1 \\ 5 & -2 & -1 \end{bmatrix}
+$$
+\textbf{d.} $x$ with respect to $\{u_1, u_2, u_3\}$ is $U^{-1}Vx$.
+$$
+U^{-1}Vx = \begin{bmatrix} -3 & 1 & 1 \\ 1 & 0 & 1 \\ 5 & -2 & -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}
+= \begin{bmatrix} -4 \\ 0 \\ 6 \end{bmatrix}
+$$
+\textbf{e.} $x$ with respect to the standard basis:
+$$
+\begin{bmatrix} 1 & -1 & -1 \\ 1 & 0 & 1 \\ -1 & 0 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \\ -1 \end{bmatrix}
+= \begin{bmatrix} 2 \\ 0 \\ -2 \end{bmatrix}
+, \quad
+\begin{bmatrix} 1 & -1 & 1 \\ 0 & 1 & 0 \\ 2 & 0 & 1 \end{bmatrix} \begin{bmatrix} -4 \\ 0 \\ 6 \end{bmatrix}
+= \begin{bmatrix} 2 \\ 0 \\ -2 \end{bmatrix}
+$$
+
+\newpage
+\section*{Question 5}
+For each of the following choises of $A$, $b$, determine whether $b$ is in the column space of $A$ and state whether the system $Ax = b$ is consistent or not.
+\begin{enumerate}[a.]
+    \item $A = \begin{bmatrix} 0 & 1 \\ -1 & 1 \end{bmatrix}, \; b = \begin{bmatrix} 1 \\ -1 \end{bmatrix}$
+    \item $A = \begin{bmatrix} 0 & 1 \\ 1 & 0 \\ 0 & 1 \end{bmatrix}, \; b = \begin{bmatrix} 2 \\ 5 \\ 2 \end{bmatrix}$
+    \item $A = \begin{bmatrix} 1 & 1 & 2 \\ 1 & 1 & 2 \\ 1 & 1 & 2 \end{bmatrix}, \; b = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$
+\end{enumerate}
+
+\noindent\textbf{Solution:} The system $Ax = b$ is consistent if and only if $b$ is in the column space of $A$.
+
+\vspace{0.25cm}
+\noindent\textbf{a.}
+$$
+\left[\begin{array}{cc|c} 0 & 1 & 1 \\ -1 & 1 & -1 \end{array}\right] \sim
+\left[\begin{array}{cc|c} 1 & -1 & 1 \\ 0 & 1 & 1 \end{array}\right] \sim
+\left[\begin{array}{cc|c} 1 & 0 & 2 \\ 0 & 1 & 1 \end{array}\right]
+$$
+Since the system is consistent, $b \in \text{colspace}(A)$.
+
+\vspace{0.25cm}
+\noindent\textbf{b.}
+$$
+\left[\begin{array}{cc|c} 0 & 1 & 2 \\ 1 & 0 & 5 \\ 0 & 1 & 2 \end{array}\right] \sim
+\left[\begin{array}{cc|c} 1 & 0 & 5 \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{array}\right]
+$$
+Since the system is consistent, $b \in \text{colspace}(A)$.
+
+\vspace{0.25cm}
+\noindent\textbf{c.}
+$$ \left[\begin{array}{ccc|c} 1 & 1 & 2 & 1 \\ 1 & 1 & 2 & 2 \\ 1 & 1 & 2 & 3 \end{array}\right] $$
+This system is obviously inconsistent, so $b \notin \text{colspace}(A)$.
+
+\newpage
+\section*{Question 6}
+Let
+$$
+u_1 := (1, 1, 0)^T, \; u_2 := (1, 0, 1)^T, \; u_3 := (0, 1, 1)^T
+$$
+be a basis of $\mathbb{R}^3$. Define $: \mathbb{R}^2 \rightarrow \mathbb{R}^3$ as
+$$ L(x) := x_1u_1 + x_2u_2 + (x_1 + x_2)u_3 $$
+Find a matrix $A$ representing $L$ with respect to the ordered basis $e_1, e_2$ and $u_1, u_2, u_3$.
+
+\vspace{0.25cm}
+\noindent\textbf{Solution:}
+\newline\noindent Applying $L$ to $e_1$ and $e_2$:
+$$ L(e_1) = (u_1, 0, u_3)^T, \quad L(e_2) = (0, u_2, u_3)^T $$
+Thus, the matrix $A$ with respect to the ordered basis $e_1, e_2$ and $u_1, u_2, u_3$ is:
+$$ A = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 1 \end{bmatrix} $$
+
+\newpage
+\section*{Question 7}
+For each of the following transformations, find a matrix $A$ such that $L(x) = Ax$.
+\begin{enumerate}[a.]
+    \item $L((x_1, x_2)^T) = (x_1 + x_2, x_2 + x_1, x_1)^T$
+    \item $L((x_1, x_2, x_3)^T) = (x_3, x_2, x_1)^T$
+    \item $L((x_1, x_2, x_3)^T) = (x_1)$
+    \item $L : P_3 \rightarrow P_3, \; P(a + bx + cx^2) = (c + bx + ax^2)$. (Consider the standard basis).
+\end{enumerate}
+
+\noindent\textbf{Solution:} Assuming that the basis of the domain and codomain are the standard basis:
+\newline\noindent\textbf{a.}
+$ L(e_1) = (1, 1, 1)^T, \; L(e_2) = (1, 1, 0)^T $
+$$ A = \begin{bmatrix} 1 & 1 \\ 1 & 1 \\ 1 & 0 \end{bmatrix} $$
+\textbf{b.}
+$ L(e_1) = (0, 0, 1)^T, \; L(e_2) = (0, 1, 0)^T, \; L(e_3) = (1, 0, 0)^T $
+$$ A = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{bmatrix} $$
+\textbf{c.}
+$ L(e_1) = [1], \; L(e_2) = [0], \; L(e_3) = [0] $
+$$ A = \begin{bmatrix} 1 & 0 & 0 \end{bmatrix} $$
+\textbf{d.}
+Assuming that the standard basis for $\mathbb{P}_3$ is $\{1, x, x^2\}$:
+$$ L(1) = x^2, \; L(x) = x, \; L(x^2) = 1 $$
+$$ A = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{bmatrix} $$
+
+\newpage
+\section*{Question 8}
+Determine which of the following sentences are true or false \\
+1. If $\{v_1, ..., v_n\}$ are linearly dependent, then at least one of them can be written as a linear combination of the rest.
+    \newline\textbf{True.} By definition of linear dependence. \\
+2. If $L:V \rightarrow W$ is a linear map then maps $0_v$ to $0_w$.
+    \newline\textbf{True.} \\
+3. Let $S$ be a subspace of $V$ and dim($S$) = $n$ = dim($V$). Then $S = V$.
+    \newline\textbf{True.} $v$ and $S$ having the same dimension impies that they both span the same space, so $S = V$. \\
+4. If $\{v_1, ..., v_n\} \subseteq V$ are linearly independent and dim($V$) = $n + 1$, then one can always find a $v_{n+1}$ such that $\{v_1, ..., v_{n+1}\}$ form a basis for $V$.
+    \newline\textbf{True.} Since $V$ requires $n$ linearly independent vectors to form a basis, there must be at least one vector $v_{n+1}$ that is linearly independent from the rest. \\
+5. The only linear maps $L: \mathbb{R} \rightarrow \mathbb{R}$ are of the form $f(x) = ax$ for some $a \in \mathbb{R}$.
+    \newline\textbf{True.} Adding constants or exponents would make it so that $L$ is not closed under addition or scalar multiplication. \\
+6. The map that reflects a point through the origin is a linear map.
+    \newline\textbf{True.} It is closed under addition and scalar multiplication. \\
+7. The are vector spaces with infinite dimensions.
+    \newline\textbf{True.} The vector space of polynomials is an example. \\
+8. The every vector space has either only 1 element of infinitely many.
+    \newline\textbf{???} \\
+9. If 0 is inside a subset $S$ of $V$ then $S$ is a subspace.
+    \newline\textbf{False.} $S$ must also be closed under addition and scalar multiplication. \\
+10. If $S$ is a subspace then 0 is inside $S$.
+    \newline\textbf{True.} $S$ must contain the zero vector in order to be a subspace. \\
+11. If $L:V \rightarrow W$ is a linear map then $2L$ is also a linear map.
+    \newline\textbf{True.} Linear maps are closed under scalar multiplication. \\
+12. If $L:V \rightarrow W$ is a linear map then $L + 2$ is also a linear map.
+    \newline\textbf{False.} Adding a scalar to a linear map isn't meaningful. \\
+13. If $A$ is a singular $3 \times 3$ matrix then the map $L(x) = A(x)$ is a linear map.
+    \newline\textbf{True.} Matrix multiplication is always a linear operation. \\
+14. If $Ax = b$ has a solution then $b$ lies inside the row space of $A$.
+    \newline\textbf{False.} The theorem is that $b$ lies inside the column space of $A$ if and only if $Ax = b$ is consistent. \\
+15. IF $A^T$ is row equivalent with $B^T$, then $A, B$ have the same column space.
+    \newline\textbf{True.} Transposes just swap rows and columns, so row equivalence of a transpose is the same as column equivalence. \\
+
+\end{document}
