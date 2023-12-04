@@ -34,7 +34,8 @@ For systems in the form $y' = Ay$, we can find $y$ as $e^{At}$, where $e^{At} = 
 Additionally, when $A$ is diagonalizable, we can write $A = Xe^D X^{-1}$, where $X$ is the matrix of eigenvectors of $A$ and $D$ is the diagonal matrix of eigenvalues of $A$.
 Then, $e^{At} = X e^{Dt} X^{-1}$.
 
-\vspace{0.2cm}\noindent\textbf{\textit{System a:}}
+\newpage
+\noindent\textbf{\textit{System a:}}
 \begin{align*}
     A &= \begin{pmatrix} 1 & 1 \\ -2 & 4 \end{pmatrix} \\
     P(\lambda) &= \det(A - \lambda I) = \begin{vmatrix} 1 - \lambda & 1 \\ -2 & 4 - \lambda \end{vmatrix} \\
@@ -61,7 +62,8 @@ Then, $e^{At} = X e^{Dt} X^{-1}$.
     &= \begin{pmatrix} 2e^{2t} - e^{3t} & -e^{2t} + e^{3t} \\ 2e^{2t} - 2e^{3t} & -e^{2t} + 2e^{3t} \end{pmatrix} \\
 \end{align*}
 
-\vspace{0.2cm}\noindent\textbf{\textit{System b:}}
+\newpage
+\noindent\textbf{\textit{System b:}}
 \begin{align*}
     A &= \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix} \\
     P(\lambda) &= \det(A - \lambda I) = \begin{vmatrix} 1 - \lambda & -1 \\ 1 & 1 - \lambda \end{vmatrix} \\
@@ -90,7 +92,8 @@ Then, $e^{At} = X e^{Dt} X^{-1}$.
     &= \begin{pmatrix} e^t \cos t & -e^t \sin t \\ e^t \sin t & e^t \cos t \end{pmatrix} \\
 \end{align*}
 
-\vspace{0.2cm}\noindent\textbf{\textit{System c:}}
+\newpage
+\noindent\textbf{\textit{System c:}}
 \begin{align*}
     A &= \begin{pmatrix} 1 & 0 & 1 \\ 0 & 2 & 6 \\ 0 & 1 & 3 \end{pmatrix} \\
     P(\lambda) &= \det(A - \lambda I) = \begin{vmatrix} 1 - \lambda & 0 & 1 \\ 0 & 2 - \lambda & 6 \\ 0 & 1 & 3 - \lambda \end{vmatrix}
@@ -118,6 +121,7 @@ Then, $e^{At} = X e^{Dt} X^{-1}$.
     &= \frac{1}{20} \begin{pmatrix}20e^t & e^{5t} - 5e^t + 4 & 3e^{5t} + 5e^t - 8 \\ 0 & 8e^{5t} + 12 & 24e^{5t} - 24 \\ 0 & 4e^{5t} - 4 & 12e^{5t} + 8 \end{pmatrix}
 \end{align*}
 
+\newpage
 \section*{Question 2}
 Solve the following initial value problems:
 \begin{enumerate}[a.]
@@ -132,7 +136,84 @@ Solve the following initial value problems:
 \end{enumerate}
 
 \vspace{0.25cm}\noindent\textbf{Solution:}
+Again, we use the fact that $y = e^{At}$, where $A$ is the matrix of coefficients of the system.
+To solve the initial conditions, we use the fact that $y = e^{At}c$, where $c$ is a vector of constants.
+Then, we can solve for $c$ using the initial conditions.
 
+\newpage
+\noindent\textbf{\textit{System a:}}
+\begin{align*}
+    A &= \begin{pmatrix} -1 & 2 \\ 2 & -1 \end{pmatrix} \\
+    P(\lambda) &= \det(A - \lambda I) = \begin{vmatrix} -1 - \lambda & 2 \\ 2 & -1 - \lambda \end{vmatrix} \\
+    &= (-1 - \lambda)^2 - 4 = \lambda^2 + 2\lambda - 3 \\
+    &= (\lambda + 3)(\lambda - 1) \\
+    \\
+    &\lambda_1 = -3, \quad \lambda_2 = 1 \\
+    \\
+    N(A - \lambda_1 I) &= N\left(\begin{pmatrix} 2 & 2 \\ 2 & 2 \end{pmatrix}\right) \\
+    &= \left\{ \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} : x_1 + x_2 = 0 \right\}
+    = \text{span}\left\{ \begin{pmatrix} 1 \\ -1 \end{pmatrix} \right\} \\
+    N(A - \lambda_2 I) &= N\left(\begin{pmatrix} -2 & 2 \\ 2 & -2 \end{pmatrix}\right) \\
+    &= \left\{ \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} : -x_1 + x_2 = 0 \right\}
+    = \text{span}\left\{ \begin{pmatrix} 1 \\ 1 \end{pmatrix} \right\} \\
+    \\
+    &X = \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix} , \quad
+    X^{-1} = \frac{1}{2} \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix} , \quad
+    D = \begin{pmatrix} -3 & 0 \\ 0 & 1 \end{pmatrix} \\
+    e^{Dt} &= \begin{pmatrix} e^{-3t} & 0 \\ 0 & e^t \end{pmatrix} \\
+    \\
+    y &= e^{At} = X e^{Dt} X^{-1} c \\
+    &= \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix} \begin{pmatrix} e^{-3t} & 0 \\ 0 & e^t \end{pmatrix} \frac{1}{2} \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix} c \\
+    &= \frac{1}{2} \begin{pmatrix} e^{-3t} & e^t \\ -e^{-3t} & e^t \end{pmatrix} \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix} c \\
+    &= \frac{1}{2} \begin{pmatrix} e^{-3t} + e^t & -e^{-3t} + e^t \\ -e^{-3t} + e^t & e^{-3t} + e^t \end{pmatrix} c \\
+    \\
+    y(0) &= \begin{pmatrix} 3 \\ 1 \end{pmatrix} = \frac{1}{2} \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix} c
+    = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} c \\
+    &\implies c = \begin{pmatrix} 3 \\ 1 \end{pmatrix} \\
+    \\
+    y(t) &= \frac{1}{2} \begin{pmatrix} e^{-3t} + e^t & -e^{-3t} + e^t \\ -e^{-3t} + e^t & e^{-3t} + e^t \end{pmatrix} \begin{pmatrix} 3 \\ 1 \end{pmatrix} \\
+    &= \begin{pmatrix} e^{-3t} + 2e^t \\ -e^{-3t} + 2e^t \end{pmatrix}
+\end{align*}
+
+\newpage
+\noindent\textbf{\textit{System b:}}
+\begin{align*}
+    A &= \begin{pmatrix} 1 & -2 \\ 2 & 1 \end{pmatrix} \\
+    P(\lambda) &= \det(A - \lambda I) = \begin{vmatrix} 1 - \lambda & -2 \\ 2 & 1 - \lambda \end{vmatrix} \\
+    &= (1 - \lambda)^2 + 4 = \lambda^2 - 2\lambda + 5 \\
+    \\
+    &\lambda_1,\; \lambda_2 = \frac{2 \pm \sqrt{4 - 20}}{2} \rightarrow \lambda_1 = 1 + 2i, \quad \lambda_2 = 1 - 2i \\
+    \\
+    N(A - \lambda_1 I) &= N\left(\begin{pmatrix} -2i & -2 \\ 2 & -2i \end{pmatrix}\right) \\
+    &= \left\{ \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} : -ix_1 - x_2 = 0 \right\}
+    = \text{span}\left\{ \begin{pmatrix} 1 \\ -i \end{pmatrix} \right\} \\
+    N(A - \lambda_2 I) &= N\left(\begin{pmatrix} 2i & -2 \\ 2 & 2i \end{pmatrix}\right) \\
+    &= \left\{ \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} : ix_1 - x_2 = 0 \right\}
+    = \text{span}\left\{ \begin{pmatrix} 1 \\ i \end{pmatrix} \right\} \\
+    \\
+    &X = \begin{pmatrix} 1 & 1 \\ -i & i \end{pmatrix} , \quad
+    X^{-1} = \frac{1}{2i} \begin{pmatrix} i & -1 \\ i & 1 \end{pmatrix} , \quad
+    D = \begin{pmatrix} 1 + 2i & 0 \\ 0 & 1 - 2i \end{pmatrix} \\
+    &\text{Using the fact that } e^{a + bi} = e^a(\cos b + i \sin b) \\
+    e^{Dt} &= \begin{pmatrix} e^t(\cos 2t + i \sin 2t) & 0 \\ 0 & e^t(\cos 2t - i \sin 2t) \end{pmatrix} \\
+    &\text{Let } \alpha = \cos 2t + i \sin 2t, \; \beta = \cos 2t - i \sin 2t \\
+    y &= e^{At} = X e^{Dt} X^{-1} \\
+    &= \begin{pmatrix} 1 & 1 \\ -i & i \end{pmatrix} \begin{pmatrix} e^t \alpha & 0 \\ 0 & e^t \beta \end{pmatrix} \frac{1}{2i} \begin{pmatrix} i & -1 \\ i & 1 \end{pmatrix} \\
+    &= \frac{1}{2i} \begin{pmatrix} e^t \alpha & e^t \beta \\ -ie^t \alpha & ie^t \beta \end{pmatrix} \begin{pmatrix} i & -1 \\ i & 1 \end{pmatrix} \\
+    &= \frac{1}{2i} \begin{pmatrix} ie^t \alpha + ie^t \beta & -e^t \alpha + e^t \beta \\ e^t \alpha - e^t \beta & ie^t \alpha + ie^t \beta \end{pmatrix} \\
+    &= \frac{1}{2i} \begin{pmatrix} ie^t (\cos 2t + i \sin 2t) + ie^t (\cos 2t - i \sin 2t) & -e^t (\cos 2t + i \sin 2t) + e^t (\cos 2t - i \sin 2t) \\ e^t (\cos 2t + i \sin 2t) - e^t (\cos 2t - i \sin 2t) & ie^t (\cos 2t + i \sin 2t) + ie^t (\cos 2t - i \sin 2t) \end{pmatrix} \\
+    &= \frac{1}{2i} \begin{pmatrix} 2i e^{t} \cos(2t) & -2i e^{t} \sin(2t) \\ 2i e^{t} \sin(2t) &  2i e^{t} \cos(2t) \end{pmatrix} \\
+    &= e^t \begin{pmatrix} \cos(2t) & -\sin(2t) \\ \sin(2t) & \cos(2t) \end{pmatrix} \\
+    \\
+    y(0) &= \begin{pmatrix} 1 \\ -2 \end{pmatrix} = e^0 \begin{pmatrix} \cos(0) & -\sin(0) \\ \sin(0) & \cos(0) \end{pmatrix} c
+    = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} c \\
+    &\implies c = \begin{pmatrix} 1 \\ -2 \end{pmatrix} \\
+    \\
+    y(t) &= e^t \begin{pmatrix} \cos(2t) & -\sin(2t) \\ \sin(2t) & \cos(2t) \end{pmatrix} \begin{pmatrix} 1 \\ -2 \end{pmatrix} \\
+    &= e^t \begin{pmatrix} \cos(2t) + 2\sin(2t) \\ \sin(2t) - 2\cos(2t) \end{pmatrix}
+\end{align*}
+
+\newpage
 \section*{Question 3}
 In each of the following, "diagonalize" the matrix $X$ and use it to compute $A^{-1}$, $A^4$, $e^A$.
 \begin{align*}
@@ -142,7 +223,80 @@ In each of the following, "diagonalize" the matrix $X$ and use it to compute $A^
 \end{align*}
 
 \vspace{0.25cm}\noindent\textbf{Solution:}
+Use the fact that $A = XDX^{-1}$, where $X$ is the matrix of eigenvectors of $A$ and $D$ is the diagonal matrix of eigenvalues of $A$.
+Then, $A^{-1} = XD^{-1}X^{-1}$, $A^4 = XD^4X^{-1}$, and $e^A = Xe^DX^{-1}$.
 
+\newpage
+\noindent\textbf{\textit{First matrix:}}
+\begin{align*}
+    A &= \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \\
+    P(\lambda) &= \det(A - \lambda I) = \begin{vmatrix} -\lambda & 1 \\ 1 & -\lambda \end{vmatrix} \\
+    &= \lambda^2 - 1 = (\lambda - 1)(\lambda + 1) \\
+    \\
+    &\lambda_1 = 1, \quad \lambda_2 = -1 \\
+    \\
+    N(A - \lambda_1 I) &= N\left(\begin{pmatrix} -1 & 1 \\ 1 & -1 \end{pmatrix}\right)
+    = \left\{ \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} : -x_1 + x_2 = 0 \right\}
+    = \text{span}\left\{ \begin{pmatrix} 1 \\ 1 \end{pmatrix} \right\} \\
+    N(A - \lambda_2 I) &= N\left(\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}\right)
+    = \left\{ \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} : x_1 + x_2 = 0 \right\}
+    = \text{span}\left\{ \begin{pmatrix} 1 \\ -1 \end{pmatrix} \right\} \\
+    \\
+    &X = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} , \quad
+    X^{-1} = -\frac{1}{2} \begin{pmatrix} -1 & -1 \\ -1 & 1 \end{pmatrix} = \frac{1}{2} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} , \quad
+    D = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \\
+    \\
+    A^{-1} &= XD^{-1}X^{-1} = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \frac{1}{2} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \\
+    &= \frac{1}{2} \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \\
+    &= \frac{1}{2} \begin{pmatrix} 0 & 2 \\ 2 & 0 \end{pmatrix} \\
+    &= \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \\
+    \\
+    A^4 &= XD^4X^{-1} = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \frac{1}{2} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \\
+    &= \frac{1}{2} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \\
+    &= \frac{1}{2} \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix} \\
+    &= \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \\
+    \\
+    e^A &= Xe^DX^{-1} = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} e & 0 \\ 0 & e^{-1} \end{pmatrix} \frac{1}{2} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \\
+    &= \frac{1}{2} \begin{pmatrix} e & e^{-1} \\ e & -e^{-1} \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \\
+    &= \frac{1}{2} \begin{pmatrix} e + e^{-1} & e - e^{-1} \\ e - e^{-1} & e + e^{-1} \end{pmatrix} \\
+\end{align*}
+
+\newpage
+\noindent\textbf{\textit{Second matrix:}}
+\begin{align*}
+    A &= \begin{pmatrix} 2 & 2 & 1 \\ 0 & 1 & 2 \\ 0 & 0 & -1 \end{pmatrix} \\
+    P(\lambda) &= \det(A - \lambda I) = \begin{vmatrix} 2 - \lambda & 2 & 1 \\ 0 & 1 - \lambda & 2 \\ 0 & 0 & -1 - \lambda \end{vmatrix} \\
+    &= (-1 - \lambda)(2 - \lambda)(1 - \lambda)
+    \\
+    &\lambda_1 = -1, \quad \lambda_2 = 2, \quad \lambda_3 = 1 \\
+    \\
+    N(A - \lambda_1 I) &= N\left(\begin{pmatrix} 3 & 2 & 1 \\ 0 & 2 & 2 \\ 0 & 0 & 0 \end{pmatrix}\right) = N\left(\begin{pmatrix} 3 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}\right) \\
+    &= \left\{ \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} : 3x_1 + x_2 = 0, \; x_2 + x_3 = 0 \right\}
+    = \text{span}\left\{ \begin{pmatrix} 1 \\ -3 \\ 3 \end{pmatrix} \right\} \\
+    N(A - \lambda_2 I) &= N\left(\begin{pmatrix} 0 & 2 & 1 \\ 0 & -1 & 2 \\ 0 & 0 & -3 \end{pmatrix}\right) = N\left(\begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}\right)
+    = \text{span}\left\{ \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \right\} \\
+    N(A - \lambda_3 I) &= N\left(\begin{pmatrix} 1 & 2 & 1 \\ 0 & 0 & 2 \\ 0 & 0 & -2 \end{pmatrix}\right) = N\left(\begin{pmatrix} 1 & 2 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}\right)
+    = \text{span}\left\{ \begin{pmatrix} 2 \\ -1 \\ 0 \end{pmatrix} \right\} \\
+    \\
+    &X = \begin{pmatrix} 1 & 1 & 2 \\ -3 & 0 & -1 \\ 3 & 0 & 0 \end{pmatrix} , \quad
+    X^{-1} = \frac{1}{3} \begin{pmatrix} 0 & 0 & 1 \\ 3 & 6 & 5 \\ 0 & -3 & -3 \end{pmatrix} , \quad
+    D = \begin{pmatrix} -1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 1 \end{pmatrix} \\
+    \\
+    A^{-1} &= XD^{-1}X^{-1} = \begin{pmatrix} 1 & 1 & 2 \\ -3 & 0 & -1 \\ 3 & 0 & 0 \end{pmatrix} \begin{pmatrix} -1 & 0 & 0 \\ 0 & \frac{1}{2} & 0 \\ 0 & 0 & 1 \end{pmatrix} \frac{1}{3} \begin{pmatrix} 0 & 0 & 1 \\ 3 & 6 & 5 \\ 0 & -3 & -3 \end{pmatrix} \\
+    \\
+    A^4 &= XD^4X^{-1} = \begin{pmatrix} 1 & 1 & 2 \\ -3 & 0 & -1 \\ 3 & 0 & 0 \end{pmatrix} \begin{pmatrix} 1 & 0 & 0 \\ 0 & 16 & 0 \\ 0 & 0 & 1 \end{pmatrix} \frac{1}{3} \begin{pmatrix} 0 & 0 & 1 \\ 3 & 6 & 5 \\ 0 & -3 & -3 \end{pmatrix} \\
+    \\
+    e^A &= Xe^DX^{-1} = \begin{pmatrix} 1 & 1 & 2 \\ -3 & 0 & -1 \\ 3 & 0 & 0 \end{pmatrix} \begin{pmatrix} e^{-1} & 0 & 0 \\ 0 & e^2 & 0 \\ 0 & 0 & e \end{pmatrix} \frac{1}{3} \begin{pmatrix} 0 & 0 & 1 \\ 3 & 6 & 5 \\ 0 & -3 & -3 \end{pmatrix} \\
+\end{align*}
+
+\newpage
+\noindent\textbf{\textit{Third matrix:}}
+\begin{align*}
+    A &= \begin{pmatrix} 1 & 2 & -1 \\ 2 & 4 & -2 \\ 3 & 6 & -3 \end{pmatrix} \\
+    P(\lambda) &= \det(A - \lambda I) = \begin{vmatrix} 1 - \lambda & 2 & -1 \\ 2 & 4 - \lambda & -2 \\ 3 & 6 & -3 - \lambda \end{vmatrix} \\
+\end{align*}
+
+\newpage
 \section*{Question 4}
 Let 
 $$ A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \\ 2 & 1 \end{pmatrix}, \quad
