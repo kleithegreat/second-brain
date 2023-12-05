@@ -293,7 +293,31 @@ Then, $A^{-1} = XD^{-1}X^{-1}$, $A^4 = XD^4X^{-1}$, and $e^A = Xe^DX^{-1}$.
 \noindent\textbf{\textit{Third matrix:}}
 \begin{align*}
     A &= \begin{pmatrix} 1 & 2 & -1 \\ 2 & 4 & -2 \\ 3 & 6 & -3 \end{pmatrix} \\
-    P(\lambda) &= \det(A - \lambda I) = \begin{vmatrix} 1 - \lambda & 2 & -1 \\ 2 & 4 - \lambda & -2 \\ 3 & 6 & -3 - \lambda \end{vmatrix} \\
+    P(\lambda) &= \det(A - \lambda I) = \begin{vmatrix} 1 - \lambda & 2 & -1 \\ 2 & 4 - \lambda & -2 \\ 3 & 6 & -3 - \lambda \end{vmatrix}
+    = \begin{vmatrix} 1 - \lambda & 2 & -\lambda \\ 2 & 4 - \lambda & 0 \\ 3 & 6 & -\lambda \end{vmatrix}
+    = \begin{vmatrix} 1-\lambda & 2 \lambda & -\lambda \\ 2 & -\lambda & 0 \\ 3 & 0 & -\lambda \end{vmatrix} \\
+    &= \begin{vmatrix} 1-\lambda & 2 \lambda & -\lambda \\ 2 & -\lambda & 0 \\ 2 + \lambda & -2 \lambda & 0 \end{vmatrix}
+    = \begin{vmatrix} 3 & 0 & -\lambda \\ 2 & -\lambda & 0 \\ 2 + \lambda & -2 \lambda & 0 \end{vmatrix}
+    = -\lambda \begin{vmatrix} 2 & -\lambda \\ 2 + \lambda & -2 \lambda \end{vmatrix} 
+    = \lambda \begin{vmatrix} 2 & \lambda \\ 2 + \lambda & 2 \lambda \end{vmatrix} \\
+    &= \lambda (2 \lambda^2 - 2 \lambda - \lambda^2)
+    = \lambda (\lambda^2 - 2 \lambda) \\
+    &= \lambda^2 (\lambda - 2) \\
+    \\
+    &\lambda_1 = 0, \quad \lambda_2 = 0, \quad \lambda_3 = 2 \\
+    \\
+    &N(A - \lambda_1 I) = N(A - \lambda_2 I) = N(A) 
+    = \left\{ \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} : x_1 + 2x_2 - x_3 = 0 \right\} 
+    = \text{span}\left\{ \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 2 \end{pmatrix} \right\} \\
+    &N(A - \lambda_3 I) = N\left(\begin{pmatrix} -1 & 2 & -1 \\ 2 & 2 & -2 \\ 3 & 6 & -5 \end{pmatrix}\right)
+    = N\left(\begin{pmatrix} -1 & 2 & -1 \\ 0 & 6 & -4 \\ 0 & 12 & -8 \end{pmatrix}\right)
+    = N\left(\begin{pmatrix} -1 & 2 & -1 \\ 0 & 3 & -2 \\ 0 & 0 & 0 \end{pmatrix}\right) \\
+    &= \left\{ \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} : -x_1 + 2x_2 - x_3 = 0, \; 3x_2 - 2x_3 = 0 \right\}
+    = \text{span}\left\{ \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} \right\} \\
+    \\
+    &X = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 2 \\ 1 & 2 & 3 \end{pmatrix} , \quad
+    X^{-1} = \frac{1}{2} \begin{pmatrix} 3 & -2 & 1 \\ -2 & 1 & 0 \\ 1 & 0 & -1 \end{pmatrix} , \quad
+    D = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 2 \end{pmatrix} \\
 \end{align*}
 
 \newpage
@@ -344,5 +368,40 @@ For each of the following systems \(Ax = b\) find all least squares solutions:
 \end{align*}
 
 \vspace{0.25cm}\noindent\textbf{Solution:}
+
+\section*{Question 9}
+Decide if the following statements are true or false:
+\begin{enumerate}
+    \item There is only one inner product in $\mathbb{R}^2$, the dot product.
+    \item Product of orthogonal matricies is also orthogonal.
+    \item Sum of orthogonal matricies is also orthogonal.
+    \item The inverse of an orthogonal matrix is its transpose.
+    \item Let V be a vector space with an inner product. Then 
+    $$ \|v_1 + v_2 \| \leq \|v_1\| + \|v_2\| $$
+    for all vectors $v_1, v_2$.
+    \item In we have a norm that satisfies
+    $$ \|v_1 + v_2 \| \leq \|v_1\| + \|v_2\| $$
+    for all vectors $v_1, v_2$, then there is a norm that is induced by an inner product.
+    \item $| \langle x, y \rangle |$ is always greater than the products of the norms of $x$ and $y$.
+    \item The matricies $A^T A$ and $A A^T$ always have the same rank.
+    \item Let $u_1, u_2$ be two orthogonal matricies in $\mathbb{R}^n$.
+    Let V be the matrix that has these vectors as columns.
+    Then $U^T U$ is the $2 \times 2$ identity matrix.
+    \item The projection of a vector $x$ in a subspace S is the closest point in the subspace to the vector $x$.
+    \item If $\lambda \in \mathbb{R}$ and $\| \cdot \|$ is a norm, then
+    $$ \| \lambda x \| = \lambda \| x \| $$
+    \item The functions $\cos x$ and $\sin x$ are orthogonal with respect to the inner product 
+    $$ \langle f, g \rangle = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)g(x)dx $$
+    \item If $u, v$ are two orthogonal vectors then $\| v + 2u \| = \sqrt{5}$
+    \item A defective matrix cannot be diagonalized.
+    \item The characteristic polynomial of an $n \times n$ matrix A has $n$ distinct roots.
+    \item The product of the eigenvalues of an $n \times n$ matrix is always a real number.
+    \item Similar matricies have the same eigenvalues.
+    \item Similar matricies have the same eigenvectors.
+    \item If a matrix is singular then at least one of the eigenvalues is the 0 one.
+    \item If a matrix is singular then all the eigenvalues are 0.
+    \item If a $3 \times 3$ jas eigenvalues 1, 2, 0 then it is diagonalizable.
+    \item If $\lambda$ is an eigenvalues of A then $e^{\lambda}$ is an eigenvalue for $e^A$.
+\end{enumerate}
 
 \end{document}
