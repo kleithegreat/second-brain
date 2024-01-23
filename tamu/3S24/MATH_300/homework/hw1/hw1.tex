@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{9th Homework - MATH 304 508}
+\rhead{Kevin Lei}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\arraystretch}{1.2}
+
+\begin{document}
+
+\section*{Question 1}
+\begin{enumerate}[(a)]
+    \item Shrek is six feet tall - proposition
+    \item Dr. Cantu and his son - neither
+    \item Give an example of an integrable function - neither
+    \item $20^2 + 23^2 > 2023^2$ - proposition
+    \item $x^2 = 1$ - predicate
+    \item Potatoes are awesome - neither
+    \item $n$ is a perfect square - predicate
+    \item The product of every two prime numbers is odd - proposition
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[(a)]
+    \item $P$: false
+    \item $Q$: true
+    \item $P \lor Q$: true
+    \item $P \land Q$: false
+    \item $P \rightarrow Q$: true
+    \item $Q \rightarrow P$: false
+\end{enumerate}
+
+\section*{Question 3}
+For the predicate $P(x): (x^2 - 9)(x - 1) = 0$ where $x \in \mathbb{R}_{\geq 1}$, $x$ must be either 3 or 1 for $P(x)$ to be true.
+
+\section*{Question 4}
+\begin{enumerate}[(a)]
+    \item $\sqrt{3}$ is irrational
+    \item 0 is a negative number
+    \item The real number $r$ is greater than $\pi$
+\end{enumerate}
+
+\section*{Question 5}
+\begin{enumerate}[(a)]
+    \item \textbf{Hypothesis: } $a$ is irrational \\ 
+          \textbf{Conclusion: } $2a$ is irrational
+    \item \textbf{Hypothesis: } $a$ is an even integer \\ 
+          \textbf{Conclusion: } $a^3$ is an even integer
+    \item \textbf{Hypothesis: } $\lim_{x \to 0^+} f(x) = 3$ \\
+          \textbf{Conclusion: } $\lim_{x \to 0} f(x) = 3$
+\end{enumerate}
+
+\section*{Question 6}
+(a) \\
+\begin{tabular}{c|c|c|c|c|c|c|c}
+    $P$ & $Q$ & $R$ & $P \lor Q$ & $(P \lor Q) \land R$ & $P \land R$ & $Q \land R$ & $(P \land R) \lor (Q \land R)$ \\
+    \hline
+    T & T & T & T & T & T & T & T \\
+    T & T & F & T & F & F & F & F \\
+    T & F & T & T & T & T & F & T \\
+    T & F & F & T & F & F & F & F \\
+    F & T & T & T & T & F & T & T \\
+    F & T & F & T & F & F & F & F \\
+    F & F & T & F & F & F & F & F \\
+    F & F & F & F & F & F & F & F \\
+\end{tabular}
+\\
+\\
+(b) \\
+\begin{tabular}{c|c|c|c|c|c}
+    $P$ & $Q$ & $P \rightarrow Q$ & $\neg (P \rightarrow Q)$ & $\neg Q$ & $P \land (\neg Q)$ \\
+    \hline
+    T & T & T & F & F & F \\
+    T & F & F & T & T & T \\
+    F & T & T & F & F & F \\
+    F & F & T & F & T & F \\
+\end{tabular}
+
+\section*{Question 7}
+(a) \\
+$P \land \neg P$ is a contradiction.
+
+\vspace{0.5cm}
+\noindent
+(b) \\
+\begin{align*}
+    &P \rightarrow (Q \rightarrow P) \\
+    \equiv &P \rightarrow (\neg Q \lor P) \\
+    \equiv &\neg P \lor (\neg Q \lor P) \\
+    \equiv &(P \lor \neg P) \lor \neg Q \\
+    \equiv &T \lor \neg Q \\
+    \equiv &T
+\end{align*}
+This is a tautology.
+
+\section*{Question 8}
+(a) \\
+(b) \\
+
+\end{document}
