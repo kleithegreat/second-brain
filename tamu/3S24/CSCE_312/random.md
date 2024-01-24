@@ -1,0 +1,1 @@
+final question: high frequency is not always better

@@ -73,7 +73,8 @@ Reasons to understand compilation systems:
 - Machine instructions will vary in length
 > Clarification: Machine instructions are NOT assembly instructions. Machine instructions are the binary instructions directly understood by the processor. Also, word size is typically defined by the artitecture of the processor (32-bit or 64-bit).
 
-# word size depends on architecture, 32 vs 64 bit, what about x86 vs ARM vs RISC-V etc?
+> Question: word size depends on architecture, 32 vs 64 bit, what about x86 vs ARM vs RISC-V etc?
+> Answer: The word size is defined not by x86 or ARM etc. but rather the bit size (x86-64 vs x86, ARM32 vs ARM64, etc.)
 
 **Processor**
 - The CPU executes the instructions in main memory.
