@@ -110,9 +110,48 @@ For example, `3` can have type `Int`, `Integer`, `Float`, or `Double`.
     - Function application associates to the left.
         - This means `add' 1 2` is equivalent to `(add' 1) 2`.
 - Generally, unless tupling is required, curried functions are preferred in Haskell.
+- The meaning of curried function definitions can be formalized using lambda expressions.
 
 ## 3.7 Polymorphic Types
+- The prelude function `length` can take a list of any type and return an `Int`.
+- The length function uses a **type variable** to denote that it can take a list of any type.
+- Type variables must begin with a lowercase letter, and typically are simply named `a`, `b`, `c`, etc.
+- The type of `length` is `length :: [a] -> Int`.
+- A type that contains at least one type variable is called **polymorphic**.
 
 ## 3.8 Overloaded Types
+- The prelude function `+` calculates the sum of two numeric values.
+- This works for two integers, two floats, etc.
+- The idea that a single function can be used on multiple types is called **overloading**.
+- The types of an overloaded function are defined with a **class constraint**.
+    - Example: `(+) :: Num a => a -> a -> a`
+    - The `Num a =>` part is the class constraint.
+    - This means that `a` must be a member of the `Num` class.
 
 ## 3.9 Basic Classes
+- A type is a collection of related values
+- Building on this, a **class** is a collection of types that support certain overloaded operations called **methods**.
+- Haskell has a number of built-in classes.
+    - `Eq` - equality types
+        - Types whose values can be tested for equality using `==` and `/=`.
+        - All the basic types (`Bool`, `Char`, `String`, `Int`, `Integer`, `Float`, `Double`) are members of `Eq`.
+        - List and tuple types are also members of `Eq` if their component types are members of `Eq`.
+    - `Ord` - ordered types
+        - Equality types that are totally (linearly) ordered.
+        - Types that are members of `Ord` can be compared using `<`, `<=`, `>`, `>=`, `min`, and `max`.
+        - All the basic types (`Bool`, `Char`, `String`, `Int`, `Integer`, `Float`, `Double`) are members of `Ord`.
+        - Strings, lists, and tuples are ordered *lexicographically*.
+    - `Show` - showable types
+        - Types whose values can be converted to strings using `show :: a -> String`.
+        - All the basic types (`Bool`, `Char`, `String`, `Int`, `Integer`, `Float`, `Double`) are members of `Show`.
+        - List and tuple types are also members of `Show` if their component types are members of `Show`.
+    - `Read` - readable types
+        - Dual to show, types whose values can be converted from strings using `read :: String -> a`.
+    - `Num` - numeric types
+        - Values that are numeric and can be processed using `+`, `-`, `*`, `negate`, `abs`, and `signum`.
+    - `Integral` - integral types
+        - Instances of `Num` that are integers and can be processed using `div` and `mod`.
+        - `div` performs integer division and `mod` performs integer modulus.
+        - The basic integral types are `Int` and `Integer`.
+    - `Fractional` - fractional types
+        - Numeric types that support fractional division using `/` and fractional reciprocals using `recip`.
