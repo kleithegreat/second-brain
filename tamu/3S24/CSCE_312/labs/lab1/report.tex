@@ -40,15 +40,36 @@ The purpose of this lab is to introduce low-level system design.
 If the file is not open, then the program will exit.\\
 \textbf{Tag 2: } This code calls the \lstinline!gettimeofday()! function from the \lstinline!time.h! header.
 It then assigns the value to the \lstinline!this_instant! variable which is passed by reference. \\
-\textbf{Tag 3: } \\
-\textbf{Tag 4: } \\
+\textbf{Tag 3: } This line of code writes the int data type size in bits and bytes to the output file. \\
+\textbf{Tag 4: } This line does the same as Tag 3 except it writes to the console instead of a file. \\
 
 \subsection{Part B}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./images/prob1partb.png}
+    \caption{Compiling and running \lstinline!lab1_prob1.c!}
+\end{figure}
 
 \subsection{Part C}
-
+The \lstinline!timeval! struct contains the \lstinline!tv_sec! variable, which is a numeric value like int or double.
 
 \section{Problem 2}
+
+\subsection{Part A}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./images/prob2parta1.png}
+    \caption{Source code for \lstinline!lab1_prob2.c!}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./images/prob2parta2.png}
+    \caption{Compiling and running \lstinline!lab1_prob2.c!, including the output.}
+\end{figure}
+
+\subsection{Part B}
+memory alignment lmao
 
 \section{Problem 3}
 
