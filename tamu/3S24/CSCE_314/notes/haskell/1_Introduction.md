@@ -16,7 +16,7 @@
 
 ## 1.2 Functional Programming
 - Functional programming is a style of programming where the basic method of computation is the application of functions to arguments.
-- A function progamming language is one that supports and encourages the functional paradigm.
+- A functional programming language is one that supports and encourages the functional paradigm.
 
 ### Example: Imperative vs. Functional Sum
 Imperatively, summing the first n integers would look something like this, using a loop:

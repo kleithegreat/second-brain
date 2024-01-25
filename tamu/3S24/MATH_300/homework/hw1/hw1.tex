@@ -98,7 +98,14 @@ $P \land \neg P$ is a contradiction.
 This is a tautology.
 
 \section*{Question 8}
-(a) \\
-(b) \\
+(a) I watched 3Blue1Brown's videos on gradient descent and "How to lie using visual proofs." \\
+
+\noindent (b) The gradient descent video was about how deep neural networks learn.
+Basically, it gave an example of a model that was trying to classify numbers based on handwritten digits.
+Without getting into too much jargon, the basis for training the model was to minimize the "cost function", which is a measure of how how different the model's output is from the expected output.
+The cost function is a function of the weights of the model, and typically has thousands or millions of input variables.
+Finding the minimum of this is much more difficult than in $\mathbb{R}^2$ or $\mathbb{R}^3$, so we use a method called gradient descent.
+The idea is that we start at some random point, and since the gradient tells us the direction of steepest ascent, we can take a step in the opposite direction to get closer to the minimum.
+We repeat this process until we get close enough to the minimum, which is where the model is optimized.
 
 \end{document}

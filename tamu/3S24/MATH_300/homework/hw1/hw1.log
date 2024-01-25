@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12 Portable) (preloaded format=pdflatex 2023.11.28)  22 JAN 2024 23:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12 Portable) (preloaded format=pdflatex 2023.11.28)  24 JAN 2024 22:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -195,7 +195,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--90
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 101--103
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
@@ -226,7 +226,7 @@ apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
 :/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfo
 nts/cm/cmsy7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw1.pdf (3 pages, 110113 bytes).
+Output written on hw1.pdf (3 pages, 113186 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

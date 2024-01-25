@@ -24,7 +24,7 @@ Most common types in Haskell are built-in.
 - **Bool** - logical values
     - `True` and `False`
 - **Char** - single characters
-    - All single characters in the unicode standard
+    - All single characters in the Unicode standard
     - Includes special control characters like `\n` and `\t`
     - Must be surrounded by single quotes
 - **String** - strings of characters

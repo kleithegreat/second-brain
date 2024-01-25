@@ -10,7 +10,7 @@ Haskell has a range of mechanisms for defining functions.
         ```
 
 ## 4.2 Conditional Expressions
-- You can choose bewteen possible results using **conditional expressions**.
+- You can choose between possible results using **conditional expressions**.
     - Example:
         ```haskell
         abs :: Int -> Int

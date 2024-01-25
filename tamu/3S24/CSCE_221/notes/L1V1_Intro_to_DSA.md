@@ -41,7 +41,7 @@ Example: A simple algorithm for finding the maximum value in an array of integer
     - Longest common substring algorithm
 
 ### Algorithmic efficiency
-- Algorithmic effenciency is commonly expressed via **asymptotic** analysis of runtime and memory use.
+- Algorithmic efficiency is commonly expressed via **asymptotic** analysis of runtime and memory use.
 - An efficient algorithm is one whos runtime increase no more than polynomially as the input size increases.
 
 ## Relationship between data structures and algorithms
