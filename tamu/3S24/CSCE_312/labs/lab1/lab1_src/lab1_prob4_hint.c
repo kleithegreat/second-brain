@@ -4,7 +4,7 @@
 
 /*  --- the following are sample code segments to implement logical operations --- */
 //To implement  a AND b
-inline unsigned int aANDb_function(unsigned int passed_input)
+unsigned int aANDb_function(unsigned int passed_input)
 {
     unsigned int returned_output;
 
@@ -18,7 +18,7 @@ inline unsigned int aANDb_function(unsigned int passed_input)
 
 
 //To implement a OR b
-inline unsigned int aORb_function(unsigned int passed_input)
+unsigned int aORb_function(unsigned int passed_input)
 {
     unsigned int returned_output;
 
@@ -30,7 +30,7 @@ inline unsigned int aORb_function(unsigned int passed_input)
 
 
 //To implement c OR (a AND b)
-inline unsigned int cOR_aNADb_function(unsigned int passed_input)
+unsigned int cOR_aNADb_function(unsigned int passed_input)
 {
     unsigned int returned_output;
 

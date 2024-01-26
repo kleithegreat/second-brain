@@ -45,48 +45,77 @@ the argument list, namely xs.
 -- Problem 2 (5+10 = 15 points)
 qsort1 :: Ord a => [a] -> [a]
 ---- Question 2.1 (5 points)
-qsort1 (x:xs) = 
+qsort1 [] = []  -- this is the base case of the recursive function qsort1, where sorting an empty list should return an empty list.
+qsort1 (x:xs) = qsort1 larger ++ [x] ++ qsort1 smaller  -- this is the main function definition, which takes the head of the input list and recursively calls qsort1 to attatch the elements greater than and less than the middle element.
+                where  -- define the larder and smaller lists
+                  larger = [a | a <- xs, a >= x]  -- the larger list is the elements of xs that are greater than or equal to x, the middle element.
+                  smaller = [b | b <- xs, b < x]  -- the smaller list is just like the larger list except it uses the less than comparison to get the smaller elements.
 
 ---- Question 2.2 (10 points)
-{- Write your answer for Question 2.2 within this block comment.
-
+{-
+  qsort1 [5, 2, 6, 9, 7]
+= qsort1 [6, 9, 7] ++ [5] ++ qsort1 [2]
+= qsort1 [9, 7] ++ [6] ++ qsort1 [] ++ [5] ++ qsort1 [] ++ [2] ++ qsort1 []
+= qsort1 [] ++ [9] ++ qsort1 [7] ++ [6] ++ [] ++ [5] ++ [] ++ [2] ++ []
+= [] ++ [9] ++ qsort1 [] ++ [7] ++ qsort1 [] ++ [6] ++ [] ++ [5] ++ [] ++ [2] ++ []
+= [] ++ [9] ++ [] ++ [7] ++ [] ++ [6] ++ [] ++ [5] ++ [] ++ [2] ++ []
+= [9, 7, 6, 5, 2]
+When called on the list [5, 2, 6, 9, 7], qsort1 runs 10 times recursively (not counting the original invocation).
 -}
 
 
 -- Problem 3 (10 points)
 lucas :: Int -> Int
-lucas = undefined
+lucas 0 = 2  -- the base case where l_0 = 2
+lucas 1 = 1  -- the base case where l_1 = 1
+lucas n = lucas (n-1) + lucas (n-2)  -- recursive cases where n > 1 so l_n = l_(n-1) + l_(n-2)
 
 
 -- Problem 4 (10 points)
 factorial :: Int -> Int
-factorial = undefined
+factorial 0 = 1  -- base case where the factorial of 0 is 1
+factorial n = n * factorial (n-1)  -- recursive case saying the factorial of n is equal to n times the factorial of n-1
 
 
 -- Problem 5 (5+10+10=25 points)
 ---- Question 5.1 (5 points)
 semifactorial :: Int -> Int
-semifactorial = undefined
+semifactorial 0 = 1  -- base case where semifactorial(0) = 1
+semifactorial 1 = 1  -- base case where semifactorial(1) = 1
+semifactorial n = n * semifactorial (n-2) -- recursive case saying the semifactorial of n is n times the semifactorial of n-2, which is for cases n>1
 
 ---- Question 5.2 (10 points)
 {- Write your answer for Question 5.2 within this block comment.
-
+  semifactorial 12
+= 12 * semifactorial 10
+= 12 * 10 * semifactorial 8
+= 12 * 10 * 8 * semifactorial 6
+= 12 * 10 * 8 * 6 * semifactorial 4
+= 12 * 10 * 8 * 6 * 4 * semifactorial 2
+= 12 * 10 * 8 * 6 * 4 * 2 * semifactorial 0
+= 12 * 10 * 8 * 6 * 4 * 2 * 1
+= 46080
+Semifactorial is called 6 times recursively (not counting the original invocation).
 -}
 
 ---- Question 5.3 (10 points)
 myfactorial :: Int -> Int
-myfactorial = undefined
+myfactorial 0 = 1
+myfactorial n = semifactorial n * semifactorial (n-1)
 
 
 
 -- Problem 6 (10+15+10=35 points)
 ---- Question 6.1 (10 points)
 term :: Num a => Int -> a -> a
-term = undefined
+term 1 x = x
+term n x = x * term (n-1) x
 
 ---- Question 6.2 (15 points)
 polynaive :: Num a => [a] -> Int -> a -> a
-polynaive = undefined
+polynaive [] _ _ = 0
+polynaive as 0 x = head as
+polynaive (a:as) n x = a * x^n + polynaive as (n-1) x
 
 ---- Question 6.3 (10 points)
 {- Write your answer for Question 6.3 within this block comment.

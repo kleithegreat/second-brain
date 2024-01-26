@@ -40,7 +40,7 @@ unsigned int door_lock_actu = 0;
 unsigned int brake_actu = 0;
 
 //The code segment which implements the decision logic
-inline void control_action(){
+void control_action(){
 
     // Put your control/decision logic code segments inside this function
     // This is the actual code whose execution time which is being measure
@@ -51,7 +51,7 @@ inline void control_action(){
 }
 
 
-inline void read_inputs_from_ip_if(){
+void read_inputs_from_ip_if(){
 
     //place your input code here
     //to read the current state of the available sensors
@@ -60,7 +60,7 @@ inline void read_inputs_from_ip_if(){
 
 }
 
-inline void write_output_to_op_if(){
+void write_output_to_op_if(){
 
     //place your output code here
     //to display/print the state of the 3 actuators (DLA/BELL/BA)
