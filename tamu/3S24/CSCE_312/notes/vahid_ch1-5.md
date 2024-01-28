@@ -166,10 +166,8 @@ Working with just transistors is tedious, so we use logic gates instead
 - NOT is true if the input is false, and vice versa
 
 ### AND, OR, and NOT Gates
-YAP
 
 ### Building Simple Circuits Using Gates
-MORE YAP
 
 ## 2.5 Boolean Algebra
 

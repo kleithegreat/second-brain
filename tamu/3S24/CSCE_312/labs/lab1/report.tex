@@ -18,20 +18,14 @@
     basicstyle=\ttfamily\small,
 }
 
-\title{CSCE 312 - Lab 1}
+\title{CSCE 312 Lab 1}
 \author{Kevin Lei}
-\date{\today}
+\date{January 31, 2024}
 
 
 \begin{document}
 
 \maketitle
-
-\begin{comment}
-\begin{abstract}
-The purpose of this lab is to introduce low-level system design.
-\end{abstract}
-\end{comment}
 
 \section{Problem 1}
 
@@ -53,6 +47,7 @@ It then assigns the value to the \lstinline!this_instant! variable which is pass
 \subsection{Part C}
 The \lstinline!timeval! struct contains the \lstinline!tv_sec! variable, which is a numeric value like int or double.
 
+\newpage
 \section{Problem 2}
 
 \subsection{Part A}
@@ -68,44 +63,97 @@ The \lstinline!timeval! struct contains the \lstinline!tv_sec! variable, which i
     \caption{Compiling and running \lstinline!lab1_prob2.c!, including the output.}
 \end{figure}
 
+\newpage
 \subsection{Part B}
-memory alignment lmao
+The structs \lstinline!employee1! and \lstinline!employee2! have the same bit and byte sizes of  448 bits and 56 bytes respectively.
+In theory, the structs should use different amounts of memory.
+Although they both have an int field, the \lstinline!employee2! struct has an array of characters of maximum length 52, 
+while the \lstinline!employee1! struct has an array of characters of maximum length 50.
+The code and output are shown below.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./images/prob2partb1.png}
+    \caption{Source code for \lstinline!lab1_prob2b.c!}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./images/prob2partb2.png}
+    \caption{Compiling and running \lstinline!lab1_prob2b.c!, including the output.}
+\end{figure}
+
+As we can see in the screenshots, the structs have the same bit and byte sizes,
+However, \lstinline!char name[50]! and \lstinline!char name[52]! have difference bit sizes, 400 and 416 respectively.
+Adding 416 to 32 bits for the int field gives us 448 bits, which is the same as the bit size of the struct.
+This makes sense for the \lstinline!employee2! struct, but not for the \lstinline!employee1! struct, since 400 + 32 = 432, not 448.
+The reason for this is called memory alignment, which is where memory chunks are organized into multiples of certain sizes.
+These sizes are typically the largest data type that can be handled by the processor.
+In this case, since the largest data type is \lstinline!employee2! which uses 448 bits, the memory is aligned to 448 bits, and 448 bits are also allocated for \lstinline!employee1!.
+
+\newpage
 \section{Problem 3}
+
+\subsection{Part A}
+\textbf{Bell actuator truth table:}
+\\
+\begin{tabular} {c c c c c c c c | c}
+    \hline
+    DSBF & ER & DC & DLC & DOS & KIC & BP & CM & BELL \\
+    \hline
+    0 & 0 & 0 & X & X & X & X & X & 0 \\
+    1 & 0 & 0 & X & X & X & X & X & 0 \\
+    0 & 0 & 1 & X & X & X & X & X & 0 \\
+    1 & 0 & 1 & X & X & X & X & X & 0 \\
+    0 & 1 & 0 & X & X & X & X & X & 1 \\
+    1 & 1 & 0 & X & X & X & X & X & 1 \\
+    0 & 1 & 1 & X & X & X & X & X & 1 \\
+    1 & 1 & 1 & X & X & X & X & X & 0 \\
+\end{tabular}
+\\
+
+\noindent\textbf{Door Lock actuator truth table:}
+\\
+\begin{tabular} {c c c c c c c c | c}
+    \hline
+    DSBF & ER & DC & DLC & DOS & KIC & BP & CM & DLA \\
+    \hline
+    X & X & X & 0 & 0 & X & X & X & 0 \\
+    X & X & X & 1 & 0 & X & X & X & 0 \\
+    X & X & X & 0 & 1 & X & X & X & 0 \\
+    X & X & X & 1 & 1 & X & X & X & 1 \\
+    X & X & X & X & 0 & 1 & X & X & 0 \\
+\end{tabular}
+\\
+
+\noindent\textbf{Brake actuator truth table:}
+\\
+\begin{tabular} {c c c c c c c c | c}
+    \hline
+    DSBF & ER & DC & DLC & DOS & KIC & BP & CM & BA \\
+    \hline
+    X & X & X & X & X & X & 0 & 0 & 0 \\
+    X & X & X & X & X & X & 1 & 0 & 0 \\
+    X & X & X & X & X & X & 0 & 1 & 0 \\
+    X & X & X & X & X & X & 1 & 1 & 1 \\
+\end{tabular}
+\\
+
+\subsection{Part B}
+The boolean expressions for the Bell actuator, Door Lock actuator, and Brake actuator are shown below.
+\begin{align*}
+    BELL &= ER * (DSBF' + DC') \\
+    DLA &= DLC * DOS \\
+    BA &= BP * CM
+\end{align*}
+
+\subsection{Part C}
+
+
+\subsection{Part D}
 
 \section{Problem 4}
 
 \section{Problem 5}
-
-
-\begin{comment}
-\section{Materials and Methods}
-This section should detail the materials used in the experiment and the methods followed. Be specific enough that someone could replicate your experiment using this section.
-
-\subsection{Materials}
-List all the materials used in the experiment.
-
-\subsection{Methods}
-Detail the procedures you followed in the experiment.
-
-\section{Results}
-Present the results of your experiment. Use tables, graphs, and figures where appropriate. Make sure all visuals are well-labelled and include captions.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.5\textwidth]{image_name.png}
-\caption{Caption for the image.}
-\end{figure}
-
-\section{Discussion}
-Analyze the results of the experiment. Discuss whether the results support your hypothesis or not. Discuss any errors or anomalies you encountered and how they may have affected the results.
-
-\section{Conclusion}
-Summarize the findings of the experiment and their implications. Discuss what this experiment contributes to the field, and suggest any future research that may be necessary or interesting.
-
-\section{References}
-List all references used in your report. Make sure to follow a consistent and appropriate citation style.
-
-\end{comment}
 
 \end{document}
