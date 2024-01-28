@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{2nd Homework - MATH 300 904}
+\rhead{Kevin Lei}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\arraystretch}{1.2}
+
+\begin{document}
+
+\section*{Question 1}
+\begin{enumerate}[(a)]
+    \item
+        \begin{tabular}{c|c|c|c}
+            $x$ & $P(x)$ & $Q(x)$ & $P(x) \iff Q(x)$ \\
+            \hline
+            0 & F & F & T \\
+            2 & F & F & T \\
+            3 & T & F & F \\
+            4 & T & T & T \\
+            6 & T & T & T \\
+        \end{tabular}
+    \item The truth value for $\forall x \in \{0, 2, 3, 4, 6\} P(x) \iff Q(x)$ is false.
+    \item The truth value for $\exists x \in \{0, 2, 3, 4, 6\} P(x) \iff Q(x)$ is true.
+\end{enumerate}
+
+
+\section*{Question 2}
+\begin{enumerate}[(a)]
+    \item 20 is a member of the set of the integer multiples of 4.
+    \item 3.14 is a member of the set of the rational numbers or $\pi$ is a member of the set of the real numbers.
+    \item There exists an integer $n$ in the set of natural numbers such that the square root of $n$ is not a member of the set of real numbers.
+\end{enumerate}
+
+\section*{Question 3}
+\begin{enumerate}[(a)]
+    \item For all integers $n$, $n^2 -4n +3 \geq 0$.
+    \item There exists a rational number $x$ such that $x \geq 100$.
+\end{enumerate}
+
+\section*{Question 4}
+\begin{enumerate}[(a)]
+    \item There exists an Aggie who does not follow the Aggie Honor Code.
+    \item All students either do not live on campus or is a math major.
+    \item There exists an integer $m$ such that $m^2$ is even and $m^3 - 1$ is not divisible by 4.
+\end{enumerate}
+
+\section*{Question 5}
+Converse: If $f$ is continuous at 0, then $f$ is a linear function. \\
+Contrapositive: If $f$ is not continuous at 0, then $f$ is not a linear function. \\
+Inverse: If $f$ is not a linear function, then $f$ is not continuous at 0. \\
+
+\section*{Question 6}
+\begin{enumerate}[(a)]
+    \item For all real numbers $x$, there exists an integer $n$ such that $n$ is less than or equal to $x$ and $x$ is less than $n+1$.
+    \item $(\exists x \in \mathbb{R}) (\forall n \in \mathbb{Z}) (n > x \geq n + 1)$
+\end{enumerate}
+
+\section*{Question 7}
+\begin{enumerate}[(a)]
+    \item If $x$ is a multiple of 6, then $x$ is even and is not a multiple of 4. \\
+        \textbf{Negation:} There exists a multiple of 6 such that it is not even or it is a multiple of 4.
+    \item If $x$ is an even integer, then $x^2$ is divisible by 4. \\
+        \textbf{Negation:} There exists an integer $x$ such that $x$ is even and $x^2$ is not divisible by 4.
+\end{enumerate}
+
+\section*{Question 8}
+\begin{proof}
+    Let $n$ be an odd integer.
+    By definition of the odd integers, there exists an integer $k$ such that $n = 2k + 1$.
+    Then \begin{align*}
+        n^2 + 1 &= (2k + 1)^2 + 1 \\
+                &= 4k^2 + 4k + 2 \\
+                &= 2(2k^2 + 2k + 1).
+    \end{align*}
+    Since the integers are closed under addition and multiplication, $2k^2 + 2k + 1$ is an integer.
+    Therefore, $n^2 + 1 = 2(2k^2 + 2k + 1) = 2l$ for some integer $l$.
+    The even integers are defined as integers that can be written as twice an arbitrary integer.
+    Since $n^2 + 1$ is twice an arbitrary integer $l$, $n^2 + 1$ is an even integer.
+\end{proof}
+
+\end{document}
