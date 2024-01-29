@@ -1,6 +1,5 @@
 # Defining Functions
 Haskell has a range of mechanisms for defining functions.
-
 ## 4.1 New from Old
 - New functions can be defined by combining existing functions.
     - Example:
@@ -8,7 +7,6 @@ Haskell has a range of mechanisms for defining functions.
         even :: Integral a => a -> Bool
         even n = n `mod` 2 == 0
         ```
-
 ## 4.2 Conditional Expressions
 - You can choose between possible results using **conditional expressions**.
     - Example:
@@ -25,7 +23,6 @@ Haskell has a range of mechanisms for defining functions.
         ```
 - In Haskell, conditional expressions must have an `else` branch.
     - This avoids the **dangling else** problem.
-
 ## 4.3 Guarded Equations
 - A **guarded equation** is a sequence of logical expressions called **guards** to choose between possible results of the same type.
     - If the first guard is `True`, the first result is chosen.
@@ -38,7 +35,6 @@ Haskell has a range of mechanisms for defining functions.
 - The symbol `|` is read as "such that".
 - The symbol `otherwise` is defined in the standard prelude by `otherwise = True`.
 - Definitions with multiple guards are often easier to read than the equivalent conditional expression.
-
 ## 4.4 Pattern Matching
 - Many functions have a simple and intuitive definition using **pattern matching**.
 - Pattern matching is where a sequence of syntactic expressions called **patterns** are used to choose between possible results of the same type.
@@ -75,7 +71,6 @@ Haskell has a range of mechanisms for defining functions.
     fst :: (a, b) -> a
     fst (x, _) = x
     ```
-
 ### List Patterns
 - A list of patterns is also a pattern.
 - Matched when the list has the same length and elements all match the corresponding elements in order.
@@ -143,7 +138,6 @@ Haskell has a range of mechanisms for defining functions.
         odds :: Int -> [Int]
         odds n = map (\ x -> x * 2 + 1) [0..n-1]
         ```
-
 ## 4.6 Operator Sections
 - Functions like `+` are called **operators** since they are written between two arguments.
 - Any function can be made into an operator by enclosing its name in backticks.

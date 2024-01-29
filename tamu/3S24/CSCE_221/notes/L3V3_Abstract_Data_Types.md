@@ -1,13 +1,10 @@
 # Abstract Data Types
-
 - Not the same as data structures technically
-
 ## Abstraction
 - "The essence of abstraction is preserving information that is relevant in a given context, and forgetting information that is irrelevant in that context." - John V. Guttag (MIT)
 - Example: Cars
 	- Steering, accelerating, braking are abstracted by the steering wheel, gas and brake pedals. 
 	- Underlying mechanisms for accomplishing these tasks can vary but are irrelevant to the driver
-
 ## Data Types
 - A **type** is a collection of values
 	- Example: booleans can be true or false
@@ -23,10 +20,8 @@
 	- Common operations are inserting, deleting, and accessing elements
 	- However, the implementation does not matter to the end user most of the time
 		- List ADTs can be **array based** or **linked list based** most commonly
-
 ## Data Structure
 - This is just an implementation for an ADT
 - ADT + Implementation = Class in OOP
 - Operations are implemented with methods
-
 > ADTs are concerned with the "what", while data structures also address the "how"

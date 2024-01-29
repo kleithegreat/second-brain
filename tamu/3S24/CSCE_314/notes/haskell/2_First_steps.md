@@ -1,12 +1,9 @@
 # First steps
-
 ## 2.1 Glasgow Haskell Compiler
 - This is the state of the art open source compiler for Haskell.
 - It comes with a batch compiler GHC and an interactive interpreter GHCi.
-
 ## 2.2 Installing and starting
 lmao
-
 ## 2.3 Standard prelude
 - The *standard prelude* defines a large number of built-in functions.
     - For example, it provides the numeric functions `+` and `*`
@@ -47,13 +44,11 @@ lmao
             ```haskell
             reverse [1,2,3] -- returns [3,2,1]
             ```
-
 ## 2.4 Function application
 - Order of evaluation is implied using spacing.
 - Multiplication is denoted explicitly using `*`.
 - For example, $f(a, b) + cd$ is written as `f a b + c * d`.
 > Function application has the highest level of precedence for order of operations.
-
 List of equivalent expressions:
 - $f(x)$ in haskell is `f x`
 - $f(x, y)$ in haskell is `f x y`
@@ -61,14 +56,11 @@ List of equivalent expressions:
 - $f(x, g(y))$ in haskell is `f x (g y)`
 - $f(x) g(y)$ in haskell is `f x * g y`
 > In the case $f(g(x))$, the parentheses are required in `f (g x)` because otherwise it would be interpreted as $f(g, x)$.
-
 ## 2.5 Haskell scripts
 Haskell scripts are a sequence of definitions and typically use the `.hs` extension.
-
 ### My first script
 - Its useful have one window for editing and another for running GHCi.
 - GHCi requires the `:reload` command when the script is modified.
-
 ### The layout rule
 - Function scope/level is determined by indentation.
 - The layout rule is that the declarations in a block must begin in the same column.
@@ -92,12 +84,10 @@ Haskell scripts are a sequence of definitions and typically use the `.hs` extens
     ```haskell
     a = b + c where {b = 1; c = 2}; d = a * 2
     ```
-
 ### Tabs
 - Tabs tend to create problems in Haskell. 
 - It is recommended to use spaces instead.
 - Haskell assumes that a tab is 8 spaces wide.
-
 ### Comments
 Single line comments:
 ```haskell

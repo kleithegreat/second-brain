@@ -1,6 +1,5 @@
 # Types and Classes
 Types and classes are two of the most important concepts in Haskell.
-
 ## 3.1 Basic Concepts
 - A **type** is a collection of related values.
     - Example: `Bool` is a type that contains the values `True` and `False`.
@@ -18,7 +17,6 @@ Types and classes are two of the most important concepts in Haskell.
 - Haskell is **type safe**.
     - This means that a program cannot crash due to a type error.
     - This is because all type errors are caught at compile time.
-
 ## 3.2 Basic Types
 Most common types in Haskell are built-in.
 - **Bool** - logical values
@@ -40,7 +38,6 @@ Most common types in Haskell are built-in.
 - **Double** - double-precision floating point numbers
     - Double the precision of Float
     - Double the memory usage of Float
-
 A single number can have **more than one** numeric type.
 For example, `3` can have type `Int`, `Integer`, `Float`, or `Double`.
 ## 3.3 List Types
@@ -56,7 +53,6 @@ For example, `3` can have type `Int`, `Integer`, `Float`, or `Double`.
 - Lists can get interesting, like having lists of lists.
     - Example: `[[1,2,3], [4,5], [6]] :: [[Int]]`
 - Infinite lists can exist and are often practical due to lazy evaluation.
-
 ## 3.4 Tuple Types
 - A **tuple** is a finite sequence of **components** of possibly different types.
 - Tuples are enclosed by parentheses and separated by commas.
@@ -70,7 +66,6 @@ For example, `3` can have type `Int`, `Integer`, `Float`, or `Double`.
     - Example: `('a', False, "hello") :: (Char, Bool, String)`
     - Example: `([1,2], ['a','b','c']) :: ([Int], [Char])`
 - Tuples must have finite arity to ensure type inference is decidable.
-
 ## 3.5 Function Types
 - A **function** is a mapping from one type to another.
 - We write `T1 -> T2` for the type of all functions that map arguments of `T1` to results of `T2`.
@@ -88,7 +83,6 @@ For example, `3` can have type `Int`, `Integer`, `Float`, or `Double`.
     - A function is **total** if it is defined for all values of its argument type.
     - Haskell has no restrictions on the domain of a function.
     - Example: `head :: [a] -> a` is not total because it is not defined for empty lists.
-
 ## 3.6 Curried Functions
 - Functions with multiple arguments can also be handled by the fact that functions can return other functions as results.
     - Example:
@@ -111,14 +105,12 @@ For example, `3` can have type `Int`, `Integer`, `Float`, or `Double`.
         - This means `add' 1 2` is equivalent to `(add' 1) 2`.
 - Generally, unless tupling is required, curried functions are preferred in Haskell.
 - The meaning of curried function definitions can be formalized using lambda expressions.
-
 ## 3.7 Polymorphic Types
 - The prelude function `length` can take a list of any type and return an `Int`.
 - The length function uses a **type variable** to denote that it can take a list of any type.
 - Type variables must begin with a lowercase letter, and typically are simply named `a`, `b`, `c`, etc.
 - The type of `length` is `length :: [a] -> Int`.
 - A type that contains at least one type variable is called **polymorphic**.
-
 ## 3.8 Overloaded Types
 - The prelude function `+` calculates the sum of two numeric values.
 - This works for two integers, two floats, etc.
@@ -127,7 +119,6 @@ For example, `3` can have type `Int`, `Integer`, `Float`, or `Double`.
     - Example: `(+) :: Num a => a -> a -> a`
     - The `Num a =>` part is the class constraint.
     - This means that `a` must be a member of the `Num` class.
-
 ## 3.9 Basic Classes
 - A type is a collection of related values
 - Building on this, a **class** is a collection of types that support certain overloaded operations called **methods**.

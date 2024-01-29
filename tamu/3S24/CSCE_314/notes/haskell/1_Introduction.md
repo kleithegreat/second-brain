@@ -1,5 +1,4 @@
 # Introduction
-
 ## 1.1 Functions
 - A *function* is a mapping that takes one or more arguments and produces a single result.
 - Functions in Haskell are defined using an equation with the following:
@@ -13,11 +12,9 @@
 - When a function is applied, it can result in either a plain value or more commonly, an expression containing other functions.
 - *Example:* `double 3` results in `3 + 3` which is another expression, which finally results in `6`.
 - *Example:* `double (double 2)` results in `double (2 + 2)` which is another expression, which finally results in `8`.
-
 ## 1.2 Functional Programming
 - Functional programming is a style of programming where the basic method of computation is the application of functions to arguments.
 - A functional programming language is one that supports and encourages the functional paradigm.
-
 ### Example: Imperative vs. Functional Sum
 Imperatively, summing the first n integers would look something like this, using a loop:
 ```java
@@ -36,7 +33,6 @@ In Haskell, `sum` and `[..]` are both functions.
 The `..` function takes two arguments, a starting value and an ending value, and returns a list of all the values in between.
 The `sum` function takes a list of numbers and returns the sum of those numbers.
 The basic method of computation is *applying functions to arguments*.
-
 ## 1.3 Features of Haskell
 - **Concise programs** - Haskell programs are typically much shorter than their counterparts in other languages.
 - **Powerful type system** - Haskell allows for a large class of errors to be caught at compile time and supports very general forms of polymorphism and overloading.
@@ -47,13 +43,10 @@ The basic method of computation is *applying functions to arguments*.
 - **Generic functions** - skull emoji
 - **Lazy evaluation** - Computations are not performed until their results are needed, resulting in more efficient programs.
 - **Equational reasoning** - what even is this
-
 ## 1.4 Historical Background
 skipping lmao
-
 ## 1.5 A Taste of Haskell
 A few examples to elucidate the feel of Haskell.
-
 ### Summing numbers
 The sum function from earlier can be defined using only two lines of code:
 ```haskell
@@ -87,7 +80,6 @@ The above type signature can be broken down into:
 
 Type signatures allow for the compiler to catch errors before the program is run.
 Every time a function is called, a check is made if the arguments provided match the type signature of the function.
-
 ### Sorting values
 Suppose we define the following function:
 ```haskell
@@ -105,14 +97,12 @@ qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
 Our `qsort` function is a recursive implementation of quicksort.
 For each recursive call, we take the first element of the list and partition the rest of the list into two lists, one containing all elements smaller than the first element and one containing all elements larger than the first element.
 
-
 `qsort` is more general than exepected, as it can sort any list of elements that can be compared using the `<=` and `>` operators.
 It has the following type signature:
 ```haskell
 qsort :: Ord a => [a] -> [a]
 ```
 This type signature can be interpreted as "for all types `a` that are members of the `Ord` type class, `qsort` takes a list of elements of type `a` and returns a list of elements of type `a`".
-
 ### Sequencing actions
 Consider a function `seqn` that takes a list of IO actions (like reading or writing characters), performs each action sequentially, and returns a list of the resulting values.
 ```haskell
@@ -129,14 +119,12 @@ For example, `seqn [getChar, getChar, getChar]` would result in the following:
 > seqn [getChar, getChar, getChar]
 abc"abc"
 ```
-
 The interesting part of this function is its type. One possible type inferred from this is:
 ```haskell
 seqn :: [IO a] -> IO [a]
 ```
 This type states that `seqn` maps a list of IO actions that produce results of some type `a` to a single IO action that produces a list of results of type `a`.
 > This definition makes clear that this function is not a pure function, as it performs IO actions.
-
 However, this function is not specific to just IO, but can be used for anything impure involving side effects, such as changing stored values, fail to succeed, write to a log file, etc.
 ```haskell
 seqn :: Monad m => [m a] -> m [a]

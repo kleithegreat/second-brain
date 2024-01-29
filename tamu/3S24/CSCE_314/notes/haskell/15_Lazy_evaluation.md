@@ -1,12 +1,10 @@
 # Lazy Evaluation
 - Haskell is a **lazy** language, meaning that expressions are not evaluated until their results are needed.
 - Useful for infinite structures and modular programming.
-
 ## 15.1 Introduction
 - Since Haskell is all about the application of pure functions, changing the order of evaluation does not change the meaning of a program.
 - This is not the case for imperative languages.
 - This can be taken advantage of to improve efficiency.
-
 ## 15.2 Evaluation Strategies
 - A **reducible expression** or **redex** is an expression that can be reduced to a value.
 - For example, `1 + 2` is a redex that can be reduced to `3`.
@@ -20,7 +18,6 @@
 - Many built-in functions require their arguments to be fully evaluated before they can be applied.
     - For example, `*` and `+` require their arguments to be fully evaluated.
     - Functions like this are called **strict**.
-
 ### Lambda expressions
 - Lets define a curried version of `mult` that takes arguments one by one and uses a lambda expression to make currying explicit.
     ```haskell
@@ -40,7 +37,6 @@
 - This is because with innermost evaluation, we evaluate the expressions with no redexes first.
 > Note: In Haskell, selection of redexes within the bodies lambda expressions is prohibited. This is due to the rationale that functions are "black boxes", and the only operation that can be performed on a function is applying it to an argument.
 - Innermost and outermost evaluation (not within lambda expressions) are called **call-by-value** and **call-by-name** respectively.
-
 ## 15.3 Termination
 - Say we define the following function:
     ```haskell
@@ -54,7 +50,6 @@
     - However, using call by name, the expression will terminate and return `0`, since `inf` is never evaluated.
 - **If theres any evaluation sequence that terminates, then call by name will terminate.**
 - Call by name is preferable to call by value since it ensures termination more often.
-
 ## 15.4 Number of Reductions
 - Say we have the following:
     ```haskell
@@ -80,7 +75,6 @@
 - **Call by value evaluates each argument at most once, while call by name may evaluate an argument many times.**
 - Good thing is this problem can be solved using pointers to indicate sharing of arguments.
 - Lazy evaluation combines call by name with sharing of arguments.
-
 ## 15.5 Infinite Structures
 - Lazy evaluation allows for programming with infinite structures, which may seem impossible at first.
 - Suppose we try `head [1..]`.
@@ -91,14 +85,12 @@
 - Under lazy evaluation, seemingly infinite lists are only **potentially infinite**, evaluated as much as needed.
     - This applies to not just lists, but all data structures.
     - Another popular structure is the binary tree.
-
 ## 15.6 Modular Programming
 - Lazy evaluation allows us to separate **control** from **data**.
     - For example, we can produce a list of three ones by selecting the first three elements (control) of an infinite list of ones (data).
 - However, nontermination can still occur if the control is not strict enough.
     - For example, `filter (<= 5) [1..]` will not terminate since it keeps testing the next element of the list.
     - However, `takeWhile (<= 5) [1..]` will terminate since it stops testing once the condition is false.
-
 ### Sieve of Eratosthenes
 - The **Sieve of Eratosthenes** is an algorithm for generating an infinite list of prime numbers.
 - It follows these steps:
@@ -116,7 +108,6 @@
     sieve (p:xs) = p : sieve [x | x <- xs, x `mod` p /= 0]
     ```
 - Lazy evaluation allows us to write the algorithm as if it were a finite list.
-
 ## 15.7 Strict Application
 - Haskell also provides a **strict** version of function application.
 - Strict application is denoted by `$!`.

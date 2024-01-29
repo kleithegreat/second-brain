@@ -1,10 +1,8 @@
 # Gentle Introduction to Search and Sort
-
 - Key takeaways from this:
     - Basic anatomy of search
     - Basic anatomy of sort
     - A feel for juding the performance of search and sort algorithms
-
 ## Search
 - The process of finding an item with *specified properties from a *given collection of items*
 	- Examples:
@@ -50,12 +48,10 @@
             end while
             return FALSE
         ```
-
 ## Algorithm Performance
 - Linear search could take $n$ comparisons at worst
 - Binary search could take $log_2 n$ comparisons at worst
 - This will be formalized later
-
 ## Sorting
 - The process of converting a list of elements into ascending or descending order
 - Main challenge is the program can't "see" the whole list to know where to move elements

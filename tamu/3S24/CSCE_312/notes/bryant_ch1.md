@@ -1,9 +1,7 @@
 # A Tour of Computer Systems
-
 ## Introduction
 - Computer systems are made of hardware and software, which work together to run programs
 - Specific hardware and software may vary but their underlying principles do not
-
 ## 1.1 Information is Bits + Context
 - Lets say we have this simple hello world program in C:
 ```c
@@ -19,7 +17,6 @@ int main() {
 - Each byte represents a different character in the program using ASCII integer values
 > Big idea: All information is represented as bits in a computer. The meaning of these bits depends on the context in which they are interpreted.
 - **Caveat:** Machine representations of numbers are not the same as $\mathbb{R}$ and $\mathbb{Z}$, as they are finite approximations that may behave in unexpected ways
-
 ## 1.2 Programs are Translated by Other Programs into Different Forms
 - The C program is translated into machine language by a compiler
 - The exact instructions are packaged in a form called an *executable object program* or simply *object file* (also just called a *binary*)
@@ -34,7 +31,6 @@ int main() {
     4. Linking: The object file is combined with other object files to create an executable object program, typically with no extension, or `.out` on Linux, or `.exe` on Windows.
         - The linker combines the object file with the standard C library, which contains functions like `printf` and `scanf`.
         - The linker also combines the object file with other object files that contain functions that are defined in other source files.
-
 ## 1.3 It Pays to Understand How Compilation Systems Work
 Reasons to understand compilation systems:
 - Optimization: Understanding how the compiler works can help you write code that is more efficient.
@@ -48,16 +44,13 @@ Reasons to understand compilation systems:
     - Some linker errors don't even occur until runtime.
 - Security.
     - For example, buffer overflow attacks are very common on the internet.
-
 ## 1.4 Processors Read and Interpret Instructions Stored in Memory
 - In Unix-like systems, we can run programs by typing their name in the command line.
     - The shell is an interpreter that reads commands from the command line and executes them.
-
 **Buses**
 - A bus is a collection of wires that transmit data from one part of the computer to another.
 - Typically designed to transfer fixed-sized chunks of bytes called *words*.
 - The *word size* is the number of bytes in a word, which is typically 4 or 8 bytes for 32-bit and 64-bit systems, respectively.
-
 **I/O Devices**
 - The system's connection to the external world.
     - For example: keyboard, mouse, display, disk drive, network connection, etc.
@@ -65,7 +58,6 @@ Reasons to understand compilation systems:
     - A controller is a chip that is part of the device or the motherboard.
     - An adapter is a card that plugs into a slot on the motherboard.
     - Regardles, the controller or adapter is responsible for moving the data between the I/O device and the I/O bus.
-
 **Main Memory**
 - Temporary storage that holds both a program and the data it manipulates while the processor is executing the program.
 - Physically stored in DRAM (dynamic random access memory) chips.
@@ -75,7 +67,6 @@ Reasons to understand compilation systems:
 
 > Question: word size depends on architecture, 32 vs 64 bit, what about x86 vs ARM vs RISC-V etc?
 > Answer: The word size is defined not by x86 or ARM etc. but rather the bit size (x86-64 vs x86, ARM32 vs ARM64, etc.)
-
 **Processor**
 - The CPU executes the instructions in main memory.
 - At its core is a word-size storage device called a *register*.
@@ -95,7 +86,6 @@ Reasons to understand compilation systems:
     - Store: copy a byte or word from a register to main memory, overwriting the previous contents.
     - Operate: copy the contents of two registers to the ALU, perform an arithmetic operation on the two words, and store the result in a register, overwriting the previous contents.
     - Jump: extract a word from the instruction itself and copy that word into the program counter, overwriting the previous value.
-
 ## 1.5 Caches Matter
 - Systems spend lots of time moving information from one place to another (disk, memory, cache, etc.)
 - Much of this moving around slows down the "real work" of the program.
@@ -107,11 +97,9 @@ Reasons to understand compilation systems:
     - L1 and L2 are called *static random access memory* (SRAM)
     - Newer systems have an L3 cache that is larger and slower than L2.
 - Below the caches is main DRAM memory, then disk storage, then network storage, etc.
-
 ## 1.6 Storage Devices Form a Hierarchy
 - The storage hierarchy is a great example of the tradeoff between speed and cost.
 - The closer a storage device is to the processor, the faster it is and the more expensive it is.
-
 ## 1.7 The Operating System Manages the Hardware
 - The hello program from earlier did not access the keyboard, display, disk, or main memory directly.
 - Instead, it relied on the operating system to provide these services.
@@ -120,8 +108,7 @@ Reasons to understand compilation systems:
     1. To protect the hardware from misuse by runaway applications.
     2. To provide applications with simple and uniform mechanisms for manipulating complicated and often wildly different low-level hardware devices.
 - The operating system achieves this by using the fundamental abstractions of *processes*, *virtual memory*, and *files*.
-
-**Processes**
+### Processes
 - When a program such as the hello program from earlier runs on a modern system, the OS provides the illusion that it is the only program running on the system.
     - The program appears to have exclusive use of the processor, main memory, and I/O devices.
     - The processor appears to execute the program's instructions sequentially without interruption.
@@ -143,12 +130,10 @@ Reasons to understand compilation systems:
 - The transition from one process to another is managed by the OS *kernel*, which is the one program that is always in memory.
 - Whenever a program needs to perform a privileged operation, it must ask the kernel to do it on its behalf by making a system call.
 > The kernel is not a separate process, but a collection of code and data structures that is used to manage all processes.
-
-**Threads**
+### Threads
 - Threads are a way of having multiple execution units within a single process.
 - Both threads share the same code, global data, and context.
-
-**Virtual Memory**
+### Virtual Memory
 - Virtual memory gives the illusion that each process has exclusive use of the main memory.
 - Each process has the same uniform view of memory, called *virtual address space*.
 - The virtual address space seen by each process consists of a collection of well-defined areas each with a specific purpose.
@@ -158,19 +143,15 @@ Reasons to understand compilation systems:
     - *Stack*: At the top of the users virtual address space is the stack. Grows each time a function is called and shrinks when the function returns.
     - *Kernel virtual memory*: The top of the address space is reserved for the kernel. This cannot be accessed by user programs.
 - The basic idea of virtual memory is to store the contents of memory in a file on disk and use the main memory as a cache for the disk.
-
-**Files**
+### Files
 - A file is a sequence of bytes.
 - All I/O devices are modeled as files.
 - All input and output in Unix is done by reading and writing files, using syscalls known as Unix I/O.
-
 ## 1.8 Systems Communicate with Other Systems Using Networks
 - Modern systems are often connected to other systems via a network.
 - A network can be viewed as just another I/O device.
-
 ## 1.9 Important Themes
 - A system is more than just hardware, but a tapestry of hardware and software that work together to run programs.
-
 ### 1.9.1 Amdahl's Law
 - Amdahl's law describes the potential speedup from improving the performance of a particular part of a system.
     - Say that some application requires time $T_{old}$ to run.
@@ -179,13 +160,11 @@ Reasons to understand compilation systems:
     - The total time is now $$\begin{align*}T_{new} &= (1-\alpha)T_{old} + \alpha T_{old}/k \\ &= T_{old}[(1-\alpha) + \alpha/k]\end{align*}$$.
     - The speedup is $$\begin{align*}S &= T_{old}/T_{new} \\ &= \frac{1}{(1-\alpha) + \alpha/k}\end{align*}$$.
 - If we consider the limit as $k \to \infty$, we get $S_{\infty} = 1/(1-\alpha)$.
-
 ### 1.9.2 Concurrency and Parallelism
 - Concurrency is the general concept of a system doing more than one thing at a time.
 - Parallelism is the use of concurrency to make a system run faster.
 - Parallelism can be exploited at multiple levels of abstraction.
-
-**Thread-Level Concurrency**
+#### Thread-Level Concurrency
 - Threads allow for multiple controls flows within a single process.
 - Traditionally, concurrent execution was only simulated by the OS by rapidly switching between processes, like a juggler with many balls in the air.
 - Until recently, most systems had only one processor switching between multiple tasks.
@@ -195,22 +174,17 @@ Reasons to understand compilation systems:
     - L1 cache is split into two parts: one to hold instructions and one to hold data.
     - L1 and L2 caches are private to each core, while L3 cache is shared.
 - *Hyperthreading*, or *simultaneous multithreading* allows for a single CPU to execute multiple flows of control.
-
-**Instruction-Level Parallelism**
+#### Instruction-Level Parallelism
 - At a lower level, modern processors can execute multiple instructions at a time.
 - Processors that can sustain execution rates faster than one instruction per clock cycle are called *superscalar*.
-
-**Single-Instruction, Multiple-Data (SIMD) Parallelism**
+#### Single-Instruction, Multiple-Data (SIMD) Parallelism
 - Many modern processors have special hardware to allow for a single instruction to perform multiple operations in parallel.
-
-
 ### 1.9.3 The Importance of Abstractions in Computer Systems
 - Abstractions are one of the most important concepts in computer science.
 - For example, the use of APIs allows for programmers to use code without knowing how it works.
 - The *instruction set architecture* abstracts the hardware.
 - We also introduced files as an abstraction for I/O devices, virtual memory as an abstraction for program memory, and processes as an abstraction for a running program.
 - *Virtual Machines* abstract the hardware of a computer.
-
 ## 1.10 Summary
 "A computer system consists of hardware and systems software that cooperate
 to run application programs. Information inside the computer is represented as
