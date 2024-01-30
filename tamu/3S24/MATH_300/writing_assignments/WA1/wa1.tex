@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hyphens,spaces,obeyspaces]{url}
+
+\title{Math 300 Writing Assignment 1}
+\author{Kevin Lei}
+\date{February 2, 2020}
+
+\begin{document}
+
+\maketitle
+
+The topic I chose to write about is the famous French mathematician Augustin-Louis Cauchy, 
+and I also plan on discussing his contribution to complex analysis.
+I decided to write about this because I enjoy learning about the biographical details of imporant figures, 
+and I also wanted to do a deep dive into some pure math specialty.
+As for why I chose Cauchy of all mathematicians, I wanted to write about someone with a very significant contribution to mathematics,
+but not someone who is so well-known that I would have trouble finding a unique angle to write about.
+I think for most people, Cauchy isn't the first name that comes to mind when they think of famous mathematicians, 
+but he still almost signgle-handedly spearheaded the field of complex analysis.
+As for why I chose complex analysis, I felt that it would be the most interesting and new topic (for my background) to write about.
+I tried reading a real analysis textbook over winter break (Real Analysis by Jay Cummings), and even though it was written to be on the more accessible side, 
+I still found it mind bending with all the epsilons and deltas and theorems (I barely made it past the first chapter). 
+I have heard a lot of people describe real analysis as how difficult and intricate math can get, 
+while complex analysis is how beautiful and elegant math can get, so I decided to give complex analysis a try.
+
+Augustin-Louis Cauchy was born on August 21, 1789 in Paris, France.
+His family was part of the French nobility, and his father was a high-ranking government official.
+His family had to move around during his childhood due to the French Revolution, 
+and he was educated at home by his father until he was 15. 
+From his father's government position, Cauchy's family was close to Pierre-Simon Laplace as well as Joseph-Louis Lagrange. 
+Cauchy went on to study at the best schools in France, and graduated from the École Polytechnique in 1807.
+Before Cauchy's contributions, complex numbers were mostly just used to solve polynomial equations, 
+and Euler had used Maclaurin series to establish his famous identity. 
+Cauchy was the first to study functions of complex numbers in depth, 
+and he introduced many of the most fundamental concepts in complex analysis that are used widely today. 
+Outside of complex analysis, Cauchy's \textit{Cours d'Analyse} introduced rigor to calculus, 
+where at the time many concepts in calculus were not well-defined and mostly intuitive, such as the concept of a limit.
+By the end of his life, Cauchy had published over 800 papers and 5 books, second in productivity only to Euler.
+
+\newpage
+
+Complex analysis is the study of functions of complex numbers, which are functions of the class $f: \mathbb{C} \to \mathbb{C}$.
+Complex functions are often denoted as $f(z)$, where $z$ is a complex number of the form $z = a + bi$.
+A complex function that is differentiable on some open disk in the complex domain is called \textit{holomorphic} on that disk.
+One of the most important results in complex analysis is Cauchy's integral theorem. 
+In equation form, this is written as $$ \oint_C f(z) \; dz = 0, $$ where $C$ is a closed path in the complex domain.
+This theorem states that if a function is holomorphic on some open disk, then the integral of that function over any closed path in that disk is zero. 
+Intuitively, this theorem can be thought of as a statement on the ``balanced" behavior of holomorphic functions, 
+where integrating over a closed path will always have opposite contributions totalling to zero. 
+A few more concepts are necessary to discuss another one of Cauchy's most important contributions; residues and their applications (I won't talk about residues here due to word count).
+A \textit{pole} of a function is a point where the function is not holomorphic due to the fact that it goes to infinity at that point, 
+which is similar to a vertical asymptote for functions $\mathbb{R} \to \mathbb{R}$.
+The \textit{Laurent series} is like a Taylor series expansion for complex functions, 
+where the series is centered at a pole and has both positive and negative powers of $(z - z_0)$. 
+In equation form, the Laurent series is written as $$ f(z) = \sum_{n = -\infty}^{\infty} a_n (z - z_0)^n. $$
+Using these concepts, Cauchy defines a crucial concept in complex analysis, the \textit{residue} of a function at a pole, 
+and this is used extensively in the \textit{residue theorem}.
+
+\newpage
+
+\section*{References}
+\begin{itemize}
+    \item Augustin-Louis Cauchy on Wikipedia - \url{https://en.wikipedia.org/wiki/Augustin-Louis_Cauchy}
+    \item Holomorphic function on Wikipedia - \url{https://en.wikipedia.org/wiki/Holomorphic_function}
+    \item Cauchy's integral theorem on Wikipedia - \url{https://en.wikipedia.org/wiki/Cauchy%27s_integral_theorem}
+    \item Residue (complex analysis) on Wikipedia - \url{https://en.wikipedia.org/wiki/Residue_(complex_analysis)}
+    \item Laurent series on Wikipedia - \url{https://en.wikipedia.org/wiki/Laurent_series}
+    \item ChatGPT 4, Prompts:
+    \begin{itemize}
+        \item ``what are the most important/fundamental concepts in complex analysis"
+        \item ``explain cauchys integral theorem simply; you can use jargon but be sure to explain. assume a vector calculus and linear algebra background."
+        \item ``now explain residues. build up your explanation from basics and assume no prior understanding of complex analysis aside from what you just described. still, assume a vector calculus and linear algebra background, and feel free to use new jargon as long as you explain it."
+    \end{itemize}
+\end{itemize}
+
+\end{document}

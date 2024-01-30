@@ -41,28 +41,28 @@ Explanation: This function takes a tuple of two arbitrary elements and returns a
 pair x y = (x,y)
 pair :: a -> b -> (a,b)
 ```
-Explanation: 
+Explanation: This type signature says that pair is a function that takes an arbitrary element 'a' and returns another function that takes an arbitrary element 'b' and returns a tuple of 'a' and 'b' in that order. This is a curried function.
 
 ```haskell
 double x = x*2
 double :: Num a => a -> a
 ```
-Explanation: 
+Explanation: This functions signature says that double is a function that takes a number 'a' of any numeric type and returns a number of the same type. 
 
 ```haskell
 palindrome xs = reverse xs == xs
 palindrome :: Eq a => [a] -> Bool
 ```
-Explanation: 
+Explanation: This functions type means that it takes an array of elements 'a' where 'a' is any equality type, meaning any elements 'a' can be compared for equality. Using the list of equality types 'a's, the function returns a boolean value.
 
 ```haskell
 twice f x = f (f x)
 twice :: (t -> t) -> t -> t
 ```
-Explanation:
+Explanation: From the function definition we can see that it takes a function and an arguemnt and applies the function to the argument twice. Twice first takes a function: that function (the input for twice) is one that takes types t for its input and output. Using that function as an input, twice then returns another function that takes type t for input and output. That function then takes argument x of type t and returns a value of type t. 
 
 ```haskell
 lessThanHalf x y = x * 2 < y
 lessThanHalf :: (Ord a, Num a) => a -> a -> Bool
 ```
-Explanation: 
+Explanation: From the function definition, lessThanHalf takes two arguments of type a, where a is both ordered and numeric, and returns a boolean value indicating whether the first argument is less than half of the second argument. The type signature means that lessThanHalf first takes an argument 'a' that has to be ordered and numeric, then it returns a function that takes another argument of the same type 'a' and returns a boolean value.

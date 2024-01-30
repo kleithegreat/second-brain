@@ -128,25 +128,27 @@ type Set a = [a]
 
 -- Problem 7 (10 points)
 isElem :: Eq a => a -> [a] -> Bool
-isElem = undefined
+isElem _ [] = False
+isElem n (x:xs) = n == x || isElem n xs
 
 
 -- Problem 8 (10 points)
 -- Using isElem (from Problem 7) in the definition is required.
 toSet :: Eq a => [a] -> Set a
-toSet = undefined
-
+toSet [] = []
+toSet (x:xs) | isElem x xs = toSet xs
+             | otherwise = x : toSet xs
 
 -- Problem 9 (10 points)
 -- Using isElem (from Problem 7) in the definition is required.
 subset :: Eq a => Set a -> Set a -> Bool
-subset = undefined
-
+subset [] _ = True
+subset (x:xs) y = isElem x y && subset xs y
 
 -- Problem 10 (10 points)
 -- Using subset (from Problem 9) in the definition is required.
 setEqual :: Eq a => Set a -> Set a -> Bool
-setEqual = undefined
+setEqual x y = subset x y && subset y x
 
 
 
