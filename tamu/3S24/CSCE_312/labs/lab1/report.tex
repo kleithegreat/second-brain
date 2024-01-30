@@ -118,11 +118,14 @@ In this case, since the largest data type is \lstinline!employee2! which uses 44
     \hline
     DSBF & ER & DC & DLC & DOS & KIC & BP & CM & DLA \\
     \hline
-    X & X & X & 0 & 0 & X & X & X & 0 \\
-    X & X & X & 1 & 0 & X & X & X & 0 \\
-    X & X & X & 0 & 1 & X & X & X & 0 \\
-    X & X & X & 1 & 1 & X & X & X & 1 \\
-    X & X & X & X & 0 & 1 & X & X & 0 \\
+    X & X & X & 1 & 0 & 0 & X & X & 1 \\
+    X & X & X & 1 & 1 & 0 & X & X & 1 \\
+    X & X & X & 1 & 0 & 1 & X & X & 0 \\
+    X & X & X & 1 & 1 & 1 & X & X & 1 \\
+    X & X & X & 0 & 0 & 0 & X & X & 0 \\
+    X & X & X & 0 & 1 & 0 & X & X & 0 \\
+    X & X & X & 0 & 0 & 1 & X & X & 0 \\
+    X & X & X & 0 & 1 & 1 & X & X & 0 \\
 \end{tabular}
 \\
 
@@ -143,16 +146,27 @@ In this case, since the largest data type is \lstinline!employee2! which uses 44
 The boolean expressions for the Bell actuator, Door Lock actuator, and Brake actuator are shown below.
 \begin{align*}
     BELL &= ER * (DSBF' + DC') \\
-    DLA &= DLC * DOS \\
+    DLA &= DLC * (KIC' + DOS) \\
     BA &= BP * CM
 \end{align*}
 
 \subsection{Part C}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./images/prob3partc.png}
+    \caption{Source code for control system.}
+\end{figure}
 
 \subsection{Part D}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./images/prob3partd.png}
+    \caption{Compiling and running \lstinline!lab1_prob3.c!, including the output.}
+\end{figure}
 
 \section{Problem 4}
+
+
 
 \section{Problem 5}
 

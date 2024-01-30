@@ -60,8 +60,9 @@ void control_action(){
     //    if we need to change the last bit to 0, we use bitwise AND
     //    if (input & [00000110] == [00000010]) output = output | [001]
 
-    if ((input & 6) == 2) output = output | 1;
-
+    if (input & 0x02 == 0x02 && (input & 0x04 == 0x00 || input & 0x01 == 0x00)) output = output | 0x01;
+    if (input & 0x08 == 0x08 && (input & 0x20 == 0x00 || input & 0x10 == 0x10)) output = output | 0x02;
+    if (input & 0x40 == 0x40 && input & 0x80 == 0x80) output = output | 0x04;
 }
 
 /* ---     You should not have to modify anything below this line ---------*/
@@ -90,25 +91,27 @@ int main(int argc, char *argv[])
         - 8 test cases for Problem 4.
     */
     
-    // int inputs[] = {0, 163, 245, 42, 126, 171, 255, 98};
-    // for (int i = 0; i < 8; i++) {
-    //     int bell = 0;
-    //     int dla  = 0;
-    //     int ba   = 0;
-    //     input    = inputs[i];
-    //     output   = 0;
+    /*
+    int inputs[] = {0, 163, 245, 42, 126, 171, 255, 98};
+    for (int i = 0; i < 8; i++) {
+        int bell = 0;
+        int dla  = 0;
+        int ba   = 0;
+        input    = inputs[i];
+        output   = 0;
 
-    //     control_action();
+        control_action();
 
-    //     if (output & 1)
-    //         bell = 1;
-    //     if (output & 2)
-	//         dla = 1;
-    //     if (output & 4)
-    //         ba = 1;
+        if (output & 1)
+            bell = 1;
+        if (output & 2)
+	        dla = 1;
+        if (output & 4)
+            ba = 1;
 
-    //     printf("Case %d:  %d %d %d \n", i, bell, dla, ba);
-    // }
+        printf("Case %d:  %d %d %d \n", i, bell, dla, ba);
+    }
+    */
 
     // code segment 2 ends here
 

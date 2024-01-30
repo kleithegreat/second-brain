@@ -276,7 +276,7 @@ or gate and gate ez
 - An **XNOR** gate, short for "exclusive NOR", is simply the opposite of XOR
     - A two input XNOR gate is equivalent to the function $ab + a'b'$
     - Outputs 1 if and only if both inputs are 0 or both inputs are 1
-    - Like a biconditional in logic
+    - Like a biconditional in logic (but this analog only applies to two input XNOR)
 ### Interesting Uses of these Additional Gates
 #### Detecting Binary 0 Using NOR
 - A NOR gate can be used to detect if a binary number is 0 since NOR is 1 when all inputs are 0

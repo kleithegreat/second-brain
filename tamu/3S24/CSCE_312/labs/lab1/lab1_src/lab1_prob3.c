@@ -58,19 +58,8 @@ void write_output_to_op_if(){
 
 // The code segment which implements the decision logic
 void control_action(){
-
-    /*
-       The code given here sounds the bell when driver starts the engine and
-       hasn't closed the doors. (Requirement-2)
-      
-       3. Provide your own code to do problems 3, which satisfies 5 requirements 
-    */
-
-    if (engine_running && !doors_closed) bell = 1;
-    if (engine_running && !driver_seat_belt_fastened) bell = 1;
-
-    if (door_lock_lever && driver_on_seat) door_lock_actu = 1;
-
+    if (engine_running && (!doors_closed || !driver_seat_belt_fastened)) bell = 1;
+    if (door_lock_lever && (!key_in_car || driver_on_seat)) door_lock_actu = 1;
     if (brake_pedal && car_moving) brake_actu = 1;
 }
 
