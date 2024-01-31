@@ -26,45 +26,29 @@
 #define CLOCKNAME CLOCK_PROCESS_CPUTIME_ID
 #endif
 
-unsigned int driver_on_seat;
-unsigned int driver_seat_belt_fastened;
-unsigned int engine_running;
-unsigned int doors_closed;
-unsigned int key_in_car;
-unsigned int door_lock_lever;
-unsigned int brake_pedal;
-unsigned int car_moving;
+unsigned int input = 0;
+unsigned int output = 0;
 
-unsigned int bell = 0;
-unsigned int door_lock_actu = 0;
-unsigned int brake_actu = 0;
-
-//The code segment which implements the decision logic
 void control_action(){
+    //   7  6  5   4   3   2  1  0
+    //  CM BP KIC DOS DLC DC ER DSBF
 
-    // Put your control/decision logic code segments inside this function
-    // This is the actual code whose execution time which is being measure
-    printf("x");
-    if (engine_running && !doors_closed) 
-       bell = 1;
+    //   2   1   0
+    //   BA	DLA	BELL
 
+    if (((input & 1<<1) == 1<<1) && (!(input & 1<<2) || !(input & 1))) output |= 1;
+    if ((input & 1<<3) && (!(input & 1<<5) ||(input & 1<<4))) output |= 1<<1;
+    if ((input & 1<<6) && (input & 1<<7)) output |= 1<<2;
 }
 
 
 void read_inputs_from_ip_if(){
-
-    //place your input code here
-    //to read the current state of the available sensors
-    printf("x");
-    scanf("%d %d\n", &engine_running, &doors_closed);
-
+	printf("input signal: ");
+	scanf("%d", &input);
 }
 
 void write_output_to_op_if(){
-
-    //place your output code here
-    //to display/print the state of the 3 actuators (DLA/BELL/BA)
-    printf("bell = %d\n", bell);
+    printf("BELL: %d, DLA: %d, BA: %d\n", output & 1, (output & 1<<1) >> 1, (output & 1<<2) >> 2);
 }
 
 

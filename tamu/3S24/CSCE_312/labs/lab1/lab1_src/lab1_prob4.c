@@ -25,44 +25,24 @@ unsigned int input = 0;
 unsigned int output = 0;
 
 void read_inputs_from_ip_if(){
-	//This read the current state of the available sensors
-
 	printf("input signal: ");
 	scanf("%d", &input);
 }
 
 void write_output_to_op_if(){
-
-    //This display/print the state of the 3 actuators (DLA/BELL/BA)
-    printf("output signal: %d\n", output);
+    printf("BELL: %d, DLA: %d, BA: %d\n", output & 1, (output & 1<<1) >> 1, (output & 1<<2) >> 2);
 }
 
-
-//The code segment which implements the decision logic
 void control_action(){
-
-    /*
-       The code given here sounds the bell when driver is on seat
-       AND hasn't closed the doors. (Requirement-2)
-       Replace this code segment with your own code to do problems 3 and 4.
-    */
-
     //   7  6  5   4   3   2  1  0
     //  CM BP KIC DOS DLC DC ER DSBF
 
     //   2   1   0
     //   BA	DLA	BELL
 
-    //    if (engine_running && !doors_closed) bell = 1;
-
-    //    extract the relevant bits using the mask [00000110] and compare with condition [00000010]
-    //    if we need to change the last bit to 1, we use bitwise OR
-    //    if we need to change the last bit to 0, we use bitwise AND
-    //    if (input & [00000110] == [00000010]) output = output | [001]
-
-    if (input & 0x02 == 0x02 && (input & 0x04 == 0x00 || input & 0x01 == 0x00)) output = output | 0x01;
-    if (input & 0x08 == 0x08 && (input & 0x20 == 0x00 || input & 0x10 == 0x10)) output = output | 0x02;
-    if (input & 0x40 == 0x40 && input & 0x80 == 0x80) output = output | 0x04;
+    if (((input & 1<<1) == 1<<1) && (!(input & 1<<2) || !(input & 1))) output |= 1;
+    if ((input & 1<<3) && (!(input & 1<<5) ||(input & 1<<4))) output |= 1<<1;
+    if ((input & 1<<6) && (input & 1<<7)) output |= 1<<2;
 }
 
 /* ---     You should not have to modify anything below this line ---------*/
@@ -75,6 +55,7 @@ int main(int argc, char *argv[])
         The main control loop which keeps the system alive and responsive for ever,
         until the system is powered off 
     */
+   /*
     for (; ; )
     {
         input  = 0;
@@ -82,7 +63,7 @@ int main(int argc, char *argv[])
         read_inputs_from_ip_if();
         control_action();
         write_output_to_op_if();
-    }
+    } */
     
     // code segment 1 ends here
 
@@ -91,7 +72,7 @@ int main(int argc, char *argv[])
         - 8 test cases for Problem 4.
     */
     
-    /*
+    
     int inputs[] = {0, 163, 245, 42, 126, 171, 255, 98};
     for (int i = 0; i < 8; i++) {
         int bell = 0;
@@ -111,7 +92,7 @@ int main(int argc, char *argv[])
 
         printf("Case %d:  %d %d %d \n", i, bell, dla, ba);
     }
-    */
+    
 
     // code segment 2 ends here
 

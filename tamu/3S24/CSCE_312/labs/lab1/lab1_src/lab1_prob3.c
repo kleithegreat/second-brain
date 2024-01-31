@@ -35,12 +35,6 @@ unsigned int door_lock_actu = 0;
 unsigned int brake_actu = 0;
 
 void read_inputs_from_ip_if(){
-	
-	// 1. Provide your input code here
-	// This function should read the current state of the available sensors (8 in total)
-
-	// Hint : You can use scanf to obtain inputs for the sensors
-
     printf("Input sensor values:\n");
     scanf("%d %d %d %d %d %d %d %d", &driver_seat_belt_fastened, &engine_running, &doors_closed,
                                      &door_lock_lever, &driver_on_seat, &key_in_car, 
@@ -48,19 +42,13 @@ void read_inputs_from_ip_if(){
 }
 
 void write_output_to_op_if(){
-
-    // 2. Provide your output code here
-    // This function should display/print the state of the 3 actuators (BELL/DLA/BA)
-
     printf("\nBELL: %d, DLA: %d, BA: %d\n", bell, door_lock_actu, brake_actu);
 }
 
-
-// The code segment which implements the decision logic
 void control_action(){
     if (engine_running && (!doors_closed || !driver_seat_belt_fastened)) bell = 1;
     if (door_lock_lever && (!key_in_car || driver_on_seat)) door_lock_actu = 1;
-    if (brake_pedal && car_moving) brake_actu = 1;
+    if (brake_pedal == 1 && car_moving == 1) brake_actu = 1;
 }
 
 
@@ -74,8 +62,8 @@ int main(int argc, char *argv[])
         The main control loop which keeps the system alive and responsive for ever,
         until the system is powered off
     */
-
-    /*for (; ; ) {
+   /*
+    for (; ; ) {
         bell = 0;
         door_lock_actu = 0;
         brake_actu = 0;
@@ -83,7 +71,7 @@ int main(int argc, char *argv[])
         read_inputs_from_ip_if();
         control_action();
         write_output_to_op_if();
-    }*/
+    } */
 
     // code segment 1 ends here
  
@@ -97,7 +85,7 @@ int main(int argc, char *argv[])
         4. Please provide the screenshot of the output obtained from running this code segment 2 
         and your code written from 1-3 to the lab report 
     */
-
+   
     int test[8][8] = {  {0, 0, 0, 0, 0, 0, 0, 0}, 
                         {1, 1, 0, 0, 0, 1, 0, 1}, 
                         {1, 0, 1, 0, 1, 1, 1, 1}, 
@@ -127,7 +115,7 @@ int main(int argc, char *argv[])
                                              brake_pedal, car_moving);
         write_output_to_op_if();
     }
-
+    
     // code segment 2 ends here
 
     return 0;
