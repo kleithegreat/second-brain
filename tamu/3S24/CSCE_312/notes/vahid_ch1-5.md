@@ -392,7 +392,7 @@ a & b & f0 & f1 & f2 & f3 & f4 & f5 & f6 & f7 & f8 & f9 & f10 & f11 & f12 & f13 
     - Start with the circuit, and convert to equations, then to a truth table
     - If the truth table matches the desired truth table, then the circuit is correct
 - However, if people start with equations instead of truth tables, it can be hard to check the circuit
-> Canonical forms can be massive for large functions, so it is not practical to use them to check circuits
+> Canonical forms can be massive for large functions since they describe truth tables line by line, so it is not practical to use them to check circuits
 - Thus, people often use **simulation** to check circuits, with the help of a computer
 - A **schematic capture tool** helps people draw circuits on computers and test them
 - Once a circuit is drawn, the schematic capture tool can simulate the circuit

@@ -25,7 +25,7 @@ Equational reasoning can be used to prove properties of programs.
         isZero n = False
         ```
     - The first equation `isZero 0 = True` can be freely applied bidirectionally.
-    - The second equation `isZero n = False` can be applied bidierectionally only given that the first equation does not apply.
+    - The second equation `isZero n = False` can be applied bidirectionally only given that the first equation does not apply.
 - Generally, we cannot view equations of a function with multiple equations as logical properties in isolation of each other.
 - The order of pattern matching is important.
 - Thus it is preferable to define functions such that the order of equations does not matter.
@@ -34,7 +34,7 @@ Equational reasoning can be used to prove properties of programs.
         isZero 0 = True
         isZero n | n /= 0 = False
         ```
-    - The second equation can now be freely applied bidierectionally due to the guard.
+    - The second equation can now be freely applied bidirectionally due to the guard.
 - Patterns that do no rely on the order of equations are called **non-overlapping**.
 - Using non-overlapping patterns whenever possible is a good practice.
 ## 16.3 Simple examples
