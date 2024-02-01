@@ -67,7 +67,20 @@ Equational reasoning can be used to prove properties of programs.
         = False
         ```
 ## 16.4 Induction on numbers
-
+- Reasoning on recursive equations often use **induction**
+- Since many functions in Haskell are recursive induction can be used
+- The simplest example is the definition of the natural numbers:
+    ```haskell
+    data Nat = Zero | Succ Nat
+    ```
+    - `data Nat` declares a new type `Nat` with two constructors `Zero` and `Succ`.
+    - `Succ Nat` is a recursive constructor that takes a `Nat` type as an argument, representing the successor of a natural number.
+- Suppose we want to prove some property $p$ holds for all (finite natural numbers)
+> In this example we will only consider the finite natural numbers, meaning we start with zero and apply `Succ` a finite number of times.
+- The principle of induction states that it is sufficient for us to prove that $p$ is true for the base case (zero) and is preserved by `Succ` (the **inductive case**).
+    - More formally: The inductive case requires that the property $p$ holds for any natural number, called the **induction hypothesis**.
+    - This works because we defined the natural numbers as a base case and a recursive case.
+    - You can think of this as a domino effect, if we can prove that the first domino falls, and that if any domino falls, the next one will fall, then all the dominos will fall.
 ## 16.5 Induction on lists
 
 ## 16.6 Making append vanish
