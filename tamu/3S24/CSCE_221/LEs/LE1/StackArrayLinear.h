@@ -33,44 +33,89 @@ public:
 // Your implementation here
 template <typename T>
 StackArrayLinear<T>::StackArrayLinear(){
+    data = new T[1];
+    length = 1;
+    topIndex = -1;
 }
 
 template <typename T>
 StackArrayLinear<T>::~StackArrayLinear(){
+    delete[] data;
+    data = nullptr;
 }
 
 template <typename T>
 StackArrayLinear<T>::StackArrayLinear(const StackArrayLinear& other) {
+    length = other.length;
+    topIndex = other.topIndex;
+
+    data = new T[length];
+
+    for (int i = 0; i <= topIndex; i++){
+        data[i] = other.data[i];
+    }
 }
 
 template <typename T>
 StackArrayLinear<T>& StackArrayLinear<T>::operator=(const StackArrayLinear& other) {
+    if (this != &other){
+        delete[] data;
+        length = other.length;
+        topIndex = other.topIndex;
+
+        data = new T[length];
+
+        for (int i = 0; i <= topIndex; i++){
+            data[i] = other.data[i];
+        }
+    }
+
     return *this;
 }
 
 template <typename T>
 bool StackArrayLinear<T>::isEmpty(){
-    return true;
+    return topIndex == -1;
 }
 
 template <typename T>
 int StackArrayLinear<T>::size(){
-    return -1;
+    return topIndex + 1;
 }
 
 template <typename T>
 T& StackArrayLinear<T>::top(){
-    static int temp = -1;
-    return temp;
+    if (isEmpty()){
+        throw std::out_of_range("Stack is empty");
+    }
+
+    return data[topIndex];
 }
 
 template <typename T>
 T StackArrayLinear<T>::pop(){
-    return -1;
+    if (isEmpty()){
+        throw std::out_of_range("Stack is empty");
+    }
+
+    topIndex--;
+    return data[topIndex + 1];
 }
 
 template <typename T>
 void StackArrayLinear<T>::push(const T& e){
+    if (this->size() == length){
+        T* temp = new T[length + 10];
+        for (int i = 0; i < length; i++){
+            temp[i] = data[i];
+        }
+        delete[] data;
+        data = temp;
+        length += 10;
+    }
+
+    topIndex++;
+    data[topIndex] = e;
 }
 
 #endif
