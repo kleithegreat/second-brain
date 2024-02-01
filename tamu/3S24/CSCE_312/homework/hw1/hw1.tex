@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{1st Homework - CSCE 312 503}
+\rhead{Kevin Lei}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\arraystretch}{1.2}
+
+\begin{document}
+
+\section*{Question 1}
+The way we solve this is using Amdahl's Law.
+The formula for Amdahl's Law is: 
+$$ S = \frac{1}{(1 - \alpha) + \frac{\alpha}{k}} $$
+Where $S$ is the speedup, $\alpha$ is the fraction of the program that can be parallelized, and $k$ is the perfomance uplift.
+\\ \\
+In this situation, our $\alpha$ is 0.5, since half of the processing time is spent on floating-point instructions.
+Since the enhancement has allowed the machine to run floating-point instructions five times faster, our $k$ is 5.
+Putting all this into our equation, we get
+\begin{align*}
+S &= \frac{1}{(1 - 0.5) + \frac{0.5}{5}} \\
+&= \frac{1}{0.5 + 0.1} \\
+&= \frac{1}{0.6} \\
+&\approx 1.67 \; .
+\end{align*}
+Thus, our overall speedup is 1.67.
+
+\section*{Question 2}
+
+\subsection*{a)}
+Here we need to figure out which one of the optimizations has the greater effect on the performance.
+If we only make the divide operation 3 times faster, we have an overall speedup of
+\begin{align*}
+    S &= \frac{1}{(1 - 0.2) + \frac{0.2}{3}} \\
+    &= \frac{1}{0.8 + \frac{1}{15}} \\
+    &\approx 1.15 \; \text{times.}
+\end{align*}
+If we only make the multiple operation 8 times faster, we have an overall speedup of
+\begin{align*}
+    S &= \frac{1}{(1 - 0.6) + \frac{0.6}{8}} \\
+    &= \frac{1}{0.4 + \frac{3}{40}} \\
+    &\approx 2.11 \; \text{times.}
+\end{align*}
+Therefore, we cannot meet management's goal of achieving a 5 times performance uplift by only making either the divide or multiply operation faster, 
+as the maximum speedup we can achieve is 2.11 times with only the multiply operation being 8 times faster.
+
+\subsection*{b)}
+Amdahl's law works by diving the old time by the new time to get the speedup, which makes intuitive sense.
+If the old time is 1, the new time can be found by removing the parts that are sped up and adding the speed adjusted parts back in.
+Thus we can generalize Amdahl's law to multiple speedups:
+$$ S = \frac{1}{(1 - \alpha - \beta) + \frac{\alpha}{k_1} + \frac{\beta}{k_2}} $$
+Where $\alpha$ and $\beta$ are the fractions of the program that can be parallelized, and $k_1$ and $k_2$ are their respective perfomance uplifts.
+Now we can use this to find the overall speedup if we make both improvements.
+\begin{align*}
+    S &= \frac{1}{(1 - 0.2 - 0.6) + \frac{0.2}{3} + \frac{0.6}{8}} \\
+    &= \frac{1}{0.2 + \frac{1}{15} + \frac{3}{40}} \\
+    &\approx 2.93 \; .
+\end{align*}
+Now, our speedup relative to the old machine is 2.93 times.
+
+\newpage
+\section*{Textbook Problems:}
+\textit{Digital Design, 2nd Ed, by Frank Vahid, Wiley publication, 2010}
+
+\subsection*{1.8}
+
+\subsection*{1.15}
+
+\subsection*{1.18}
+
+\subsection*{1.22}
+
+\subsection*{1.32}
+
+\subsection*{2.12}
+
+\subsection*{2.18}
+
+\subsection*{2.24}
+
+\subsection*{2.28}
+
+\subsection*{2.33}
+
+\subsection*{2.39}
+
+\subsection*{2.52}
+
+\subsection*{2.58}
+
+\subsection*{2.66}
+
+\subsection*{2.70}
+
+\subsection*{2.71}
+
+\subsection*{2.75}
+
+\subsection*{3.2}
+
+\subsection*{3.4}
+
+\subsection*{3.10}
+
+\subsection*{3.12}
+
+\subsection*{3.21}
+
+\subsection*{3.30}
+
+\subsection*{3.40}
+
+\subsection*{3.43}
+
+\end{document}
