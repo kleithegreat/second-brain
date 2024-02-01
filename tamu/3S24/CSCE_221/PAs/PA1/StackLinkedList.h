@@ -38,10 +38,19 @@ public:
 // Your implementation here
 template <typename T>
 StackLinkedList<T>::StackLinkedList(){
+    length = 1;
+    head = new Node<T>;
 }
 
 template <typename T>
 StackLinkedList<T>::~StackLinkedList(){
+    Node<T>* temp = head;
+    while (temp != nullptr){
+        Node<T>* next = temp->next;
+        delete temp;
+        temp = next;
+    }
+    head = nullptr;
 }
 
 template <typename T>
