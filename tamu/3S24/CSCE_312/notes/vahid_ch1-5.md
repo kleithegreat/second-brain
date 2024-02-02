@@ -405,15 +405,38 @@ redirects to section 6.2
 - Hardware description languages (HDLs) are a textual language to describe digital circuits
 redirects to section 9.2
 # 3 - Sequential Logic Design: Controllers
-
 ## 3.1 Introduction
-
+- Combinational circuits have **no memory**
+- This means they cannot store bits and retain them for later use
+- A **sequential circuit** is a circuit whose output depends on not only the inputs but also the current **state**
+	- State is all the bits currently stored in the circuit
+	- State depends on the past *sequence* of the circuits inputs
+- One simple example of a sequential system is a lamp that toggles on and off with the press of a button
+- Most digital systems involve sequential circuits
+	- Calculators store numbers, digital cameras store pictures, etc.
+- Sequential circuits use building blocks called flip-flops and registers, both of which can store bits.
 ## 3.2 Storing One Bit--Flip-Flops
-
+- Storing a bit means retaining a 0 or a 1
+- Consider a flight attendant call system with a call and a reset button
+	- The call button turns on the light, and the reset turns it off
+	- Since we're using buttons, we need memory to store the on signal until turned off
+- Some circuits that can store a bit:
+	- Basic SR latch
+	- Level-sensitive SR latch
+	- Level-sensitive D latch
+	- Edge-triggered D flip-flop
+		- This can be used to create a block capable of storing multiple bits, called a *register*
+		- Registers will serve as the main bit storage block for the rest of this book
+		- People today rarely use bit storage other than D flip flops
 ### Feedback--The Basic Storage Method
-
+- The basic method for storage is **feedback**
+- You can think of this as a microphone pointed to a speaker that plays what the mic picks up
+- Suppose we have an OR gate with the output feeding into one of its inputs
+	- When we set one of the inputs to 1, the output will become 1 and then will remain 1
+	- Here there is no way to reset the output to 0
+- An **event** is any change on a bit signal from 0 to 1 or 1 to 0
 ### Basic SR Latch
-
+- 
 ### Level-Sensitive D Latch--A Basic Bit Store
 
 ### Edge-Triggered D Flip-Flop--A Robust Bit Store

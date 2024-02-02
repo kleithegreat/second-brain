@@ -33,3 +33,7 @@ f = (a' * b')' = a + b (DeMorgan's Law)
 - encoding and decoding helps save space
 
 > QUIZ: definition of decoder + decoder truth table (2 input decoder)
+
+## 02/01/2024
+vahid chapter 2 and 3
+> QUIZ: D flip-flop shit and the other example
