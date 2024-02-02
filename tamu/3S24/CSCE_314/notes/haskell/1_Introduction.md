@@ -124,8 +124,7 @@ The interesting part of this function is its type. One possible type inferred fr
 seqn :: [IO a] -> IO [a]
 ```
 This type states that `seqn` maps a list of IO actions that produce results of some type `a` to a single IO action that produces a list of results of type `a`.
-> This definition makes clear that this function is not a pure function, as it performs IO actions.
-However, this function is not specific to just IO, but can be used for anything impure involving side effects, such as changing stored values, fail to succeed, write to a log file, etc.
+> This definition makes clear that this function is not a pure function, as it performs IO actions. However, this function is not specific to just IO, but can be used for anything impure involving side effects, such as changing stored values, fail to succeed, write to a log file, etc.
 ```haskell
 seqn :: Monad m => [m a] -> m [a]
 ```

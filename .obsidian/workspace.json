@@ -1,0 +1,189 @@
+{
+  "main": {
+    "id": "b881f592f93bc291",
+    "type": "split",
+    "children": [
+      {
+        "id": "12535003b8b3e911",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "74eb9dab58b56196",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7493937a6940fe6d",
+    "type": "split",
+    "children": [
+      {
+        "id": "6457ec17ebbe9883",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "70b22a13d8e23d6b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7c5c0925441f05ff",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4c728a103fe810ad",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "63eb9c86cbab930e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5b251c471476f84d",
+    "type": "split",
+    "children": [
+      {
+        "id": "50d1e5ddc8d0d266",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5bcec8c79d4da225",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "8847688b76f6814a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6f5a020bb0a4f3f5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "3aa4e441f9923dc6",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "74eb9dab58b56196",
+  "lastOpenFiles": [
+    "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
+    "tamu/3S24/MATH_300/writing_assignments/WA2/wa2.tex",
+    "tamu/3S24/CSCE_312/labs/lab2/circuit.circ",
+    "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
+    "tamu/3S24/CSCE_312/homework/hw1/hw1.pdf",
+    "tamu/3S24/CSCE_312/homework/hw1/hw1.aux",
+    "tamu/3S24/CSCE_312/homework/hw1/hw1.log",
+    "tamu/3S24/CSCE_221/LEs/LE1/src/StackArrayDouble.h",
+    "tamu/3S24/CSCE_221/LEs/LE1/src/test.py",
+    "tamu/3S24/CSCE_221/LEs/LE1/src/StackArrayLinear.h",
+    "tamu/3S24/CSCE_221/LEs/LE1/src/stack_test.cpp",
+    "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
+    "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch1-5.md",
+    "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
+    "tamu/3S24/CSCE_314/notes/haskell/5_List_comprehensions.md",
+    "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md",
+    "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
+    "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
+    "tamu/3S24/CSCE_221/notes/L5V5_Linked_List,_Queue.md",
+    "tamu/3S24/CSCE_221/notes/L4V4_Stack.md",
+    "tamu/3S24/CSCE_312/labs/lab1/images/prob2partb2.png",
+    "tamu/3S24/CSCE_312/labs/lab1/images/prob2partb1.png",
+    "tamu/3S24/CSCE_312/notes/!lecture.md",
+    "Untitled.md",
+    "tamu/3S24/CSCE_221/notes/L2V2_Gentle_Intro_to_Search_and_Sort.md",
+    "tamu/3S24/CSCE_221/notes/L1V1_Intro_to_DSA.md",
+    "tamu/3S24/CSCE_221/notes/L3V3_Abstract_Data_Types.md",
+    "tamu/1S23/PHYS_206/EXAM 1.md",
+    "tamu/3S24/CSCE_314/notes/haskell/17_Calculating_compilers.md",
+    "tamu/3S24/CSCE_314/notes/haskell/13_Monadic_parsing.md",
+    "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
+    "tamu/3S24/CSCE_314/notes/haskell/10_Interactive_programming.md",
+    "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
+    "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
+    "tamu/3S24/CSCE_314/exercises/exercise_2/exercise2.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch1.md"
+  ]
+}
