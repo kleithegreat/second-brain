@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12 Portable) (preloaded format=pdflatex 2023.11.28)  31 JAN 2024 20:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12 Portable) (preloaded format=pdflatex 2023.11.28)  3 FEB 2024 21:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -368,8 +368,8 @@ Package rerunfilecheck Info: File `PA1_Report.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  9025 strings out of 474586
- 141513 string characters out of 5740462
- 1926558 words of memory out of 5000000
+ 141555 string characters out of 5740462
+ 1929558 words of memory out of 5000000
  31119 multiletter control sequences out of 15000+600000
  562383 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -380,7 +380,7 @@ fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/kevin/scoop/apps/miktex/curr
 ent/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/kevin/sco
 op/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb>
 
-Output written on PA1_Report.pdf (1 page, 46744 bytes).
+Output written on PA1_Report.pdf (1 page, 56822 bytes).
 PDF statistics:
  44 PDF objects out of 1000 (max. 8388607)
  5 named destinations out of 1000 (max. 500000)

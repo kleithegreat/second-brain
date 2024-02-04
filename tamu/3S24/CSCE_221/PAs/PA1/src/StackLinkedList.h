@@ -38,8 +38,8 @@ public:
 // Your implementation here
 template <typename T>
 StackLinkedList<T>::StackLinkedList(){
-    length = 1;
-    head = new Node<T>;
+    head = nullptr;
+    length = 0;
 }
 
 template <typename T>
@@ -50,41 +50,114 @@ StackLinkedList<T>::~StackLinkedList(){
         delete temp;
         temp = next;
     }
+
     head = nullptr;
+    length = 0;
 }
 
 template <typename T>
 StackLinkedList<T>::StackLinkedList(const StackLinkedList& other) {
+    head = nullptr;
+    length = 0;
+
+    Node<T>* temp = other.head;
+    Node<T>* last = nullptr;
+
+    while (temp != nullptr){
+        Node<T>* newNode = new Node<T>;
+        newNode->data = temp->data;
+        newNode->next = nullptr;
+
+        if (last == nullptr){
+            head = newNode;
+        } else {
+            last->next = newNode;
+        }
+
+        last = newNode;
+        temp = temp->next;
+
+        length++;
+    }
 }
 
 template <typename T>
 StackLinkedList<T>& StackLinkedList<T>::operator=(const StackLinkedList& other) {
+    if (this != &other){
+        Node<T>* temp = head;
+        while (temp != nullptr){
+            Node<T>* next = temp->next;
+            delete temp;
+            temp = next;
+        }
+
+        head = nullptr;
+        length = 0;
+
+        temp = other.head;
+        Node<T>* last = nullptr;
+
+        while (temp != nullptr){
+            Node<T>* newNode = new Node<T>;
+            newNode->data = temp->data;
+            newNode->next = nullptr;
+
+            if (last == nullptr){
+                head = newNode;
+            } else {
+                last->next = newNode;
+            }
+
+            last = newNode;
+            temp = temp->next;
+
+            length++;
+        }
+    }
+
     return *this;
 }
 
 template <typename T>
 bool StackLinkedList<T>::isEmpty(){
-    return true;
+    return head == nullptr;
 }
 
 template <typename T>
 int StackLinkedList<T>::size(){
-    return -1;
+    return length;
 }
 
 template <typename T>
 T& StackLinkedList<T>::top(){
-    static int temp = -1;
-    return temp;
+    if (this->isEmpty()) {
+        throw std::out_of_range("Stack is empty");
+    }
+
+    return head->data;
 }
 
 template <typename T>
 T StackLinkedList<T>::pop(){
-    return -1;
+    if (this->isEmpty()) {
+        throw std::out_of_range("Stack is empty");
+    }
+
+    T temp = head->data;
+    Node<T>* next = head->next;
+    delete head;
+    head = next;
+    length--;
+    return temp;
 }
 
 template <typename T>
 void StackLinkedList<T>::push(const T& e){
+    Node<T>* newNode = new Node<T>;
+    newNode->data = e;
+    newNode->next = head;
+    head = newNode;
+    length++;
 }
 
 

@@ -82,7 +82,43 @@ Equational reasoning can be used to prove properties of programs.
     - This works because we defined the natural numbers as a base case and a recursive case.
     - You can think of this as a domino effect, if we can prove that the first domino falls, and that if any domino falls, the next one will fall, then all the dominos will fall.
 ## 16.5 Induction on lists
-
+- Induction works naturally on recursion, and since lists can be built from the empty list using the cons operator, induction also works nicely on lists.
+- The induction principle for lists states that we must show that $p$ holds for the empty list as well as any list `xs`.
+	- If we can show this, then $p$ holds for `x:xs` for any element `x`.
+- For example, we can show the function `reverse` is its own inverse.
+	- This means we want to show `reverse (reverse xs) = xs` using induction.
+	- The base case is easy:
+        ```haskell
+          reverse (reverse [])
+        = reverse []
+        = []
+        ```
+    - Using the assumption `reverse (reverse xs) = xs` we can show that `reverse (reverse (x:xs)) = x:xs`:
+        ```haskell
+          reverse (reverse (x:xs))
+        = reverse (reverse xs ++ [x])
+        -- applying the inner reverse
+        = reverse [x] ++ reverse (reverse xs)
+        -- distributivity
+        = [x] ++ reverse (reverse xs)
+        -- singleton list
+        = [x] ++ xs
+        -- induction hypothesis
+        = x:xs  -- applying ++
+        ```
+    - This used two properties of `reverse`:
+        1. Reverse of singleton list is itself: `reverse [x] = [x]`
+        2. Reverse distributes over append, except the order is then reversed: `reverse (xs ++ [x]) = reverse [x] ++ reverse xs`
+            - Technically we say here that the distribution is *contravariant*.
 ## 16.6 Making append vanish
-
+- Many recursive functions use the append operator `++`.
+- However, the append operator is not very efficient.
+- Induction can be used to eliminate some uses of `++`.
+- For example, consider the following definition of `reverse`:
+    ```haskell
+    reverse :: [a] -> [a]
+    reverse [] = []
+    reverse (x:xs) = reverse xs ++ [x]
+    ```
+    - In this example, `++` takes linear time in the length of the list.
 ## 16.7 Compiler correctness

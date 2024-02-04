@@ -325,7 +325,7 @@ a & b & f0 & f1 & f2 & f3 & f4 & f5 & f6 & f7 & f8 & f9 & f10 & f11 & f12 & f13 
     - This $N$ variable function will have $2^N$ rows in its truth table
     - Since each row has two possible outputs, there are $2^{2^N}$ possible boolean functions for $N$ variables
 ## 2.9 Decoders and Muxes
-- In addition to logic gates, decoders and multipliexers are also very commonly used in digital circuits
+- In addition to logic gates, decoders and multiplexers are also very commonly used in digital circuits
 - They themselves can be built using logic gates
 ### Decoders
 - A **decoder** decodes an input, an n-bit binary number, by setting one of its $2^n$ outputs to 1
@@ -436,23 +436,132 @@ redirects to section 9.2
 	- Here there is no way to reset the output to 0
 - An **event** is any change on a bit signal from 0 to 1 or 1 to 0
 ### Basic SR Latch
-- 
+- The **basic SR latch** combines two cross-couples NOR gates
+    - One NOR gate has S and Q as inputs and the other has R and the output of the first gate as inputs (this second gate outputs Q)
+	- It has an input Set (S) and an input Reset (R) hence SR
+    - Setting S to 1 causes the output Q to be 1
+    - Setting R to 1 causes the output Q to be 0
+    - Setting both S and R to 0 causes the output to remain the same
+- The basic SR latch works since NOR requires both inputs to be 0 for the output to be 1
+    - S starts as 0 so the output of the first NOR gate is 1
+    - This 1 is fed into the second NOR gate, so the output is 0
+    - When S is set to 1, the output of the first NOR gate is 0, so the output of the second NOR gate (Q) is 1
+- Values are **stable** when they won't change as long as no external inputs change
+#### Problem when SR=11 in a Basic SR Latch
+- Undefined behavior results when both S and R are 1
+- The latch might store 1, or 0, or oscillate between 1 and 0
+- In real circuits, delays in the two gates would be slightly different
+    - This causes one of the gates to oscillate slightly ahead of the other
+    - This delay continues until it gets far enough to enter a stable state
+    - Whether the stable state is 1 or 0 is unknown beforehand
+- A situation where the final output of a sequential circuit depends on the dlays of gates and wires is a **race condition**
+- When using an SR latch, we must ensure that S and R are never 1 at the same time
+- There should be an external circuit that ensures this
+- However even with an external circuit, delays in the gates can still cause SR=11 to occur
+- A temporary unintended signal value caused by circuit delays is called a **glitch**
+### Level-Sensitive SR Latch
+- A **level-sensitive SR latch** is a basic SR latch with two AND gates added
+    - There are three inputs: S, R, and an **enable** input C
+    - S and R feed in to two AND gates, and C feeds into both AND gates
+    - The outputs of the two AND gates feed into the inputs of the basic SR latch
+- The enable input ensures that the latch only stores the value of S when C is 1
+- This SR latch with an enable input is called a **level-sensitive SR latch**
+    - This is because it is only sensitive to S and R when the enable input is 1
+    - This is also called a **transparent latch**, since the SR latch is transparent to the S and R inputs when the enable input is 1
+    - This is also sometimes called a **gated SR latch**
+- Since the top NOR gate outputs the opposite of Q, we can easily include a Q' output
 ### Level-Sensitive D Latch--A Basic Bit Store
-
+- One persisting problem of the level-sensitive SR latch is that SR=11 is still undefined when the enable input is 1
+- The **level-sensitive D latch** (or transparent D latch or gated D latch) has a single input D and an enable input C
+    - The D input is fed into one AND gate in the level-sensitive SR latch
+    - The inverse of D is fed into the other AND gate
+    - C remains the same
+- The not gate on the D input ensures that S and R are never 1 at the same time
+> The level-sensitive D latch stores the value of D when the enable input is 1, and remembers it when C is 0
 ### Edge-Triggered D Flip-Flop--A Robust Bit Store
-
+- The D latch still has a problem with undefined behavior
+    - Suppose we have a bunch of D latches chained with the output of one feeding into the input of the next
+    - Say these D latches also all share the same enable input
+    - The value of the first D latch will be stored in the second D latch, and so on
+    - How many D latches will store the value of the first D latch is unknown due to timing
+- Consider pulsing enable signals
+    - A **pulse** is a change from 0 to 1 back to 0
+    - A pulsing enable signal is called a **clock** signal
+- A solution would be to store the input at D only when the clock rises from 0 to 1
+- This is called an **edge-triggered D flip-flop**
+    - The edge is the transition from 0 to 1
+    - The edge-triggered D flip-flop stores the value of D only on the rising edge of the clock
+#### Edge-Triggered D Flip-Flop Using a Master-Servant Design
+- We can use two D flip flops to create an edge-triggered D flip-flop
+    - The first D flip-flop is called the **master**
+    - This stores the value of D when the clock is 0 due to the not gate on the clock input (the clock is inverted only for the master)
+    - The second D flip-flop is called the **servant**
+    - The servant store the value of the master only when the clock changes from 0 to 1
+- This can be thought of how a gun only fires when the trigger is pulled, but you can load or unload the gun at any time
+- The problem of chaining D latches is solved since only one D flip-flop stores the value of D per clock cycle
+- There are many other designs that exist for edge-triggered D flip-flops other than master servant
+- The implementation usually doesn't matter as long as the edge-triggered D flip-flop works as expected
+    - These work on the basis of the **positive** or **rising** edge of the clock
+    - There are also **negative** or **falling** edge-triggered D flip-flops
+#### Latches vs Flip-Flops:
+- This textbook uses the following definition:
+    - Latches are level-sensitive
+    - Flip-flops are edge-triggered
+- Thus saying edge triggered flip-flop is redundant
 ### Clocks and Synchronous Circuits
-
+- Most sequential circuits involving flip-flops use a clock signal that oscillates at a regular rate
+    - The oscillating enable signal is called a **clock signal**
+- A circuit whose storage elements can only change when a clock signal is active is known as a **synchronous circuit** (seqwential is implied)
+- Likewise a circuit that does not use a clock signal is known as an **asynchronous circuit**
+- An **oscillator** is a digital component that generates a clock signal
+    - Oscillators have no inputs, and just output a clock signal
+    - The clock signals **period** is the time between two consecutive rising edges
+    - A **clock cycle** is just one segement of time between when the clock becomes 1 and when it becomes 0 again
+        - The clock cycles includes equal time for the clock to be 1 and 0
+    - The clock **frequency** is the number of clock cycles per second
 ### Basic Register--Storing Multiple Bits
-
+- A **register** is a seqeuential component that can store multiple bits
+- A basic register can be built with multiple D flip-flops sharing a common clock signal
+    - The register stores the info in all the inputs when the clock is 1
+    - This type of register is sometimes just called an n-bit D flip-flop
 ## 3.3 Finite-State Machines
-
+- Registers store bits in digital circuits
+- Stored bits means the circuit has **memory** which results in sequential circuits
+- A circuits **state** is the value of all the bits stored in the circuit
+- State can be used to design circuits that have a specific behavior over time
+- We must have a way to *capture* desired time-ordered behavior, and a technique to *convert* this behavior into a circuit
 ### Mathematical Formalism for Sequential Behavior-FSMs
-
+- Boolean equations are not sufficient for sequential behavior
+- Finite-state machiens are a mathematical formalism for capturing sequential behavior
+- The main part of an FSM is a set of state representing every possible "situation" the system can be in
+- The system can only be in one state at a time, which is called the current or present state
+- A **state diagram** is a graph where the nodes are the states and the edges are the transitions between states
+- FSMs can only change state once per clock cycle
+- We can label transitions with boolean equations that describe the conditions for the transition to occur
+- FSMs are comprised of the following:
+    - A set of states
+    - A set of inputs and outputs
+    - An **initial state** - the state the FSM starts in
+    - A set of transitions
+    - A description of the output for each state
+        - Assigning an output in an FSM is known as an **action**
+- We can "execute" an FSM by following the transitions based on the inputs, similar to mentally evaluating a boolean equation
+#### Simplifying FSM Notation: Making the Rising Clock Implicit
+- This book only considers the design of synchronous circuits using edge-triggered flip-flops
+- A lot of textbooks and designers use the convention where every FSM transition is *implicitly ANDed* with a rising clock edge `(clk^)`
+- For example, a transition labeled `a'` actually means `a' * (clk^)`
 ### How to Capture Desired System Behavior as an FSM
-
+- The following method may help with freating an FSM that captures desired system behavior:
+    - List the states
+    - Create the transitions
+    - Refine the FSM - execute the FSM and make sure it behaves as expected
+- Capturing behavior as an FSM may require some creativity and trial and error
 ## 3.4 Controller Design
-
+- This is concerened with converting an FSM into a sequential circuit
+- A sequential circuit that implements an FSM is called a **controller**
+- Doing this is quite straightforward when a standard pattern or *architecture* is used for the controller
+- A standard controller architecture for an FSM consists of a register and combinational logic
+- The controller's register is called the **state register**
 ### Standard Controller Architecture for Implementing an FSM as a Sequential Circuit
 
 ### Controller (Sequential Logic) Design Process

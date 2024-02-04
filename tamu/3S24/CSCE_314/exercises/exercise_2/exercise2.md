@@ -1,4 +1,5 @@
-# Problem 1
+# Exercise 2
+## Problem 1
 ```haskell
 ['H','a','s','k','e','l','l'] :: [Char]
 ```
@@ -23,8 +24,7 @@ Explanation: This is a tuple of two lists; the first list is a list of booleans 
 [tail, init, reverse] :: [[a] -> [a]]
 ```
 Explanation: This is a list of functions that take a list of any type and return a list of the same type. List elements must have the same type, and since tail, init and reverse all have the same type signature, this list is valid.
-
-# Problem 2
+## Problem 2
 ```haskell
 second xs = head (tail xs)
 second :: [a] -> a
