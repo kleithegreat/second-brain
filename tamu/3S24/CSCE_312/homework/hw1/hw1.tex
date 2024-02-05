@@ -67,28 +67,120 @@ Now, our speedup relative to the old machine is 2.93 times.
 \textit{Digital Design, 2nd Ed, by Frank Vahid, Wiley publication, 2010}
 
 \subsection*{1.8}
+Binary to decimal:
+\begin{enumerate}[(a)]
+    \item $100 = 2^2 = 4$
+    \item $1011 = 2^3 + 2^1 + 2^0 = 8 + 2 + 1 = 11$
+    \item $0000000000001 = 1$
+    \item $111111 = 2^0 + 2^1 + 2^2 + 2^3 + 2^4 + 2^5 = 1 + 2 + 4 + 8 + 16 + 32 = 63$
+    \item $101010 = 2^1 + 2^3 + 2^5 = 2 + 8 + 32 = 42$
+\end{enumerate}
 
 \subsection*{1.15}
+Decimal to binary using divide by 2:
+\begin{enumerate}[(a)]
+    \item 
+    $19 \div 2 = 9 \text{ remainder } 1$ \\
+    $9 \div 2 = 4 \text{ remainder } 1$ \\
+    $4 \div 2 = 2 \text{ remainder } 0$ \\
+    $2 \div 2 = 1 \text{ remainder } 0$ \\
+    $1 \div 2 = 0 \text{ remainder } 1$ \\
+    $19 = 10011$
+    \item 
+    $30 \div 2 = 15 \text{ remainder } 0$ \\
+    $15 \div 2 = 7 \text{ remainder } 1$ \\
+    $7 \div 2 = 3 \text{ remainder } 1$ \\
+    $3 \div 2 = 1 \text{ remainder } 1$ \\
+    $1 \div 2 = 0 \text{ remainder } 1$ \\
+    $30 = 11110$
+    \item 
+    $64 \div 2 = 32 \text{ remainder } 0$ \\
+    $32 \div 2 = 16 \text{ remainder } 0$ \\
+    $16 \div 2 = 8 \text{ remainder } 0$ \\
+    $8 \div 2 = 4 \text{ remainder } 0$ \\
+    $4 \div 2 = 2 \text{ remainder } 0$ \\
+    $2 \div 2 = 1 \text{ remainder } 0$ \\
+    $1 \div 2 = 0 \text{ remainder } 1$ \\
+    $64 = 1000000$
+    \item 
+    $128 \div 2 = 64 \text{ remainder } 0$ \\
+    $64 \div 2 = 32 \text{ remainder } 0$ \\
+    $32 \div 2 = 16 \text{ remainder } 0$ \\
+    $16 \div 2 = 8 \text{ remainder } 0$ \\
+    $8 \div 2 = 4 \text{ remainder } 0$ \\
+    $4 \div 2 = 2 \text{ remainder } 0$ \\
+    $2 \div 2 = 1 \text{ remainder } 0$ \\
+    $1 \div 2 = 0 \text{ remainder } 1$ \\
+    $128 = 10000000$
+\end{enumerate}
 
 \subsection*{1.18}
+Binary to hexadecimal:
+\begin{enumerate}[(a)]
+    \item $11110000$
+    \item $11111111$
+    \item $01011010$
+    \item $1001101101101$
+\end{enumerate}
 
 \subsection*{1.22}
+Hexadecimal to binary:
+\begin{enumerate}[(a)]
+    \item $4F5E$
+    \item $3FAD$
+    \item $3E2A$
+    \item $DEED$
+\end{enumerate}
 
 \subsection*{1.32}
+We want to minimize the amount of custom ditital circuitry while maintaining at least 40 transactions per second.
+With only microprocessors, one transaction consisting of subtasks A, B, and C takes 0.05 s + 0.02 s + 0.02 s = 0.09 s.
+Thus, the maximum number of transactions per second is $\frac{1}{0.09} \approx 11.11$ transactions per second.
+Switching out the microprocessor for custom digital circuitry on part A gives us the largest upfront improvement from 50 ms to 1 ms.
+Now the maximum number of transactions per second is $\frac{1}{0.001 + 0.02 + 0.02} \approx 24.39$ transactions per second.
+Replacing the microprocessor with custom digital circuitry on part C gives us the next largest improvement from 20 ms to 1 ms.
+Now the maximum number of transactions per second is $\frac{1}{0.001 + 0.02 + 0.001} \approx 45.45$ transactions per second.
+Thus, the best way to achieve the goal of at least 40 transactions per second is to replace the microprocessor with custom digital circuitry on parts A and C.
 
 \subsection*{2.12}
+Evaluate $F = (a \; AND \; b) \; OR \; c \; OR \; d$ for the following values of $a$, $b$, $c$, and $d$:
+\begin{enumerate}
+    \item $a = 1$, $b = 1$, $c = 1$, $d = 0$ \\
+    \item $a = 0$, $b = 1$, $c = 1$, $d = 0$ \\
+    \item $a = 1$, $b = 1$, $c = 0$, $d = 0$ \\
+    \item $a = 1$, $b = 0$, $c = 0$, $d = 0$ \\ 
+\end{enumerate}
 
 \subsection*{2.18}
+Convert to gate level circuits:
+\begin{enumerate}[(a)]
+    \item $F = a'b' + b'c$
+    \item $F = ab + bc + cd + de$
+    \item $F = ((ab)' + (c)) + (d + ef)'$
+\end{enumerate}
 
 \subsection*{2.24}
+For the function $F = a'd' + a'c + b'cd' + cd$:
+\begin{enumerate}[(a)]
+    \item List all the variables.
+    \item List all the literals.
+    \item List all the product terms.
+\end{enumerate}
 
 \subsection*{2.28}
+Convert to sum of products form:
+$F = a'b(c + d') + a(b' + c) + a(b + d)c$
 
 \subsection*{2.33}
+$ G = ab' + b + a'c $
 
 \subsection*{2.39}
+$ F = a'b'c' + a'bc' + ab'c' + ab'c + abc' $
 
 \subsection*{2.52}
+Determine if $F$ and $G$ are equivalent using (a) algebraic manipulation and (b) truth tables: \\
+$$ F = ab + cd $$
+$$ G = (1((ab)'(cd)')')' $$
 
 \subsection*{2.58}
 

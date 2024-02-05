@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "f37fd1104a419c07",
+        "id": "7044da62dfc035f6",
         "type": "tabs",
         "children": [
           {
-            "id": "224071920360b339",
+            "id": "cdb7c3d1b6938592",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -148,6 +148,10 @@
   },
   "active": "70b22a13d8e23d6b",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_312/notes/vahid_ch1-5.md",
+    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
+    "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
+    "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
     "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
     "tamu/3S24/CSCE_314/notes/haskell/5_List_comprehensions.md",
     "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
@@ -161,8 +165,6 @@
     "tamu/3S24/CSCE_221/PAs/PA1/src/stack_test",
     "tamu/3S24/CSCE_221/PAs/PA1/src/main",
     "tamu/3S24/CSCE_221/PAs/PA1/src/a.out",
-    "tamu/3S24/CSCE_221/PAs/PA1/src/temp_executable",
-    "tamu/3S24/CSCE_312/notes/vahid_ch1-5.md",
     "tamu/3S24/CSCE_312/labs/lab1/images/prob5part2.png",
     "tamu/3S24/CSCE_312/labs/lab1/images/prob5part1.png",
     "tamu/3S24/CSCE_312/labs/lab1/images/prob4part2.png",
@@ -179,7 +181,6 @@
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
     "tamu/3S24/CSCE_314/notes/haskell/17_Calculating_compilers.md",
-    "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
     "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
     "tamu/3S24/CSCE_314/notes/haskell/13_Monadic_parsing.md",
     "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
@@ -190,7 +191,6 @@
     "tamu/3S24/CSCE_312/notes/bryant_ch4.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch10.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
     "tamu/3S24/CSCE_312/notes/!lecture.md",
     "tamu/3S24/CSCE_221/notes/L5V5_Linked_List,_Queue.md"
   ]
