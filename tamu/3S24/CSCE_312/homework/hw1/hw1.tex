@@ -2,6 +2,7 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{fancyhdr}
 \usepackage{enumerate}
+\usepackage{graphicx}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -117,19 +118,19 @@ Decimal to binary using divide by 2:
 \subsection*{1.18}
 Binary to hexadecimal:
 \begin{enumerate}[(a)]
-    \item $11110000$
-    \item $11111111$
-    \item $01011010$
-    \item $1001101101101$
+    \item $11110000 = F0$
+    \item $11111111 = FF$
+    \item $01011010 = 5A$
+    \item $1001101101101 = 136D$
 \end{enumerate}
 
 \subsection*{1.22}
 Hexadecimal to binary:
 \begin{enumerate}[(a)]
-    \item $4F5E$
-    \item $3FAD$
-    \item $3E2A$
-    \item $DEED$
+    \item $4F5E = 0100111101011110$
+    \item $3FAD = 0011111110101101$
+    \item $3E2A = 0011111000101010$
+    \item $DEED = 1101111011101101$
 \end{enumerate}
 
 \subsection*{1.32}
@@ -146,16 +147,28 @@ Thus, the best way to achieve the goal of at least 40 transactions per second is
 Evaluate $F = (a \; AND \; b) \; OR \; c \; OR \; d$ for the following values of $a$, $b$, $c$, and $d$:
 \begin{enumerate}
     \item $a = 1$, $b = 1$, $c = 1$, $d = 0$ \\
+    $ F = 1*1 + 1 + 0 = 1 $
     \item $a = 0$, $b = 1$, $c = 1$, $d = 0$ \\
+    $ F = 0*1 + 1 + 0 = 1 $
     \item $a = 1$, $b = 1$, $c = 0$, $d = 0$ \\
-    \item $a = 1$, $b = 0$, $c = 0$, $d = 0$ \\ 
+    $ F = 1*1 + 0 + 0 = 1 $
+    \item $a = 1$, $b = 0$, $c = 0$, $d = 0$ \\
+    $ F = 1*0 + 0 + 0 = 0 $
 \end{enumerate}
 
 \subsection*{2.18}
 Convert to gate level circuits:
 \begin{enumerate}[(a)]
     \item $F = a'b' + b'c$
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\textwidth]{./images/2_18_a.png}
+    \end{figure}
     \item $F = ab + bc + cd + de$
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\textwidth]{./images/2_18_b.png}
+    \end{figure}
     \item $F = ((ab)' + (c)) + (d + ef)'$
 \end{enumerate}
 
