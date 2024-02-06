@@ -4,15 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "7044da62dfc035f6",
+        "id": "068682ffaee80876",
         "type": "tabs",
         "children": [
           {
-            "id": "cdb7c3d1b6938592",
+            "id": "91e0a7fed2e1d9f5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "pdf",
+              "state": {
+                "file": "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "0f745ef9936d992a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "03a75f56d714f66b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -73,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "5b251c471476f84d",
@@ -89,6 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +149,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md"
+              }
             }
           }
         ]
@@ -146,25 +171,38 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "70b22a13d8e23d6b",
+  "active": "03a75f56d714f66b",
   "lastOpenFiles": [
-    "tamu/3S24/CSCE_312/notes/vahid_ch1-5.md",
+    "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
+    "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
+    "tamu/3S24/MATH_300/homework/hw3/hw3.pdf",
+    "tamu/3S24/MATH_300/homework/hw3/hw3.aux",
+    "tamu/3S24/MATH_300/homework/hw3/hw3.log",
+    "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
+    "tamu/3S24/CSCE_221/notes/L5V5_Linked_List,_Queue.md",
+    "tamu/3S24/CSCE_221/notes/L7-V7_Introduction_to_Algorithmic_Complexity.md",
+    "tamu/3S24/CSCE_221/notes/L6-V6_Deque.md",
+    "tamu/3S24/CSCE_221/notes/L3V3_Abstract_Data_Types.md",
+    "tamu/3S24/CSCE_221/notes/L4V4_Stack.md",
+    "tamu/3S24/CSCE_221/notes/L2V2_Gentle_Intro_to_Search_and_Sort.md",
     "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
+    "tamu/3S24/CSCE_312/notes/vahid_ch1-5.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
+    "tamu/3S24/CSCE_312/notes/valid_ch4.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
+    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
+    "tamu/3S24/MATH_300/writing_assignments/WA2/Communicating_Mathematics.pdf",
+    "tamu/3S24/MATH_300/writing_assignments/WA2/MATH300WA2.pdf",
     "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
     "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
-    "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
     "tamu/3S24/CSCE_314/notes/haskell/5_List_comprehensions.md",
     "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
-    "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
     "tamu/3S24/CSCE_314/exercises/exercise_3/exercise3.md",
     "tamu/3S24/CSCE_314/exercises/exercise_3",
     "tamu/3S24/CSCE_312/labs/lab2/part2.bak",
-    "tamu/3S24/CSCE_312/labs/lab2/part2.circ",
-    "tamu/3S24/CSCE_312/labs/lab2/part1.circ",
-    "tamu/3S24/CSCE_312/labs/lab2/circuit.bak",
-    "tamu/3S24/CSCE_221/PAs/PA1/src/stack_test",
-    "tamu/3S24/CSCE_221/PAs/PA1/src/main",
-    "tamu/3S24/CSCE_221/PAs/PA1/src/a.out",
     "tamu/3S24/CSCE_312/labs/lab1/images/prob5part2.png",
     "tamu/3S24/CSCE_312/labs/lab1/images/prob5part1.png",
     "tamu/3S24/CSCE_312/labs/lab1/images/prob4part2.png",
@@ -176,22 +214,9 @@
     "tamu/3S24/CSCE_312/labs/lab1/images/prob2parta2.png",
     "tamu/3S24/CSCE_312/labs/lab1/images/prob2parta1.png",
     "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
-    "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
-    "tamu/3S24/CSCE_314/notes/haskell/17_Calculating_compilers.md",
-    "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
-    "tamu/3S24/CSCE_314/notes/haskell/13_Monadic_parsing.md",
-    "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
-    "tamu/3S24/CSCE_314/notes/haskell/10_Interactive_programming.md",
-    "tamu/3S24/CSCE_314/exercises/exercise_2/exercise2.md",
-    "tamu/3S24/CSCE_314/exercises/exercise_1/exercise1.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch4.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch10.md",
-    "tamu/3S24/CSCE_312/notes/!lecture.md",
-    "tamu/3S24/CSCE_221/notes/L5V5_Linked_List,_Queue.md"
+    "tamu/3S24/CSCE_314/notes/haskell/17_Calculating_compilers.md"
   ]
 }

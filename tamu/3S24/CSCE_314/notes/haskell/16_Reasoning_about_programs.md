@@ -114,11 +114,56 @@ Equational reasoning can be used to prove properties of programs.
 - Many recursive functions use the append operator `++`.
 - However, the append operator is not very efficient.
 - Induction can be used to eliminate some uses of `++`.
-- For example, consider the following definition of `reverse`:
+- As a motivating example, consider the following definition of `reverse`:
     ```haskell
     reverse :: [a] -> [a]
     reverse [] = []
     reverse (x:xs) = reverse xs ++ [x]
     ```
-    - In this example, `++` takes linear time in the length of the list.
+    - The append operation `xs ++ ys` is $O(n)$ where $n$ is the length of `xs`, since we must traverse `xs` to append `ys`.
+    - For a list of length $n$, the append operation is called $n$ times, so the total time complexity is $O(n^2)$.
+- Quadratic time is bad, so we want to eliminate the append operator.
+- Induction can help us eliminate the append operator in the definition of `reverse`.
+- The trick here is to use a *more general* function, combining the behavior of `reverse` and `++`.
+- We want to define a recursive function `reverse'` that *satisfies* the following:
+    ```haskell
+    reverse' xs ys = reverse xs ++ ys
+    ```
+    - When we say satisfies, we mean that `reverse'` should behave like `reverse` and `++` combined, not that the function is defined exactly like this.
+    - This means applying `reverse'` to two lists `xs` and `ys` is the same as appending `ys` to the reverse of `xs`.
+- If we can define such a function `reverse'`, then we can define `reverse` in terms of `reverse'`, which hopefully will be more efficient.
+- Rather than starting with the definition, we have a desired behavior for `reverse'`, so we can use this as a driving force to construct the definition itself.
+    - This is perfect for induction.
+    - The base case gives us the following: `reverse' [] ys = ys`
+    - The inductive case will give us a definition for `reverse' (x:xs) ys`
+Base case:
+```haskell
+  reverse' [] ys
+= reverse [] ++ ys  -- specification of reverse'
+= [] ++ ys  -- applying reverse
+= ys  -- applying ++
+```
+Inductive case:
+```haskell
+  reverse' (x:xs) ys
+= reverse (x:xs) ++ ys  -- specification of reverse'
+= (reverse xs ++ [x]) ++ ys  -- applying reverse
+= reverse xs ++ ([x] ++ ys)  -- associativity of ++
+= reverse' xs ([x] ++ ys)  -- specification of reverse'
+= reverse' xs (x:ys)  -- applying ++
+```
+- From this proof we can define `reverse'` as follows:
+    ```haskell
+    reverse' :: [a] -> [a] -> [a]
+    reverse' [] ys = ys
+    reverse' (x:xs) ys = reverse' xs (x:ys)
+    ```
+- Now, `reverse'` neither references the original function `reverse` nor the append operator `++`.
+- Finally, we can define `reverse` in terms of `reverse'`:
+    ```haskell
+    reverse :: [a] -> [a]
+    reverse xs = reverse' xs []
+    ```
+- In this definition, the list is reversed by accumulating the reverse in a second (empty) list.
+- The new definition of `reverse` takes linear time with respect to the length of the list.
 ## 16.7 Compiler correctness

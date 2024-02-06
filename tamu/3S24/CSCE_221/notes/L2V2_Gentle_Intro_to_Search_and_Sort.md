@@ -4,7 +4,7 @@
     - Basic anatomy of sort
     - A feel for juding the performance of search and sort algorithms
 ## Search
-- The process of finding an item with *specified properties from a *given collection of items*
+- The process of finding an item with *specified properties from a given collection of items*
 	- Examples:
 		- Search an array of integers for the number 36
 - Basic search - linear search
