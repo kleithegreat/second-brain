@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  4 FEB 2024 23:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10 Portable) (preloaded format=pdflatex 2023.10.14)  6 FEB 2024 15:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -176,42 +176,62 @@ File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 \Gin@req@height=\dimen150
 \Gin@req@width=\dimen151
 )
+(C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/caption\capt
+ion.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/caption\capt
+ion3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen152
+\captionmargin=\dimen153
+\caption@leftmargin=\dimen154
+\caption@rightmargin=\dimen155
+\caption@width=\dimen156
+\caption@indent=\dimen157
+\caption@parindent=\dimen158
+\caption@hangindent=\dimen159
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count271
+\c@continuedfloat=\count272
+)
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/l3backend\l3
 backend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count271
+\l__color_backend_stack_int=\count273
 \l__pdf_internal_box=\box53
 ) (hw1.aux)
 \openout1 = `hw1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/context/base/mkii\
 supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count272
-\scratchdimen=\dimen152
+\scratchcounter=\count274
+\scratchdimen=\dimen160
 \scratchbox=\box54
-\nofMPsegments=\count273
-\nofMParguments=\count274
+\nofMPsegments=\count275
+\nofMParguments=\count276
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count275
-\MPscratchDim=\dimen153
-\MPnumerator=\count276
-\makeMPintoPDFobject=\count277
+\MPscratchCnt=\count277
+\MPscratchDim=\dimen161
+\MPnumerator=\count278
+\makeMPintoPDFobject=\count279
 \everyMPtoPDFconversion=\toks31
 )
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/epstopdf-pkg
@@ -224,21 +244,23 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 topdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
 
 
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
 a.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
 
 
 (C:\Users\kevin\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
 b.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 19--25
+Underfull \hbox (badness 10000) in paragraph at lines 20--26
 
  []
 
@@ -249,32 +271,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--25
 <./images/2_18_a.png, id=22, 669.702pt x 324.0105pt>
 File: ./images/2_18_a.png Graphic file (type png)
 <use ./images/2_18_a.png>
-Package pdftex.def Info: ./images/2_18_a.png  used on input line 165.
+Package pdftex.def Info: ./images/2_18_a.png  used on input line 166.
 (pdftex.def)             Requested size: 172.5pt x 83.45464pt.
 <./images/2_18_b.png, id=24, 704.6325pt x 458.31226pt>
 File: ./images/2_18_b.png Graphic file (type png)
 <use ./images/2_18_b.png>
-Package pdftex.def Info: ./images/2_18_b.png  used on input line 170.
+Package pdftex.def Info: ./images/2_18_b.png  used on input line 171.
 (pdftex.def)             Requested size: 172.5pt x 112.19307pt.
  [5 <./images/2_18_a.png> <./images/2_18_b.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
 
  []
 
-[6] [7] (hw1.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
+
+ []
+
+[6] [7] [8] (hw1.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2824 strings out of 475248
- 42305 string characters out of 5752602
- 1929785 words of memory out of 5000000
- 24346 multiletter control sequences out of 15000+600000
+ 4182 strings out of 475248
+ 68556 string characters out of 5752602
+ 1941785 words of memory out of 5000000
+ 25698 multiletter control sequences out of 15000+600000
  561324 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,11n,65p,222b,332s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,11n,65p,222b,350s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/a
 msfonts/cm/cmbx12.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/
 fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/kevin/scoop/apps/miktex/cur
@@ -284,12 +311,13 @@ oop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb
 sfonts/cm/cmr5.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fon
 ts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/kevin/scoop/apps/miktex/current/
 texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/kevin/scoop/
-apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:
+apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:
 /Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfon
-ts/cm/cmti10.pfb>
-Output written on hw1.pdf (7 pages, 208581 bytes).
+ts/cm/cmsy7.pfb><C:/Users/kevin/scoop/apps/miktex/current/texmfs/install/fonts/
+type1/public/amsfonts/cm/cmti10.pfb>
+Output written on hw1.pdf (8 pages, 222280 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
+ 84 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

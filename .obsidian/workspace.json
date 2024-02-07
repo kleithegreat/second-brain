@@ -4,35 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "068682ffaee80876",
+        "id": "8c7fb5afcf21140a",
         "type": "tabs",
         "children": [
           {
-            "id": "91e0a7fed2e1d9f5",
+            "id": "84243e7f243435e1",
             "type": "leaf",
             "state": {
-              "type": "pdf",
-              "state": {
-                "file": "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf"
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "0f745ef9936d992a",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "03a75f56d714f66b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -93,8 +73,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "5b251c471476f84d",
@@ -110,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,9 +126,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -171,27 +146,27 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "03a75f56d714f66b",
+  "active": "84243e7f243435e1",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
+    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
+    "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
     "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
+    "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
     "tamu/3S24/MATH_300/homework/hw3/hw3.pdf",
     "tamu/3S24/MATH_300/homework/hw3/hw3.aux",
     "tamu/3S24/MATH_300/homework/hw3/hw3.log",
-    "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_221/notes/L5V5_Linked_List,_Queue.md",
     "tamu/3S24/CSCE_221/notes/L7-V7_Introduction_to_Algorithmic_Complexity.md",
     "tamu/3S24/CSCE_221/notes/L6-V6_Deque.md",
     "tamu/3S24/CSCE_221/notes/L3V3_Abstract_Data_Types.md",
     "tamu/3S24/CSCE_221/notes/L4V4_Stack.md",
     "tamu/3S24/CSCE_221/notes/L2V2_Gentle_Intro_to_Search_and_Sort.md",
-    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
     "tamu/3S24/CSCE_312/notes/vahid_ch1-5.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
     "tamu/3S24/CSCE_312/notes/valid_ch4.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
     "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
     "tamu/3S24/MATH_300/writing_assignments/WA2/Communicating_Mathematics.pdf",

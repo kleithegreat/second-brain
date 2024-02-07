@@ -3,6 +3,7 @@
 \usepackage{fancyhdr}
 \usepackage{enumerate}
 \usepackage{graphicx}
+\usepackage{caption}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -175,25 +176,92 @@ Convert to gate level circuits:
 \subsection*{2.24}
 For the function $F = a'd' + a'c + b'cd' + cd$:
 \begin{enumerate}[(a)]
-    \item List all the variables.
-    \item List all the literals.
+    \item List all the variables. \\
+    We have variables $a$, $b$, $c$, and $d$.
+    \item List all the literals. \\
+    We have literals $a$, $a'$, $b$, $b'$, $c$, $c'$, $d$, and $d'$.
     \item List all the product terms.
+    The product terms are $a'd'$, $a'c$, $b'cd'$, and $cd$.
 \end{enumerate}
 
 \subsection*{2.28}
-Convert to sum of products form:
-$F = a'b(c + d') + a(b' + c) + a(b + d)c$
+Convert to sum of products form: $F = a'b(c + d') + a(b' + c) + a(b + d)c$
+\begin{align*}
+    F &= a'b(c + d') + a(b' + c) + a(b + d)c \\
+    &= a'bc + a'bd' + ab' + ac + abc + acd
+\end{align*}
 
 \subsection*{2.33}
+The circuit converted to a boolean expression is: \\
 $ G = ab' + b + a'c $
 
 \subsection*{2.39}
+The truth table of $F$ converted to a boolean expression is: \\
 $ F = a'b'c' + a'bc' + ab'c' + ab'c + abc' $
 
 \subsection*{2.52}
 Determine if $F$ and $G$ are equivalent using (a) algebraic manipulation and (b) truth tables: \\
 $$ F = ab + cd $$
 $$ G = (1((ab)'(cd)')')' $$
+
+\noindent (a) Algebraic manipulation \\
+\begin{align*}
+    G &= (1((ab)'(cd)')')' \\
+    &= 0 + ((ab)'(cd)')' \\
+    &= ab + cd \\
+    &= F
+\end{align*}
+
+\noindent (b) Comparing truth tables \\
+\begin{minipage}{.4\textwidth}
+\centering
+\begin{tabular}{c c c c|c}
+    a & b & c & d & F \\
+    \hline
+    0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 1 & 1 \\
+    0 & 1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 1 & 1 \\
+    0 & 1 & 1 & 0 & 0 \\
+    0 & 1 & 1 & 1 & 1 \\
+    1 & 0 & 0 & 0 & 0 \\
+    1 & 0 & 0 & 1 & 0 \\
+    1 & 0 & 1 & 0 & 0 \\
+    1 & 0 & 1 & 1 & 1 \\
+    1 & 1 & 0 & 0 & 1 \\
+    1 & 1 & 0 & 1 & 1 \\
+    1 & 1 & 1 & 0 & 1 \\
+    1 & 1 & 1 & 1 & 1 \\
+\end{tabular}
+\captionof{table}{Truth table for $F$}
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+\centering
+\begin{tabular}{c c c c|c}
+    a & b & c & d & G \\
+    \hline
+    0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 1 & 1 \\
+    0 & 1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 1 & 1 \\
+    0 & 1 & 1 & 0 & 0 \\
+    0 & 1 & 1 & 1 & 1 \\
+    1 & 0 & 0 & 0 & 0 \\
+    1 & 0 & 0 & 1 & 0 \\
+    1 & 0 & 1 & 0 & 0 \\
+    1 & 0 & 1 & 1 & 1 \\
+    1 & 1 & 0 & 0 & 1 \\
+    1 & 1 & 0 & 1 & 1 \\
+    1 & 1 & 1 & 0 & 1 \\
+    1 & 1 & 1 & 1 & 1 \\
+\end{tabular}
+\captionof{table}{Truth table for $G$}
+\end{minipage} \\
+\noindent We can see that the truth tables for $F$ and $G$ are the same, so $F$ and $G$ are equivalent.
 
 \subsection*{2.58}
 
@@ -206,8 +274,22 @@ $$ G = (1((ab)'(cd)')')' $$
 \subsection*{2.75}
 
 \subsection*{3.2}
+Clock period of frequencies:
+\begin{enumerate}[(a)]
+    \item 32.768 kHz has a period of $\frac{1}{32.768 \times 10^3} \approx 3.052 \times 10^{-5}$ s
+    \item 100 MHz has a period of $\frac{1}{100 \times 10^6} = 1 \times 10^{-8}$ s
+    \item 1.5 GHz has a period of $\frac{1}{1.5 \times 10^9} = 6.67 \times 10^{-10}$ s
+    \item 2.4 GHz has a period of $\frac{1}{2.4 \times 10^9} = 4.17 \times 10^{-10}$ s
+\end{enumerate}
 
 \subsection*{3.4}
+Frequency of clock periods:
+\begin{enumerate}[(a)]
+    \item 500 ms has a frequency of $\frac{1}{500 \times 10^{-3}} = 2$ Hz
+    \item 400 ns has a frequency of $\frac{1}{400 \times 10^{-9}} = 2.5 \times 10^6$ Hz
+    \item 4 ns has a frequency of $\frac{1}{4 \times 10^{-9}} = 2.5 \times 10^8$ Hz
+    \item 20 ps has a frequency of $\frac{1}{20 \times 10^{-12}} = 5 \times 10^{11}$ Hz
+\end{enumerate}
 
 \subsection*{3.10}
 
