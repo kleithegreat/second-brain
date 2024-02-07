@@ -13,5 +13,85 @@
 \begin{document}
 
 \section*{Question 1}
+\begin{proof}
+    Let $m$ and $n$ be integers. 
+    We want to show that if $m$ is even and $n$ is odd, then $m+n$ is odd.
+    Since $m$ is even, we can write $m = 2k$ for some integer $k$.
+    Likewise, since $n$ is odd, we can write $n = 2l+1$ for some integer $l$.
+    Then, 
+    \begin{align*}
+        m+n &= 2k + 2l + 1 \\
+        &= 2(k+l) + 1.
+    \end{align*}
+    Since $k+l$ is an integer, $m+n$ is odd.
+\end{proof}
+
+\section*{Question 2}
+\begin{proof}
+    Let $a$, $b$, $c$, $k$ and $l$ be integers.
+    We want to show that if $a \mid b$ and $a \mid c$, then $a \mid (bk + cl)$.
+    Since $a \mid b$, we can write $b = am$ for some integer $m$.
+    Likewise, since $a \mid c$, we can write $c = an$ for some integer $n$.
+    Thus, we can write
+    \begin{align*}
+        bk + cl &= amk + anl \\
+        &= a(mk + nl).
+    \end{align*}
+    Since $mk + nl$ is an integer, we have shown that $a$ divides $bk + cl$.
+\end{proof}
+
+\section*{Question 3}
+\begin{proof}
+    Let $m$ be an odd integer.
+    We want to show that for all integers $m$, if $m$ is odd, then there exists some integer $k$ such that $m^2 = 8k + 1$.
+    By definition, $m$ can be written as $m = 2n + 1$ for some integer $n$.
+    We can then substitute this into $m^2$ to get
+    \begin{align*}
+        m^2 &= (2n + 1)^2 \\
+        &= 4n^2 + 4n + 1 \\
+        &= 4(n^2 + n) + 1.
+    \end{align*}
+    By Lemma 1, $n^2 + n$ is even for all integers $n$.
+    Thus, we can write $n^2 + n = 2k$ for some integer $k$.
+    Substituting this into $m^2$, we get
+    \begin{align*}
+        m^2 &= 4(2k) + 1 \\
+        &= 8k + 1.
+    \end{align*}
+    Now we have found an integer $k$ such that $m^2 = 8k + 1$.
+\end{proof}
+
+\newpage
+\section*{Question 4}
+\begin{proof}
+    Let $n$ be an integer.
+    We want to show that for any integer $n$, $n^2 + n - 9$ is odd.
+    In the case that $n$ is even, we can write $n = 2k$ for some integer $k$.
+    Thus, we can write
+    \begin{align*}
+        n^2 + n - 9 &= (2k)^2 + 2k - 9 \\
+        &= 4k^2 + 2k - 9 \\
+        &= 4k^2 + 2k - 10 + 1 \\
+        &= 2(2k^2 + k - 5) + 1.
+    \end{align*}
+    Since $2k^2 + k - 5$ is an integer, $n^2 + n - 9$ is odd for even $n$.
+    In the case that $n$ is odd, we can write $n = 2k + 1$ for some integer $k$.
+    Then, we can substitute as follows:
+    \begin{align*}
+        n^2 + n - 9 &= (2k + 1)^2 + 2k + 1 - 9 \\
+        &= 4k^2 + 4k + 1 + 2k + 1 - 9 \\
+        &= 4k^2 + 6k - 8 + 1 \\
+        &= 2(2k^2 + 3k - 4) + 1.
+    \end{align*}
+    Since $2k^2 + 3k - 4$ is an integer, $n^2 + n - 9$ is odd for odd $n$.
+    Therefore, we have shown that $n^2 + n - 9$ is odd for all integers $n$.
+\end{proof}
+
+\section*{Question 5}
+Although the formal proof and the proof using lemmas are both valid, 
+
+
+\section*{Question 6}
+
 
 \end{document}
