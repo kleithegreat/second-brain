@@ -37,3 +37,16 @@ f = (a' * b')' = a + b (DeMorgan's Law)
 ## 02/01/2024
 vahid chapter 2 and 3
 > QUIZ: D flip-flop shit and the other example
+
+## 02/06/2024
+- another name for latches in series is a **repeater**
+- regexes are finite state machines
+    - for example `01+` forms the set $\{01, 0101, 010101, ...\}$
+    - essentially a language generator
+- FSM names are inside the circles
+- FSM outputs must be listed outside
+- EJ's convention for FSMs:
+    - State name in the circle
+    - outputs on **TOP**
+    - initial state has an arrow pointing to it from nothing
+    - FSM diagram names should include the states binary encoding in the state register

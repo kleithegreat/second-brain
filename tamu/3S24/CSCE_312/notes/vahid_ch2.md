@@ -312,8 +312,3 @@ a & b & f0 & f1 & f2 & f3 & f4 & f5 & f6 & f7 & f8 & f9 & f10 & f11 & f12 & f13 
 - An inputs **waveform** is a graph of the input over time
 - Waveforms can be used to check against test cases
 - We can also use checking statements called **assertions** (kind of like the python keyword) to check the circuit
-## 2.11 Combinational Logic Optimizations and Tradeoffs
-redirects to section 6.2
-## 2.12 Combinational Logic Description Using Hardware Description Languages
-- Hardware description languages (HDLs) are a textual language to describe digital circuits
-redirects to section 9.2

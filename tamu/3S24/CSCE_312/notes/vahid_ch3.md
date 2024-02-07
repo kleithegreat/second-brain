@@ -126,7 +126,7 @@
 - We must have a way to *capture* desired time-ordered behavior, and a technique to *convert* this behavior into a circuit
 ### Mathematical Formalism for Sequential Behavior-FSMs
 - Boolean equations are not sufficient for sequential behavior
-- Finite-state machiens are a mathematical formalism for capturing sequential behavior
+- Finite-state machines are a mathematical formalism for capturing sequential behavior
 - The main part of an FSM is a set of state representing every possible "situation" the system can be in
 - The system can only be in one state at a time, which is called the current or present state
 - A **state diagram** is a graph where the nodes are the states and the edges are the transitions between states
