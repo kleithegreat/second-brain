@@ -12,6 +12,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{listings}
+\usepackage{enumitem}
 
 \geometry{a4paper, margin=1in}
 
@@ -113,13 +114,25 @@ Switching characteristics of 7432 quad 2-input OR gate at Vcc = 5V and 25\degree
     \hline
 \end{tabular}
 
+\newpage
 \section{Problem 2}
 
 \subsection{Part 1}
-\begin{enumerate}
+\begin{enumerate}[label=\alph*.]
     \item The number of input bits is 10 since there are 10 cars with switches.
-    \item We will need 7 output bits for the 7-segment display. We do not need to use the 8th decimal point input, since we have 10 cars represented from 0 to 9.
+    \item We will need 7 output bits for the 7-segment display (since each segment must be either on or off).
     \item We will need a 4-bit data bus between the encoder and decoder, since $\lceil \log_2 10 \rceil = 4$.
+    \item We will need a 10 to 4 encoder.
+    \item We will need a 4 to 7 decoder.
 \end{enumerate}
+
+\subsection{Part 2}
+% summary of 7 segment display https://www.electronicshub.org/seven-segment-displays/
+
+\subsection{Part 3}
+% screenshots of encoder and decoder designs
+
+\subsection{Part 4}
+% overall circuit screenshots and explanation
 
 \end{document}

@@ -160,9 +160,9 @@ or gate and gate ez
     - `abcde'` corresponds to 11110 which is 30 in decimal
     - `abcde` corresponds to 11111 which is 31 in decimal
     - So `H = a'bcde + abcde' + abcde` can be represented as H = $\sum$ m(15, 30, 31)
-### Multiple-Output Combinaional Circuits
+### Multiple-Output Combinational Circuits
 - A common approach to designing multiple-output combinational circuits is to treat each output as a separate function
-- Circuite do not have to be competely separate for each output
+- Circuits do not have to be competely separate for each output
 ## 2.7 Combinational Logic Design Process
 - The first step in describing the desired behavior of logic is called **capturing** the behavior
 - The second step is **converting** it into a circuit

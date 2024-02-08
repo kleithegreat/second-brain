@@ -4,15 +4,29 @@
     "type": "split",
     "children": [
       {
-        "id": "8c7fb5afcf21140a",
+        "id": "ee875255659b7591",
         "type": "tabs",
         "children": [
           {
-            "id": "84243e7f243435e1",
+            "id": "fa78cb9ea5509b26",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e115b28dcee5ce7c",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf"
+              }
             }
           }
         ]
@@ -89,6 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +142,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/3S24/CSCE_312/notes/vahid_ch2.md"
+              }
             }
           }
         ]
@@ -146,18 +164,41 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "84243e7f243435e1",
+  "active": "fa78cb9ea5509b26",
   "lastOpenFiles": [
-    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
+    "tamu/3S24/CSCE_312/labs/lab2/circuits/part2.bak",
     "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
+    "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao/circuit/lmfao.circ",
+    "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao/library",
+    "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao/circuit",
+    "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao",
+    "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao.circ",
+    "tamu/3S24/CSCE_312/labs/lab2/circuits/part2.circ",
+    "tamu/3S24/CSCE_312/labs/lab2/circuits/part1.circ",
+    "tamu/3S24/CSCE_312/labs/lab2/circuits",
+    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
+    "tamu/3S24/CSCE_312/notes/!lecture.md",
+    "tamu/3S24/CSCE_312/labs/lab2/report.aux",
     "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
-    "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
+    "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
+    "tamu/3S24/CSCE_312/homework/hw1/images/2_75.jpg",
+    "tamu/3S24/CSCE_312/homework/hw1/images/96291.jpg",
+    "tamu/3S24/CSCE_312/homework/hw1/images/2_71.png",
+    "tamu/3S24/CSCE_312/homework/hw1/images/2_70.png",
+    "tamu/3S24/CSCE_312/homework/hw1/images/2_66.png",
+    "tamu/3S24/CSCE_312/homework/hw1/images/2_58.png",
+    "tamu/3S24/CSCE_312/homework/hw1/images/2_18_c.png",
+    "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
+    "tamu/3S24/CSCE_314/notes/haskell/5_List_comprehensions.md",
+    "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md",
+    "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
+    "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
+    "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
-    "tamu/3S24/MATH_300/homework/hw3/hw3.pdf",
-    "tamu/3S24/MATH_300/homework/hw3/hw3.aux",
-    "tamu/3S24/MATH_300/homework/hw3/hw3.log",
     "tamu/3S24/CSCE_221/notes/L5V5_Linked_List,_Queue.md",
     "tamu/3S24/CSCE_221/notes/L7-V7_Introduction_to_Algorithmic_Complexity.md",
     "tamu/3S24/CSCE_221/notes/L6-V6_Deque.md",
@@ -167,24 +208,9 @@
     "tamu/3S24/CSCE_312/notes/vahid_ch1-5.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
     "tamu/3S24/CSCE_312/notes/valid_ch4.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
-    "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
-    "tamu/3S24/CSCE_314/notes/haskell/5_List_comprehensions.md",
-    "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
     "tamu/3S24/CSCE_314/exercises/exercise_3/exercise3.md",
     "tamu/3S24/CSCE_312/labs/lab1/images/prob5part2.png",
     "tamu/3S24/CSCE_312/labs/lab1/images/prob5part1.png",
-    "tamu/3S24/CSCE_312/labs/lab1/images/prob4part2.png",
-    "tamu/3S24/CSCE_312/labs/lab1/images/prob4part1.png",
-    "tamu/3S24/CSCE_312/labs/lab1/images/prob2partb2.png",
-    "tamu/3S24/CSCE_312/labs/lab1/images/prob3partd.png",
-    "tamu/3S24/CSCE_312/labs/lab1/images/prob3partc.png",
-    "tamu/3S24/CSCE_312/labs/lab1/images/prob2partb1.png",
-    "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
-    "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md",
-    "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
-    "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
-    "tamu/3S24/CSCE_314/notes/haskell/17_Calculating_compilers.md"
+    "tamu/3S24/CSCE_312/labs/lab1/images/prob4part2.png"
   ]
 }
