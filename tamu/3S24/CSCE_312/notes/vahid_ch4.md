@@ -57,7 +57,7 @@
 
 ### Detecting Overflow
 
-## 4.7 Arithemetic-Logic Units--ALUs
+## 4.7 Arithmetic-Logic Units--ALUs
 
 ## 4.8 Shifters
 
@@ -77,6 +77,6 @@
 
 ## 4.10 Register Files
 
-## 4.11 Datapth Component Tradeoffs
+## 4.11 Datapath Component Tradeoffs
 
 ## 4.12 Datapath Component Description Using Hardware Description Languages

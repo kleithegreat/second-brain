@@ -122,17 +122,42 @@ Switching characteristics of 7432 quad 2-input OR gate at Vcc = 5V and 25\degree
     \item The number of input bits is 10 since there are 10 cars with switches.
     \item We will need 7 output bits for the 7-segment display (since each segment must be either on or off).
     \item We will need a 4-bit data bus between the encoder and decoder, since $\lceil \log_2 10 \rceil = 4$.
-    \item We will need a 10 to 4 encoder.
-    \item We will need a 4 to 7 decoder.
+    \item We will need a 16:4 encoder. We will only need 10 of the 16 possible inputs.
+    \item We will need a 4:16 decoder. We will only need 7 of the 16 possible outputs.
 \end{enumerate}
 
 \subsection{Part 2}
 % summary of 7 segment display https://www.electronicshub.org/seven-segment-displays/
+The 7-segment display is simply just a combination of 7 LEDs arranged in a pattern to display the numbers 0-9.
+Each LED has its own input, and the display is controlled by turning on the appropriate LEDs to form the desired number.
+There is also a decimal point LED, but it is not used in this lab.
+Although the logical inputs to the display take up 8 pins, there are typically two more pins for the common anode or cathode, depending on the type of 7-segment display used.
 
 \subsection{Part 3}
 % screenshots of encoder and decoder designs
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./images/encoder.png}
+    \caption{Encoder design}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./images/decoder.png}
+    \caption{Decoder design}
+\end{figure}
 
 \subsection{Part 4}
 % overall circuit screenshots and explanation
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./images/circuit2.png}
+    \caption{Overall circuit design}
+\end{figure}
+With the encoder and decoder abstracted away, the overall circuit design is relatively simple. 
+The system works by having ten switches, each representing a car labeled from 0 to 9.
+It is assumed that no more than one switch will be on at a time.
+All ten switches are fed into the 16:4 encoder, which outputs a 4-bit binary number representing the car number.
+This 4-bit number is then fed into the 4:16 decoder, which outputs the 7-segment display signals for the corresponding number.
 
 \end{document}

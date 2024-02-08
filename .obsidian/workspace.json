@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "fa78cb9ea5509b26",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "e115b28dcee5ce7c",
             "type": "leaf",
             "state": {
@@ -28,8 +16,33 @@
                 "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf"
               }
             }
+          },
+          {
+            "id": "d487a6b3242530a4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5122c31182313248",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tamu/3S24/CSCE_312/notes/!lecture.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -103,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
+                "file": "tamu/3S24/CSCE_312/notes/!lecture.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
+                "file": "tamu/3S24/CSCE_312/notes/!lecture.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/vahid_ch2.md"
+                "file": "tamu/3S24/CSCE_312/notes/!lecture.md"
               }
             }
           }
@@ -164,24 +177,24 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fa78cb9ea5509b26",
+  "active": "5122c31182313248",
   "lastOpenFiles": [
-    "tamu/3S24/CSCE_312/labs/lab2/circuits/part2.bak",
+    "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
+    "tamu/3S24/CSCE_312/notes/!lecture.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
     "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
+    "tamu/3S24/CSCE_314/homework/hw2/hw2-skeleton.hs",
+    "tamu/3S24/CSCE_314/homework/hw2/hw2.pdf",
+    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
+    "tamu/3S24/CSCE_312/labs/lab2/circuits/part2.bak",
     "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao/circuit/lmfao.circ",
     "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao/library",
     "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao/circuit",
     "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao",
     "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao.circ",
     "tamu/3S24/CSCE_312/labs/lab2/circuits/part2.circ",
-    "tamu/3S24/CSCE_312/labs/lab2/circuits/part1.circ",
-    "tamu/3S24/CSCE_312/labs/lab2/circuits",
-    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
-    "tamu/3S24/CSCE_312/notes/!lecture.md",
-    "tamu/3S24/CSCE_312/labs/lab2/report.aux",
-    "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
     "tamu/3S24/CSCE_312/homework/hw1/images/2_75.jpg",
@@ -206,7 +219,6 @@
     "tamu/3S24/CSCE_221/notes/L4V4_Stack.md",
     "tamu/3S24/CSCE_221/notes/L2V2_Gentle_Intro_to_Search_and_Sort.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch1-5.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
     "tamu/3S24/CSCE_312/notes/valid_ch4.md",
     "tamu/3S24/CSCE_314/exercises/exercise_3/exercise3.md",
     "tamu/3S24/CSCE_312/labs/lab1/images/prob5part2.png",

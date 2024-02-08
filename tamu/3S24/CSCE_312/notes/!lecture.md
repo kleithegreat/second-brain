@@ -50,3 +50,13 @@ vahid chapter 2 and 3
     - outputs on **TOP**
     - initial state has an arrow pointing to it from nothing
     - FSM diagram names should include the states binary encoding in the state register
+
+## 02/08/2024
+- test on tuesday
+- datapath stuff:
+	- registers take a load signal
+		- when load is 0 it maintains its value
+		- otherwise it reads the input
+	- basic register loads on every clock cycle
+	- parallel load register has a mux in front with load as select
+	- muxes are trapezoids in circuit diagrams (wide side inputs, narrow side output)
