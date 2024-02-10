@@ -1,7 +1,7 @@
 # 4 - Datapath Components
 ## 4.1 Introduction
 - Controllers are good for systems with *control* inputs
-- This chapter focuses on building blocks for sstems with *data* inputs
+- This chapter focuses on building blocks for systems with *data* inputs
 - The two differ as follows:
     - **Control**: A control input is usually one bit and represents some particular event or command that influences or directs the system's mode of operation
     - **Data**: A data input is usually multiple bits that represent a single piece of information

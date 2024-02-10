@@ -4,6 +4,7 @@
 \usepackage{enumerate}
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{float}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -104,6 +105,7 @@ Decimal to binary using divide by 2:
     $2 \div 2 = 1 \text{ remainder } 0$ \\
     $1 \div 2 = 0 \text{ remainder } 1$ \\
     $64 = 1000000$
+    \newpage
     \item 
     $128 \div 2 = 64 \text{ remainder } 0$ \\
     $64 \div 2 = 32 \text{ remainder } 0$ \\
@@ -170,6 +172,7 @@ Convert to gate level circuits:
         \centering
         \includegraphics[width=0.5\textwidth]{./images/2_18_b.png}
     \end{figure}
+    \newpage
     \item $F = ((ab)' + (c)) + (d + ef)'$
     \begin{figure}[h]
         \centering
@@ -203,6 +206,7 @@ $ G = ab' + b + a'c $
 The truth table of $F$ converted to a boolean expression is: \\
 $ F = a'b'c' + a'bc' + ab'c' + ab'c + abc' $
 
+\newpage
 \subsection*{2.52}
 Determine if $F$ and $G$ are equivalent using (a) algebraic manipulation and (b) truth tables: \\
 $$ F = ab + cd $$
@@ -270,33 +274,31 @@ $$ G = (1((ab)'(cd)')')' $$
 \newpage
 \subsection*{2.58}
 $P = N_3'(N_2' N_1 + N_0) + N_3 N_0 (N_2 \oplus N_1)$
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{./images/2_58.png}
+    \includegraphics[width=0.75\textwidth]{./images/2_58.png}
 \end{figure}
 
 \subsection*{2.66}
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{./images/2_66.png}
+    \includegraphics[width=0.4\textwidth]{./images/2_66.png}
 \end{figure}
 
-\newpage
 \subsection*{2.70}
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{./images/2_70.png}
 \end{figure}
 
-\newpage
 \subsection*{2.71}
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.66\textwidth]{./images/2_71.png}
 \end{figure}
 
 \subsection*{2.75}
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.69\textwidth]{./images/2_75.jpg}
 \end{figure}
@@ -321,15 +323,53 @@ Frequency of clock periods:
 \end{enumerate}
 
 \subsection*{3.10}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./images/3_10.jpg}
+\end{figure}
 
 \subsection*{3.12}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./images/3_12.jpg}
+\end{figure}
 
 \subsection*{3.21}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./images/3_21.jpg}
+\end{figure}
 
 \subsection*{3.30}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./images/3_30.jpg}
+\end{figure}
 
 \subsection*{3.40}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./images/3_40.jpg}
+    \caption*{Truth table and boolean expressions for the finite state machine.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./images/3_40_circ.png}
+    \caption*{Circuit implementation of the finite state machine.}
+\end{figure}
 
 \subsection*{3.43}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./images/3_43.jpg}
+    \caption*{Truth table and boolean expressions for the finite state machine.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./images/3_43_circ.png}
+    \caption*{Circuit implementation of the finite state machine.}
+\end{figure}
 
 \end{document}

@@ -88,10 +88,70 @@
 \end{proof}
 
 \section*{Question 5}
-Although the formal proof and the proof using lemmas are both valid, 
-
+Although the formal proof and the proof using lemmas are both valid, they have some differences that are worth noting.
+For starters, the formal proof is easier to follow since you can see everything step by step.
+This also makes the formal proof longer than the proof using lemmas.
+On the other hand, the proof using lemmas is a lot more concise while still being logically equivalent to the formal proof.
+The downside to the proof using lemmas is that it abstracts away a lot of the details, so it sounds a lot more like ``trust me bro" than the formal proof.
 
 \section*{Question 6}
 
+\subsection*{a)}
+\begin{proof}
+    Let $a$ and $b$ be integers.
+    We want to show that if $a \mid b$, then $a^2 \mid b^2$.
+    Since $a \mid b$, we can write $b = ak$ for some integer $k$.
+    Then, we can square both sides to get
+    \begin{align*}
+        b^2 &= (ak)^2 \\
+        &= a^2k^2.
+    \end{align*}
+    Since $k^2$ is an integer, we have shown that $a^2 \mid b^2$.
+\end{proof}
+
+\subsection*{b)}
+\renewcommand*{\proofname}{Disproof}
+\begin{proof}
+    Letting $a = 2, b = 2, c = 3$, we have a counterexample since
+    \begin{align*}
+        2^{2^3} = 2^8 = 256, \; (2^2)^3 = 4^3 = 64.
+    \end{align*}
+    Thus, the equality $a^{bc} = (a^b)^c$ does not hold for integers $a$, $b$, and $c$.
+\end{proof}
+
+\subsection*{c)}
+\begin{proof}
+    Letting $x = 1, y = -1$, we have a counterexample since
+    \begin{align*}
+        | 1 - (-1) | = 2, \; |1| - |-1| = 0.
+    \end{align*}
+    Thus, the equality $|x - y| = |x| - |y|$ does not hold for real numbers $x$ and $y$.
+\end{proof}
+
+\subsection*{d)}
+\renewcommand*{\proofname}{Proof}
+\begin{proof}
+    Let $m$ and $n$ be even integers.
+    We want to show that for all $m$ and $n$, 4 is a factor of $mn$.
+    Since $m$ and $n$ are even, we can write $m = 2k$ and $n = 2l$ for some integers $k$ and $l$.
+    Therefore, we can write
+    \begin{align*}
+        mn &= (2k)(2l) \\
+        &= 4kl.
+    \end{align*}
+    Since $kl$ is an integer, we have shown that 4 is a factor of $mn$.
+\end{proof}
+
+\subsection*{e)}
+\renewcommand*{\proofname}{Disproof}
+\begin{proof}
+    If we let $a = 3, b = 2, c = 4$, we have a counterexample since $b + c$ is 6 and 3 divides 6, but 3 does not divide 2 or 4.
+\end{proof}
+
+\subsection*{f)}
+\renewcommand*{\proofname}{Proof}
+\begin{proof}
+    If we let $m = 2, n = -3$, we have found two integers $m$ and $n$ such that $15m + 12n = -6$.
+\end{proof}
 
 \end{document}

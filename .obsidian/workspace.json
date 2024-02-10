@@ -4,38 +4,68 @@
     "type": "split",
     "children": [
       {
-        "id": "ee875255659b7591",
+        "id": "89e52bebe46b77d6",
         "type": "tabs",
         "children": [
           {
-            "id": "e115b28dcee5ce7c",
+            "id": "b272e53f90c793ec",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
-                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf"
+                "file": "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf"
               }
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "b57509c8a2ba958d",
+        "type": "tabs",
+        "children": [
           {
-            "id": "d487a6b3242530a4",
+            "id": "78e89645a920fa1e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
+                "file": "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "5122c31182313248",
+            "id": "a3a8a2e72f0d7f85",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/!lecture.md",
+                "file": "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "45b1df584928950f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "23ecce6727fc0982",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tamu/3S24/CSCE_314/notes/haskell/5_List_comprehensions.md",
                 "mode": "source",
                 "source": false
               }
@@ -116,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/!lecture.md",
+                "file": "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/!lecture.md",
+                "file": "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -156,7 +186,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/!lecture.md"
+                "file": "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md"
               }
             }
           }
@@ -177,40 +207,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5122c31182313248",
+  "active": "45b1df584928950f",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
+    "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
+    "tamu/3S24/CSCE_314/notes/haskell/5_List_comprehensions.md",
+    "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md",
+    "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
+    "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
+    "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
+    "tamu/3S24/CSCE_314/homework/hw2/Kevin-Lei-hw2.txt",
+    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
+    "tamu/3S24/CSCE_312/homework/hw1/images/3_43.jpg",
+    "tamu/3S24/CSCE_312/homework/hw1/images/3_40.jpg",
+    "tamu/3S24/CSCE_312/homework/hw1/images/3_30.jpg",
+    "tamu/3S24/CSCE_312/homework/hw1/images/3_21.jpg",
+    "tamu/3S24/CSCE_312/homework/hw1/images/3_12.jpg",
+    "tamu/3S24/CSCE_312/homework/hw1/images/3_10.jpg",
+    "tamu/3S24/CSCE_312/homework/hw1/images/IMG_0285.jpg",
+    "tamu/3S24/CSCE_312/homework/hw1/images/IMG_0284.jpg",
+    "tamu/3S24/CSCE_312/homework/hw1/images/IMG_0283.jpg",
+    "tamu/3S24/CSCE_312/homework/hw1/images/IMG_0282.jpg",
+    "tamu/3S24/CSCE_312/labs/lab2/circuits/part2.bak",
+    "tamu/3S24/CSCE_312/homework/hw1/circuits/3_40.circ",
+    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
+    "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
+    "tamu/3S24/CSCE_312/notes/!lecture.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
-    "tamu/3S24/CSCE_312/notes/!lecture.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
-    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
     "tamu/3S24/CSCE_314/homework/hw2/hw2-skeleton.hs",
     "tamu/3S24/CSCE_314/homework/hw2/hw2.pdf",
-    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
-    "tamu/3S24/CSCE_312/labs/lab2/circuits/part2.bak",
     "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao/circuit/lmfao.circ",
     "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao/library",
     "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao/circuit",
-    "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao",
-    "tamu/3S24/CSCE_312/labs/lab2/circuits/lmfao.circ",
-    "tamu/3S24/CSCE_312/labs/lab2/circuits/part2.circ",
     "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
-    "tamu/3S24/CSCE_312/homework/hw1/images/2_75.jpg",
-    "tamu/3S24/CSCE_312/homework/hw1/images/96291.jpg",
-    "tamu/3S24/CSCE_312/homework/hw1/images/2_71.png",
-    "tamu/3S24/CSCE_312/homework/hw1/images/2_70.png",
-    "tamu/3S24/CSCE_312/homework/hw1/images/2_66.png",
-    "tamu/3S24/CSCE_312/homework/hw1/images/2_58.png",
-    "tamu/3S24/CSCE_312/homework/hw1/images/2_18_c.png",
-    "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
-    "tamu/3S24/CSCE_314/notes/haskell/5_List_comprehensions.md",
-    "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
-    "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
-    "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
-    "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
     "tamu/3S24/CSCE_221/notes/L5V5_Linked_List,_Queue.md",
     "tamu/3S24/CSCE_221/notes/L7-V7_Introduction_to_Algorithmic_Complexity.md",
@@ -219,10 +253,6 @@
     "tamu/3S24/CSCE_221/notes/L4V4_Stack.md",
     "tamu/3S24/CSCE_221/notes/L2V2_Gentle_Intro_to_Search_and_Sort.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch1-5.md",
-    "tamu/3S24/CSCE_312/notes/valid_ch4.md",
-    "tamu/3S24/CSCE_314/exercises/exercise_3/exercise3.md",
-    "tamu/3S24/CSCE_312/labs/lab1/images/prob5part2.png",
-    "tamu/3S24/CSCE_312/labs/lab1/images/prob5part1.png",
-    "tamu/3S24/CSCE_312/labs/lab1/images/prob4part2.png"
+    "tamu/3S24/CSCE_312/notes/valid_ch4.md"
   ]
 }

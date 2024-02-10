@@ -169,7 +169,7 @@ Haskell has a range of mechanisms for defining functions.
     (*2) -- the doubling function \x -> 2 * x
     (/2) -- the halving function \x -> x / 2
     ```
-- Sections are also necessary for stating types of operators, since operators themselces are not valid expressions in Haskell.
+- Sections are also necessary for stating types of operators, since operators themselves are not valid expressions in Haskell.
 - Sections are necessary when using them as arguments to higher-order functions.
     - Example: The sum function as a fold.
         ```haskell
