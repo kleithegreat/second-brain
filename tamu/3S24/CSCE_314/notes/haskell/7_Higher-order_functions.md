@@ -61,11 +61,139 @@ twice f x = f (f x)
     ```
     - This definition means that `filter` will keep every element `x` in the list if `p x` is true and then recursively apply `filter` to the tail of the list.
 ## 7.3 The foldr function
+- Many functions that process lists follow a simple pattern:
+    ```haskell
+    f [] = v
+    f (x:xs) = x # f xs
+    ```
+    - This mean the function maps the empty list to some value `v`.
+    - The function applies some operator `#` to the head of the list.
+    - The function then recursively applies itself to the tail of the list.
+- Some common examples of this pattern are:
+    - Summing a list of numbers.
+    - Computing the product of a list of numbers.
+    - Logical OR on a list of boolean values.
+- The higher order library function `foldr` (abbreviates *fold right*) captures this pattern.
+    - The following are equivalent:
+    ```haskell
+    sum :: Num a => [a] -> a
+    sum [] = 0
+    sum (x:xs) = x + sum xs
 
+    sum :: Num a => [a] -> a
+    sum = foldr (+) 0
+    ```
+    ```haskell
+    product :: Num a => [a] -> a
+    product [] = 1
+    product (x:xs) = x * product xs
+    
+    product :: Num a => [a] -> a
+    product = foldr (*) 1
+    ```
+    ```haskell
+    or :: [Bool] -> Bool
+    or [] = False
+    or (x:xs) = x || or xs
+
+    or :: [Bool] -> Bool
+    or = foldr (||) False
+    ```
+- The `foldr` function can be defined as follows using recursion:
+```haskell
+foldr :: (a -> b -> b) -> b -> [a] -> b
+foldr f v [] = v
+foldr f v (x:xs) = f x (foldr f v xs)
+```
+- This definition means that `foldr` replaces the empty list with `v`.
+- Any non-empty list is replaced by the operator `f` applied to the head of the list and the result of recursively applying `foldr` to the tail of the list.
+- The name *fold right* reflects the fact that the operator is assumed to associate to the right.
+- Generally, the behavior of `foldr` can be summarized as:
+```haskell
+foldr (#) v [x0,x1,...,xn] = x0 # (x1 # (... (xn # v) ...))
+```
 ## 7.4 The foldl function
-
+- Recursive functions also exist for operators that associate to the left.
+- For example, we can defined `sum` using an auxiliary function `sum'` that takes an extra argument `v` that accumulates the sum:
+```haskell
+sum :: Num a => [a] -> a
+sum = sum' 0
+    where
+        sum' v [] = v
+        sum' v (x:xs) = sum' (v + x) xs
+```
+- To generalize, many functions on lists can be defined using this pattern of recursion:
+```haskell
+f v [] = v
+f v (x:xs) = f (v # x) xs
+```
+- This means the function maps the empty list to the **accumulator** value `v`.
+- Any non-empty list is replaced by the operator `#` applied to the accumulator and the head of the list.
+- The function then recursively applies itself to the tail of the list.
+- The higher order library function `foldl` (abbreviates *fold left*) captures this pattern.
+    - The following are equivalent:
+    ```haskell
+    sum :: Num a => [a] -> a
+    sum = foldl (+) 0
+    ```
+    ```haskell
+    product :: Num a => [a] -> a
+    product = foldl (*) 1
+    ```
+    ```haskell
+    or :: [Bool] -> Bool
+    or = foldl (||) False
+    ```
+- The `foldl` function can be defined as follows using recursion:
+```haskell
+foldl :: (a -> b -> a) -> a -> [b] -> a
+foldl f v [] = v
+foldl f v (x:xs) = foldl f (f v x) xs
+```
+- In practice, it is best to think of the behavior of `foldl` in a non-recursive manner.
 ## 7.5 The composition operator
+- The composition operator `.` returns the composition of two functions as a single function.
+- It is defined as:
+```haskell
+(.) :: (b -> c) -> (a -> b) -> (a -> c)
+f . g = \x -> f (g x)
+```
+- This means that `f . g` (read as `f` *composed with* `g`) is the function that takes an argument x, applies `g` to `x`, and then applies `f` to the result.
+- Composition can be used to reduce parentheses in expressions.
+- For example, the following are equivalent:
+```haskell
+odd :: Int -> Bool
+odd n = not (even n)
 
-## 7.6 Binary string transmitter
+odd :: Int -> Bool
+odd = not . even
+```
+```haskell
+twice :: (a -> a) -> a -> a
+twice f x = f (f x)
 
-## 7.7 Voting algorithms
+twice :: (a -> a) -> a -> a
+twice f = f . f
+```
+```haskell
+sumsqreven :: [Int] -> Int
+sumsqreven ns = sum (map (^2) (filter even ns))
+
+sumsqreven :: [Int] -> Int
+sumsqreven = sum . map (^2) . filter even
+```
+- This last definition exploits the fact that `.` is associative.
+- This means that `f . (g . h)` is the same as `(f . g) . h` for any functions `f`, `g`, and `h` of the appropriate types.
+- Composition also has an identity, given by the identity function `id`:
+```haskell
+id :: a -> a
+id \x -> x
+```
+- This means that `id` simply returns the argument it is given.
+- This is useful when reasoning about programs.
+- This can also give a suitable starting point for a chain of compositions.
+- For example, the composition of a list of functions can be defined as:
+```haskell
+compose :: [a -> a] -> (a -> a)
+compose = foldr (.) id
+```
