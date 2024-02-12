@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{3rd Homework - MATH 300 904}
+\rhead{Kevin Lei}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\arraystretch}{1.2}
+
+\begin{document}
+
+\section*{Question 1}
+\begin{proof}
+    Let $n$ be an integer.
+    We want to show that if $n^2 - 3n + 5$ is even, then n is odd.
+    We will prove this by proving the contrapositive.
+    That is, we will show that if $n$ is even, then $n^2 - 3n + 5$ is odd.
+    By definition, if $n$ is even, then $$n = 2k$$ for some integer $k$.
+    We can substitute this into the expression for $n^2 - 3n + 5$ to get
+    \begin{align*}
+        n^2 - 3n + 5 &= (2k)^2 - 3(2k) + 5 \\
+        &= 4k^2 - 6k + 5 \\
+        &= 2(2k^2 - 3k + 2) + 1.
+    \end{align*}
+    Since $2k^2 - 3k + 2$ is an integer, we have shown that $n^2 - 3n + 5$ is odd.
+    Thus, the contrapositive is true, and this also shows that the original statement is true.
+\end{proof}
+
+\section*{Question 2}
+\begin{proof}
+    Let $n$ be an integer.
+    We want to show that $n$ is odd if and only if $n + 2$ is odd.
+    To prove this, we will need to show that if $n$ is odd, then $n + 2$ is odd, and if $n + 2$ is odd, then $n$ is odd.
+    By definition, if $n$ is odd, then $$n = 2k + 1$$ for some integer $k$.
+    We can substitute this into the expression for $n + 2$ to get
+    \begin{align*}
+        n + 2 &= (2k + 1) + 2 \\
+        &= 2k + 3 \\
+        &= 2(k + 1) + 1.
+    \end{align*}
+    Since $k + 1$ is an integer, we have shown that $n + 2$ is odd when $n$ is odd.
+    Now, we will show that if $n + 2$ is odd, then $n$ is odd using the contrapositive.
+    That is, we will show that if $n$ is even, then $n + 2$ is even.
+    By definition, if $n$ is even, then $$n = 2k$$ for some integer $k$.
+    We can substitute this into the expression for $n + 2$ to get
+    \begin{align*}
+        n + 2 &= 2k + 2 \\
+        &= 2(k + 1).
+    \end{align*}
+    Since $k + 1$ is an integer, we have shown that $n + 2$ is even when $n$ is even.
+    Thus, the contrapositive is true, and this also shows that $n + 2$ is odd when $n$ is odd.
+    Now we have proven both directions of the biconditional, so we have shown that $n$ is odd if and only if $n + 2$ is odd.
+\end{proof}
+
+\section*{Question 3}
+\begin{proof}
+    Let $m$ and $n$ be integers.
+    We want to show that $mn$ is even if and only if $m$ is even or $n$ is even.
+    We will need to prove both ways of the biconditional, so we will first show that 
+    if $mn$ is even, then $m$ is even or $n$ is even.
+    To do this, we will prove the contrapositive, which is that if $m$ is odd and $n$ is odd, then $mn$ is odd.
+    By definition, if $m$ and $n$ are odd, then we can write $m = 2k + 1$ and $n = 2l + 1$ for some integers $k$ and $l$.
+    We can substitute these into the expression for $mn$ to get
+    \begin{align*}
+        mn &= (2k + 1)(2l + 1) \\
+        &= 4kl + 2k + 2l + 1 \\
+        &= 2(2kl + k + l) + 1.
+    \end{align*}
+    Since $2kl + k + l$ is an integer, we have shown that $mn$ is odd when $m$ and $n$ are odd,
+    and thus the contrapositive is true.
+    Since the contrapositive is true, this also shows that if $mn$ is even, then $m$ is even or $n$ is even.
+    Now, proving the other direction of the biconditional, we will show that if $m$ is even or $n$ is even, then $mn$ is even.
+    By definition, if $m$ and $n$ are even, then we can write $m = 2k$ and $n = 2l$ for some integers $k$ and $l$.
+    We can substitute these into the expression for $mn$ to get
+    \begin{align*}
+        mn &= (2k)(2l) \\
+        &= 4kl \\
+        &= 2(2kl).
+    \end{align*}
+    Since $2kl$ is an integer, we have shown that $mn$ is even when $m$ and $n$ are even.
+    Thus, we have proven both directions of the biconditional, and we have shown that $mn$ is even if and only if $m$ is even or $n$ is even.
+\end{proof}
+
+\section*{Question 4}
+\begin{proof}
+    Let $a$ and $b$ be odd integers.
+    We want to show that $4 \nmid (a^2 + b^2)$.
+\end{proof}
+
+\section*{Question 5}
+\begin{proof}
+    We want to show that there do not exist integers $m$ and $n$ such that $8m + 26n = 1$.
+    Seeking a contradiction, suppose that there exist integers $m$ and $n$ such that $8m + 26n = 1$.
+    Then, we can write the following:
+    \begin{align*}
+        8m + 26n &= 1 \\
+        2(4m + 13n) &= 1 \\
+        4m + 13n &= \frac{1}{2}.
+    \end{align*}
+    We know that $4m + 13n$ is an integer by the closure axioms, but $\frac{1}{2}$ is not reducible an integer.
+    Thus, we have reached a contradiction, and we have shown that there do not exist integers $m$ and $n$ such that $8m + 26n = 1$.
+\end{proof}
+
+\section*{Question 6}
+\textbf{Lemma 1.} An integer $n$ is not divisible by 3 if and only if there exists an integer $k$ such that $n = 3k + 1$ or $n = 3k + 2$.
+\begin{proof}
+    Let $n$ be an integer.
+    We want to show that for all integers $n$, if $3 \mid n^2$, then $3 \mid n$.
+\end{proof}
+
+\section*{Question 7}
+\begin{proof}
+    We want to show that there do not exist integers $m$ and $n$ such that $m^2 = 4n + 3$.
+    Seeking a contradiction, suppose that there does exist integers $m$ and $n$ such that $m^2 = 4n + 3$.
+    Consider this equality when $m$ and $n$ are both even.
+    By definition of the even integers, we can write $m = 2k$ and $n = 2l$ for some integers $k$ and $l$.
+    Substituting these into the equation, we get
+    \begin{align*}
+        (2k)^2 &= 4(2l) + 3 \\
+        4k^2 &= 8l + 3 \\
+        4k^2 - 8l &= 3 \\
+        4(k^2 - 2l) &= 3 \\
+        k^2 - 2l &= \frac{3}{4}.
+    \end{align*}
+    By the closure axioms, we know that $k^2 - 2l$ is an integer, but $\frac{3}{4}$ is not reducible to an integer.
+    Thus, we have reached a contradiction, and we have shown that there do not exist integers $m$ and $n$ such that $m^2 = 4n + 3$.
+\end{proof}
+
+\end{document}
