@@ -279,25 +279,146 @@ $$
 - We can implement a subtractor using the fact that adding a numbers two's complement is the same as subtracting the number
 - Adding a NOT gate to the second input of an adder is the same as adding the two's complement
 #### Adder/Subtractor
-- An adder/subtractor component 
+- An adder/subtractor component can be made by multiplexing the second input of the adder
+    - When the control input `sub` is 0, the adder adds the two inputs
+    - When the control input `sub` is 1, the adder adds the first input and the two's complement of the second input, which is the same as subtracting the second input from the first input
+- You can also use two XOR gates instead of a NOT and a mux for the second input
 ### Detecting Overflow
-
+- Having an arithmetic result wider than the fixed bitwidth is called **overflow**
+- For example, adding `1111 + 0001` would result in `10000`, which is 5 bits, 1 more than the 4 bit inputs
+- Overflow can be easily detected by looking at the carry-out bit of the adder
+- A final carry-out of 1 means overflow
+- Detecting overflow for two's complement numbers is more complicated
+    - For example, adding `0111 + 0001` would result in `1000`, which is -8, not 8
+    - The problem here is adding two negative numbers and getting a 0 sign bit is overflow
+- For negative numbers, overflow can be detected if the most significant bit of the result is 0
+- Adding a positive and negative number can never result in overflow
+- Detecting overflow in twos complement involves looking at the most significant bit of the inputs and the most significant bit of the result
+    - If the most significant bits of the inputs are the same, and the most significant bit of the result is different, then overflow has occurred
+    - Say the sign bit of one input is `a` and the sign bit of the other input is `b`, and the sign bit of the result is `r`, overflow happens when `abr' +a'b'r = 1`
+- This equation is quite simple, but comparing the carry out to the sign bit is more efficient
 ## 4.7 Arithmetic-Logic Units--ALUs
-
+- An **N-bit arithmetic-logic unit (ALU)** is a combinational component that performs a variety of arithmetic and logic operations on two N-bit data inputs and generally produces an N-bit result
+    - Arithmetic operations include addition and subtraction
+    - Logic operations include AND, OR, and XOR, etc
+- Control inputs to the ALU indicate which operation to perform
+> A **bitwise operation** applies an operation to each pair of bits in two numbers
+- We want ALUs because implementing all the operations we want with separate components would be inefficient, and we don't necesarily need all operations in parallel
+- Let's start with an adder as the base internal ALU component
+    - The inputs to the internal adder are `IA` and `IB` for internal A and B to avoid confusion with the external inputs
+- Right now the ALU consists of the adder and some logic in front of the adders inputs called an arithmetic/logic extender, or *AL-extender*
+    - The AL-extender's purpose is to set the adders inputs based on the ALU control inputs `x`, `y`, and `z`
+    - The inputs are set such that the adders output corresponds to the desired operation
+    - The AL-extender consists of identical components labeled `abext` for each bit, one for each pair of bits `ai` and `bi` (external A and B)
+    - Also has a `cinext` block for the carry-in
+- Thus, we need to design the AL-extender, which consists of the `abext` and `cinext` blocks
+    - Say we have the following operation assignment for the control inputs:
+    - When `xyz = 000`:
+        - We want addition, so `S = A + B`
+        - Therefore `IA = A`, `IB = B`, and `cin = 0`
+    - When `xyz = 001`:
+        - We want subtraction, so `S = A - B`
+        - Therefore `IA = A`, `IB = B'`, and `cin = 1`
+    - When `xyz = 010`:
+        - We want to increment `A`, so `S = A + 1`
+        - Therefore `IA = A`, `IB = 0`, and `cin = 1`
+    - When `xyz = 011`:
+        - We want to pass `A` through, so `S = A`
+        - Therefore `IA = A`, `IB = 0`, and `cin = 0`
+- For logical operations, we can compute the desired logical operation in the `abext` component and pass it through the adder
+- completion of abext and cinext left as exercise for reader lmfaooooooooooo
 ## 4.8 Shifters
-
+- Shifting is useful for multiplying or dividing unsigned binary numbers by a factor of 2
+    - This is similar to how in base 10 we can multiply or divide by 10 by adding or removing a 0
+    - Likewise in binary, we can multiply or divide by 2 by shifting left or right
+    - For example, shift left one bit is the same as multiplying by 2
+    - Shifting left twice is the same as multiplying by 4
+    - Shifting right one bit is the same as dividing by 2
+- Although we have shift registers, sometimes we want to shift a number by a variable amount and in either direction
 ### Simple Shifters
-
+- An **N-bit shifter** is a combinational component that shifts an N-bit data input by a fixed amount to generate an N-bit result
+- The simplest shift one position in one direction
+    - This would just connect each input to the next output, and an additional input `sh` for the bit to be shifted in
+- A more capable shifter can shift one position left or pass the input through
+    - This would require a 2x1 mux for each bit
+- A more capable shifter can shift one position left or right
+    - Takes inputs `inR`, `inL`, `shL`, and `shR` for left bit input, right bit input, left shift control, and right shift control
+> Remember that shifting is same as multiplication/division for ONLY UNSIGNED numbers
+#### Strength Reduction
+- Implementing a multiplier that multiplies by a number other than two uses more transistors
+- Thus we often use a series of shifts and adds that compute the same result, since shifters and adders are quite fast
+- Replacing costly operations by a series of less constly operations is called **strength reduction**
+    - This is a common optimization technique in digital design and software compilation
+    - For example, 5 times a number can be computed by shifting left 2 and adding the original number
+#### Choosing Bitwidths
+- Operating on N-bit numbers requires some attention paid to the bitwidths of the components
+- Determining the minimum width of all internal wires and components for expected inputs is beyond the scope of this course
+- A few guidelines:
+    - We can determine the maximum data value that would occur during computation and use that to determine the bitwidth of the components
+    - Do division as late as possible to avoid rounding errors
 ### Barrel Shifter
-
+- An **N-bit barrel shifter** is a general purpose N-bit shifter that can shift any number of positions
+- For simplicity, consider only left shifts for now
+    - An 8-bit barrel shifter can shift left from 0-7 positions
+    - Thus we need 3 control inputs to specify the shift amount
+- A barrel shifter is useful to replace several shift components
+- Building a barrel shifter with one shifter per shift length and direction is retarded
+- A more elegant design uses 3 cascaded simple shifters
+    - The first simple shifter can shift left 4 or no positions
+    - The second simple shifter can shift left 2 or no positions
+    - The third simple shifter can shift left 1 or no positions
+    - The shift inputs `x`, `y`, and `z` correspond to each of the three simple shifters
+        - `x` is shift left 4
+        - `y` is shift left 2
+        - `z` is shift left 1
+    - We can shift arbitrary amounts by adding the shift amounts
+- Although this design can only shift left, it can easily be extended to shift either way
+    - Replace the shifters with shifters that can shift either way
+    - Add a control input to specify the direction
+- We can also easily make the barrel shifter support rotates by changing the internal shifters to rotators that can either shift or rotate, as well as a control input to specify the operation
 ## 4.9 Counters and Timers
-
+- An **N-bit counter** is a *sequential* component that can increment or decrement its own value on each clock cycle when a count enable control input is on
+    - **Increment** means to add 1, and **decrement** means to subtract 1
+    - A counter than can increment is called an **up-counter**
+    - A counter than can decrement is called a **down-counter**
+- A counter *wraps around* when it reaches its maximum or minimum value
+    - For example, a 4-bit up counter would go from `1111` to `0000` on the next clock cycle
+    - A 4-bit down counter would go from `0000` to `1111` on the next clock cycle
+    - This is also known as *rolling over*
+- A control output on the counter often called the **terminal count** or `tc` turns on when the counter reaches its maximum or minimum value (before it rolls over)
+- A typical up-counter has a `clr` control input that resets the counter to 0, a `cnt` input that increments the counter, the `tc` output, and the N-bit count output
 ### Up-Counter
-
+- An up counter can be implemented using a parallel load register and an incrementor
+- We can feed the N-bit output of the register into an N-bit AND gate for the `tc` output
+    - If decrementer, we would use NOR instead of AND to detect roll over
+    - This is since NOR is true when all inputs are 0
 ### Up/Down-Counter
-
+- An up/down counter requires an additional control input `dir` to specify the count direction
+    - `dir = 0` means count up
+    - `dir = 1` means count down
+- Here we would have the register output fed to both an adder and subtractor
+    - The outputs of these would be fed to a 2x1 mux
+    - The control input of the mux would be `dir`
+    - The output of the mux would be fed back to the register input
+- The `tc` output would be determined by either a NOR gate or an AND gate
+    - Likewise, their outputs are fed into a 2x1 mux with `dir` as the control input
 ### Counter with Load
-
+- Counters often come with the ability to start with some particular value
+- This is done by adding a `ld` control input
+    - This is fed into both the register load input and the mux select input
+    - The mux selectes between the external input and the register output
+#### Using a Counter to Measure Time
+- We can use an up coutner to measure the time between events
+- Initially the counter is cleared to 0
+- The `cnt` input is turned on when the event occurs, and set to 0 when the event ends
+- The final value of the counter is the number of clock cycles between the events
+- We can use the period of the clock to convert the number of clock cycles to time
 ### Timers
-
+- A **timer** is as sequential component that can be programmed to repeatedly generate a pulse at a specified time interval
+- This is sometimes called a *programmable interval timer*
+- Timers have a base time unit such as 1 microsecond
+- We can load a binary number representing the desired multiplicative factor of the base time unit
+- A timers *width* is the bitwidth of the number that can be loaded to specify the time interval
+- A timer can be designed using a parallel-load down counter and a register
+    - The down counter uses an oscillator as the clock input
 ## 4.10 Register Files
