@@ -151,6 +151,9 @@ foldl f v [] = v
 foldl f v (x:xs) = foldl f (f v x) xs
 ```
 - In practice, it is best to think of the behavior of `foldl` in a non-recursive manner.
+> It can be useful to think of `foldr` and `foldl` as replacing `:` with some operator and `[]` with the the accumulator.
+> If we have a list `[x0,x1,...,xn]`, then `foldr` computes `xn # v` and then uses that result as the second argument to `#` with `xn-1`, and so on.
+> Using `foldl`, the computation starts with `v # x0` and then uses that result as the first argument to `#` with `x1`, and so on.
 ## 7.5 The composition operator
 - The composition operator `.` returns the composition of two functions as a single function.
 - It is defined as:
