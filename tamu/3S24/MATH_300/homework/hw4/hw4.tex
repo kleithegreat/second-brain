@@ -86,8 +86,20 @@
 
 \section*{Question 4}
 \begin{proof}
-    Let $a$ and $b$ be odd integers.
-    We want to show that $4 \nmid (a^2 + b^2)$.
+    We want to show that if integers $a$ and $b$ are odd, then $4 \nmid (a^2 + b^2)$.
+    Seeking a contradiction, suppose that if integers $a$ and $b$ are odd, then $4 \mid (a^2 + b^2)$.
+    By corollary 2.2.5, $a^2$ and $b^2$ are both odd, since $a$ and $b$ are also odd.
+    Thus we can write $a^2$ and $b^2$ as $a^2 = 2m + 1$ and $b^2 = 2n + 1$ for some integers $m$ and $n$.
+    Since $4 \mid (a^2 + b^2)$, we can write $a^2 + b^2 = 4k$ for some integer $k$.
+    Substituting the expressions for $a^2$ and $b^2$, we get
+    \begin{align*}
+        2m + 1 + 2n + 1 &= 4k \\
+        2m + 2n + 2 &= 4k \\
+        m + n + 1 &= 2k.
+    \end{align*}
+    This means that $2 \mid (m + n + 1)$, or in other words $m + n + 1$ is even.
+    However, in the case that $m$ and $n$ are both even, $m + n + 1$ is odd.
+    Thus, we have reached a contradiction, and we have shown that if integers $a$ and $b$ are odd, then $4 \nmid (a^2 + b^2)$.
 \end{proof}
 
 \section*{Question 5}
@@ -107,7 +119,6 @@
 \section*{Question 6}
 \textbf{Lemma 1.} An integer $n$ is not divisible by 3 if and only if there exists an integer $k$ such that $n = 3k + 1$ or $n = 3k + 2$.
 \begin{proof}
-    Let $n$ be an integer.
     We want to show that for all integers $n$, if $3 \mid n^2$, then $3 \mid n$.
 \end{proof}
 
