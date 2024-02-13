@@ -84,6 +84,41 @@ square :: Float -> Shape
 
 square n = ___
 ## Problem 8
+Given the following definitions,
+```haskell
+data Shape = Circle Float | Rect Float Float 
+
+area (Circle r) = pi * r^2
+area (Rect x y) = x * y
+ 
+c1 = Circle 2.7
+c2 = Circle 3.51
+r1 = Rect  3  4.19
+r2 = Rect  7.8  2.6
+
+ss = [c1,c2,r1,r2]
+```
+You are to define a function totalOfSomeArea using sum, filter, and map (and possibly the function composition (.) operator or the application operator ($)) that, given a list of Shapes (e.g., ss), first, calculate the area of each shape, and then, sum only the areas which are within the range of [20,30]. Use a lambda expression for the predicate for filter.
+```haskell
+totalOfSomeArea ss =                                          
+```
+Choose all that can go in the underlined space.  Be able to explain!
+
+```haskell 
+sum (filter (\n -> n >= 20 && n <= 30) map area ss)
+
+sum . filter (\n -> n >= 20 && n <= 30) . map area $ ss
+
+sum . filter (\n -> n >= 20 && n<= 30) . map area ss
+
+sum . filter (\n -> n >= 20 && n <= 30) . (map area ss)
+
+sum $ filter (\n -> n >= 20 && n <= 30) $ map area ss
+
+sum (filter (\n -> n >= 20 && n <= 30) (map area ss))
+
+(sum . filter (\n -> n >= 20 && n<= 30) . map area) ss
+```
 ## Problem 9
 ## Problem 10
 ## Problem 11

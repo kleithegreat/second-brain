@@ -219,3 +219,5 @@ This chapter covers mechanisms for declaring new types and classes in Haskell.
   - This way, we can compare, order, print, and read values of type `Bool` using the built-in functions.
   - If we were to do `read "False" :: Bool`, we would get `False`. The `:: Bool` is necessary to specify the type of the result.
   - When deriving instances of `Ord`, the constructors are ordered in the order they are defined in the `data` declaration. In the case of `Bool`, `False` comes before `True`.
+
+> Using "deriving", you are asking the compiler to generate default implementations for the member functions that are declared in the class

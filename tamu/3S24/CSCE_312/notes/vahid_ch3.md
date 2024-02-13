@@ -71,7 +71,8 @@
     - The inverse of D is fed into the other AND gate
     - C remains the same
 - The not gate on the D input ensures that S and R are never 1 at the same time
-> The level-sensitive D latch stores the value of D when the enable input is 1, and remembers it when C is 0
+> The level-sensitive D latch stores the value of D when C (enable) is 1, and remembers it when C is 0
+> It only resets when D is 0 and C is 1
 ### Edge-Triggered D Flip-Flop--A Robust Bit Store
 - The D latch still has a problem with undefined behavior
     - Suppose we have a bunch of D latches chained with the output of one feeding into the input of the next
