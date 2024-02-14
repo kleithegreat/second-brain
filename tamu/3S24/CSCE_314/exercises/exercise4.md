@@ -107,19 +107,120 @@ Choose all that can go in the underlined space.  Be able to explain!
 ```haskell 
 sum (filter (\n -> n >= 20 && n <= 30) map area ss)
 
-sum . filter (\n -> n >= 20 && n <= 30) . map area $ ss
+sum . filter (\n -> n >= 20 && n <= 30) . map area $ ss -- correct
 
 sum . filter (\n -> n >= 20 && n<= 30) . map area ss
 
 sum . filter (\n -> n >= 20 && n <= 30) . (map area ss)
 
-sum $ filter (\n -> n >= 20 && n <= 30) $ map area ss
+sum $ filter (\n -> n >= 20 && n <= 30) $ map area ss -- correct
 
-sum (filter (\n -> n >= 20 && n <= 30) (map area ss))
+sum (filter (\n -> n >= 20 && n <= 30) (map area ss)) -- correct
 
-(sum . filter (\n -> n >= 20 && n<= 30) . map area) ss
+(sum . filter (\n -> n >= 20 && n<= 30) . map area) ss -- correct
 ```
 ## Problem 9
+Given the following module definition, answer the questions below.
+
+ 
+
+module Stack ( StkType, push, pop, top, empty ) where
+
+ 
+
+newtype StkType a  = Stk [a]  deriving Show  -- line (1)
+
+ 
+
+push x (Stk xs)  = Stk (x:xs)
+
+pop (Stk (_:xs)) = Stk xs   -- line (2)
+
+top (Stk (x:_))  = x        -- line (3)
+
+empty            = Stk []
+
+ 
+
+stack1 = push (3::Int) . push 4 . push 5 $ empty
+
+stack2 = pop stack1
+
+ 
+
+Prompt 1What is the type of Stk in line (1) ?
+Answer for prompt 1 What is the type of Stk in line (1) ?
+[a] -> StkType a
+Prompt 2What is the type of pop in line (2) ?
+Answer for prompt 2 What is the type of pop in line (2) ?
+StkType a -> StkType a
+Prompt 3What is the type of top in line (3) ?
+Answer for prompt 3 What is the type of top in line (3) ?
+StkType a -> a
+Prompt 4What is the type of (push 'a') ?
+Answer for prompt 4 What is the type of (push 'a') ?
+StkType Char -> StkType Char
+Prompt 5What is the type of stack1 ?
+Answer for prompt 5 What is the type of stack1 ?
+StkType Int
+Prompt 6What is the type of (Stk [4,2,5,1]) ?
+Answer for prompt 6 What is the type of (Stk [4,2,5,1]) ?
+Num a => StkType a
+Question at position 10
+
 ## Problem 10
+Continue using the module Stack definition from the previous question and answer the following questions.
+
+Prompt 1What is the value of stack1 ?
+Answer for prompt 1 What is the value of stack1 ?
+Stk [3,4,5]
+Prompt 2What is the value of stack2 ?
+Answer for prompt 2 What is the value of stack2 ?
+Stk [4,5]
+Prompt 3What is the result of > top stack1 ?
+Answer for prompt 3 What is the result of > top stack1 ?
+3
+Prompt 4What is the result of > top stack2 ?
+Answer for prompt 4 What is the result of > top stack2 ?
+4
+
 ## Problem 11
+Which one of data, type, newtype can be used in the following declaration?
+
+ 
+
+Question Blank 1 of 1
+type Triple  a  b  c = ( a, b, [ c ] )
 ## Problem 12
+Consider the following data type and definitions.
+
+ 
+
+data Tree a = Leaf a | Node a (Tree a) (Tree a)
+
+ 
+
+tfold :: t -> (a -> t -> t -> t) -> Tree a -> t
+
+tfold f g (Leaf a) = f
+
+tfold f g (Node x left right) = g x (tfold f g left) (tfold f g right)
+
+ 
+
+tree1 = Node (2::Int) (Node 3 (Leaf 2) (Leaf 4)) (Node 2 (Leaf 4) (Leaf 3))
+
+ 
+
+Prompt 1What is the type of (Leaf 8) ?
+Answer for prompt 1 What is the type of (Leaf 8) ?
+Num a => Tree a
+Prompt 2What is the type of tree1 ?
+Answer for prompt 2 What is the type of tree1 ?
+Tree Int
+Prompt 3What is the type of (Node 'A') ?
+Answer for prompt 3 What is the type of (Node 'A') ?
+Tree Char -> Tree Char -> Tree Char
+Prompt 4What is the type of (Node True (Leaf False)) ?
+Answer for prompt 4 What is the type of (Node True (Leaf False)) ?
+Tree Bool -> Tree Bool

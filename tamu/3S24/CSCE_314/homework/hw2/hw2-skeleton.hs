@@ -6,7 +6,7 @@
 -- Problem 1 (5 points)
 -- Student Name: Kevin Lei
 -- UIN: 432009232
--- Resources: Course textbook, canvas lectures
+-- Resources: Course textbook, canvas lectures, haskell standard prelude website
 
 -- On my honor, as an Aggie, I have neither given nor received any unauthorized
 -- aid on any portion of the academic work included in this assignment.
@@ -50,27 +50,38 @@ merge xs ys | head xs <= head ys = head xs : merge (tail xs) ys  -- recursive de
 -- Problem 4 (Chapter 6, Exercise 8) (5+10=15 points)
 ---- Question 4.1 (5 points)
 halve :: [a] -> ([a], [a])
-halve xs = (lm, ao)
-            where
-              lm = head xs
-              ao = 
-
+halve xs = splitAt (length xs `div` 2) xs
 
 
 ---- Question 4.2 (10 points)
 msort :: Ord a => [a] -> [a]
-msort = undefined
+msort [] = []
+msort [a] = [a]
+msort xs = merge lm ao 
+          where
+            (pog, gers) = halve xs
+            lm = msort pog
+            ao = msort gers
 
 
 
 -- Problem 5 (10+10+15=35 points)
 ---- Question 5.1 (10 points) 
 mergeBy :: (a -> a -> Bool) -> [a] -> [a] -> [a]
-mergeBy = undefined
+mergeBy f [] ys = ys
+mergeBy f xs [] = xs
+mergeBy f xs ys | f (head xs) (head ys) = head xs : mergeBy f (tail xs) ys
+                | otherwise = head ys : mergeBy f xs (tail ys)
 
 ---- Question 5.2 (10 points) 
 msortBy :: (a -> a -> Bool) -> [a] -> [a]
-msortBy = undefined
+msortBy f [] = []
+msortBy f [a] = [a]
+msortBy f xs = mergeBy f lm ao
+              where
+                (pog, gers) = halve xs
+                lm = msortBy f pog
+                ao = msortBy f gers
 
 ---- Question 5.3 (15 points)
 {- Write your answer for Question 5.3 within this block comment.
@@ -82,7 +93,8 @@ msortBy = undefined
 -- Problem 6 (Chapter 7, Exercise 9) (10+10=20 points)
 ---- Question 6.1 (10 points)
 altMap :: (a -> b) -> (a -> b) -> [a] -> [b]
-altMap = undefined
+altMap f g [] = []
+altMap f g xs = f (head xs) : altMap g f (tail xs)
 
 ---- Question 6.2 (10 points)
 {- Write your answer for Question 6.2 within this block comment.

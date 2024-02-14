@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ae41f28fe66dcdb1",
+        "id": "4f9f024086e22033",
         "type": "tabs",
         "children": [
           {
-            "id": "5142f0e6a63f8257",
+            "id": "1ef5833b00c5c4f9",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -146,7 +146,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5142f0e6a63f8257",
+  "active": "70b22a13d8e23d6b",
   "lastOpenFiles": [
     "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
     "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
