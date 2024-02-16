@@ -60,3 +60,9 @@ vahid chapter 2 and 3
 	- basic register loads on every clock cycle
 	- parallel load register has a mux in front with load as select
 	- muxes are trapezoids in circuit diagrams (wide side inputs, narrow side output)
+
+## 02/15/2024
+- next test march 5th
+    - ejs gonna be gone at a conference
+    - this test is long 75 mins
+- adder is biggest part of alu

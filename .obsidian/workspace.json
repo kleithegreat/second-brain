@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4f9f024086e22033",
+        "id": "c01e8f55dc850a48",
         "type": "tabs",
         "children": [
           {
-            "id": "1ef5833b00c5c4f9",
+            "id": "93f3f90ea5ff73c9",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -146,20 +146,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "70b22a13d8e23d6b",
+  "active": "93f3f90ea5ff73c9",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
+    "tamu/3S24/CSCE_312/notes/!lecture.md",
     "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
     "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/10_Interactive_programming.md",
     "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
-    "tamu/3S24/CSCE_312/notes/!lecture.md",
     "tamu/3S24/CSCE_312/homework/hw1/hw1_self_graded.pdf",
     "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
     "tamu/3S24/CSCE_312/homework/hw1/CSCE312_HW1_SOLUTION.pdf",
     "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
     "tamu/3S24/MATH_300/homework/hw4/hw4.aux",
     "tamu/3S24/MATH_300/homework/hw4/hw4.log",
     "tamu/3S24/CSCE_312/homework/hw1/hw1.pdf",

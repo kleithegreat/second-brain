@@ -73,35 +73,29 @@
     and thus the contrapositive is true.
     Since the contrapositive is true, this also shows that if $mn$ is even, then $m$ is even or $n$ is even.
     Now, proving the other direction of the biconditional, we will show that if $m$ is even or $n$ is even, then $mn$ is even.
-    By definition, if $m$ and $n$ are even, then we can write $m = 2k$ and $n = 2l$ for some integers $k$ and $l$.
-    We can substitute these into the expression for $mn$ to get
-    \begin{align*}
-        mn &= (2k)(2l) \\
-        &= 4kl \\
-        &= 2(2kl).
-    \end{align*}
-    Since $2kl$ is an integer, we have shown that $mn$ is even when $m$ and $n$ are even.
-    Thus, we have proven both directions of the biconditional, and we have shown that $mn$ is even if and only if $m$ is even or $n$ is even.
+    By definition, if $m$ is even, then we can write $m = 2k$ for some integer $k$.
+    We can substitute this into $mn$ to get $mn = 2kn$, which is even.
+    Without loss of generality, we can also show that if $n$ is even, then $mn$ is even.
+    Thus, both directions of the biconditional have been proven, and we have shown that $mn$ is even if and only if $m$ is even or $n$ is even.
 \end{proof}
 
 \section*{Question 4}
 \begin{proof}
     We want to show that if integers $a$ and $b$ are odd, then $4 \nmid (a^2 + b^2)$.
-    Seeking a contradiction, suppose that if integers $a$ and $b$ are odd, then $4 \mid (a^2 + b^2)$.
-    By corollary 2.2.5, $a^2$ and $b^2$ are both odd, since $a$ and $b$ are also odd.
-    Thus we can write $a^2$ and $b^2$ as $a^2 = 2m + 1$ and $b^2 = 2n + 1$ for some integers $m$ and $n$.
-    Since $4 \mid (a^2 + b^2)$, we can write $a^2 + b^2 = 4k$ for some integer $k$.
-    Substituting the expressions for $a^2$ and $b^2$, we get
+    Seeking a contradiction, suppose that there exist odd integers $a$ and $b$ such that $4 \mid (a^2 + b^2)$.
+    Since $a$ and $b$ are odd, we can write $a = 2m + 1$ and $b = 2n + 1$ for some integers $m$ and $n$.
+    Additionally, since $4 \mid (a^2 + b^2)$, we can write $a^2 + b^2 = 4k$ for some integer $k$.
+    Substituting these expressions into the equation, we get
     \begin{align*}
-        2m + 1 + 2n + 1 &= 4k \\
-        2m + 2n + 2 &= 4k \\
-        m + n + 1 &= 2k.
+        (2m + 1)^2 + (2n + 1)^2 &= 4k \\
+        4m^2 + 4m + 1 + 4n^2 + 4n + 1 &= 4k \\
+        m^2 + m + n^2 + n + \frac{1}{2} &= k.
     \end{align*}
-    This means that $2 \mid (m + n + 1)$, or in other words $m + n + 1$ is even.
-    However, in the case that $m$ and $n$ are both even, $m + n + 1$ is odd.
+    We know that $k$ is an integer by the closure axioms, but $\frac{1}{2}$ is not reducible to an integer.
     Thus, we have reached a contradiction, and we have shown that if integers $a$ and $b$ are odd, then $4 \nmid (a^2 + b^2)$.
 \end{proof}
 
+\newpage
 \section*{Question 5}
 \begin{proof}
     We want to show that there do not exist integers $m$ and $n$ such that $8m + 26n = 1$.
@@ -119,24 +113,30 @@
 \section*{Question 6}
 \textbf{Lemma 1.} An integer $n$ is not divisible by 3 if and only if there exists an integer $k$ such that $n = 3k + 1$ or $n = 3k + 2$.
 \begin{proof}
-    We want to show that for all integers $n$, if $3 \mid n^2$, then $3 \mid n$.
+    Let $n$ be an integer.
+    We want to show that if $3 \mid n^2$, then $3 \mid n$.
+    We will prove this by proving the contrapositive, which is that if $3 \nmid n$, then $3 \nmid n^2$.
+    By lemma 1, we know that if $3 \nmid n$, then we can write $n = 3k + 1$ or $n = 3k + 2$ for some integer $k$.
+    In the case that $n = 3k + 1$, we can write $$n^2 = (3k + 1)^2 = 9k^2 + 6k + 1 = 3(3k^2 + 2k) + 1,$$ which is not divisible by 3.
+    In the case that $n = 3k + 2$, we can write $$n^2 = (3k + 2)^2 = 9k^2 + 12k + 4 = 3(3k^2 + 4k + 1) + 1,$$ which is also not divisible by 3.
+    Thus, the contrapositive is true, and this also shows that if $3 \mid n^2$, then $3 \mid n$.
 \end{proof}
 
 \section*{Question 7}
 \begin{proof}
     We want to show that there do not exist integers $m$ and $n$ such that $m^2 = 4n + 3$.
     Seeking a contradiction, suppose that there does exist integers $m$ and $n$ such that $m^2 = 4n + 3$.
-    Consider this equality when $m$ and $n$ are both even.
-    By definition of the even integers, we can write $m = 2k$ and $n = 2l$ for some integers $k$ and $l$.
-    Substituting these into the equation, we get
+    Since $m^2$ can be written as $2(2n + 2) + 1$, we know that $m^2$ is odd.
+    By corollary 2.2.5, $m$ is also odd.
+    Then, we can write $m = 2k + 1$ for some integer $k$.
+    Substituting this into the equation, we get
     \begin{align*}
-        (2k)^2 &= 4(2l) + 3 \\
-        4k^2 &= 8l + 3 \\
-        4k^2 - 8l &= 3 \\
-        4(k^2 - 2l) &= 3 \\
-        k^2 - 2l &= \frac{3}{4}.
+        (2k + 1)^2 &= 4n + 3 \\
+        4k^2 + 4k + 1 &= 4n + 3 \\
+        4k^2 + 4k - 2 &= 4n \\
+        2k^2 + 2k - \frac{1}{2} &= n.
     \end{align*}
-    By the closure axioms, we know that $k^2 - 2l$ is an integer, but $\frac{3}{4}$ is not reducible to an integer.
+    We know that $n$, $k^2$, and $k$ are all integers by the closure axioms, but $\frac{1}{2}$ is not reducible to an integer.
     Thus, we have reached a contradiction, and we have shown that there do not exist integers $m$ and $n$ such that $m^2 = 4n + 3$.
 \end{proof}
 
