@@ -418,7 +418,7 @@ $$
 - This is sometimes called a *programmable interval timer*
 - Timers have a base time unit such as 1 microsecond
 - We can load a binary number representing the desired multiplicative factor of the base time unit
-- A timers *width* is the bitwidth of the number that can be loaded to specify the time interval
+- A timers *width* is the bit width of the number that can be loaded to specify the time interval
 - A timer can be designed using a parallel-load down counter and a register
     - The down counter uses an oscillator as the clock input
 ## 4.10 Register Files
