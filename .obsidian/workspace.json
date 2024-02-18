@@ -4,35 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "6da9e047f89d6ac0",
+        "id": "1b10a8eecb1d0e24",
         "type": "tabs",
         "children": [
           {
-            "id": "a9afeb36689b0d13",
+            "id": "9a665dc26e359d6f",
             "type": "leaf",
             "state": {
-              "type": "pdf",
-              "state": {
-                "file": "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf"
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "3773f7e2967ce6fd",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "62964a3f230add92",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -110,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +106,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,9 +127,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -171,31 +147,30 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "62964a3f230add92",
+  "active": "9a665dc26e359d6f",
   "lastOpenFiles": [
-    "tamu/3S24/CSCE_312/labs/lab3/report.pdf",
-    "tamu/3S24/CSCE_312/labs/lab3/images/problem2_plan.jpeg",
-    "tamu/3S24/CSCE_312/labs/lab3/images/Image.jpeg",
-    "tamu/3S24/CSCE_312/labs/lab3/images/problem2_circ.png",
     "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
     "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
-    "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
-    "tamu/3S24/CSCE_312/labs/lab3/images/problem2.png",
-    "tamu/3S24/CSCE_312/labs/lab3/circuits/problem2.bak",
-    "tamu/3S24/CSCE_312/labs/lab3/circuits/problem1.bak",
-    "tamu/3S24/CSCE_312/labs/lab3/report.aux",
-    "tamu/3S24/CSCE_312/labs/lab3/report.log",
-    "tamu/3S24/CSCE_312/labs/lab3/images/d_flip_flop.png",
+    "tamu/3S24/CSCE_312/labs/lab3/images/problem2_plan.jpeg",
+    "tamu/3S24/CSCE_312/labs/lab3/images/problem2_circ.png",
     "tamu/3S24/CSCE_312/labs/lab3/images/d_latch.png",
-    "tamu/3S24/CSCE_312/labs/lab3/images/nor_with_nand.png",
-    "tamu/3S24/CSCE_312/labs/lab3/images/and_with_nand.png",
     "tamu/3S24/CSCE_312/labs/lab3/images/not_with_nand.png",
-    "tamu/3S24/CSCE_312/labs/lab3/images",
-    "tamu/3S24/CSCE_221/LEs/LE2/report.aux",
-    "tamu/3S24/CSCE_221/LEs/LE2/report.log",
-    "tamu/3S24/CSCE_221/LEs/LE2/images/algo5.png",
-    "tamu/3S24/CSCE_221/LEs/LE2/images",
-    "tamu/3S24/CSCE_221/LEs/LE2/New folder",
+    "tamu/3S24/CSCE_312/labs/lab3/images/nor_with_nand.png",
+    "tamu/3S24/CSCE_312/labs/lab3/images/d_flip_flop.png",
+    "tamu/3S24/CSCE_312/labs/lab3/circuits/problem2.circ",
+    "tamu/3S24/CSCE_312/labs/lab3/images/and_with_nand.png",
+    "tamu/3S24/CSCE_312/labs/lab3/circuits/problem1.circ",
+    "tamu/3S24/CSCE_312/labs/lab2/images/encoder.png",
+    "tamu/3S24/CSCE_312/labs/lab2/images/decoder.png",
+    "tamu/3S24/CSCE_312/labs/lab2/images/circuit1.png",
+    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob5.c",
+    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob1_out.txt",
+    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob4_hint.c",
+    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob4.c",
+    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob2b.c",
+    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob3.c",
+    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob2.c",
+    "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
     "tamu/3S24/CSCE_221/notes/L7V7_Introduction_to_Algorithmic_Complexity.md",
     "tamu/3S24/CSCE_221/notes/L6V6_Deque.md",
     "tamu/3S24/CSCE_221/notes/L8V8_Algorithm_Complexity_Theory.md",

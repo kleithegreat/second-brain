@@ -307,8 +307,183 @@ Here we increase the generality achievable in Haskell, using functions that are 
 - The laws also ensure every well-typed expression using `pure` and `<*>` can be written in applicative style.
 - Reminder: applicative style has the form `pure g <*> x1 <*> x2 ... <*> xn`.
 ## 12.3 Monads
+- Monads capture another pattern of effectful programming.
+- To demonstrate, consider the following types that are built from integers using a division operator:
+	```haskell
+	data Expr = Val Int | Div Expr Expr
+	```
+- These expressions can be evaluated as follows:
+	```haskell
+	eval :: Expr -> Int
+	eval (Val n) = n
+	eval (Div x y) = eval x `div` eval y
+	```
+- However, this function is not safe since it may divide by zero.
+- For example, the following will result in an error:
+	```haskell
+	eval (Div (Val 1) (Val 0))
+	*** Exception: divide by zero
+	```
+- We can use the `Maybe` type to address this issue.
+	```haskell
+	safediv :: Int -> Int -> Maybe Int
+	safediv _ 0 = Nothing
+	safediv x y = Just (x `div` y)
+- Respectively, our evaluator need to be updated to use `safediv`:
+	```haskell
+	eval :: Expr -> Maybe Int
+	eval (Val n) = Just n
+	eval (Div x y) = case eval x of
+						Nothing -> Nothing
+						Just n -> case eval y of
+									Nothing -> Nothing
+									Just m -> safediv n m
+	```
+- This new definition of `eval` is safe, but it is also quite cumbersome.
+	- We have to manually manage the propagation of failure.
+	- We would rather describe what must be done rather than how to do it.
+	- This example feels more imperative than declarative.
+- To address this, we can use the fact that `Maybe` is applicative:
+	```haskell
+	eval :: Expr -> Maybe Int
+	eval (Val n) = Just n
+	eval (Div x y) = pure safediv <*> eval x <*> eval y
+	```
+- This new definition of `eval` is more declarative and more concise, but not well typed.
+	- This is because `safediv` has type `Int -> Int -> Maybe Int`, but we need a function of type `Int -> Int -> Int`.
+	- Replacing `pure safediv` with a custom function does not help, since it would need type `Maybe (Int -> Int -> Int)`.
+- The upshot is that this `eval` function doesn't fit our familiar pattern of effectful programming capture by applicative functors.
+- The applicative style restricts us to applying pure functions to effectful arguments, but here our `safediv` function is itself effectful.
+- The key to writing this elegantly is to observe the common pattern that occurs twice in the definition of `eval`.
+	- We perform a case analysis on `Maybe` values.
+	- `Nothing` results in `Nothing`, and `Just` results in a function application.
+- Abstracting out this pattern gives us a new operator:
+	```haskell
+	(>>=) :: Maybe a -> (a -> Maybe b) -> Maybe b
+	mx >>= f = case mx of
+				Nothing -> Nothing
+				Just x -> f x
+	```
+	- This means `>>=` takes an argument of type `a` that may fail and a function of type `a -> b` that may fail, and returns a result of type `b` that may fail.
+	- If the argument fails, then we propagate the failure.
+	- If the argument succeeds, then we apply the function to the result.
+	- In this manner, `>>=` integrates the sequencing of values of type `Maybe` with the processing of their results.
+- The `>>=` operator is called **bind**, since the second argument is bound to the result of the first argument.
+- We can redefine the funtion `eval` with bind and lambda notation as follows:
+	```haskell
+	eval :: Expr -> Maybe Int
+	eval (Val n) = Just n
+	eval (Div x y) = eval x >>= \n ->
+						eval y >>= \m ->
+						safediv n m
+	```
+- The division case states that we evaluate `x` and call its result `n`, then evaluate `y` and call its result `m`, and finally call `safediv` with `n` and `m`.
+- Generalizing this pattern, a typical expression built using `>>=` has the following form:
+	```haskell
+	m1 >>= \x1 ->
+	m2 >>= \x2 ->
+	.
+	.
+	.
+	mn >>= \xn ->
+	f x1 x2 ... xn
+	```
+- This means we evaluate each `mi` and call its result `xi`, and then apply the function `f` to the results.
+- The definition of bind ensures that if any `mi` fails, then the whole expression fails.
+- This can be simplified using the `do` notation:
+	```haskell
+	do x1 <- m1
+		x2 <- m2
+		.
+		.
+		.
+		xn <- mn
+		f x1 x2 ... xn
+	```
+- This is also the same notation used for interactive programming.
+- As usual, the column spacing is important.
+- We can now redefine `eval` as follows:
+	```haskell
+	eval :: Expr -> Maybe Int
+	eval (Val n) = Just n
+	eval (Div x y) = do n <- eval x
+						m <- eval y
+						safediv n m
+	```
+- This `do` notation is not specific to `Maybe` and `IO`, but can be used with any applicative functor that forms a **monad**.
+- Haskell declares monads as follows:
+	```haskell
+	class Applicative m => Monad m where
+		return :: a -> m a
+		(>>=) :: m a -> (a -> m b) -> m b
+
+		return = pure
+	```
+- This means a monad is an applicative type that supports the `return` and `>>=` functions with the specified types.
+	- The default definition of `return = pure` is just another name for the applicative `pure` function.
+	- This is included in the `Monad` class for historical reasons, namely backwards compatibility with older Haskell code.
+	- Older articles and textbooks also assume the class declaration includes both `return` and `>>=`.
+	- At some point in the future, the `return` function may be removed from the `Monad` class and just become a library function with the following definition:
+		```haskell
+		return :: Applicative f => a -> f a
+		return = pure
+		```
+		- If this change is made, we can no longer define `return` in instance declarations for `Monad`.
 ### Examples
+- The bind operator for the `Maybe` type is defined using pattern matching in the standard prelude:
+	```haskell
+	instance Monad Maybe where
+		-- (>>=) :: Maybe a -> (a -> Maybe b) -> Maybe b
+		Nothing >>= _ = Nothing
+		(Just x) >>= f = f x
+	```
+- This declaration is the reason why we can use the `do` notation with `Maybe`.
+- Lists can be made into monads as well:
+	```haskell
+	instance Monad [] where
+		-- (>>=) :: [a] -> (a -> [b]) -> [b]
+		xs >>= f = [y | x <- xs, y <- f x]
+	```
+	- This means `xs >>= f` applies the function `f` to each element of `xs` and puts the results into a single list.
+	- This allows us to sequence expressions that may produce multiple results.
+- Consider a function that returns all possible ways to pair elements from two lists using the `do` notation:
+	```haskell
+	pairs :: [a] -> [b] -> [(a,b)]
+	pairs xs ys = do x <- xs
+					y <- ys
+					return (x,y)
+	```
+- For example:
+	```haskell
+	> pairs [1,2] [3,4]
+	[(1,3),(1,4),(2,3),(2,4)]
+	```
+	- We could have used `pure` instead of `return` in the `do` notation, but `return` is more consistent monadic convention.
+	- This is quite similar to the list comprehension `[ (x,y) | x <- xs, y <- ys ]`.
+	- The difference is that the `do` notation allows us to generalize to any monadic type.
 ### The state monad
+- We have the problem of writing functions that manipulate state.
+- Assume that the state is just an integer for simplicity.
+```haskell
+type State = Int
+```
+- The most fundamental function on this type is a **state transformer**, abbreviated as `ST`.
+- This is a function that takes a state and returns a new state, and reflects the change in state.
+```haskell
+type ST = State -> State
+```
+- Sometimes we would want to return a value as well as a new state.
+...
 ### Relabelling trees
 ### Generic functions
 ### Monadic laws
+- Monads are required to satisfy three equational laws:
+	```haskell
+	return x >>= f = f x
+	m >>= return = m
+	(mx >>= f) >>= g = mx >>= (\x -> (f x >>= g))
+	```
+- The first law states that `return`ing a value and then binding it to a monadic function is the same as just applying the function to the value.
+- The second law states that binding a monadic value to the `return` function is the same as just returning the value.
+- The third law states that bind is associative.
+- Note that we cannot just write `mx >>= (f >>= g)` since the types do not match.

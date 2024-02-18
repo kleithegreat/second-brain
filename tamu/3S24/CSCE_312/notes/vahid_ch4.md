@@ -422,3 +422,29 @@ $$
 - A timer can be designed using a parallel-load down counter and a register
     - The down counter uses an oscillator as the clock input
 ## 4.10 Register Files
+- An **MxN register file** is a datapath memory component that efficiently accesses a collection of M registers where each register has a bit width of N
+    - M is the number of registers
+    - N is the bit width of each register
+- When we work with wider data, we often run into the issue of needing many wires
+- Having too many wires in a small area is called **routing congestion**
+- Branching a wide bus into many wires is called a **fanout**, and is a common cause of routing congestion
+- Oftentimes we never need to load or read more than one register at a time
+- An MxN register file solves the fanout problem by grouping M registers in a single component
+- Consider a 16x32 register file
+    - This would have 16 32-bit registers
+    - It has a 32 bit W_data input to load a register
+    - It has a 4 bit W_addr input to specify which register to load
+    - It has a 1 bit W_en input to enable the load
+        - These are called the **write port**
+    - It has a 32 bit R_data output to read a register
+    - It has a 4 bit R_addr input to specify which register to read
+    - It has a 1 bit R_en input to enable the read
+        - These are called the **read port**
+- The bits that specify the register are called the **address**
+- The read and write ports work independently of each other
+- This means that we can read and write from same or different registers in the same clock cycle
+- Lets consider a typical design for a 4x32 register file:
+    - We have 4 32 bit registers
+    - We have two bits to specify the address, which leads into 2x4 decoder with enable
+    - Whenever the enable is on, the decoder outputs a signal to the load input of the selected register, and the register loads the 32 bit input
+    - We have a **driver** (sometimes called a **buffer**) after the first two registers to avoid fanout
