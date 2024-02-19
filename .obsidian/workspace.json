@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "1b10a8eecb1d0e24",
+        "id": "664ce42cdca04799",
         "type": "tabs",
         "children": [
           {
-            "id": "9a665dc26e359d6f",
+            "id": "4fd9dfc02dcc24b7",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -73,8 +73,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "5b251c471476f84d",
@@ -147,29 +146,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9a665dc26e359d6f",
+  "active": "4fd9dfc02dcc24b7",
   "lastOpenFiles": [
     "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
     "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
+    "tamu/3S24/,misc/reu_supplement.pdf",
+    "tamu/3S24/,misc/reu_supplement.aux",
+    "tamu/3S24/,misc/reu_supplement.log",
+    "tamu/3S24/,misc/reu_supplement.tex",
+    "tamu/3S24/,misc/reu_supplement.md",
+    "tamu/3S24/,misc/reu_personal_statement.md",
+    "tamu/3S24/,misc",
+    "tamu/1S23/,misc/STOP THROWING.xlsx",
+    "tamu/1S23/,misc/grade-calculator-152.xlsx",
+    "tamu/1S23/,misc/1094627c-8365-488f-adf1-91a277478669.pdf",
+    "tamu/1S23/,misc/etam essays.docx",
+    "tamu/3S24/CSCE_312/random.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
+    "tamu/3S24/CSCE_314/exercises/exercise5.md",
     "tamu/3S24/CSCE_312/labs/lab3/images/problem2_plan.jpeg",
     "tamu/3S24/CSCE_312/labs/lab3/images/problem2_circ.png",
     "tamu/3S24/CSCE_312/labs/lab3/images/d_latch.png",
     "tamu/3S24/CSCE_312/labs/lab3/images/not_with_nand.png",
     "tamu/3S24/CSCE_312/labs/lab3/images/nor_with_nand.png",
     "tamu/3S24/CSCE_312/labs/lab3/images/d_flip_flop.png",
-    "tamu/3S24/CSCE_312/labs/lab3/circuits/problem2.circ",
     "tamu/3S24/CSCE_312/labs/lab3/images/and_with_nand.png",
-    "tamu/3S24/CSCE_312/labs/lab3/circuits/problem1.circ",
     "tamu/3S24/CSCE_312/labs/lab2/images/encoder.png",
     "tamu/3S24/CSCE_312/labs/lab2/images/decoder.png",
     "tamu/3S24/CSCE_312/labs/lab2/images/circuit1.png",
-    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob5.c",
-    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob1_out.txt",
-    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob4_hint.c",
-    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob4.c",
-    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob2b.c",
-    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob3.c",
-    "tamu/3S24/CSCE_312/labs/lab1/lab1_src/lab1_prob2.c",
     "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
     "tamu/3S24/CSCE_221/notes/L7V7_Introduction_to_Algorithmic_Complexity.md",
     "tamu/3S24/CSCE_221/notes/L6V6_Deque.md",
@@ -188,11 +192,6 @@
     "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
     "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
     "tamu/3S24/CSCE_312/notes/!lecture.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch1.md"
+    "tamu/3S24/CSCE_312/notes/vahid_ch3.md"
   ]
 }
