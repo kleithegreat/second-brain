@@ -4,15 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "664ce42cdca04799",
+        "id": "73fa079ebe5db75e",
         "type": "tabs",
         "children": [
           {
-            "id": "4fd9dfc02dcc24b7",
+            "id": "36ef4f4f3b542b44",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "pdf",
+              "state": {
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "4c46c4c3657411a8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "81346a8273198f00",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -73,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "5b251c471476f84d",
@@ -89,6 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +149,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf"
+              }
             }
           }
         ]
@@ -146,35 +171,36 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4fd9dfc02dcc24b7",
+  "active": "36ef4f4f3b542b44",
   "lastOpenFiles": [
-    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
+    "tamu/3S24/CSCE_221/PAs/PA2/src/node.h",
+    "tamu/3S24/CSCE_221/PAs/PA2/src/Makefile",
+    "tamu/3S24/CSCE_221/PAs/PA2/src/main.cpp",
+    "tamu/3S24/CSCE_221/PAs/PA2/src/deque.h",
+    "tamu/3S24/CSCE_221/PAs/PA2/src",
+    "tamu/3S24/CSCE_221/LEs/LE3/report/images/log.png",
+    "tamu/3S24/CSCE_221/LEs/LE3/report/images/linear.png",
+    "tamu/3S24/CSCE_221/LEs/LE3/report/images",
+    "tamu/3S24/CSCE_221/LEs/LE2/report/images/algo5.png",
+    "tamu/3S24/CSCE_221/LEs/LE2/report/images/algo4.png",
+    "tamu/3S24/CSCE_221/LEs/LE2/report/images/algo3.png",
+    "tamu/3S24/CSCE_221/LEs/LE2/report/images/algo2.png",
+    "tamu/3S24/CSCE_221/LEs/LE2/report/images/algo1.png",
+    "tamu/3S24/CSCE_221/LEs/LE2/report/images",
+    "tamu/3S24/CSCE_221/LEs/LE2/report/report.tex",
+    "tamu/3S24/CSCE_221/LEs/LE2/report/report.pdf",
+    "tamu/3S24/CSCE_221/LEs/LE2/report",
+    "tamu/3S24/CSCE_221/LEs/LE2/starter/Makefile",
+    "tamu/3S24/CSCE_221/LEs/LE3/images/log.png",
+    "tamu/3S24/CSCE_221/LEs/LE3/images/linear.png",
+    "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
-    "tamu/3S24/,misc/reu_supplement.pdf",
-    "tamu/3S24/,misc/reu_supplement.aux",
-    "tamu/3S24/,misc/reu_supplement.log",
-    "tamu/3S24/,misc/reu_supplement.tex",
     "tamu/3S24/,misc/reu_supplement.md",
     "tamu/3S24/,misc/reu_personal_statement.md",
-    "tamu/3S24/,misc",
-    "tamu/1S23/,misc/STOP THROWING.xlsx",
-    "tamu/1S23/,misc/grade-calculator-152.xlsx",
-    "tamu/1S23/,misc/1094627c-8365-488f-adf1-91a277478669.pdf",
-    "tamu/1S23/,misc/etam essays.docx",
     "tamu/3S24/CSCE_312/random.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
     "tamu/3S24/CSCE_314/exercises/exercise5.md",
     "tamu/3S24/CSCE_312/labs/lab3/images/problem2_plan.jpeg",
-    "tamu/3S24/CSCE_312/labs/lab3/images/problem2_circ.png",
-    "tamu/3S24/CSCE_312/labs/lab3/images/d_latch.png",
-    "tamu/3S24/CSCE_312/labs/lab3/images/not_with_nand.png",
-    "tamu/3S24/CSCE_312/labs/lab3/images/nor_with_nand.png",
-    "tamu/3S24/CSCE_312/labs/lab3/images/d_flip_flop.png",
-    "tamu/3S24/CSCE_312/labs/lab3/images/and_with_nand.png",
-    "tamu/3S24/CSCE_312/labs/lab2/images/encoder.png",
-    "tamu/3S24/CSCE_312/labs/lab2/images/decoder.png",
-    "tamu/3S24/CSCE_312/labs/lab2/images/circuit1.png",
-    "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
     "tamu/3S24/CSCE_221/notes/L7V7_Introduction_to_Algorithmic_Complexity.md",
     "tamu/3S24/CSCE_221/notes/L6V6_Deque.md",
     "tamu/3S24/CSCE_221/notes/L8V8_Algorithm_Complexity_Theory.md",
