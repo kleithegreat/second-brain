@@ -55,27 +55,22 @@
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="simulationFrequency" val="2.0"/>
-    <comp lib="0" loc="(230,270)" name="Clock"/>
-    <comp lib="1" loc="(230,180)" name="XOR Gate">
-      <a name="facing" val="west"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(130,190)" name="Pin">
+      <a name="appearance" val="NewPins"/>
     </comp>
-    <comp lib="4" loc="(250,220)" name="D Flip-Flop">
-      <a name="appearance" val="logisim_evolution"/>
+    <comp lib="0" loc="(160,290)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="width" val="4"/>
     </comp>
-    <comp lib="5" loc="(300,140)" name="LED">
-      <a name="facing" val="south"/>
+    <comp lib="0" loc="(200,290)" name="Splitter">
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
     </comp>
-    <comp lib="5" loc="(320,160)" name="Button">
-      <a name="facing" val="west"/>
+    <comp lib="0" loc="(260,350)" name="Clock"/>
+    <comp lib="2" loc="(420,220)" name="Decoder">
+      <a name="select" val="3"/>
     </comp>
-    <wire from="(220,180)" to="(220,230)"/>
-    <wire from="(220,180)" to="(230,180)"/>
-    <wire from="(220,230)" to="(240,230)"/>
-    <wire from="(230,270)" to="(240,270)"/>
-    <wire from="(290,160)" to="(320,160)"/>
-    <wire from="(290,200)" to="(300,200)"/>
-    <wire from="(300,140)" to="(300,200)"/>
-    <wire from="(300,200)" to="(300,230)"/>
+    <wire from="(160,290)" to="(200,290)"/>
   </circuit>
 </project>
