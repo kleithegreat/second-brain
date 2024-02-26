@@ -49,6 +49,8 @@ Deque<Type>::~Deque() {
 template <class Type>
 Deque<Type>::Deque(const Deque& other) {
 	s = 0;
+	firstNode = nullptr;
+	lastNode = nullptr;
 
 	Node<Type>* temp = other.firstNode;
 	while (temp != nullptr) {
@@ -104,27 +106,29 @@ Type Deque<Type>::last() {
 
 template <class Type>
 void Deque<Type>::insertFirst(Type o) {
-	Node<Type>* newNode = new Node<Type>(o, firstNode, nullptr);
 	if (firstNode == nullptr) {
-		lastNode = newNode;
+		firstNode = new Node<Type>(o);
+		lastNode = firstNode;
 	} else {
+		Node<Type>* newNode = new Node<Type>(o, firstNode, nullptr);
 		firstNode->setPrev(newNode);
+		firstNode = newNode;
 	}
 
-	firstNode = newNode;
 	s++;
 }
 
 template <class Type>
 void Deque<Type>::insertLast(Type o) {
-	Node<Type>* newNode = new Node<Type>(o, nullptr, lastNode);
-	if (lastNode == nullptr) {
-		firstNode = newNode;
+	if (firstNode == nullptr) {
+		firstNode = new Node<Type>(o);
+		lastNode = firstNode;
 	} else {
+		Node<Type>* newNode = new Node<Type>(o, nullptr, lastNode);
 		lastNode->setNext(newNode);
+		lastNode = newNode;
 	}
 
-	lastNode = newNode;
 	s++;
 }
 

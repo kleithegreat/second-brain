@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b1bd5ecffe6acd12",
+        "id": "25b2809f4a275e59",
         "type": "tabs",
         "children": [
           {
-            "id": "a2203ca173767dcf",
+            "id": "407d4cf37d28f464",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -146,8 +146,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "70b22a13d8e23d6b",
+  "active": "407d4cf37d28f464",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_314/exercises/exercise6.md",
+    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
+    "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
     "tamu/3S24/CSCE_221/LEs/LE3/report/cachegrind/vector-cachegrind.txt",
     "tamu/3S24/CSCE_221/LEs/LE3/report/cachegrind/list-cachegrind.txt",
     "tamu/3S24/CSCE_221/LEs/LE3/report/cachegrind/cachegrind.out.1169",
@@ -157,8 +160,6 @@
     "tamu/3S24/CSCE_221/LEs/LE3/starter/cachegrind.out.1169",
     "tamu/3S24/CSCE_221/LEs/LE3/starter/vector.csv",
     "tamu/3S24/CSCE_221/LEs/LE3/starter/cachegrind.out.1116",
-    "tamu/3S24/CSCE_221/LEs/LE3/starter/list-cachegrind.txt",
-    "tamu/3S24/CSCE_221/LEs/LE3/starter/cachegrind.out.1061",
     "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md",
@@ -183,7 +184,6 @@
     "tamu/3S24/CSCE_314/homework/notes/haskell/6_Recursive_functions.md",
     "tamu/3S24/CSCE_314/homework/notes/haskell/5_List_comprehensions.md",
     "tamu/3S24/CSCE_314/homework/notes/haskell/4_Defining_functions.md",
-    "tamu/3S24/CSCE_314/notes/haskell/13_Monadic_parsing.md",
     "tamu/3S24/CSCE_221/LEs/LE3/report/images/log.png",
     "tamu/3S24/CSCE_221/LEs/LE3/report/images/linear.png",
     "tamu/3S24/CSCE_221/LEs/LE2/report/images/algo5.png",
