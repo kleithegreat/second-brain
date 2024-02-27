@@ -1,11 +1,11 @@
 # 5 - Register Transfer Level (RTL) Design
 ## 5.1 Introduction
-- Previously we have talked about capturing behavior and impementing it as a digital circuit
+- Previously we have talked about capturing behavior and implementing it as a digital circuit
 - Chapter 2 introduced combinational logic
 - Chapter 3 introduced sequential logic and FSMs
 - Chapter 4 introduced the concept of a datapath and a controller
 - This chapter will focus on even higher level sequential behavior
-    - We will use someting called a high-level state machine or HLSM
+    - We will use something called a high-level state machine or HLSM
     - This means the inputs, outputs, state actions, and transition conditions can use higher level constructs
     - These higher level constructs can be binary numbers or integers rather than just single bit boolean values
 - We will introduce a method to convert HLSMs into a circuit consisting of a controller connected to a datapath, which is together known as a **processor**
@@ -21,7 +21,7 @@
     - When the counter reaches a certain value, the machine dispenses a soda
     - A simple FSM could be used to model this behavior, since it cannot represent memory of multiple bits
 - A **high-level state machine (HLSM)** extends FSMs with the data features to capture more complex behavior, which includes:
-    - Multibit data inputs and ouputs
+    - Multibit data inputs and outputs
     - Local storage
     - Arithmetic operations like add and compare
 - We also make the following assumptions:
@@ -29,7 +29,7 @@
     - := is used to denote the assignment of a value to a variable
     - == is used to denote the comparison of two values
 ## 5.3 RTL Design Process
-- RTL design follows a two step process simliar to combinational design
+- RTL design follows a two step process similar to combinational design
     - First we capture the behavior of the system using a HLSM
     - Then we convert the HLSM into a circuit using RTL level components
 - Converting an HLSM to a circuit is aided by a standard processor architecture, similar to how combinational logic used a standard architecture of a state register and combinational logic
@@ -81,9 +81,22 @@
 ## 5.6 Behavioral-Level Design: C to Gates
 - skipping lmao
 ## 5.7 Memory Components
-
+- RTL design often uses additional memory components outside the datapath and controller
+- An **MxN memory** is a memory component able to store M data items of N bits each.
+    - Each data item in a memory is called a **word**
+    - Memory can be categorized in two groups: RAM and ROM
+    - Ram and be read from and written to, while ROM can only be read from
+    - The distinction between the two is blurring with new technologies
 ### Random Access Memory (RAM)
-
+- This is logically identical to a register file
+- Both are memory components whose words (each word can be thought of as a register) can be read from and written to using an address
+- The differences between the two are:
+    - The size of M--register files are usually smaller
+    - Bit storage implementation--RAMs use more compact storage, whereas register files use larger and faster flip-flops
+    - Physical shape--RAMs are usually square ish shaped to reduce the critical path
+- Theres no clear cut definition between RAM and register files, and sometimes the terms are used interchangeably
+- A typical RAM is single-ported, meaning one port handles both reads and writes
+- Typical registers are almost never single-ported
 ### Bit Storange in a RAM
 
 ### Using a RAM
