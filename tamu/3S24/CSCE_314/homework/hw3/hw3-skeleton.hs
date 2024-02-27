@@ -51,28 +51,34 @@ tree3 = Branch "+"
 ---------------
 
 -- Problem 2 (20 points)
-instance (Show a, Show b) => Show (Tree a b) where
-   show a = showTree "" a
-      where
-         showTree space (Leaf a) = space ++ show a ++ "\n"
-         showTree space (Branch b l r) = space ++ show b ++ "\n" ++ showTree (space ++ "\t") l ++ showTree (space ++ "\t") r
+instance (Show a, Show b) => Show (Tree a b) where  -- We want to make Tree an instance of Show, and the elements of the tree must also be instances of Show.
+   show a = showTree "" a  -- Here we define the show function for Tree objects, which uses a helper function showTree which is defined below.
+      where  -- Here we want to define the helper function showTree which takes a string and a Tree object and returns a string. The string should just be the level of indentation, and then we need to consider the two constructors of the Tree data type: Leaf and Branch. The reason we need to use a helper function is because we need to keep track of the level of indentation as we traverse the tree.
+         showTree space (Leaf a) = space ++ show a ++ "\n"  -- If we call showTree with a Leaf object, we return the given amount of indentation and then the string representation of the Leaf object, which is just calling the show function on the data in the Leaf object. After that we add a newline character.
+         showTree space (Branch b l r) = space ++ show b ++ "\n" ++ showTree (space ++ "\t") l ++ showTree (space ++ "\t") r  -- In the case of a Branch object, we return the given amount of indentation and then the string representation of the data in the Branch, then a newline character. Then we call showTree on the left and right children of the Branch object, but we add one more tab of indentation to the space string. This is because we want to indent the children of the Branch object one more level than the Branch object itself.
 
 
 -- Problem 3 (15 + 20 = 35 points)
 ---- Problem 3.1 (5 + 5 + 5 = 15 points)
 preorder  :: (a -> c) -> (b -> c) -> Tree a b -> [c]  -- 5 points
-preorder f g (Leaf a) = [f a]
-preorder f g (Branch b l r) = g b : preorder f g l ++ preorder f g r
+-- This function takes two functions that both map to some type c, and a Tree object that can contain up to two different types of data (hence the two functions before). This function then returns a list of type c.
+-- The returned list should just be the appropriate function applied to the data in the Tree object in a preorder traversal. 
+preorder f g (Leaf a) = [f a]  -- In the case that we reach a leaf, we return a list containing the result of applying the first function to the data in the leaf, since the first function takes 'a' as an argument.
+preorder f g (Branch b l r) = g b : preorder f g l ++ preorder f g r  -- In the case that we reach a branch, the preorder traversal is to first visit the root, then the left child, then the right child. Thus, we apply the function 'g' to the data of type 'b' in the branch node, then recursively call preorder on the left branch, then the right branch. This all gets concatenated together into one list.
 
 
 inorder   :: (a -> c) -> (b -> c) -> Tree a b -> [c]  -- 5 points
-inorder f g (Leaf a) = [f a]
-inorder f g (Branch b l r) = inorder f g l ++ [g b] ++ inorder f g r
+-- This function has the same type signature as the previous function, and the same explanation applies.
+-- The returned list should just be the appropriate function applied to the data in the Tree object in an inorder traversal.
+inorder f g (Leaf a) = [f a]  -- This is the same as the base case for preorder, and the explanation is the same as before.
+inorder f g (Branch b l r) = inorder f g l ++ [g b] ++ inorder f g r  -- Almost the same as the recursive case for preorder, but inorder goes in the order of left child, root, right child. Thus, we recursively call inorder on the left child, then apply the function 'g' to the data of type 'b' in the branch node, then recursively call inorder on the right child. This all gets concatenated together in that order into one list.
 
 
 postorder  :: (a -> c) -> (b -> c) -> Tree a b -> [c]  -- 5 points
-postorder f g (Leaf a) = [f a]
-postorder f g (Branch b l r) = postorder f g l ++ postorder f g r ++ [g b]
+-- This function has the same type signature as the previous two functions, and the same explanation applies.
+-- The returned list should just be the appropriate function applied to the data in the Tree object in a postorder traversal.
+postorder f g (Leaf a) = [f a]  -- This is the same as the base case for preorder and inorder, and the explanation is the same as before.
+postorder f g (Branch b l r) = postorder f g l ++ postorder f g r ++ [g b]  -- Almost the same as the recursive case for the last two functions, but postorder goes in the order of left child, right child, root. Thus, we recursively call postorder on the left child, then recursively call postorder on the right child, then apply the function 'g' to the data of type 'b' in the branch node. This all gets concatenated together in that order into one list.
 
 
 ---- Problem 3.2 (10 + 10 = 20 points)
