@@ -220,8 +220,24 @@ e11 = (Add (Mult (Add (Val 2) (Val 3)) (Mult (Val 4) (Val 5))) (Mult (Val 3) (Su
 -- Show the step-by-step of the following application of value.
 -- > value e9
 {-- Your answer goes here. Your answer must be in detail step-by-step.
-
-
+> value e9
+= value (Subt (Mult (Val 2) (Val 3)) (Add (Val 4) (Val 1)))
+= eval (Subt (Mult (Val 2) (Val 3)) (Add (Val 4) (Val 1))) []
+= eval (Mult (Val 2) (Val 3)) [EVALS (Add (Val 4) (Val 1))]
+= eval (Val 2) [EVALM (Val 3), EVALS (Add (Val 4) (Val 1))]
+= exec [EVALM (Val 3), EVALS (Add (Val 4) (Val 1))] 2
+= eval (Val 3) [MULT 2, EVALS (Add (Val 4) (Val 1))]
+= exec [MULT 2, EVALS (Add (Val 4) (Val 1))] 3
+= exec [EVALS (Add (Val 4) (Val 1))] (2*3)
+= eval (Add (Val 4) (Val 1)) [SUBT (6)]
+= eval (Val 4) [EVALA (Val 1), SUBT (6)]
+= exec [EVALA (Val 1), SUBT (6)] 4
+= eval (Val 1) [ADD (4), SUBT (6)]
+= exec [ADD (4), SUBT (6)] 1
+= exec [SUBT (6)] (4+1)
+= exec [] (6-(4+1))
+= 6-(4+1)
+= 1
 --}
 
 
