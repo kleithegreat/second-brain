@@ -1,7 +1,7 @@
 # Monads and More
 Here we increase the generality achievable in Haskell, using functions that are generic over parameterized types like lists, trees, and IO actions. Specifically, we introduce functors, applicatives, and monads, which captures generic notions of mapping, function application, and effectful programming.
 ## 12.1 Functors
-- Functors, applicatives, and monads all share the idea of abstractive out a common programming pattern as a definition.
+- Functors, applicatives, and monads all share the idea of abstracting out a common programming pattern as a definition.
 - Say we have these two simple functions:
 	```haskell
 	inc :: [Int] -> [Int]
@@ -150,7 +150,7 @@ Here we increase the generality achievable in Haskell, using functions that are 
 - One approach would be to declare a special version of the functor class for each number of arguments.
 	- This would be tedious and would not scale well.
 	- It is not clear how many versions we would need.
-- Using the idea of curring, we can make a version of `fmap` for functions with any number of arguments.
+- Using the idea of currying, we can make a version of `fmap` for functions with any number of arguments.
 	```haskell
 	pure :: a -> f a
 	(<*>) :: f (a -> b) -> f a -> f b

@@ -144,5 +144,71 @@
 ## Formal Languages: Grammars
 - The American linguist Noam Chomsky introduced the concept of a **phrase structure grammar**.
 - He grouped formal languages into four nested subsets of more and more specific types of grammars.
-- 
+- A sentence $S$ can be divided into a noun phrase $N_P$ and a verb phrase $V_P$.
+    - We can express this as $S \rightarrow N_P V_P$.
+    - The noun phrase $N_P$ can be something like $N_P \rightarrow \text{the dog}$ or $N_P \rightarrow \text{the steak}$.
+    - The verb phrase $V_P$ can be divided into a verb $V$ and a noun phrase $N_P$.
+        - We can express this as $V_P \rightarrow V N_P$.
+    - So in this grammar we can form the sentence "the dog ate the steak" as $S \rightarrow N_P V_P \rightarrow \text{the dog ate the steak}$.
+    - Here the noun phrase $N_P$ is $\text{the dog}$, and the verb phrase $V_P$ is $\text{ate the steak}$.
+- However, we can also say "the steak ate the dog" in this grammar, which doesn't make sense in English.
+- Thus, grammars mainly govern the syntax of a language, and not the semantics.
+### Phrase Structure Grammars
+- A **phrase structure grammar** G consists of:
+    - A non-empty finite set $T$ of **terminal symbols**.
+        - These are the symbols that appear in the strings of the language.
+    - A set $N$ of **non-terminal symbols** (or **variables**).
+        - These are the symbols that can be replaced by strings of terminal and non-terminal symbols.
+        - These include the start symbol $S$ and is assumed to be disjoint from $T$.
+    - The **vocabulary** $V = N \cup T$.
+    - A finite set $P$ of **production rules**
+        - These production rules are of the form $a \rightarrow b$, such that $a, b \in V^*$.
+        - The LHS of the production rule is a single non-terminal symbol.
+- We say that the grammar $G$ has the data $G = (N, T, P, S)$.
+- We define a binary relation $\Rightarrow$ on $V^*$ such that $v \Rightarrow v'$ if and only if there exist $c, d \in V^*$ and a production rule $a \rightarrow b \in P$ such that $v = c a d$ and $v' = c b d$.
+- This just means that we can replace a non-terminal symbol with a string of terminal and non-terminal symbols.
+- We denote $\Rightarrow ^*$ as the reflexive and transitive closure of $\Rightarrow$.
+- This just means that we can replace a non-terminal symbol with a string of terminal and non-terminal symbols any number of times.
+- The grammar $G$ defines the language $L(G)$ as the set of all terminal strings that can be derived from the start symbol $S$.
+    - $L(G) = \{w \in T^* | S \Rightarrow^* w\}$.
 ## Formal Languages: Chomsky Hierarchy
+- The Chomsky hierarchy has the following types:
+    - Type 0: Phrase structure grammars
+        - Universal set of grammars
+    - Type 1: Context-sensitive grammars
+        - Some restrictions on the production rules
+    - Type 2: Context-free grammars
+        - More restrictions on the production rules
+    - Type 3: Regular grammars
+        - Most restrictions on the production rules
+- Being regular implies being context-free, and being context-free implies being context-sensitive, and being context-sensitive implies being phrase structure.
+- All the types have common uses in computer science
+    - Type 3 often form regexes
+    - Type 2 often form the syntax of programming languages
+    - Type 1 are often used in natural language processing
+### Type 3: Regular Grammars
+- A grammar is type 3 if and ony if every production rule is of one of the following forms:
+    - $A \rightarrow aB$ for some $A, B \in N$ and $a \in T$
+        - A and B are non-terminal symbols
+        - a is a terminal symbol
+    - $A \rightarrow a$ for some $A \in N$ and $a \in T$
+        - A is a non-terminal symbol
+        - a is a terminal symbol
+    - $A \rightarrow \epsilon$ for some $A \in N$
+### Type 2: Context-Free Grammars
+- A grammar is type 2 if and only if every production rule is of the form:
+    - $A \rightarrow w$ for some $A \in N$ and $w \in V^*$
+    - $A$ is a single non-terminal symbol
+    - $w$ is a string of terminal and non-terminal symbols, or simply just some word
+### Type 1: Context-Sensitive Grammars
+- A grammar is type 1 if and only if every production rule is of the form:
+    - $uAw \rightarrow uvw$
+        - for some nonterminal $A \in N$ 
+        - words $u, w \in V^*$
+        - some word $v \in V^+ = V^*\setminus \{\epsilon\}$
+### Type 0: Phrase Structure Grammars or Recursively Enumerable Languages
+- A type 0 grammar has no restrictions on the production rules.
+- It is called recursively enumerable because the words can be enumerated given enough memory.
+### Other stuff
+- A formal language without the empty string is called **proper**.
+- $\mathcal{L}_3 \subset \mathcal{L}_2 \subset \mathcal{L}_1 \subset \mathcal{L}_0$

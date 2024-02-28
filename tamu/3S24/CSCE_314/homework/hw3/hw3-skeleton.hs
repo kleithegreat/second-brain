@@ -86,11 +86,80 @@ postorder f g (Branch b l r) = postorder f g l ++ postorder f g r ++ [g b]  -- A
     Your answer must be in detail step-by-step.
 
 > preorder show id tree1 
+= id "*" : preorder show id (Branch "+"
+                              (Branch "*" (Leaf 2) (Leaf 6))
+                              (Branch "+" (Leaf 3) (Leaf 4))) ++
+           preorder show id (Branch "*"
+                              (Branch "+"
+                                 (Branch "*" (Leaf 8) (Leaf 2))
+                                 (Leaf 7))
+                              (Branch "+" (Leaf 5) (Leaf 4)))
+= "*" : id "+" : preorder show id (Branch "*" (Leaf 2) (Leaf 6)) ++
+                 preorder show id (Branch "+" (Leaf 3) (Leaf 4)) ++
+        id "*" : preorder show id (Branch "+"
+                                    (Branch "*" (Leaf 8) (Leaf 2))
+                                    (Leaf 7)) ++
+                 preorder show id (Branch "+" (Leaf 5) (Leaf 4))
+= "*" : "+" : id "*" : preorder show id (Leaf 2) ++ preorder show id (Leaf 6) ++
+              id "+" : preorder show id (Leaf 3) ++ preorder show id (Leaf 4) ++
+        "*" : id "+" : preorder show id (Branch "*" (Leaf 8) (Leaf 2)) ++
+                 preorder show id (Leaf 7) ++
+              id "+" : preorder show id (Leaf 5) ++ preorder show id (Leaf 4)
+= "*" : "+" : "*" : [show 2] ++ [show 6] ++
+              "+" : [show 3] ++ [show 4] ++
+        "*" : "+" : id "*" : preorder show id (Leaf 8) ++ preorder show id (Leaf 2) ++
+                 [show 7] ++
+              "+" : [show 5] ++ [show 4]
+= "*" : "+" : "*" : ["2"] ++ ["6"] ++
+              "+" : ["3"] ++ ["4"] ++
+        "*" : "+" : "*" : [show 8] ++ [show 2] ++
+                 ["7"] ++
+              "+" : ["5"] ++ ["4"]
+= "*" : "+" : "*" : ["2"] ++ ["6"] ++ "+" : ["3"] ++ ["4"] ++ "*" : "+" : "*" : ["8"] ++ ["2"] ++ ["7"] ++ "+" : ["5"] ++ ["4"]
+= ["*", "+", "*", "2", "6", "+", "3", "4", "*", "+", "*", "8", "2", "7", "+", "5", "4"]
 
 
 > inorder show id tree1
-
-
+= inorder show id (Branch "+"
+                     (Branch "*" (Leaf 2) (Leaf 6))
+                     (Branch "+" (Leaf 3) (Leaf 4))) ++
+  [id "*"] ++
+  inorder show id (Branch "*"
+                     (Branch "+"
+                        (Branch "*" (Leaf 8) (Leaf 2))
+                        (Leaf 7))
+                     (Branch "+" (Leaf 5) (Leaf 4))
+= inorder show id (Branch "*" (Leaf 2) (Leaf 6)) ++
+  [id "+"] ++
+  inorder show id (Branch "+" (Leaf 3) (Leaf 4)) ++
+  ["*"] ++
+  inorder show id (Branch "+"
+                     (Branch "*" (Leaf 8) (Leaf 2))
+                     (Leaf 7)) ++
+  [id "*"] ++
+  inorder show id (Branch "+" (Leaf 5) (Leaf 4))
+= inorder show id (Leaf 2) ++ [id "*"] ++ inorder show id (Leaf 6) ++
+  ["+"] ++
+  inorder show id (Leaf 3) ++ [id "+"] ++ inorder show id (Leaf 4) ++
+  ["*"] ++
+  inorder show id (Branch "*" (Leaf 8) (Leaf 2)) ++ [id "+"] ++ inorder show id (Leaf 7) ++
+  ["*"] ++
+  inorder show id (Leaf 5) ++ [id "+"] ++ inorder show id (Leaf 4)
+= [show 2] ++ ["*"] ++ [show 6] ++
+  ["+"] ++
+  [show 3] ++ ["+"] ++ [show 4] ++
+  ["*"] ++
+  inorder show id (Leaf 8) ++ [id "*"] ++ inorder show id (Leaf 2) ++ ["+"] ++ [show 7] ++
+  ["*"] ++
+  [show 5] ++ ["+"] ++ [show 4]
+= ["2"] ++ ["*"] ++ ["6"] ++
+  ["+"] ++
+  ["3"] ++ ["+"] ++ ["4"] ++
+  ["*"] ++
+  [show 8] ++ ["*"] ++ [show 2] ++ ["+"] ++ ["7"] ++
+  ["*"] ++
+  ["5"] ++ ["+"] ++ ["4"]
+= ["2", "*", "6", "+", "3", "+", "4", "*", "8", "*", "2", "+", "7", "*", "5", "+", "4"]
 --}
                           
 
@@ -101,7 +170,7 @@ type Cont = [Op]
 
 data Op = EVALA Expr | ADD Int | EVALS Expr | SUBT Int | EVALM Expr | MULT Int
 
-eval :: Expr -> Cont -> Int  -- This function takes an Expr object and a control stack and returns an Int.
+eval :: Expr -> Cont -> Int  -- This function evaluate an expression with a control stack and returns an integer.
 -- Give four definitions for eval.
 -- First two definitions,
 -- 1) for (Val n) and c as arguments and
@@ -110,23 +179,23 @@ eval :: Expr -> Cont -> Int  -- This function takes an Expr object and a control
 -- you need to modify the second definition slightly
 -- and give the third and fourth definitions for
 -- (Subt x y) and (Mult x y)
-eval (Val n) c = exec c n
-eval (Add x y) c = eval x (EVALA y : c)
-eval (Subt x y) c = eval x (EVALS y : c)
-eval (Mult x y) c = eval x (EVALM y : c)
+eval (Val n) c = exec c n  -- In the case that our expression is just a value, we execute the control stack with the value as an argument.
+eval (Add x y) c = eval x (EVALA y : c)  -- In the case that our expression argument is an addition, we evaluate the first expression, and then push the addition of the second expression onto the control stack.
+eval (Subt x y) c = eval x (EVALS y : c)  -- In the case that our expression argument is a subtraction, we evaluate the first expression, and then push the subtraction of the second expression onto the control stack.
+eval (Mult x y) c = eval x (EVALM y : c)  -- In the case that our expression argument is a multiplication, we evaluate the first expression, and then push the multiplication of the second expression onto the control stack.
 
 
 exec :: Cont -> Int -> Int
 -- Give seven definitions for exec, one for an empty list and
 -- one for each of the six constructors of the data type Op
 -- Some of these are already given in the text Section 8.7.
-exec [] n = n
-exec (EVALA y : c) n = eval y (ADD n : c)
-exec (ADD n : c) m = exec c (n+m)
-exec (EVALS y : c) n = eval y (SUBT n : c)
-exec (SUBT n : c) m = exec c (n-m)
-exec (EVALM y : c) n = eval y (MULT n : c)
-exec (MULT n : c) m = exec c (n*m)
+exec [] n = n  -- If our control stack is empty, we just return the value.
+exec (EVALA y : c) n = eval y (ADD n : c)  -- If the top of our control stack is an evaluation of an addition, we evaluate the expression and then push the addition of the value argument onto the control stack.
+exec (ADD n : c) m = exec c (n+m)  -- If the top of our control stack is an addition, we execute the control stack with the sum of the value argument and the value at the top of the control stack.
+exec (EVALS y : c) n = eval y (SUBT n : c)  -- If the top of our control stack is an evaluation of a subtraction, we evaluate the expression and then push the subtraction of the value argument onto the control stack.
+exec (SUBT n : c) m = exec c (n-m)  -- If the top of our control stack is a subtraction, we execute the control stack with the difference of the value argument and the value at the top of the control stack.
+exec (EVALM y : c) n = eval y (MULT n : c)  -- If the top of our control stack is an evaluation of a multiplication, we evaluate the expression and then push the multiplication of the value argument onto the control stack.
+exec (MULT n : c) m = exec c (n*m)  -- If the top of our control stack is a multiplication, we execute the control stack with the product of the value argument and the value at the top of the control stack.
 
 
 value :: Expr -> Int
