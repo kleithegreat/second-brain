@@ -101,7 +101,7 @@ type Cont = [Op]
 
 data Op = EVALA Expr | ADD Int | EVALS Expr | SUBT Int | EVALM Expr | MULT Int
 
-eval :: Expr -> Cont -> Int
+eval :: Expr -> Cont -> Int  -- This function takes an Expr object and a control stack and returns an Int.
 -- Give four definitions for eval.
 -- First two definitions,
 -- 1) for (Val n) and c as arguments and
