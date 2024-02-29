@@ -1,0 +1,7 @@
+{signal: [
+  {name: "I", wave: "x=.=.=.=.=.=.=.=.x", data: [5, 1, 124, 65, 92, 0, 0, 21]},
+  {name: "Ld", wave: "0.1...0......1.0.."},
+  {name: "clr", wave: "0......1...0...10."},
+  {name: "clk", wave: "l.hlhlhlhlhlhlhlhl"},
+  {name: "Q", wave: "x=.=.=.=.=.=.=.=.x", data: [5, 1, 1, " ", " ", " ", 0, 0]}
+]}
