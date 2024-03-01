@@ -6,6 +6,7 @@
 \usepackage{caption}
 \usepackage{float}
 \usepackage{xcolor}
+\usepackage{listings}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -100,12 +101,25 @@ To convert from decimal to two's complement binary, we first convert to binary, 
 \end{enumerate}
 
 \subsection*{4.40}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{./images/4.40.png}\
+    \caption*{8-bit ALU with arithmetic logic extender}
+\end{figure}
 
 \subsection*{4.62}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{./images/4.62.png}
+    \caption*{Three port 2 read and 1 write register file}
+\end{figure}
 
 \subsection*{4.64}
+Given that each of a 4x4 register file's registers initially holds \texttt{0101}:
+\begin{enumerate}[(a)]
+    \item If we want to simultaneously read from register 3 and write \texttt{1110} to it, we would need set the read and write enable signals to 1, set the read and write addresses to \texttt{10}, and set the write data to \texttt{1110}.
+    \item Before the rising clock edge, all register should hold \texttt{0101}, and it outputs nothing. After the rising clock edge, register 3 should hold \texttt{1110}, while the other registers still hold \texttt{0101}. The output should be \texttt{0101}.
+\end{enumerate}
 
 
 \end{document}

@@ -16,8 +16,19 @@
                 "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf"
               }
             }
+          },
+          {
+            "id": "f112610ad0561cbc",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "627701865897bb6f",
@@ -31,11 +42,24 @@
               "state": {
                 "file": "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
                 "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "e89d8f6c49977727",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
+                "mode": "preview",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -110,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/bryant_ch3.md"
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf"
               }
             }
           }
@@ -171,19 +195,23 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1e0bdb42ff98443f",
+  "active": "f112610ad0561cbc",
   "lastOpenFiles": [
-    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
+    "tamu/3S24/CSCE_312/homework/hw2/hw2.aux",
+    "tamu/3S24/CSCE_312/homework/hw2/hw2.log",
+    "tamu/3S24/CSCE_312/homework/hw2/src/4.62.circ",
+    "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
+    "tamu/3S24/CSCE_312/homework/hw2/src/4.40.circ",
+    "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
+    "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
+    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
+    "tamu/3S24/CSCE_312/homework/hw2/src/4.21.bak",
+    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
     "tamu/3S24/MATH_300/writing_assignments/WA3/wa3.pdf",
     "tamu/3S24/MATH_300/writing_assignments/WA3/wa3.aux",
     "tamu/3S24/MATH_300/writing_assignments/WA3/wa3.log",
     "tamu/3S24/CSCE_221/LEs/LE4/src/Makefile",
-    "tamu/3S24/CSCE_221/LEs/LE4/src/test.py",
-    "tamu/3S24/CSCE_221/LEs/LE4/src/bst_test.cpp",
-    "tamu/3S24/CSCE_221/LEs/LE4/src/main.cpp",
-    "tamu/3S24/CSCE_221/LEs/LE4/src/bst.h",
-    "tamu/3S24/CSCE_221/LEs/LE4/src",
     "tamu/3S24/CSCE_221/notes/L9V9_Tree_ADT.md",
     "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
@@ -197,7 +225,6 @@
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
     "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.21.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.12.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.13.png",
@@ -215,8 +242,6 @@
     "tamu/3S24/CSCE_314/homework/notes/haskell/12_Monads_and_more.md",
     "tamu/3S24/CSCE_221/LEs/LE3/report/images/log.png",
     "tamu/3S24/CSCE_221/LEs/LE3/report/images/linear.png",
-    "tamu/3S24/CSCE_221/LEs/LE2/report/images/algo5.png",
-    "tamu/3S24/CSCE_221/LEs/LE2/report/images/algo4.png",
-    "tamu/3S24/CSCE_221/LEs/LE2/report/images/algo3.png"
+    "tamu/3S24/CSCE_221/LEs/LE2/report/images/algo5.png"
   ]
 }
