@@ -4,34 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "0133f35fdecf9582",
+        "id": "4bb6b92734461749",
         "type": "tabs",
         "children": [
           {
-            "id": "0fbd10700f159339",
+            "id": "b5de65343850af9d",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
-                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf"
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "627701865897bb6f",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "1e0bdb42ff98443f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
-                "mode": "preview",
-                "source": false
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf"
               }
             }
           }
@@ -93,8 +75,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "5b251c471476f84d",
@@ -110,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +108,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tamu/3S24/CSCE_312/notes/bryant_ch3.md"
+                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf"
               }
             }
           }
@@ -171,7 +152,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1e0bdb42ff98443f",
+  "active": "b5de65343850af9d",
   "lastOpenFiles": [
     "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
     "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
