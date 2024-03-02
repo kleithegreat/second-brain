@@ -12,3 +12,11 @@ safetail' xs | null xs = []
 safetail'' :: [a] -> [a]
 safetail'' [] = []
 safetail'' (x:xs) = xs
+
+
+safehead :: [a] -> Maybe a
+safehead xs = if null xs then Nothing else Just (head xs)
+
+safehead' :: [a] -> Maybe a
+safehead' xs | null xs = Nothing 
+             | otherwise = Just $ head xs
