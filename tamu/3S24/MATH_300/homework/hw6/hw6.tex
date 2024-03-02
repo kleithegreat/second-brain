@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{6th Homework - MATH 300 904}
+\rhead{Kevin Lei}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\arraystretch}{1.2}
+
+\begin{document}
+
+\section*{Question 1}
+
+\begin{enumerate}[(a)]
+    \item $\{\frac{\pi}{2}, \frac{3 \pi}{2}, \frac{5 \pi}{2}, \frac{7 \pi}{2}, \ldots\}$
+    \item $\{\ldots, -13, -8, -3, 2, 7, 12, 17, \ldots\}$
+\end{enumerate}
+
+\section*{Question 2}
+
+\begin{enumerate}[(a)]
+    \item False
+    \item True
+    \item True
+    \item True
+    \item True
+    \item True
+    \item False
+\end{enumerate}
+
+\section*{Question 3}
+\begin{proof}
+    Let $A$ and $B$ be sets.
+    We want to prove that $A = B$, which means that $A \subseteq B$ and $B \subseteq A$.
+    First, assume that $x$ is an element of $A$.
+    Then, by the definition of $A$, we can write $x$ as $x = 4k + 1$ for some integer $k$.
+    We can then do the following manipulations:
+    \begin{align*}
+        x &= 4k + 1 \\
+        &= 4k + 1 - 8 + 8 \\
+        &= 4k + 8 - 7 \\
+        &= 4(k + 2) - 7.
+    \end{align*}
+    Since $k + 2$ is an integer, $x$ is by definition an element of $B$.
+    Therefore, $A \subseteq B$.
+    Similarly, assume that $x$ is an element of $B$.
+    Then, by the definition of $B$, we can write $x$ as $x = 4j - 7$ for some integer $j$.
+    We can then do the following manipulations:
+    \begin{align*}
+        x &= 4j - 7 \\
+        &= 4j - 7 + 8 - 8 \\
+        &= 4j - 8 + 1 \\
+        &= 4(j - 2) + 1.
+    \end{align*}
+    Since $j - 2$ is an integer, $x$ is by definition an element of $A$.
+    Therefore, $B \subseteq A$.
+    Since $A \subseteq B$ and $B \subseteq A$, we have proven that $A = B$.
+\end{proof}
+
+\section*{Question 4}
+\begin{enumerate}[(a)]
+    \item
+    \begin{align*}(A \cup \overline{B}) \cap C &= (\{a, b, \{2\}\} \cup \{1, \{2\}, a \}) \cap \{1, \{2\}, c\} \\
+        &= \{1, \{2\}, a, b\} \cap \{1, \{2\}, c\} \\
+        &= \{1, 2\}
+    \end{align*}
+    \item
+    \begin{align*}
+        A \cup (\overline{B} \cap C) &= \{a, b, \{2\}\} \cup (\{1, \{2\}, a\} \cap \{1, \{2\}, c\}) \\
+        &= \{a, b, \{2\}\} \cup \{1, \{2\}\} \\
+        &= \{1, \{2\}, a, b\}
+    \end{align*}
+\end{enumerate}
+
+\end{document}
