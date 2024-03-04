@@ -6,6 +6,15 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[backend=biber, style=apa]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
+\addbibresource{wa3.bib}
+\defbibheading{bibliography}[\bibname]{}
 
 \setlength{\parindent}{0.25in}
 
@@ -15,33 +24,52 @@
     Kevin Lei \\
     Cauchy and Complex Analysis
 \end{center}
-\noindent I. \textbf{Introduction: } 
+\noindent I. \textbf{Introduction: } This paper will discuss the life and work of Augustin-Louis Cauchy, a French mathematician who made significant contributions to complex analysis.
+Furthermore, this paper will discuss some of Cauchy's most important contributions and their applications in complex analysis.
+
+\vspace{0.1in}
 
 \noindent II. \textbf{Body: } 
 
 \begin{enumerate}[label=\Alph*.]
-    \item \textbf{Key Point 1: }
+    \item \textbf{Key Point 1: }Biography of Cauchy \\
+    This section will provide a brief biography of Cauchy, including his early life, education, and career.
     \begin{enumerate}[label=\arabic*.]
-        \item 
-        \item 
-        \item
+        \item Early life: Cauchy was born on August 21, 1789, in Paris, France. He grew up during the French Revolution, and his early life was marked by instability, since his family was part of the French nobility. This instability ended up influencing Cauchy's later desire for order and precision in mathematics. \cite{Belhoste1991}
+        \item Education and career: Cauchy was a prodigy in mathematics, educated at the École Polytechnique and later the École des Ponts et Chaussées. He made significant contributions across various fields of mathematics, including complex analysis, algebra, and the theory of numbers. \cite{Belhoste1991}
+        \item Exile and later life: Due to his refusal to swear an oath of allegiance, Cauchy went into exile in 1830, spending time in Turin, Prague, and eventually returning to Paris. His later years were as productive as his early career, continuing to publish extensively. \cite{Belhoste1991}
     \end{enumerate}
-    \item \textbf{Key Point 2: } 
+    \item \textbf{Key Point 2: }Background on Complex Analysis \\
+    This section will provide a brief overview of complex analysis so that the reader can understand the significance of Cauchy's contributions.
     \begin{enumerate}[label=\arabic*.]
-        \item 
-        \item 
-        \item
+        \item Complex numbers and functions: Complex numbers are of the form $z = a + bi$, where $a, b \in \mathbb{R}$ and $i^2 = -1$. 
+        A complex function is of the form $f: \mathbb{C} \to \mathbb{C}$, where $\mathbb{C}$ is the set of complex numbers.
+        Complex functions and numbers have special properties that are not present in real numbers and functions, and complex analysis studies these properties. \cite{WeissteinComplexNumber}
+        \item Complex differentiability: Complex differentiability is a stronger condition than real differentiability, and it is a fundamental concept in complex analysis.
+        Since complex functions are functions of two real variables, the domain of a complex function would be a disk in the complex plane.
+        A complex function that is differentiable on some open disk in the complex domain is called \textit{holomorphic}, and one additional cool property of holomorphic functions is that they are infinitely differentiable. \cite{LangComplexAnalysis1998}
+        \item Poles and Laurent series: A \textit{pole} of a function is a point where the function is not holomorphic due to the fact that it goes to infinity at that point, and the \textit{Laurent series} is like a Taylor series expansion for complex functions, where the series is centered at a pole and has both positive and negative powers of $(z - z_0)$. \cite{LangComplexAnalysis1998}
     \end{enumerate}
-    \item \textbf{Key Point 3: }
+    \item \textbf{Key Point 3: }Cauchy's Contributions to Complex Analysis \\
+    This section will discuss some of Cauchy's most important contributions to complex analysis
     \begin{enumerate}[label=\arabic*.]
-        \item 
-        \item 
-        \item
+        \item Cauchy's integral theorem: This is a fundamental theorem of complex analysis, and it states that if a function is holomorphic on some open disk, then the integral of that function over any closed path in that disk is zero.
+        This makes evaluating integrals of holomorphic functions very easy, and it also has applications in physics and engineering. \cite{LangComplexAnalysis1998}
+        \item Residues and the residue theorem: The \textit{residue} of a function at a pole is a crucial concept in complex analysis, and it is used extensively in the \textit{residue theorem}.
+        The residue theorem is a powerful tool for evaluating real integrals, where we first make a real integral into a complex integral, and then use the residue theorem to evaluate the complex integral. \cite{LangComplexAnalysis1998}
+        \item Cauchy-Schwarz inequality: This was my first encounter with Cauchy's name, and although it is not directly related to complex analysis, it is a very important inequality in mathematics with many nontriavial applications.
+        This inequality states that for any two vectors $x, y \in \mathbb{R}^n$, we have $|\langle x, y \rangle| \leq ||x|| \cdot ||y||$.
+        From this inequality, we can derive many other important inequalities, such as the triangle inequality. \cite{BerkeleyNotes}
     \end{enumerate}
 \end{enumerate}
 
-\noindent III. \textbf{Conclusion: } 
+\noindent III. \textbf{Conclusion: } Augustin-Louis Cauchy was one of the most prolific mathematicians in history, with many enduring contributions to complex analysis and mathematics as a whole.
+He had a rigorous and precise approach to mathematics, which not only advanced mathematics, but also established many foundational principles that still guide mathematicians today.
 
-\noindent IV. \textbf{References: } 
+\vspace{0.1in}
+
+\noindent IV. \textbf{References:}
+\nocite{*}
+\printbibliography
 
 \end{document}
