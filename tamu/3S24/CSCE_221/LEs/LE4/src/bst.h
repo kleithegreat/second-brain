@@ -71,35 +71,77 @@ BST<Type>::BST(){
 
 template <typename Type>
 BST_Node<Type>* BST<Type>::copyTree(BST_Node<Type>* originalNode) {
-    // Your implementation here
-    return nullptr;
+    newNode = new BST_Node<Type>(originalNode->key);
+
+    if (originalNode->left != nullptr) {
+        newNode->left = copyTree(originalNode->left);
+    } else {
+        newNode->left = nullptr;
+    }
+
+    if (originalNode->right != nullptr) {
+        newNode->right = copyTree(originalNode->right);
+    } else {
+        newNode->right = nullptr;
+    }
+
+    return newNode;
 }
 
 template <typename Type>
 BST<Type>::BST(const BST<Type>& other){
-    // Your implementation here
-    this->root = nullptr;
+    rootNode = copyTree(other.root);
+    this->root = rootNode;
+    return *this;
 }
 
 template <typename Type>
 BST<Type>& BST<Type>::operator=(const BST& other) {
-    // Your implementation here
+    if (this == &other) {
+        return *this;
+    }
+
+    clearTree(this->root);
+    this->root = copyTree(other.root);
     return *this;
 }
 
 template <typename Type>
 void BST<Type>::clearTree(BST_Node<Type>* node){
-    // Your implementation here
+    currentNode = node;
+
+    if (currentNode->left != nullptr) {
+        clearTree(currentNode->left);
+    }
+
+    if (currentNode->right != nullptr) {
+        clearTree(currentNode->right);
+    }
+
+    delete currentNode;
 }
 
 template <typename Type>
 BST<Type>::~BST(){
-    // Your implementation here
+    clearTree(this->root);
+    this->root = nullptr;
 }
 
 template <typename Type>
 void BST<Type>::insertRecursive(BST_Node<Type>* node, Type key) {
-   // Your implementation here
+    if (key < node->key) {
+        if (node->left == nullptr) {
+            node->left = new BST_Node<Type>(key);
+        } else {
+            insertRecursive(node->left, key);
+        }
+    } else if (key > node->key) {
+        if (node->right == nullptr) {
+            node->right = new BST_Node<Type>(key);
+        } else {
+            insertRecursive(node->right, key);
+        }
+    }
 }
 
 template <typename Type>
