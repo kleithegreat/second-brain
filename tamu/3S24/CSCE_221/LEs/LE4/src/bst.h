@@ -90,9 +90,8 @@ BST_Node<Type>* BST<Type>::copyTree(BST_Node<Type>* originalNode) {
 
 template <typename Type>
 BST<Type>::BST(const BST<Type>& other){
-    rootNode = copyTree(other.root);
+    BST_Node<Type>* rootNode = copyTree(other.root);
     this->root = rootNode;
-    return *this;
 }
 
 template <typename Type>
@@ -155,8 +154,30 @@ void BST<Type>::insert(Type key) {
 
 template <typename Type>
 BST_Node<Type>* BST<Type>::deleteRecursive(BST_Node<Type>* node, Type key) {
-    // Your implementation here
-    return nullptr;
+    if (node == nullptr) {
+        return node;
+    }
+
+    if (key < node->key) {
+        node->left = deleteRecursive(node->left, key);
+    } else if (key > node->key) {
+        node->right = deleteRecursive(node->right, key);
+    } else {
+        if (node->left == nullptr) {
+            BST_Node<Type>* temp = node->right;
+            delete node;
+            return temp;
+        } else if (node->right == nullptr) {
+            BST_Node<Type>* temp = node->left;
+            delete node;
+            return temp;
+        }
+
+        node->key = minValue(node->right);
+
+        node->right = deleteRecursive(node->right, node->key);
+    }
+    return node;
 }
 
 template <typename Type>
@@ -170,14 +191,28 @@ void BST<Type>::deleteNode(Type key) {
 // Helper method to find the minimum value in the subtree rooted at a particular node (including the node itself)
 template <typename Type>
 Type BST<Type>::minValue(BST_Node<Type>* node) {
-    // Your implementation here
-    return Type();
+    BST_Node<Type>* current = node;
+
+    while (current && current->left != nullptr) {
+        current = current->left;
+    }
+
+    return current->key;
 }
 
 template <typename Type>
 bool BST<Type>::findHelper(BST_Node<Type>* node, Type lkpkey) {
-    // Your implementation here
-    return false;
+    if (node == nullptr) {
+        return false;
+    }
+    
+    if (lkpkey == node->key) {
+        return true;
+    } else if (lkpkey < node->key) {
+        return findHelper(node->left, lkpkey);
+    } else {
+        return findHelper(node->right, lkpkey);
+    }
 }
 
 template <typename Type>
@@ -190,7 +225,12 @@ bool BST<Type>::find(Type lpkey) {
 
 template <typename Type>
 void BST<Type>::printTreeInOrderHelper(BST_Node<Type>* node, string& s) {
-    // Your implementation here
+    if (node == nullptr) {
+        return;
+    }
+    printTreeInOrderHelper(node->left, s);
+    s += to_string(node->key) + " ";
+    printTreeInOrderHelper(node->right, s);
 }
 
 template <typename Type>
