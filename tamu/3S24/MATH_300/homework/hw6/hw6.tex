@@ -75,4 +75,57 @@
     \end{align*}
 \end{enumerate}
 
+\section*{Question 5}
+\renewcommand*{\proofname}{Disproof}
+\begin{enumerate}[(a)]
+    \item
+        \begin{proof}
+            Let $A = \{1, 2, 3\}$, $B = \{2, 3, 4\}$, and $C = \{2, 3, 5\}$.
+            Then, $A \cap B = \{2, 3\} = A \cap C$.
+            However, $B \neq C$, as $4 \in B$ but $4 \notin C$, and $5 \in C$ but $5 \notin B$.
+            Therefore, the statement is false.
+        \end{proof}
+    \item
+        \begin{proof}
+            Let $A = \{1, 2, 3\}$, $B = \{2, 3, 4\}$, and $C = \{1, 2, 3, 4\}$.
+            Then, $A \setminus B = \{1\} = A \setminus C$.
+            However, $B \neq C$, as $4 \in B$ but $4 \notin C$.
+            Therefore, the statement is false.
+        \end{proof}
+\end{enumerate}
+
+\section*{Question 6}
+\renewcommand*{\proofname}{Proof}
+\begin{proof}
+    Let $A$ and $B$ be sets. We want to show that $A \subseteq B$ if and only if $\overline{B} \subseteq \overline{A}$.
+    First, $A \subseteq B$ is equivalent to saying $x \in A \rightarrow x \in B$.
+    This is logically equivalent to its contrapositive, that being $x \notin B \rightarrow x \notin A$, which is the definition of $\overline{B} \subseteq \overline{A}$.
+    Since we have this sequence of logically equivalent statements, we have shown that $A \subseteq B \leftrightarrow \overline{B} \subseteq \overline{A}$.
+\end{proof}
+
+\section*{Question 7}
+\begin{enumerate}[(a)]
+    \item
+        \begin{proof}
+            Let $A$ and $B$ be sets.
+            We want to show that $\overline{A \cap B} = \overline{A} \cup \overline{B}$.
+            Assuming that $x \in \overline{A \cap B}$, we have $x \notin A \cap B$.
+            By the definition of the set intersection, this means that $x \notin A$ or $x \notin B$.
+            By the definition of the set complement, this means that $x \in \overline{A}$ or $x \in \overline{B}$.
+            This can be rewritten using the set union as $x \in \overline{A} \cup \overline{B}$.
+            Since these are all bidirectional logical equivalences, we have shown that $\overline{A \cap B} = \overline{A} \cup \overline{B}$.
+        \end{proof}
+    \item
+        \begin{proof}
+            Let $A$ be a set.
+            We want to show that $A \cap \emptyset = \emptyset$.
+            Seeking a contradiction, assume that $A \cap \emptyset \neq \emptyset$.
+            Suppose that $x \in A \cap \emptyset$.
+            By definition of the set intersection, we have $x \in A$ and $x \in \emptyset$.
+            However, the empty set has no elements, so $x$ cannot be in $\emptyset$.
+            Thus, we have reached a contradiction, and our assumption that $A \cap \emptyset \neq \emptyset$ must be false.
+            Therefore, $A \cap \emptyset = \emptyset$.
+        \end{proof}
+\end{enumerate}
+
 \end{document}
