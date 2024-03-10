@@ -1,0 +1,16 @@
+{signal: [
+  {name: 'clk', wave: 'lp.........'},
+  {name: 'enable', wave: 'lh.........'},
+  {name: 'address', wave: 'x==.=.=.===', data: ['00', '01', '00', '01', '02', '05', '06']},
+  {name: 'control_signal', wave: 'x=.=.=.=.=.', data: ['01', '03', '02', '04', '05']},
+  {name: 'data_w', wave: 'x..==x...==', data:['ff', 'ee', 'bb', 'aa']},
+  {name: 'data_r', wave: 'x==x.====x.', data:['01', '02', 'ee', 'ff', 'dd', 'cc']},
+  {name: 'IO_Input1', wave: 'x......=x..', data:['dd']},
+  {name: 'IO_Input2', wave: 'x.......=x.', data: ['cc']},
+  {name: 'IO_Input3', wave: 'x..........'},
+  {name: 'IO_Input4', wave: 'x..........'},
+  {name: 'IO_Output1', wave: 'x........=x', data: ['bb']},
+  {name: 'IO_Output2', wave: 'x.........=', data: ['aa']},
+  {name: 'IO_Output3', wave: 'x..........'},
+  {name: 'IO_Output4', wave: 'x..........'},
+]}
