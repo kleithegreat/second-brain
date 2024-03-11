@@ -76,30 +76,15 @@ BST_Node<Type>* BST<Type>::copyTree(BST_Node<Type>* originalNode) {
     }
     
     BST_Node<Type>* newNode = new BST_Node<Type>(originalNode->key);
-
-    if (originalNode->left != nullptr) {
-        newNode->left = copyTree(originalNode->left);
-    } else {
-        newNode->left = nullptr;
-    }
-
-    if (originalNode->right != nullptr) {
-        newNode->right = copyTree(originalNode->right);
-    } else {
-        newNode->right = nullptr;
-    }
+    newNode->left = copyTree(originalNode->left);
+    newNode->right = copyTree(originalNode->right);
 
     return newNode;
 }
 
 template <typename Type>
 BST<Type>::BST(const BST<Type>& other){
-    if (this->root != nullptr) {
-        clearTree(this->root);
-        this->root = nullptr;
-    }
-
-    this->root = copyTree(other.root);
+    root = copyTree(other.root);
 }
 
 template <typename Type>
@@ -115,23 +100,15 @@ BST<Type>& BST<Type>::operator=(const BST& other) {
 
 template <typename Type>
 void BST<Type>::clearTree(BST_Node<Type>* node){
-    BST_Node<Type>* currentNode = node;
-
-    if (currentNode == nullptr) {
+    if (node == nullptr) {
         return;
     }
 
-    if (currentNode->left != nullptr) {
-        clearTree(currentNode->left);
-    }
-
-    if (currentNode->right != nullptr) {
-        clearTree(currentNode->right);
-    }
-
-    currentNode->left = nullptr;
-    currentNode->right = nullptr;
-    delete currentNode;
+    BST_Node<Type>* left = node->left;
+    BST_Node<Type>* right = node->right;
+    clearTree(left);
+    clearTree(right);
+    delete node;
 }
 
 template <typename Type>
@@ -172,24 +149,27 @@ BST_Node<Type>* BST<Type>::deleteRecursive(BST_Node<Type>* node, Type key) {
         return node;
     }
 
-    if (key < node->key) {
+    if (node->key > key) {
         node->left = deleteRecursive(node->left, key);
-    } else if (key > node->key) {
+    } else if (node->key < key) {
         node->right = deleteRecursive(node->right, key);
     } else {
-        if (node->left == nullptr) {
-            BST_Node<Type>* temp = node->right;
+        if (node->left == nullptr && node->right == nullptr) {
             delete node;
-            return temp;
+            node = nullptr;
+        } else if (node->left == nullptr) {
+            BST_Node<Type>* temp = node;
+            node = node->right;
+            delete temp;
         } else if (node->right == nullptr) {
-            BST_Node<Type>* temp = node->left;
-            delete node;
-            return temp;
+            BST_Node<Type>* temp = node;
+            node = node->left;
+            delete temp;
+        } else {
+            Type min = minValue(node->right);
+            node->key = min;
+            node->right = deleteRecursive(node->right, min);
         }
-
-        node->key = minValue(node->right);
-
-        node->right = deleteRecursive(node->right, node->key);
     }
     return node;
 }
@@ -198,7 +178,10 @@ template <typename Type>
 void BST<Type>::deleteNode(Type key) {
     if (this->root == nullptr) {
         return;
+    } else if (this->find(key) == false) {
+        return;
     }
+
     this->root = deleteRecursive(this->root, key);
 }
 
