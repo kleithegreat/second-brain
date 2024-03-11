@@ -281,6 +281,27 @@ multstore:
         - `movq` - moves a quad word
     - All of these instructions do the same thing with different sizes.
     - The general form of the `mov` instruction is `mov S, D`, where `S` is the source and `D` is the destination.
+    - x86 places the restriction that you cannot move a value from memory to memory
+        - Copying a value from memory to memory requires two instructions, with a register as an intermediate
+    - For `movb`, `movw`, `movq`, only the specific register bytes/memory locations indicated will be changed.
+        - For `movl`, the upper 4 bytes will also be set to `0` if the destination is a register.
+        - This is because x86 has a convention where any instruction generating a 32-bit value for a register must set the higher-order bytes of the register to 0.
+    - The regular `movq` instrucction can only have *immediate* source operands (also limited to 32-bit twos complement)
+    - The `movabsq` can have an arbitrary 64-bit immediate value as its source and a register as its destination.
+- The `movz` and `movs` instruction classs deals with copying smaller source values to a larger destination.
+    - All of these instructions copy data to a *register* destination.
+    - The difference here is that `movz` will fill out the remaining bytes of the destination with 0s, while `movs` fills out the remaining bytes by sign extension.
+    - Each instruction has two size designator at the end--the former to designate the source size, and latter for destination.
+    - Examples of the `movz` instruction class:
+
+| Instruction | Effect | Description |
+| ----------- | ------ | ----------- |
+| `movz` $S, \; R$ | $R \leftarrow \text{ZeroExtend}(S)$ | Move with zero extension |
+| `movzbw` |  | Move zero-extended byte to word |
+| `movzbl` |  | Move zero-extended byte to double word |
+| `movzwl` |  | Move zero-extended word to double word |
+| `movzbq` |  | Move zero-extended byte to quad word |
+| `movzwq` |  | Move zero-extended word to quad word |
 ## 3.5 Arithmetic and Logical Operations
 ## 3.6 Control
 ## 3.7 Procedures
