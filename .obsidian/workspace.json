@@ -4,17 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "a1dda0e96f6cb558",
+        "id": "26268f2fa55a8dbc",
         "type": "tabs",
         "children": [
           {
-            "id": "6c76a17ce5661783",
+            "id": "adf2ca856a71a3eb",
             "type": "leaf",
             "state": {
-              "type": "pdf",
-              "state": {
-                "file": "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf"
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -91,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,9 +126,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf"
-              }
+              "state": {}
             }
           }
         ]
@@ -152,8 +146,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6c76a17ce5661783",
+  "active": "adf2ca856a71a3eb",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
     "tamu/3S24/CSCE_314/homework/hw4/ImprovedFibonacci.class",
     "tamu/3S24/CSCE_314/homework/hw4/ImprovedFibonacci$Number.class",
     "tamu/3S24/CSCE_314/homework/hw4/README",
@@ -164,7 +159,6 @@
     "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
     "tamu/3S24/MATH_300/writing_assignments/WA3/wa3.bib",
     "tamu/3S24/MATH_300/writing_assignments/WA3/wa3.bbl",
-    "tamu/3S24/CSCE_312/homework/hw2/hw2_self_graded.pdf",
     "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
     "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
