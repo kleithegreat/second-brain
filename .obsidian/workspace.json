@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "a75a1e6747753c7a",
+        "id": "a1dda0e96f6cb558",
         "type": "tabs",
         "children": [
           {
-            "id": "75e2f0787292ce6b",
+            "id": "6c76a17ce5661783",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
-                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf"
+                "file": "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf"
               }
             }
           }
@@ -91,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
+                "file": "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +108,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
+                "file": "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf"
+                "file": "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf"
               }
             }
           }
@@ -152,13 +152,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "75e2f0787292ce6b",
+  "active": "6c76a17ce5661783",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_314/homework/hw4/ImprovedFibonacci.class",
+    "tamu/3S24/CSCE_314/homework/hw4/ImprovedFibonacci$Number.class",
+    "tamu/3S24/CSCE_314/homework/hw4/README",
+    "tamu/3S24/CSCE_314/homework/hw4/SubsetOutputFib.class",
+    "tamu/3S24/CSCE_314/homework/hw4/Vehicle.java",
+    "tamu/3S24/CSCE_314/homework/hw4/Fibonacci.java",
+    "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
+    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
     "tamu/3S24/MATH_300/writing_assignments/WA3/wa3.bib",
     "tamu/3S24/MATH_300/writing_assignments/WA3/wa3.bbl",
     "tamu/3S24/CSCE_312/homework/hw2/hw2_self_graded.pdf",
-    "tamu/3S24/CSCE_312/homework/hw2/hw2_original.pdf",
-    "tamu/3S24/CSCE_312/homework/hw2/HW2_Solution.pdf",
     "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
     "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
@@ -172,12 +178,6 @@
     "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
     "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
-    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
-    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
-    "tamu/3S24/CSCE_312/labs/lab4/report.tex",
-    "tamu/3S24/CSCE_312/labs/lab4/report.pdf",
-    "tamu/3S24/CSCE_312/homework/hw2/hw2.aux",
-    "tamu/3S24/CSCE_312/homework/hw2/hw2.log",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
     "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
