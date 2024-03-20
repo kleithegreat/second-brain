@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{7th Homework - MATH 300 904}
+\rhead{Kevin Lei}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\arraystretch}{1.2}
+
+\begin{document}
+
+\section*{Question 1}
+
+\subsection*{Part a}
+\renewcommand*{\proofname}{Disproof}
+\begin{proof}
+    Let $A = \{1, 2\}, \; B = \{2, 3\}, \; C = \{1, 3\}$.
+    Indeed, $A \subseteq B \cup C$, but $A \nsubseteq B$ and $A \nsubseteq C$.
+    Thus, the statement is false.
+\end{proof}
+
+\subsection*{Part b}
+\renewcommand*{\proofname}{Proof}
+\begin{proof}
+    Let $A$, $B$, and $C$ be sets.
+    Assume that $A \subseteq B \cap C$.
+    Let $x$ be an element of $A$.
+    Since $A$ is a subset of $B \cap C$, $x \in B \cap C$.
+    By definition of intersection, $x \in B$ and $x \in C$.
+    Since $x$ was arbitrary, we have that $A \subseteq B$ and $A \subseteq C$.
+\end{proof}
+
+\section*{Question 2}
+\begin{proof}
+    Let $A$ and $B$ be subsets of a universal set $\mathcal{U}$.
+    Then,
+    \begin{align*}
+        (A \cap B) \cup (A - B) &= (A \cap B) \cup (A \cap \overline{B}) \quad (\text{by definition of set difference}) \\
+        &= A \cap (B \cup \overline{B}) \quad (\text{by distributive law}) \\
+        &= A \cap \mathcal{U} \\
+        &= A.
+    \end{align*}
+    Thus, $(A \cap B) \cup (A - B) = A$.
+\end{proof}
+
+\section*{Question 3}
+\begin{proof}
+    Let $A$ be a set.
+    Seeking a contradiction, assume that $A - A \neq \emptyset$.
+    Then, there exists an element $x \in A - A$.
+    By definition of set difference, $A - A$ is equivalent to $A \cap \overline{A}$.
+    Thus, $x \in A$ and $x \in \overline{A}$.
+    However, this is a contradiction, as $A$ and $\overline{A}$ are disjoint.
+    Therefore, $A - A = \emptyset$.
+\end{proof}
+
+\section*{Question 4}
+\begin{align*}
+    &R = \{2, 8, J, Q, A\}, \; S = \{\heartsuit, \diamondsuit\} \\
+    &R \times S = \{(2, \heartsuit), (2, \diamondsuit), (8, \heartsuit), (8, \diamondsuit), (J, \heartsuit), (J, \diamondsuit), (Q, \heartsuit), (Q, \diamondsuit), (A, \heartsuit), (A, \diamondsuit)\}
+\end{align*}
+
+\section*{Question 5}
+\begin{proof}
+    Let $A$, $B$, and $C$ be sets.
+    Then,
+    \begin{align*}
+        (x, y) \in A \times (B \cap C) &\Longleftrightarrow x \in A \land y \in B \cap C \\
+        &\Longleftrightarrow x \in A \land y \in B \land y \in C \\
+        &\Longleftrightarrow (x, y) \in A \times B \land (x, y) \in A \times C \\
+    \end{align*}
+    Therefore, $(x, y) \in (A \times B) \cap (A \times C)$.
+\end{proof}
+
+\section*{Question 6}
+
+\subsection*{Part a}
+The cardinality of the cartesian product of two sets is the product of the cardinalities of the two sets.
+\begin{align*}
+    |\{2, 4, 6, \dots, 20\} \times \{a, b, c, d, e, f\}| &= |\{2, 4, 6, \dots, 20\}| \cdot |\{a, b, c, d, e, f\}| \\
+    &= 10 \cdot 6 \\
+    &= 60.
+\end{align*}
+
+\subsection*{Part b}
+The cardinality of the power set of a set $A$ is $2^{|A|}$.
+\begin{align*}
+    |\mathcal{P}(\mathcal{P}(A))| &= 2^{|\mathcal{P}(A)|} \\
+    &= 2^{2^{|A|}} \\
+    &= 2^{2^3} \\
+    &= 2^8 \\
+    &= 256.
+\end{align*}
+
+\section*{Question 7}
+Let $A = \{1, \{2, \{3\}\}\}$.
+\begin{enumerate}[(a)]
+    \item The elements of $A$ are $1$ and $\{2, \{3\}\}$.
+    \item $\mathcal{P}(A) = \{\emptyset, \{1\}, \{\{2, \{3\}\}\}, \{1, \{2, \{3\}\}\}\}$.
+    \item True.
+\end{enumerate}
+
+\section*{Question 8}
+\begin{proof}
+    Let $A$ and $B$ be sets, and assume that $A \subseteq B$.
+    Let $x$ be an element of $A$.
+    Then $\{x\} \subseteq A$, so $\{x\} \in \mathcal{P}(A)$.
+    Since $A \subseteq B$, $\{x\} \subseteq B$, so $\{x\} \in \mathcal{P}(B)$.
+    Therefore, $\mathcal{P}(A) \subseteq \mathcal{P}(B)$.
+\end{proof}
+
+\section*{Question 9}
+For $i \in \mathbb{Z}^+$, let $A_i = [i-4, i]$.
+
+\subsection*{Part a}
+\begin{align*}
+    \bigcup_{i=4}^{7} A_i &= A_4 \cup A_5 \cup A_6 \cup A_7 \\
+    &= [4-4, 4] \cup [5-4, 5] \cup [6-4, 6] \cup [7-4, 7] \\
+    &= [0, 4] \cup [1, 5] \cup [2, 6] \cup [3, 7] \\
+    &= [0, 7].
+\end{align*}
+
+\subsection*{Part b}
+\begin{align*}
+    \bigcap_{i=4}^{7} A_i &= [0, 4] \cap [1, 5] \cap [2, 6] \cap [3, 7] \\
+    &= [1, 4] \cap [2, 6] \cap [3, 7] \\
+    &= [2, 4] \cap [3, 7] \\
+    &= [3, 4].
+\end{align*}
+
+\end{document}
