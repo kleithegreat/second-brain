@@ -68,9 +68,11 @@
     Let $A$, $B$, and $C$ be sets.
     Then,
     \begin{align*}
-        (x, y) \in A \times (B \cap C) &\Longleftrightarrow x \in A \land y \in B \cap C \\
-        &\Longleftrightarrow x \in A \land y \in B \land y \in C \\
+        (x, y) \in A \times (B \cap C) &\Longleftrightarrow x \in A \land y \in B \cap C \quad \text{(by definition of cartesian product)} \\
+        &\Longleftrightarrow x \in A \land y \in B \land y \in C \quad \text{(by definition of intersection)} \\
+        &\Longleftrightarrow (x \in A \land y \in B) \land (x \in A \land y \in C) \quad \text{(by identity and commutative laws)} \\
         &\Longleftrightarrow (x, y) \in A \times B \land (x, y) \in A \times C \\
+        &\Longleftrightarrow (x, y) \in (A \times B) \cap (A \times C).
     \end{align*}
     Therefore, $(x, y) \in (A \times B) \cap (A \times C)$.
 \end{proof}
@@ -100,7 +102,7 @@ Let $A = \{1, \{2, \{3\}\}\}$.
 \begin{enumerate}[(a)]
     \item The elements of $A$ are $1$ and $\{2, \{3\}\}$.
     \item $\mathcal{P}(A) = \{\emptyset, \{1\}, \{\{2, \{3\}\}\}, \{1, \{2, \{3\}\}\}\}$.
-    \item True.
+    \item False.
 \end{enumerate}
 
 \section*{Question 8}
