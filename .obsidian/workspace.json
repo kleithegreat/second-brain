@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a8790e353f0b5758",
+        "id": "003bdad4e2c19129",
         "type": "tabs",
         "children": [
           {
-            "id": "691761ffd8473acc",
+            "id": "f11659cbdafeeaf4",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -148,6 +148,7 @@
   },
   "active": "70b22a13d8e23d6b",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_314/homework/hw4/README.md",
     "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
     "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
     "tamu/3S24/CSCE_314/homework/hw4/ImprovedFibonacci.class",
@@ -158,7 +159,6 @@
     "tamu/3S24/CSCE_314/homework/hw4/Fibonacci.java",
     "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
     "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
-    "tamu/3S24/MATH_300/writing_assignments/WA3/wa3.bib",
     "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
     "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
