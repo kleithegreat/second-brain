@@ -63,7 +63,7 @@ int testPqDelete(AbstractPriorityQueue<int>* pq) {
     }
 
     int count = 0;
-    while (pq->pq_size() == 0) {
+    while (pq->pq_size() != 0) {
         int num = pq->pq_delete();
         if (num != nums[count]) {
             return 0;
