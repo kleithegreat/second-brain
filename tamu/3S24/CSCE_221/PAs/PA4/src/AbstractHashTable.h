@@ -55,29 +55,65 @@ class AbstractHashTable {
 ///////////////////// TODO: FILL OUT THE FUNCTIONS /////////////////////
 
 AbstractHashTable::AbstractHashTable() {
-	
+	capacity = 11;
+	num_elements = 0;
 }
 
 // hash function to determine index where string key goes, as mentioned in the instructions
 int AbstractHashTable::hash(std::string s) const {
-	return -1;
+	int c = 31;
+	unsigned long hash = 0;
+	int n = s.length();
+
+	for (int i = 0; i < n; i++) {
+		hash = c * hash + static_cast<int>(s[i]);
+	}
+
+	return hash % capacity;
 }
 
 int AbstractHashTable::getSize() const {
-	return -1;
+	return num_elements;
 }
 
 float AbstractHashTable::load_factor() const {
-	return -1.0;
+	return static_cast<float>(num_elements) / static_cast<float>(capacity);
 }
 
 int AbstractHashTable::findNextPrime(int n) const {
-	return -1;
+	if (n <= 1) {
+		return 2;
+	}
+
+	int prime = n;
+	bool found = false;
+
+	while (!found) {
+		prime++;
+		if (isPrime(prime)) {
+			found = true;
+		}
+	}
+
+	return prime;
 }
 
-// Function to check if a number is prime
 bool AbstractHashTable::isPrime(int n) const {
-    return false;
+    if (n <= 1) {
+        return false;
+    }
+
+    if (n <= 3) {
+        return true;
+    }
+
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 #endif
