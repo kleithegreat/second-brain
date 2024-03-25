@@ -18,6 +18,7 @@ class ProbingHashTable : public AbstractHashTable {
     int remove(std::string key); 
     int get(std::string key) const; 
     bool contains(std::string key) const;
+    std::string getName() const { return "Probing"; };
 };
 
 ///////////////////// TODO: FILL OUT THE FUNCTIONS /////////////////////

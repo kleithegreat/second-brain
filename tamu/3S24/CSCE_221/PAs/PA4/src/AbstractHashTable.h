@@ -49,6 +49,7 @@ class AbstractHashTable {
 		virtual int get(std::string key) const = 0; 
 		virtual bool contains(std::string key) const = 0;
 		int getSize() const;
+		virtual std::string getName() const = 0;
 };
 
 

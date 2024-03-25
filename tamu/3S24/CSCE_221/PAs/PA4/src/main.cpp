@@ -1,68 +1,79 @@
-#include <iostream>
-#include <fstream>
-#include <chrono>
-#include <random>
-#include <vector>
 #include "AbstractHashTable.h"
 #include "ChainingHashTable.h"
 #include "ProbingHashTable.h"
 #include "DoubleHashTable.h"
+#include <chrono>
+#include <iostream>
+#include <fstream>
+#include <unordered_map>
+#include <vector>
 
 using namespace std;
 using namespace std::chrono;
 
-const int NUM_TRIALS = 30;
-
-void saveResults(const string& filename, const vector<int>& inputSizes,
-                 const vector<vector<double>>& trialTimes) {
-    ofstream outputFile(filename);
-    outputFile << "Input Size,Trial,Chaining,Probing,Double Hashing\n";
-    for (int i = 0; i < inputSizes.size(); i++) {
-        for (int j = 0; j < NUM_TRIALS; j++) {
-            outputFile << inputSizes[i] << "," << j + 1 << ","
-                       << trialTimes[i][j * 3] << ","
-                       << trialTimes[i][j * 3 + 1] << ","
-                       << trialTimes[i][j * 3 + 2] << "\n";
-        }
-    }
-    outputFile.close();
-}
-
-void runTrials(AbstractHashTable* hashTable, int size, double& elapsedTime) {
-    random_device rd;
-    mt19937 rng(rd());
-    uniform_int_distribution<int> dist(0, 1000000);
-
+void testHashTableInsert(AbstractHashTable* aht, vector<string>& words, int size, ofstream& outputFile) {
+    cout << "Testing " << aht->getName() << " with input size " << size << endl;
     auto start = high_resolution_clock::now();
     for (int i = 0; i < size; i++) {
-        int key = dist(rng);
-        hashTable->insert(to_string(key), key);
+        if (!aht->contains(words[i])) {
+            aht->insert(words[i], 1);
+        } else {
+            int curVal = aht->get(words[i]);
+            aht->insert(words[i], curVal + 1);
+        }
     }
-    auto end = high_resolution_clock::now();
-    elapsedTime = duration_cast<milliseconds>(end - start).count();
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+    outputFile << duration.count() << ",";
 }
 
 int main() {
+    string filename = "dictionary.txt";
+    ifstream file(filename);
+    ofstream outputFile("insert_times.csv");
+    outputFile << "Input Size,Chaining,Probing,Double Hashing" << endl;
+
+    if (!file.is_open()) {
+        cerr << "Error opening file: " << filename << endl;
+        return 0;
+    }
+
+    vector<string> words;
+    string word;
+    while (file >> word) {
+        words.push_back(word);
+    }
+
     vector<int> inputSizes = {10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000, 500000, 1000000};
-    vector<vector<double>> trialTimes(inputSizes.size(), vector<double>(NUM_TRIALS * 3));
+    int numTrials = 30;
 
-    for (int i = 0; i < inputSizes.size(); i++) {
-        int size = inputSizes[i];
-        cout << "Running trials for input size " << size << "..." << endl;
+    for (int size : inputSizes) {
+        if (size > words.size()) {
+            break;
+        }
 
-        for (int trial = 0; trial < NUM_TRIALS; trial++) {
-            cout << "Trial " << trial + 1 << "..." << endl;
-            ChainingHashTable chainingTable;
-            ProbingHashTable probingTable;
-            DoubleHashTable doubleHashTable;
+        for (int trial = 0; trial < numTrials; trial++) {
+            vector<string> subWords(words.begin(), words.begin() + size);
 
-            runTrials(&chainingTable, size, trialTimes[i][trial * 3]);
-            runTrials(&probingTable, size, trialTimes[i][trial * 3 + 1]);
-            runTrials(&doubleHashTable, size, trialTimes[i][trial * 3 + 2]);
+            outputFile << size << ",";
+
+            AbstractHashTable* cht = new ChainingHashTable();
+            testHashTableInsert(cht, subWords, size, outputFile);
+            delete cht;
+
+            AbstractHashTable* pht = new ProbingHashTable();
+            testHashTableInsert(pht, subWords, size, outputFile);
+            delete pht;
+
+            AbstractHashTable* dht = new DoubleHashTable();
+            testHashTableInsert(dht, subWords, size, outputFile);
+            delete dht;
+
+            outputFile << endl;
         }
     }
 
-    saveResults("insert_trials.csv", inputSizes, trialTimes);
+    outputFile.close();
 
     return 0;
 }
