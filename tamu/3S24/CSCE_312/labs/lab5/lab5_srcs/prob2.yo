@@ -1,0 +1,23 @@
+0x000: 30f40001000000000000 | irmovq $0x100, %rsp
+0x00a: 801400000000000000   | call main
+0x013: 00                   | halt
+                            | 
+0x014:                      | main:
+0x014: 30f00400000000000000 |     irmovq $4, %rax        # int i = 4 in %rax
+0x01e: 705000000000000000   |     jmp test               # test the for loop condition
+                            | 
+0x027:                      | loop:
+0x027: 2003                 |     rrmovq %rax, %rbx      # move i into temporary register
+0x029: 6033                 |     addq %rbx, %rbx        # double i in the temporary register
+0x02b: 2031                 |     rrmovq %rbx, %rcx      # j = 2 * i in %rcx
+0x02d: 30f30400000000000000 |     irmovq $4, %rbx        # move 4 into temporary register
+0x037: 2012                 |     rrmovq %rcx, %rdx      # k = j
+0x039: 6132                 |     subq %rbx, %rdx        # k = k - 4 in %rdx
+0x03b: 30f30100000000000000 |     irmovq $1, %rbx        # move 1 into temporary register
+0x045: 6030                 |     addq %rbx, %rax        # i++, end of loop
+0x047: 705000000000000000   |     jmp test               # test the for loop condition
+0x050:                      | test:
+0x050: 30f30a00000000000000 |     irmovq $10, %rbx       # move 10 into %rbx for comparison
+0x05a: 6103                 |     subq %rax, %rbx        # subtract i from 10
+0x05c: 752700000000000000   |     jge loop               # if i <= 10, proceed with the loop
+0x065: 00                   |     halt

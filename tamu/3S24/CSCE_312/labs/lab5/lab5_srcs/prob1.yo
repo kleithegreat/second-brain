@@ -1,0 +1,21 @@
+0x000: 30f40001000000000000 | irmovq $0x100, %rsp
+0x00a: 801400000000000000   | call main
+0x013: 00                   | halt
+                            | 
+0x014:                      | main:
+0x014: 30f70800000000000000 |     irmovq $8, %rdi  # int i stored in rdi
+0x01e: 30f60700000000000000 |     irmovq $7, %rsi  # int j stored in rsi
+0x028: 2068                 |     rrmovq %rsi, %r8
+0x02a: 6178                 |     subq %rdi, %r8
+0x02c: 764e00000000000000   |     jg else
+0x035: 30f80300000000000000 |     irmovq $3, %r8
+0x03f: 6187                 |     subq %r8, %rdi
+0x041: 30f80400000000000000 |     irmovq $4, %r8
+0x04b: 6086                 |     addq %r8, %rsi
+0x04d: 90                   |     ret
+                            | 
+0x04e:                      | else:
+0x04e: 30f70700000000000000 |     irmovq $7, %rdi
+0x058: 30f80100000000000000 |     irmovq $1, %r8
+0x062: 6086                 |     addq %r8, %rsi
+0x064: 90                   |     ret

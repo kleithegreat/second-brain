@@ -1,9 +1,23 @@
-    call main
-    halt
+irmovq $0x100, %rsp
+call main
+halt
+
 main:
-    irmovq $4, %rdi
-    jmp test
+    irmovq $4, %rax        # int i = 4 in %rax
+    jmp test               # test the for loop condition
+
 loop:
+    rrmovq %rax, %rbx      # move i into temporary register
+    addq %rbx, %rbx        # double i in the temporary register
+    rrmovq %rbx, %rcx      # j = 2 * i in %rcx
+    irmovq $4, %rbx        # move 4 into temporary register
+    rrmovq %rcx, %rdx      # k = j
+    subq %rbx, %rdx        # k = k - 4 in %rdx
+    irmovq $1, %rbx        # move 1 into temporary register
+    addq %rbx, %rax        # i++, end of loop
+    jmp test               # test the for loop condition
 test:
-    cmpq $10, %rdi
-    jg 
+    irmovq $10, %rbx       # move 10 into %rbx for comparison
+    subq %rax, %rbx        # subtract i from 10
+    jge loop               # if i <= 10, proceed with the loop
+    halt
