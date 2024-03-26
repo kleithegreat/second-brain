@@ -1,0 +1,14 @@
+    call main
+    halt
+main:
+    irmovq $1, %rdi
+    irmovq $2, %rsi
+    cmpq %rdi, %rsi
+    jg else
+    subq $3, %rdi
+    addq $4, %rsi
+    ret
+else:
+    irmovq $7, %rdi
+    incq %rsi
+    ret

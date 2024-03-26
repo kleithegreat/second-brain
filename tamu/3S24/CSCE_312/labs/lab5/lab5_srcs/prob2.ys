@@ -1,0 +1,9 @@
+    call main
+    halt
+main:
+    irmovq $4, %rdi
+    jmp test
+loop:
+test:
+    cmpq $10, %rdi
+    jg 
