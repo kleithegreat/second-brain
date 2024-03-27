@@ -4,17 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "6f9182e0f8d8d531",
+        "id": "116077001b46d285",
         "type": "tabs",
         "children": [
           {
-            "id": "c201c052d7399a35",
+            "id": "c20645bf1f80f1ec",
             "type": "leaf",
             "state": {
-              "type": "pdf",
-              "state": {
-                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf"
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -91,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,9 +126,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf"
-              }
+              "state": {}
             }
           }
         ]
@@ -152,14 +146,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c201c052d7399a35",
+  "active": "70b22a13d8e23d6b",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/a.exe",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/lmao.c",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/prob1.ys",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/prob1.yo",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/prob2.yo",
-    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/prob4.s",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/prob3_2.s",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/prob3_1.s",

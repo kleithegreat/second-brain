@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{8th Homework - MATH 300 904}
+\rhead{Kevin Lei}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\arraystretch}{1.2}
+
+\begin{document}
+
+\section*{Question 1}
+\begin{enumerate}[(a)]
+    \item $\bigcup_{i=1}^{\infty} A_i = \mathbb{R}$
+    \item $\bigcap_{i=1}^{\infty} A_i = (-1, 1)$
+\end{enumerate}
+
+\section*{Question 2}
+\begin{enumerate}[(a)]
+    \item $\bigcup_{i \in \mathbb{Z}^+} A_i = [1, 3)$
+    \item $\bigcap_{i \in \mathbb{Z}^+} A_i = [0, 2)$
+\end{enumerate}
+
+\section*{Question 3}
+\begin{enumerate}
+    \item This is a function. The range of this function is $\{p, q, r\}$.
+    \item This is not a function; the element $a$ in the domain is mapped to two different elements in the codomain.
+    \item This is not a function; the element $b$ in the domain is not mapped to any element in the codomain.
+    \item This is a function. The range of this function is $\{p, q, r\}$.
+\end{enumerate}
+
+\section*{Question 4}
+\begin{proof}
+    Let $y \in [0, \infty)$.
+    In order for $y$ to be in the range of $f$, there must exist an $x \in [0, \infty)$ such that $y = f(x)$.
+    Consider the case $x = y^4 - 2$.
+    By the completeness of the real numbers, $y^4 \geq 0$, so $y^4 - 2 \geq -2$.
+    Therefore, $x$ is in the domain of $f$.
+    Also,
+    \begin{align*}
+        f(x) &= f(y^4 - 2) \\
+        &= (y^4 - 2 + 2)^{1/4} \\
+        &= |y| \\
+        &= y \; \text{(since $y \geq 0$)}.
+    \end{align*}
+    Therefore, $y \in \text{Ran}(f)$. Hence, $[0, \infty) \subseteq \text{Ran}(f)$.
+\end{proof}
+
+\section*{Question 5}
+\begin{proof}
+    Let $y \in \text{Ran}(f)$.
+    Then, there exists an $x \in \mathbb{R} \setminus \{3\}$ such that $y = \frac{x}{x-3}$.
+    We want to show that $y \in \mathbb{R} \setminus \{1\}$, or in other words, $y \neq 1$.
+    Seeking a contradiction, assume that $y = 1$.
+    Then,
+    \begin{align*}
+        1 &= \frac{x}{x-3} \\
+        x - 3 &= x \\
+        -3 &= 0.
+    \end{align*}
+    This is a contradiction, so $y \neq 1$, or $y \in \mathbb{R} \setminus \{1\}$, and $\text{Ran}(f) \subseteq \mathbb{R} \setminus \{1\}$.
+    Now, let $y \in \mathbb{R} \setminus \{1\}$, and we want to show that $y \in \text{Ran}(f)$.
+    That means we want to find some $x \in \mathbb{R} \setminus \{3\}$ such that $y = \frac{x}{x-3}$.
+    Consider $x = \frac{-3y}{1 - y}$.
+    We must show that $x$ is in the domain of $f$, or in other words, $x \neq 3$.
+    Seeking a contradiction, assume that $x = 3$.
+    Then,
+    \begin{align*}
+        3 &= \frac{-3y}{1 - y} \\
+        3 - 3y &= -3y \\
+        3 &= 0.
+    \end{align*}
+    This is a contradiction, so $x \neq 3$, and $x \in \mathbb{R} \setminus \{3\}$, meaning that $x$ is in the domain of $f$.
+    Also,
+    \begin{align*}
+        f(x) &= f\left(\frac{-3y}{1 - y}\right) \\
+        &= \frac{\frac{-3y}{1 - y}}{\frac{-3y}{1 - y} - 3} \\
+        &= \frac{-3y}{-3y - 3(1 - y)} \\
+        &= \frac{-3y}{-3y - 3 + 3y} \\
+        &= \frac{-3y}{-3} \\
+        &= y.
+    \end{align*}
+    Therefore, $y \in \text{Ran}(f)$, and $\mathbb{R} \setminus \{1\} \subseteq \text{Ran}(f)$.
+    Hence, $\text{Ran}(f) = \mathbb{R} \setminus \{1\}$.
+\end{proof}
+
+\section*{Question 6}
+\begin{proof}
+    Let $y \in \text{Ran}(f)$.
+    We want to show that $y \in (-\infty, 0]$.
+    In other words, $y \leq 0$.
+    Seeking a contradiction, assume that $y > 0$.
+    That means there exists an $x \in \mathbb{R}$ such that $y = f(x)$.
+    In other words, we want to find some real number whose square is negative.
+    However, the square of any real number is nonnegative, so there is no such $x$, a contradiction.
+    Therefore, $y \leq 0$, and $\text{Ran}(f) \subseteq (-\infty, 0]$.
+    Now let $y \in (-\infty, 0]$.
+    We want to show that $y \in \text{Ran}(f)$.
+    In other words, we want to show that there exists some $x \in \mathbb{R}$ such that $y = f(x)$.
+    Consider $x = -\sqrt{y}$.
+    We must show that $x$ is in the domain of $f$, or in other words, that $x$ is a real number.
+    Since $y$ is a real number, $-\sqrt{y}$ is also a real number.
+    Thus, $x$ is in the domain of $f$.
+    Also,
+    \begin{align*}
+        f(x) &= f(-\sqrt{y}) \\
+        &= - (-\sqrt{y}^2) \\
+        &= y.
+    \end{align*}
+    Therefore, $y \in \text{Ran}(f)$, and $(-\infty, 0] \subseteq \text{Ran}(f)$.
+    Hence, $\text{Ran}(f) = (-\infty, 0]$.
+\end{proof}
+
+\section*{Question 7}
+\begin{enumerate}
+    \item $G_f = \{(a, 0), (b, 1), (c, 3), (d, 6), (e, 10)\}$
+    \item $G_g = \{(w, 10), (x, 1), (y, 3), (z, 0)\}$
+\end{enumerate}
+
+\end{document}
