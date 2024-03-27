@@ -2,9 +2,9 @@
 /* Cell.java skeleton written by Hyunyoung Lee
    For CSCE 314 [Sections 595, 596, 597] Spring 2024, Assignment 5 Problem 3 
 
-   Student Name:
-   UIN:
-   Acknowledgements:
+   Student Name: Kevin Lei
+   UIN: 432009232
+   Acknowledgements: canvas notes, course textbook
 */
 
 import java.lang.Iterable;

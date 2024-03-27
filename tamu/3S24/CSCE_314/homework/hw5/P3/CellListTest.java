@@ -4,9 +4,9 @@
    For CSCE 314 [Sections 595, 596, 597] Spring 2024, Assignment 5 Problem 4
    Feel free to "expand" the main, but do not remove the original contents
 
-   Student Name:
-   UIN:
-   Acknowledgements:
+   Student Name: Kevin Lei
+   UIN: 432009232
+   Acknowledgements: canvas notes, course textbook
 */
 
 import java.util.Iterator;

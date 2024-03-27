@@ -4,9 +4,9 @@
    Homework 5 Problem 3 Test class 
    class CellTest
 
-   Student Name: 
-   UIN:
-   Acknowledgements: 
+   Student Name: Kevin Lei
+   UIN: 432009232
+   Acknowledgements: canvas notes, course textbook
 */
 
 public class CellTest {
