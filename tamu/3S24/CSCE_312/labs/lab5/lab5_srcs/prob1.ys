@@ -1,21 +1,21 @@
-irmovq $0x100, %rsp      # set up stack pointer
-call main
-halt
+irmovq $0x100, %rsp     # set up stack pointer
+call main               # run the main program
+halt                    # end the program after main terminates
 
-main:
-    irmovq $8, %rdi      # int i stored in rdi
-    irmovq $7, %rsi      # int j stored in rsi
-    rrmovq %rsi, %r8     # move the value of j to a temporary register
-    subq %rdi, %r8       # subtract i from j
-    jge else             # if i <= j, jump to else
-    irmovq $3, %r8       # move 3 to a temporary register
-    subq %r8, %rdi       # subtract 3 from i
-    irmovq $4, %r8       # move 4 to a temporary register
-    addq %r8, %rsi       # add 4 to j
-    ret                  # return
+main:                   # main program starts here
+    irmovq $8, %rdi     # int i stored in rdi
+    irmovq $7, %rsi     # int j stored in rsi
+    rrmovq %rsi, %r8    # move the value of j to a temporary register
+    subq %rdi, %r8      # subtract i from j
+    jge else            # if i <= j, jump to else
+    irmovq $3, %r8      # move 3 to a temporary register
+    subq %r8, %rdi      # subtract 3 from i
+    irmovq $4, %r8      # move 4 to a temporary register
+    addq %r8, %rsi      # add 4 to j
+    ret                 # return, main program ends here
 
-else:
-    irmovq $7, %rdi      # set i = 7
-    irmovq $1, %r8       # set 1 to a temporary register
-    addq %r8, %rsi       # j++
-    ret
+else:                   # else block starts here
+    irmovq $7, %rdi     # set i = 7
+    irmovq $1, %r8      # set 1 to a temporary register
+    addq %r8, %rsi      # j++
+    ret                 # return, else block ends here

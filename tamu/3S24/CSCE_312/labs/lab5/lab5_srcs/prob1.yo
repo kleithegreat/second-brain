@@ -1,21 +1,21 @@
-0x000: 30f40001000000000000 | irmovq $0x100, %rsp
-0x00a: 801400000000000000   | call main
-0x013: 00                   | halt
+0x000: 30f40001000000000000 | irmovq $0x100, %rsp     # set up stack pointer
+0x00a: 801400000000000000   | call main               # run the main program
+0x013: 00                   | halt                    # end the program after main terminates
                             | 
-0x014:                      | main:
-0x014: 30f70800000000000000 |     irmovq $8, %rdi  # int i stored in rdi
-0x01e: 30f60700000000000000 |     irmovq $7, %rsi  # int j stored in rsi
-0x028: 2068                 |     rrmovq %rsi, %r8
-0x02a: 6178                 |     subq %rdi, %r8
-0x02c: 764e00000000000000   |     jg else
-0x035: 30f80300000000000000 |     irmovq $3, %r8
-0x03f: 6187                 |     subq %r8, %rdi
-0x041: 30f80400000000000000 |     irmovq $4, %r8
-0x04b: 6086                 |     addq %r8, %rsi
-0x04d: 90                   |     ret
+0x014:                      | main:                   # main program starts here
+0x014: 30f70800000000000000 |     irmovq $8, %rdi     # int i stored in rdi
+0x01e: 30f60700000000000000 |     irmovq $7, %rsi     # int j stored in rsi
+0x028: 2068                 |     rrmovq %rsi, %r8    # move the value of j to a temporary register
+0x02a: 6178                 |     subq %rdi, %r8      # subtract i from j
+0x02c: 754e00000000000000   |     jge else            # if i <= j, jump to else
+0x035: 30f80300000000000000 |     irmovq $3, %r8      # move 3 to a temporary register
+0x03f: 6187                 |     subq %r8, %rdi      # subtract 3 from i
+0x041: 30f80400000000000000 |     irmovq $4, %r8      # move 4 to a temporary register
+0x04b: 6086                 |     addq %r8, %rsi      # add 4 to j
+0x04d: 90                   |     ret                 # return, main program ends here
                             | 
-0x04e:                      | else:
-0x04e: 30f70700000000000000 |     irmovq $7, %rdi
-0x058: 30f80100000000000000 |     irmovq $1, %r8
-0x062: 6086                 |     addq %r8, %rsi
-0x064: 90                   |     ret
+0x04e:                      | else:                   # else block starts here
+0x04e: 30f70700000000000000 |     irmovq $7, %rdi     # set i = 7
+0x058: 30f80100000000000000 |     irmovq $1, %r8      # set 1 to a temporary register
+0x062: 6086                 |     addq %r8, %rsi      # j++
+0x064: 90                   |     ret                 # return, else block ends here
