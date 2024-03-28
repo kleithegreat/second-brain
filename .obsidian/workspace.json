@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "116077001b46d285",
+        "id": "f59466720a234fcc",
         "type": "tabs",
         "children": [
           {
-            "id": "c20645bf1f80f1ec",
+            "id": "ac773372762aaf45",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -149,6 +149,9 @@
   "active": "70b22a13d8e23d6b",
   "lastOpenFiles": [
     "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
+    "tamu/3S24/CSCE_312/labs/lab5/report/lab5.aux",
+    "tamu/3S24/CSCE_312/labs/lab5/report/lab5.log",
+    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/a.exe",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/lmao.c",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/prob1.ys",
@@ -156,8 +159,6 @@
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/prob2.yo",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/prob4.s",
     "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/prob3_2.s",
-    "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/prob3_1.s",
-    "tamu/3S24/CSCE_312/labs/lab5/lab5_srcs/prob2.ys",
     "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
     "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
@@ -168,7 +169,6 @@
     "tamu/3S24/CSCE_314/notes/haskell/5_List_comprehensions.md",
     "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md",
     "tamu/3S24/CSCE_312/homework/hw3/code.md",
-    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
     "tamu/3S24/CSCE_314/homework/hw4/README.md",
     "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
     "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",

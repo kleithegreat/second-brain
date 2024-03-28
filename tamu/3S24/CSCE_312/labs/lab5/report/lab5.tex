@@ -110,9 +110,35 @@ This was just to prepare the value of \texttt{i} to be printed with the \texttt{
 Finally, the address of the string is loaded into \texttt{\%rdi} with \texttt{leaq .LC0(\%rip), \%rax} and \texttt{movq \%rax, \%rdi}, and then \texttt{printf} is called with \texttt{call printf@PLT}.
 
 \section*{Problem 4}
-
+The main difference between \texttt{lab5\_prob3\_1.c} and \texttt{lab5\_prob4.c} is the way that the "Hello world" string is printed.
+We can see from the C source code that \texttt{lab5\_prob3\_1.c} calls \texttt{printf()} directly in the main function, while \texttt{lab5\_prob4.c} calls a function \texttt{print\_hello()} that calls \texttt{printf()}.
+In the assembly generated, the effective address of the string "Hello, world" is loaded into \texttt{\%rax} and moved into \texttt{\%rdi}, and then \texttt{call puts@PLT} is called, which effectively prints the string to the console.
+In the code for \texttt{lab5\_prob4.c}, the corresponding assembly code calls \texttt{call print\_hello} in the main directive, and the \texttt{print\_hello} function uses the same logic as \texttt{lab5\_prob3\_1.c} to print the string to the console.
 
 \section*{Problem 5}
+\begin{minipage}{0.5\textwidth}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{../images/prob5_code1.png}
+        \caption{Assembly generated from main code}
+    \end{figure}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{../images/prob5_code2.png}
+        \caption{Assembly generated from print function}
+    \end{figure}
+\end{minipage}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../images/prob5_compile.png}
+    \caption{Generating object files and linking them together}
+\end{figure}
+
+The difference between the assembly codes generated for this problem and the previous problem is that the \texttt{print\_hello()} function is now defined in a separate file, but the functionality and implementation of the function remain the same.
+Both codes have a main directive that calls the \texttt{print\_hello()} function, and both \texttt{print\_hello()} functions load the address of the string "Hello, world" into \texttt{\%rax} and then move it into \texttt{\%rdi} before calling \texttt{puts@PLT}.
 
 
 \section*{Problem 6}
