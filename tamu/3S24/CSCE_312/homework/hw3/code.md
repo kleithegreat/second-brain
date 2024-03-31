@@ -82,14 +82,66 @@ short arith(short x) {
 ```asm
 # x in %rdi
 arith:
-    leaq 15(%rdi), %rax
-    testq %rdi, %rdi
-    cmovns %rdi, %rbx
-    sarq $4, %rbx
+    leaq 15(%rdi), %rbx    # %rbx <- x + 15
+    testq %rdi, %rdi       # test if x is zero
+    cmovns %rdi, %rbx      # if x > 0, %rbx <- x
+    sarq $4, %rbx          # shift %rbx right by 4 bits
     ret
 ```
+The `OP` operation is division. We use the bias of 15 to round the result of division to the nearest integer, since we are dividing by 16.
 ## 3.24
+```c
+short loop_while(short a, short b) {
+    short result = 0;
+    while (a > b) {
+        result = result + a * b;
+        a = a - 1;
+    }
+    return result;
+}
+```
+```asm
+# short loop_while(short a, short b)
+# a in %rdi, b in %rsi
+loop_while:
+    movl $0, %eax
+    jmp .L2
+.L3:
+    leaq (,%rsi,%rdi), %rdx
+    addq %rdx, %rax
+    subq $1, %rdi
+.L2:
+    cmpq %rsi, %rdi
+    jg .L3
+    rep; ret
+```
 ## 3.25
+```c
+long loop_while2(long a, long b) {
+    long result = 
+    while () {
+        result = ;
+        b = ;
+    }
+    return result;
+}
+```
+```asm
+# a in %rdi, b in %rsi
+loop_while2:
+    testq %rsi, %rsi
+    jle .L8
+    movq %rsi, %rax
+.L7:
+    imulq %rdi, %rax
+    subq $1, %rsi
+    testq %rsi, %rsi
+    jg .L7
+    rep; ret
+.L8:
+    movq %rsi, %rax
+    ret
+```
 ## 3.32
 ## 3.35
 ## 3.37
