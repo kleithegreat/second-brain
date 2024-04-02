@@ -1,4 +1,3 @@
-
 /* 
    CellListTest.java skeleton written by Hyunyoung Lee
    For CSCE 314 [Sections 595, 596, 597] Spring 2024, Assignment 5 Problem 4

@@ -16,19 +16,19 @@ abstract class Shape implements Comparable<Shape> {
   // implement the constructor
   public Shape(Point p)
   {
-    position = p;
+    position = p;  // set the value of position to the argument p
   }
 
   // implement equals()
   @Override
   public boolean equals(Object o) {  // implement this method and explain your implementation
-    if (this == o) return true;
-    if (!(o instanceof Shape)) return false;
-    try {
-      Shape s = (Shape) o;
-      return position.equals(s.position) && area == s.area;
-    } catch (ClassCastException e) {
-      return false;
+    if (this == o) return true;  // if the object is the same as the argument, return true
+    if (!(o instanceof Shape)) return false;  // check if the argument is an instance of Shape, if not return false
+    try {  // attempt to cast the argument to a Shape object
+      Shape s = (Shape) o;  // try to cast the argument to a Shape object
+      return position.equals(s.position) && area == s.area;  // return true if the position and area values are the same
+    } catch (ClassCastException e) {  // catch the exception if the argument cannot be cast to a Shape object
+      return false;  // return false in this case
     }
   }
 
@@ -36,12 +36,8 @@ abstract class Shape implements Comparable<Shape> {
   public abstract double area();
  
   // implement compareTo()
-		@Override
+	@Override
   public int compareTo(Shape s) {  // implement this method and explain your implementation
-    return Double.compare(area, s.area);
+    return Double.compare(area, s.area);  // compare the area values of the two Shape objects using the Double.compare method, which signifies the order of the two objects using a signed integer
   }
 } // end of class Shape
-
-
-
-

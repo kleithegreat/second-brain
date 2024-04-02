@@ -1,4 +1,3 @@
-
 /* CellTest.java skeleton written by Hyunyoung Lee 
    CSCE 314 [Sections 595, 596, 597] Spring 2024  
    Homework 5 Problem 3 Test class 

@@ -1,4 +1,3 @@
-
 /* Main (file input function) provided by Hyunyoung Lee
    For CSCE 314 [Sections 595, 596, 597] Spring 2024, Assignment 5 Problem 2
    The student is supposed to add the part that outputs the sorted shapes 
@@ -117,8 +116,14 @@ public class Main {
     // Task 10.
     // Sort the shapes according to their area and output them nicely in
     // an ascending order of area
+    Arrays.sort(shapes);  // sort the shapes array in ascending order of area using the compareTo method in the Shape class
+    System.out.println("Shapes sorted in ascending order of area:");  // output the sorted shapes
+    for (Shape e : shapes) {  // iterate through the shapes array
+      out.println(e);  // print each shape
+    }
 
     // output the total area of all the shapes
+    System.out.println("Total area of all shapes: " + TotalAreaCalculator.calculate(shapes));  // print the total area of all the shapes using the TotalAreaCalculator class
 
   } // end of main()
 } // end of class Main
