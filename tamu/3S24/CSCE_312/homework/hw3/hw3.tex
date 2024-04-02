@@ -5,20 +5,386 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{float}
+\usepackage{fontspec}
 \usepackage{xcolor}
 \usepackage{listings}
 
+\setmonofont{JetBrainsMonoNerdFont-Regular.ttf}[Path=./]
+
+% Catppuccin Macchiato color scheme
+\definecolor{ctp-macchiato-rosewater}{HTML}{f4dbd6}
+\definecolor{ctp-macchiato-flamingo}{HTML}{f0c6c6}
+\definecolor{ctp-macchiato-pink}{HTML}{f5bde6}
+\definecolor{ctp-macchiato-mauve}{HTML}{c6a0f6}
+\definecolor{ctp-macchiato-red}{HTML}{ed8796}
+\definecolor{ctp-macchiato-maroon}{HTML}{ee99a0}
+\definecolor{ctp-macchiato-peach}{HTML}{f5a97f}
+\definecolor{ctp-macchiato-yellow}{HTML}{eed49f}
+\definecolor{ctp-macchiato-green}{HTML}{a6da95}
+\definecolor{ctp-macchiato-teal}{HTML}{8bd5ca}
+\definecolor{ctp-macchiato-sky}{HTML}{91d7e3}
+\definecolor{ctp-macchiato-sapphire}{HTML}{7dc4e4}
+\definecolor{ctp-macchiato-blue}{HTML}{8aadf4}
+\definecolor{ctp-macchiato-lavender}{HTML}{b7bdf8}
+\definecolor{ctp-macchiato-text}{HTML}{cad3f5}
+\definecolor{ctp-macchiato-subtext1}{HTML}{b8c0e0}
+\definecolor{ctp-macchiato-subtext0}{HTML}{a5adcb}
+\definecolor{ctp-macchiato-overlay2}{HTML}{939ab7}
+\definecolor{ctp-macchiato-overlay1}{HTML}{8087a2}
+\definecolor{ctp-macchiato-overlay0}{HTML}{6e738d}
+\definecolor{ctp-macchiato-surface2}{HTML}{5b6078}
+\definecolor{ctp-macchiato-surface1}{HTML}{494d64}
+\definecolor{ctp-macchiato-surface0}{HTML}{363a4f}
+\definecolor{ctp-macchiato-base}{HTML}{24273a}
+\definecolor{ctp-macchiato-mantle}{HTML}{1e2030}
+\definecolor{ctp-macchiato-crust}{HTML}{181926}
+
+\lstset{
+    basicstyle=\ttfamily\color{ctp-macchiato-text},
+    backgroundcolor=\color{ctp-macchiato-base},
+    commentstyle=\color{ctp-macchiato-surface1},
+    keywordstyle=\color{ctp-macchiato-mauve},
+    stringstyle=\color{ctp-macchiato-green},
+    identifierstyle=\color{ctp-macchiato-blue},
+    frame=single,
+    rulecolor=\color{ctp-macchiato-base},
+    breaklines=true,
+    breakatwhitespace=true,
+    breakautoindent=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    captionpos=b,
+    belowskip=1em,
+    belowcaptionskip=2em
+}
+
+\lstdefinelanguage{myassembly}{
+    basicstyle=\ttfamily\color{ctp-macchiato-text},
+    backgroundcolor=\color{ctp-macchiato-base},
+    commentstyle=\color{ctp-macchiato-surface1},
+    keywordstyle=\color{ctp-macchiato-mauve},
+    stringstyle=\color{ctp-macchiato-green},
+    identifierstyle=\color{ctp-macchiato-blue},
+    frame=single,
+    rulecolor=\color{ctp-macchiato-base},
+    breaklines=true,
+    breakatwhitespace=true,
+    breakautoindent=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    captionpos=b,
+    belowskip=1em,
+    belowcaptionskip=2em,
+    % escapeinside={%}{)},
+    morecomment=[l]{;},
+    morestring=[b]",
+    morekeywords={mov, add, sub, mul, div, cmp, jmp, je, jne, jg, jge, jl, jle, push, pop, call, ret, lea, xor, or, and, not, test},
+    sensitive=false,
+    upquote=true,
+}
+
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{2nd Homework - CSCE 312 503}
+\lhead{3rd Homework - CSCE 312 503}
 \rhead{Kevin Lei}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\arraystretch}{1.2}
 
-\definecolor{mygreen}{HTML}{008000}
-\definecolor{myorange}{HTML}{d19a02}
-\definecolor{myred}{HTML}{b22222}
-
 \begin{document}
 
 \section*{Bryant Chapter 3}
+
+\section*{3.5}
+
+\begin{lstlisting}[language=C]
+void decode1(long *xp, long *yp, long *zp) {
+    // xp in %rdi, yp in %rsi, zp in %rdx
+    long x = *xp;
+    long y = *yp;
+    long z = *zp;
+
+    *yp = x;
+    *zp = y;
+    *xp = z;
+
+    return;
+}
+\end{lstlisting}
+
+\section*{3.6}
+
+\texttt{\%rbx} holds $p$ and \texttt{\%rdx} holds $q$.
+
+\vspace{1em}    
+
+\noindent \begin{tabular}{|l|l|}
+    \hline
+    \textbf{Instruction} & \textbf{Result} \\
+    \hline
+    \texttt{leaq 9(\%rdx), \%rax} & \texttt{\%rax} $\leftarrow \; q + 9$ \\
+    \texttt{leaq (\%rdx, \%rbx), \%rax} & \texttt{\%rax} $\leftarrow \; p + q$ \\
+    \texttt{leaq (\%rdx, \%rbx, 3), \%rax} & \texttt{\%rax} $\leftarrow \; 3p + q$ \\
+    \texttt{leaq 2(\%rbx, \%rbx, 7), \%rax} & \texttt{\%rax} $\leftarrow \; 7p + p + 2$ \\
+    \texttt{leaq 0xE(,\%rdx, 3), \%rax} & \texttt{\%rax} $\leftarrow \; 3q + 14$ \\
+    \texttt{leaq 6(\%rbx, \%rdx, 7), \%rax} & \texttt{\%rax} $\leftarrow \; 7q + p + 6$ \\
+    \hline
+\end{tabular}
+
+\section*{3.7}
+
+\begin{lstlisting}[language=myassembly]
+; short scale3(short x, short y, short z)
+; x in %rdi, y in %rsi, z in %rdx
+scale3:
+    leaq (%rsi, %rsi, 9), %rbx       ; rbx = 9y + y = 10y
+    leaq (%rbx, %rdx), %rbx          ; rbx = z + rbx = z + 10y
+    leaq (%rbx, %rdi, %rsi), %rbx    ; rbx = xy + rbx = xy + z + 10y
+    ret
+\end{lstlisting}
+
+\begin{lstlisting}[language=C]
+short scale3(short x, short y, short z) {
+    short t = x * y + z + 10 * y;
+    return t;
+}
+\end{lstlisting}
+
+\section*{3.8}
+Initial values:
+
+\vspace{1em}
+
+\noindent \begin{tabular}{|l l|l l|}
+    \hline
+    \textbf{Address} & \textbf{Value} & \textbf{Register} & \textbf{Value} \\
+    \hline
+    \texttt{0x100} & 0xFF & \texttt{\%rax} & 0x100 \\
+    \texttt{0x108} & 0xAB & \texttt{\%rcx} & 0x1 \\
+    \texttt{0x110} & 0x13 & \texttt{\%rdx} & 0x3 \\
+    \texttt{0x118} & 0x11 & & \\
+    \hline
+\end{tabular}
+
+\vspace{1em}
+
+\noindent Effects of the instructions:
+
+\vspace{1em}
+
+\noindent \begin{tabular}{|l l l|}
+    \hline
+    \textbf{Instruction} & \textbf{Destination} & \textbf{Value} \\
+    \hline
+    \texttt{addq \%rcx, (\%rax)} & $M[0x100]$ & 0x1 \\
+    \texttt{subq \%rdx, 8(\%rax)} & $M[0x108]$ & 0xA8 \\
+    \texttt{imulq \$16, (\%rax, \%rdx, 8)} & $M[0x118]$ & 0x110 \\
+    \texttt{incq 16(\%rax)} & $M[0x110]$ & 0x14 \\
+    \texttt{decq \%rcx} & \texttt{\%rcx} & 0x0 \\
+    \texttt{subq \%rdx, \%rax} & \texttt{\%rax} & 0xFD \\ 
+    \hline
+\end{tabular}
+
+\section*{3.18}
+
+\begin{lstlisting}[language=C]
+short test(short x, short y, short z) {
+    short val = y + z - x;
+    if (z > 5) {
+        if (y > 2)
+            val = x / z;
+        else
+            val = x / y;
+    } else if (z < 3)
+        val = z / y;
+    return val;
+}
+\end{lstlisting}
+
+\section*{3.20}
+
+\begin{lstlisting}[language=myassembly]
+; x in %rdi
+arith:
+    leaq 15(%rdi), %rbx    ; %rbx <- x + 15
+    testq %rdi, %rdi       ; test if x is zero
+    cmovns %rdi, %rbx      ; if x > 0, %rbx <- x
+    sarq $4, %rbx          ; shift %rbx right by 4 bits
+    ret
+\end{lstlisting}
+
+\noindent The \texttt{OP} operation is division. We use the bias of 15 to round the result of division to the nearest integer, since we are dividing by 16.
+
+\section*{3.24}
+
+\begin{lstlisting}[language=C]
+short loop_while(short a, short b) {
+    short result = 0;
+    while (a > b) {
+        result = result + a * b;
+        a = a - 1;
+    }
+    return result;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=myassembly]
+; short loop_while(short a, short b)
+; a in %rdi, b in %rsi
+loop_while:
+    movl $0, %eax
+    jmp .L2
+.L3:
+    leaq (,%rsi,%rdi), %rdx
+    addq %rdx, %rax
+    subq $1, %rdi
+.L2:
+    cmpq %rsi, %rdi
+    jg .L3
+    rep; ret
+\end{lstlisting}
+
+\newpage
+\section*{3.25}
+
+\begin{lstlisting}[language=C]
+long loop_while2(long a, long b) {
+long result = b;
+while (b > 0) {
+    result = result * a;
+    b = b - 1;
+}
+return result;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=myassembly]
+; a in %rdi, b in %rsi
+loop_while2:
+    testq %rsi, %rsi
+    jle .L8
+    movq %rsi, %rax
+.L7:
+    imulq %rdi, %rax
+    subq $1, %rsi
+    testq %rsi, %rsi
+    jg .L7
+    rep; ret
+.L8:
+    movq %rsi, %rax
+    ret
+\end{lstlisting}
+
+\section*{3.32}
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|l|c|c|c|c|c|l|}
+\hline
+\textbf{Label} & \textbf{PC} & \textbf{Instruction} & \textbf{\%rdi} & \textbf{\%rsi} & \textbf{\%rax} & \textbf{\%rsp} & \textbf{* \%rsp} & \textbf{Description} \\ \hline
+M1 & \texttt{0x400560} & \texttt{callq} & 10 & -- & -- & \texttt{0x7fffffffe820} & -- & Call \texttt{first(10)} \\ \hline
+F1 & \texttt{0x400548} & \texttt{lea} & 10 & -- & -- & \texttt{0x7fffffffe818} & \texttt{0x400565} & Load \texttt{x+1} into \%rdi \\ \hline
+F2 & \texttt{0x40054c} & \texttt{sub} & 10 & 11 & -- & \texttt{0x7fffffffe818} & \texttt{0x400565} & Subtract 1 from \%rdi \\ \hline
+F3 & \texttt{0x400550} & \texttt{callq} & 9 & 11 & -- & \texttt{0x7fffffffe818} & \texttt{0x400565} & Call \texttt{last(x-1, x+1)} \\ \hline
+L1 & \texttt{0x400540} & \texttt{mov} & 9 & 11 & -- & \texttt{0x7fffffffe810} & \texttt{0x400555} & Move \texttt{x} to \%rax \\ \hline
+L2 & \texttt{0x400543} & \texttt{imul} & 9 & 11 & 9 & \texttt{0x7fffffffe810} & \texttt{0x400555} & Multiply \texttt{x} by 11 \\ \hline
+L3 & \texttt{0x400547} & \texttt{ret} & 9 & 11 & 99 & \texttt{0x7fffffffe810} & \texttt{0x400555} & Return 99 from \texttt{last} \\ \hline
+F4 & \texttt{0x400555} & \texttt{repz retq} & 9 & 11 & 99 & \texttt{0x7fffffffe818} & \texttt{0x400565} & Return 99 from \texttt{first} \\ \hline
+M2 & \texttt{0x400565} & \texttt{mov} & 10 & 11 & 99 & \texttt{0x7fffffffe820} & -- & Move 99 to \%rdx \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+\section*{3.35}
+
+\begin{lstlisting}[language=C]
+long rfun(unsigned long x) {
+    if (x == 0)
+        return 0;
+    unsigned long nx = x >> 2;
+    long rv rfun(nx);
+    return x + rv;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=myassembly]
+; long rfun(unsigned long x)
+; x in %rdi
+rfun:
+    pushq %rbx          ; save %rbx
+    movq %rdi, %rbx     ; use callee saved register %rbx to store x
+    movl $0, %eax       ; set return value to 0
+    testq %rdi, %rdi    ; if x == 0
+    je .L2              ; go to .L2 if x == 0
+    shrq $2, %rdi       ; shift x right by 2 bits
+    call rfun           ; call rfun with x >> 2
+    addq %rbx, %rax     ; add x to return value
+.L2:
+    popq %rbx           ; restore %rbx
+    ret
+\end{lstlisting}
+
+\noindent The \texttt{\%rbx} register is used to store the value of \texttt{x} in the current function call.
+
+\section*{3.37}
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Expression} & \textbf{Type} & \textbf{Value} & \textbf{Assembly code} \\ \hline
+\texttt{P[1]} & short & $M[x_p + 2]$ & \texttt{movw 2(\%rdx), \%ax} \\ \hline
+\texttt{P + 3 + i} & short* & $x_p + 6 + 2i$ & \texttt{leaq 6(\%rdx, \%rcx, 2), \%rax} \\ \hline
+\texttt{P[i * 6 - 5]} & short & $M[x_p + 12i - 10]$ & \texttt{movw -10(\%rdx, \%rcx, 12), \%ax} \\ \hline
+\texttt{P[2]} & short & $M[x_p + 4]$ & \texttt{movw 4(\%rdx), \%ax} \\ \hline
+\texttt{\&P[i + 2]} & short* & $x_p + 2i + 4$ & \texttt{leaq 4(\%rdx, \%rcx, 2), \%rax} \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+\section*{3.38}
+
+\begin{lstlisting}[language=myassembly]
+; long sum_element(long i, long j)
+; i in %rdi, j in %rsi
+
+sum_element:
+    leaq 0(,%rdi,8), %rdx         ; %rdx <- 8i
+    subq %rdi, %rdx               ; %rdx <- 7i
+    addq %rsi, %rdx               ; %rdx <- 7i + j
+    leaq (%rsi, %rsi, 4), %rax    ; %rax <- 5j
+    addq %rax, %rdi               ; %rdi <- 5j + i
+    movq Q(,%rdi,8), %rax         ; %rax <- M[x_q + 8(5j + i)]
+    addq P(,%rdx,8), %rax         ; %rax <- M[x_p + 8(7i + j)] + M[x_q + 8(5j + i)]
+    ret
+\end{lstlisting}
+
+\noindent The index for \texttt{P} is $7i + j$ and the index for \texttt{Q} is $5j + i$. Therefore, \texttt{M} = $6$ and \texttt{N} = $8$.
+
+\section*{3.41}
+
+\begin{lstlisting}[language=C]
+void st_init(struct test *st) {
+    st->s.y = st->s.x;
+    st->p = &(st->s.y);
+    st->next = st;
+}
+\end{lstlisting}
+
+\vspace{1em}
+\noindent\textbf{Offsets:}
+\begin{itemize}
+    \item \texttt{p}: 8 bytes
+    \item \texttt{s.x}: 2 bytes
+    \item \texttt{s.y}: 2 bytes
+    \item \texttt{next}: 8 bytes
+\end{itemize}
+
+\end{document}
