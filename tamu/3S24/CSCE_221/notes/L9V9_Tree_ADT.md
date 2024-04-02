@@ -132,6 +132,70 @@ Example traversal order:
   / \     \
 E(1) F(2)  G(4)
 ```
+## Inorder Traversal
+- *Node after left child, before right child*
+- Depth-first traversal
+Pseudocode:
+```
+Algorithm inOrder(v)
+    if isInternal(v)
+        inOrder(leftChild(v))
+    visit(v)
+    if isInternal(v)
+        inOrder(rightChild(v))
+```
+Example traversal order:
+```
+       A(4)
+     /  |  \
+  B(2) C(5) D(7)
+  / \     \
+E(1) F(3)  G(6)
+```
+Here's an intuitive way to think about preorder, postorder, and inorder traversals in a binary tree:
+
+1. Preorder Traversal (Node-Left-Right):
+Imagine you are a visitor exploring the binary tree. In preorder traversal, you first visit the current node, then explore its left subtree, and finally explore its right subtree. It's like saying, "I'll visit the current node, then go left to explore, and then go right."
+
+Example:
+```
+    A
+   / \
+  B   C
+ / \
+D   E
+```
+Preorder traversal: A, B, D, E, C
+
+2. Postorder Traversal (Left-Right-Node):
+In postorder traversal, you first explore the left subtree, then the right subtree, and finally visit the current node. It's like saying, "I'll explore everything to the left, then everything to the right, and finally visit the current node."
+
+Example:
+```
+    A
+   / \
+  B   C
+ / \
+D   E
+```
+Postorder traversal: D, E, B, C, A
+
+3. Inorder Traversal (Left-Node-Right):
+In inorder traversal, you first explore the left subtree, then visit the current node, and finally explore the right subtree. It's like saying, "I'll explore everything to the left, then visit the current node, and then explore everything to the right."
+
+Example:
+```
+    A
+   / \
+  B   C
+ / \
+D   E
+```
+Inorder traversal: D, B, E, A, C
+
+Another way to think about inorder traversal is that it visits the nodes in ascending order for a binary search tree (BST). In a BST, all nodes in the left subtree are smaller than the current node, and all nodes in the right subtree are greater than the current node. Inorder traversal of a BST yields the nodes in sorted order.
+
+These traversals differ in the order in which they visit the nodes and their subtrees. The names "preorder," "postorder," and "inorder" refer to when the current node is visited in relation to its subtrees.
 ## Binary Trees
 - A **binary tree** has the following properties:
     - Each node has at most two children
