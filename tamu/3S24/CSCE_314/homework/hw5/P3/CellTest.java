@@ -12,11 +12,36 @@ public class CellTest {
 
   // 15 points for the three methods: int_sum, num_sum, print
   // implement int_sum
+  static int int_sum(Cell<Integer> list) {
+    if (list == null) return 0;  // return 0 if the list is null, otherwise it would cause an error
+
+    Integer sum = 0;  // initialize sum to 0
+    for (Integer i : list) {  // iterate through the list
+      sum += i;  // add each value to the sum
+    }
+
+    return sum;  // return the sum
+  }
 
   // implement num_sum
+  static double num_sum(Cell<? extends Number> list) {
+    if (list == null) return 0;  // return 0 if the list is null for the same reason as before
+
+    double sum = 0;  // initialize sum to 0
+    for (Number n : list) {  // iterate through the list
+      sum += n.doubleValue();  // add the double value of each number to the sum, since we need to specifically add doubles
+    }
+
+    return sum;  // return the sum
+  }
 
   // implement print
-
+  static <E> void print(Cell<E> list) {
+    for (E e : list) {  // iterate through the list
+      System.out.print(e + " ");  // print each element with a space
+    }
+    System.out.println();  // print a newline at the end
+  }
 	
   // Feel free to "expand" the main method but do not delete whatever provided 
   public static void main (String args[]) {
@@ -51,4 +76,3 @@ public class CellTest {
     System.out.println("===");
   }
 }
-

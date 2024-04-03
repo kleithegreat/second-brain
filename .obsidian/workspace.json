@@ -4,15 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "76bcd6d8ea14a808",
+        "id": "5a23d4133fe44ad0",
         "type": "tabs",
         "children": [
           {
-            "id": "a39861b85be46827",
+            "id": "ca0536c96ebaa898",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "pdf",
+              "state": {
+                "file": "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf"
+              }
             }
           }
         ]
@@ -89,6 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +108,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +130,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf"
+              }
             }
           }
         ]
@@ -146,10 +152,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "70b22a13d8e23d6b",
+  "active": "ca0536c96ebaa898",
   "lastOpenFiles": [
-    "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
+    "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
     "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
+    "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
     "tamu/3S24/CSCE_312/homework/hw3/output.html",
     "tamu/3S24/CSCE_312/homework/hw3/output.pdf",
     "tamu/3S24/CSCE_312/homework/hw3/output.aux",
@@ -158,7 +165,6 @@
     "tamu/3S24/CSCE_312/homework/hw3/lmao.pdf",
     "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
     "tamu/3S24/CSCE_312/labs/lab5/report/lab5.aux",
-    "tamu/3S24/CSCE_312/labs/lab5/report/lab5.log",
     "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
     "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",

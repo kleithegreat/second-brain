@@ -37,23 +37,29 @@ SkipList::SkipList(int max_lvl, double p) : MAXLVL(max_lvl), P(p), level(0) {
 }
 
 SkipList::~SkipList() {
-   
-} 
+}
 
 int SkipList::randomLevel() {
-    return -1;
 }
 
 void SkipList::insertElement(int key) {
-    
 }
 
 void SkipList::deleteElement(int search_key) {
-    
 }
 
 bool SkipList::searchElement(int key) {
-    return false;
+    Node* current = header;
+
+    for (int i = level; i >= 0; i--) {
+        while (current->forward[i] != nullptr && current->forward[i]->key < key) {
+            current = current->forward[i];
+        }
+    }
+
+    current = current->forward[0];
+
+    return current != nullptr && current->key == key;
 }
 
 void SkipList::displayList() {
