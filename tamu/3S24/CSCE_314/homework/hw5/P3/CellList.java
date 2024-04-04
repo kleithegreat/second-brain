@@ -25,6 +25,12 @@ public class CellList<E> implements Iterable<E>, Cloneable, Comparable<CellList<
   @Override
   public CellList<E> clone() {
     // Implement this method and explain
+    CellList<E> clone = new CellList<E>();
+    Cell<E> current = n;
+    for (E item : this) {
+      clone.push(item);
+    }
+    return clone;
   }
 
   @Override
@@ -41,6 +47,31 @@ public class CellList<E> implements Iterable<E>, Cloneable, Comparable<CellList<
   public boolean equals(Object o) {
     // Implement this method and explain (read the equality criteria in the
     // problem statement carefully!)
+    if (o == this) return true;
+    if (o == null || this.getClass() != o.getClass()) return false;
+
+    CellList<E> otherList = (CellList<E>) o;
+    if (otherList.hashCode() != this.hashCode()) return false;
+
+    Object[] thisArray = new Object[this.length];
+    Object[] otherArray = new Object[otherList.hashCode()];
+
+    int i = 0;
+    for (E item : this) {
+      thisArray[i] = item;
+      i++;
+    }
+
+    i = 0;
+    for (E item : otherList) {
+      otherArray[i] = item;
+      i++;
+    }
+
+    Arrays.sort(thisArray);
+    Arrays.sort(otherArray);
+    
+    return Arrays.equals(thisArray, otherArray);
   }
 
   @Override
@@ -57,6 +88,9 @@ public class CellList<E> implements Iterable<E>, Cloneable, Comparable<CellList<
   // Task 3: one-arg constructor (5 points)
   public CellList(Iterable<E> iterable) {
     // implement this constructor
+    for (E item : iterable) {
+      this.push(item);
+    }
   }
 
   // Task 4: total 20 points for toString(), push() and pop()
