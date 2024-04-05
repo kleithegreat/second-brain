@@ -37,15 +37,77 @@ SkipList::SkipList(int max_lvl, double p) : MAXLVL(max_lvl), P(p), level(0) {
 }
 
 SkipList::~SkipList() {
+    Node* current = header->forward[0];
+    while (current != nullptr) {
+        Node* temp = current;
+        current = current->forward[0];
+        delete temp;
+    }
+    delete header;
 }
 
 int SkipList::randomLevel() {
+    int level = 0;
+    while (rand() / double(RAND_MAX) < P && level < MAXLVL) {
+        level++;
+    }
+    return level;
 }
 
 void SkipList::insertElement(int key) {
+    std::vector<Node*> update(MAXLVL + 1);
+    Node* current = header;
+
+    for (int i = level; i >= 0; i--) {
+        while (current->forward[i] != nullptr && current->forward[i]->key < key)
+            current = current->forward[i];
+        update[i] = current;
+    }
+
+    current = current->forward[0];
+
+    if (current == nullptr || current->key != key) {
+        int rlevel = randomLevel();
+
+        if (rlevel > level) {
+            for (int i = level + 1; i <= rlevel; i++)
+                update[i] = header;
+            level = rlevel;
+        }
+
+        Node* n = new Node(key, rlevel);
+
+        for (int i = 0; i <= rlevel; i++) {
+            n->forward[i] = update[i]->forward[i];
+            update[i]->forward[i] = n;
+        }
+    }
 }
 
 void SkipList::deleteElement(int search_key) {
+    std::vector<Node*> update(MAXLVL + 1);
+    Node* current = header;
+
+    for (int i = level; i >= 0; i--) {
+        while (current->forward[i] != nullptr && current->forward[i]->key < search_key)
+            current = current->forward[i];
+        update[i] = current;
+    }
+
+    current = current->forward[0];
+
+    if (current != nullptr && current->key == search_key) {
+        for (int i = 0; i <= level; i++) {
+            if (update[i]->forward[i] != current)
+                break;
+            update[i]->forward[i] = current->forward[i];
+        }
+
+        while (level > 0 && header->forward[level] == nullptr)
+            level--;
+
+        delete current;
+    }
 }
 
 bool SkipList::searchElement(int key) {
