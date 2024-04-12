@@ -1,0 +1,130 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+\usepackage[backend=biber, style=numeric]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
+\addbibresource{wa4.bib}
+\defbibheading{bibliography}[\bibname]{}
+
+\newtheorem{theorem}{Theorem}
+
+\doublespacing
+
+\title{My Dog Left a Residue at Every Pole}
+\author{Cauchy and Complex Analysis}
+\date{}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\thispagestyle{empty}
+\begin{center}
+    Kevin Lei \\
+    MATH 300 904
+\end{center}
+\begin{abstract}
+
+\end{abstract}
+\end{titlepage}
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+\setcounter{page}{1}
+
+\section{Introduction}
+
+\section{The Life of Cauchy}
+Augustin Louis Cauchy was born on August 21, 1789, in Paris, France.
+His parents were Louis François Cauchy, a government official, and Marie-Madeleine Desestre, a housewife.
+Cauchy's father was highly ranked among the French nobility at the time.
+However, due to the French Revolution (which started only a month before the birth of Cauchy), the family's high and noble status of yesterday was no longer a guarantee of safety.
+The revolution marked a hard time for the Cauchy family, as they had to flee Paris to escape the violence of the revolution.
+Thus, they moved to Arcueil, a small village near Paris, where Cauchy spent his early years.
+The family struggled during this time, as they were no longer able to rely on the wealth and status they once had.
+Cauchy's father, Louis François described the situation as follows:
+``We never have more than a half pound of bread and sometimes not
+even that. This we supplement with the little supply of hard crackers and
+rice that we are allotted. Otherwise, we are getting along quite well,
+which is the important thing and which goes to show that human beings
+can get by with little." \cite{Belhoste1991}
+Little is known of the formative years of Cauchy, but it would later become clear that the instablity of his early life would influence his later work.
+As a child, Cauchy was described as a ``timid and frail boy" who ``had no liking for sports and games." \cite{Belhoste1991}
+He loved purposeful work, and found refuge in thought and quiet study.
+The chaos and disorder of the revolution contrasted sharply with the order and precision of mathematics, and Cauchy's later work would reflect this desire for mathematical rigor.
+
+After the death of Robespierre, the Cauchy family returned to Paris.
+Cauchy's father regained power in the new government, and worked closely with Laplace and Lagrange, both senators and incredibly influential mathematicians.
+This connection would later prove to be beneficial for Cauchy, as he was able to study under Lagrange and Laplace.
+Under the suggestion of Laplace, Cauchy was admitted to the École Centrale du Panthéon, one of the best schools in Paris at the time.
+Here, he completed his secondary education, and was admitted to the École Polytechnique, a prestigious school for mathematics and science.
+Going there meant that Cauchy would no longer be following his family's footsteps in government, as both of his brothers did, since he would instead be studying engineering.
+However, Cauchy's family was supportive of his decision, and he went on to be one of the best students at the École Polytechnique.
+
+After graduating from the École Polytechnique in 1807, Cauchy began his career as a military engineer. 
+He worked on several projects, including the construction of the Port of Cherbourg. 
+However, he soon realized that his true passion was mathematics, and he left his engineering job to pursue a career in academia.
+In 1816, Cauchy was appointed as a professor at the École Polytechnique, where he taught for many years. 
+During this time, he made significant contributions to various branches of mathematics, including complex analysis.
+He was also the first to rigorously define calculus, which is what is known now as real analysis.
+For example, consider both the intuitive and rigorous definitions of continuity.
+In differential calculus, continuity is typically introduced as a function that can be drawn without lifting the pen.
+However, Cauchy defined continuity as follows:
+A function $f: \mathbb{R} \to \mathbb{R}$ is continuous at a point $x_0$ if for every $\epsilon > 0$, there exists a $\delta > 0$ such that $|x - x_0| < \delta$ implies $|f(x) - f(x_0)| < \epsilon$.
+This definition is much more rigorous than the intuitive definition, and it laid the foundation for modern real analysis.
+He published numerous papers and books, which helped establish him as one of the leading mathematicians of his time.
+
+Cauchy's work in complex analysis was particularly groundbreaking.
+He introduced the concept of complex functions and developed the theory of complex integration. 
+His work laid the foundation for much of modern complex analysis, and many important results in the field are named after him, such as the Cauchy-Riemann equations and the Cauchy integral formula.
+
+In addition to his work in mathematics, Cauchy was also a devout Catholic and a royalist. 
+He refused to take an oath of allegiance to the new government after the July Revolution of 1830, which led to him losing his teaching position at the École Polytechnique. 
+He went into exile at Turin, Prague, where he continued his mathematical research.
+Cauchy returned to France in 1838 and was elected to the French Academy of Sciences. 
+He continued to teach and conduct research until his death on May 23, 1857, in Sceaux, France.
+
+\section{Introduction to Complex Analysis}
+Complex analysis is the study of functions of complex variables.
+Compared to real analysis, complex analysis is often considered to be much more elegant and beautiful, due to the special properties of complex numbers and functions.
+First, complex numbers are numbers of the form $z = a + bi$, where $a, b \in \mathbb{R}$ and $i^2 = -1$.
+Thus, complex numbers have both a real and imaginary part, and they can be visualized as points in the complex plane, where the real part is the $x$-coordinate and the imaginary part is the $y$-coordinate.
+It is often useful to think of complex numbers as vectors in the complex plane, or tuples $(a, b)$ in $\mathbb{R}^2$.
+Complex functions are functions of the form $f: \mathbb{C} \to \mathbb{C}$, where $\mathbb{C}$ is the set of complex numbers.
+Much of the elegance of complex analysis stems from the many special properties of these complex functions, which are not present in real functions.
+For example, complex differentiability is quite different from functions of real variables.
+Recall that complex numers can be thought of as pairs of real numbers.
+Complex differentiability is defined as follows:
+
+\begin{theorem}{Complex Differentiability}
+    A complex function $f(z) = u(x, y) + iv(x, y)$ has a complex derivative if and only if its real and imaginary parts are continuous and satisfy the Cauchy-Riemann equations:
+    \begin{align*}
+        \frac{\partial u}{\partial x} &= \frac{\partial v}{\partial y} \\
+        \frac{\partial u}{\partial y} &= -\frac{\partial v}{\partial x}
+    \end{align*}
+\end{theorem}
+
+This is a much stronger condition than real differentiability, which results in many of the nice properties of complex functions.
+For example, if a complex function is differentiable on some open disk in the complex domain, then it is called \textit{holomorphic}, and thus infinitely differentiable.
+
+\section{Cauchy's Legacy in Complex Analysis}
+
+\section{Conclusion}
+
+\section{References}
+\printbibliography
+
+% \appendix
+% \section{Appendix}
+
+\end{document}

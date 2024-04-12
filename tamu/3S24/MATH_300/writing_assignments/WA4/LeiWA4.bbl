@@ -1,0 +1,51 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{Belhoste1991}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=f9a9915538b5ae84a97577332eb9e29f}{%
+           family={Belhoste},
+           familyi={B\bibinitperiod},
+           given={Bruno},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag New York}%
+      }
+      \strng{namehash}{f9a9915538b5ae84a97577332eb9e29f}
+      \strng{fullhash}{f9a9915538b5ae84a97577332eb9e29f}
+      \strng{fullhashraw}{f9a9915538b5ae84a97577332eb9e29f}
+      \strng{bibnamehash}{f9a9915538b5ae84a97577332eb9e29f}
+      \strng{authorbibnamehash}{f9a9915538b5ae84a97577332eb9e29f}
+      \strng{authornamehash}{f9a9915538b5ae84a97577332eb9e29f}
+      \strng{authorfullhash}{f9a9915538b5ae84a97577332eb9e29f}
+      \strng{authorfullhashraw}{f9a9915538b5ae84a97577332eb9e29f}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Augustin-Louis Cauchy: A Biography}
+      \field{year}{1991}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
