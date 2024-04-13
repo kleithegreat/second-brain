@@ -19,6 +19,34 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{BerkeleyNotes}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=c8cadfbfffa8f0cdf92051d6b41ec8a7}{%
+           family={Arash},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{c8cadfbfffa8f0cdf92051d6b41ec8a7}
+      \strng{fullhash}{c8cadfbfffa8f0cdf92051d6b41ec8a7}
+      \strng{fullhashraw}{c8cadfbfffa8f0cdf92051d6b41ec8a7}
+      \strng{bibnamehash}{c8cadfbfffa8f0cdf92051d6b41ec8a7}
+      \strng{authorbibnamehash}{c8cadfbfffa8f0cdf92051d6b41ec8a7}
+      \strng{authornamehash}{c8cadfbfffa8f0cdf92051d6b41ec8a7}
+      \strng{authorfullhash}{c8cadfbfffa8f0cdf92051d6b41ec8a7}
+      \strng{authorfullhashraw}{c8cadfbfffa8f0cdf92051d6b41ec8a7}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: March 3rd, 2024}
+      \field{title}{Lecture Notes on Complex Numbers}
+      \field{year}{n.d.}
+      \verb{urlraw}
+      \verb https://math.berkeley.edu/~arash/54/notes/6_7.pdf
+      \endverb
+      \verb{url}
+      \verb https://math.berkeley.edu/~arash/54/notes/6_7.pdf
+      \endverb
+    \endentry
     \entry{Belhoste1991}{book}{}{}
       \name{author}{1}{}{%
         {{hash=f9a9915538b5ae84a97577332eb9e29f}{%
@@ -44,6 +72,64 @@
       \field{labeltitlesource}{title}
       \field{title}{Augustin-Louis Cauchy: A Biography}
       \field{year}{1991}
+    \endentry
+    \entry{LangComplexAnalysis1998}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=88c92ddced8d93c4ed4df52ee477b0c6}{%
+           family={Lang},
+           familyi={L\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{fullhash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{fullhashraw}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{bibnamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authorbibnamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authornamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authorfullhash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authorfullhashraw}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4th}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Complex Analysis}
+      \field{year}{1998}
+    \endentry
+    \entry{WeissteinComplexNumber}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=819197bfeff32a3f58d49b2a3eb0a580}{%
+           family={Weisstein},
+           familyi={W\bibinitperiod},
+           given={Eric\bibnamedelima W.},
+           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{819197bfeff32a3f58d49b2a3eb0a580}
+      \strng{fullhash}{819197bfeff32a3f58d49b2a3eb0a580}
+      \strng{fullhashraw}{819197bfeff32a3f58d49b2a3eb0a580}
+      \strng{bibnamehash}{819197bfeff32a3f58d49b2a3eb0a580}
+      \strng{authorbibnamehash}{819197bfeff32a3f58d49b2a3eb0a580}
+      \strng{authornamehash}{819197bfeff32a3f58d49b2a3eb0a580}
+      \strng{authorfullhash}{819197bfeff32a3f58d49b2a3eb0a580}
+      \strng{authorfullhashraw}{819197bfeff32a3f58d49b2a3eb0a580}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: March 3rd, 2024}
+      \field{title}{Complex Number}
+      \field{year}{n.d.}
+      \verb{urlraw}
+      \verb https://mathworld.wolfram.com/ComplexNumber.html
+      \endverb
+      \verb{url}
+      \verb https://mathworld.wolfram.com/ComplexNumber.html
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

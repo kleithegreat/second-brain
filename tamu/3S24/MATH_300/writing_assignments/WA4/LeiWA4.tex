@@ -31,7 +31,11 @@
     MATH 300 904
 \end{center}
 \begin{abstract}
-
+    Augustin-Louis Cauchy was a prolific French mathematician whose work laid the foundations for the rigorous study of both real and complex analysis. 
+    This paper explores Cauchy's life and his contributions to the field of complex analysis. 
+    We discuss his background and early life, and trace his education and career as he became one of the preeminent mathematicians of his era. 
+    Cauchy introduced new standards of rigor into calculus and analysis, and his work with complex functions opened up rich new areas of study. 
+    We examine important results bearing his name, including the Cauchy Integral Theorem, Residue Theorem, and Cauchy-Schwarz Inequality.
 \end{abstract}
 \end{titlepage}
 
@@ -43,6 +47,17 @@
 \setcounter{page}{1}
 
 \section{Introduction}
+Augustin-Louis Cauchy (1789-1857) was a French mathematician whose work fundamentally shaped the development of mathematical analysis in the 19th century and beyond. 
+Born right before the French Revolution, Cauchy's early life was marked by the chaos and upheaval of this period. 
+However, he found a safe space in the precise, logical world of mathematics. 
+Cauchy went on to become a prolific mathematician, one of the most published of all time.
+He is especially renowned for introducing a new level of mathematical rigor into the fields of real and complex analysis.
+
+In this paper, we explore the life and work of Augustin-Louis Cauchy, with a particular focus on his contributions to complex analysis. 
+Section 2 traces Cauchy's life story, from his tumultuous early years during the French Revolution to his career as a professor and researcher. 
+In Section 3, we provide an overview of the key concepts in complex analysis that are needed to understand Cauchy's work in this area. 
+Section 4 examines some of Cauchy's most celebrated results in complex analysis, including the Cauchy Integral Theorem, the Residue Theorem, and the Cauchy-Schwarz Inequality. 
+Finally, we conclude in Section 5 by reflecting on Cauchy's enduring legacy and impact on the field of mathematics.
 
 \section{The Life of Cauchy}
 Augustin Louis Cauchy was born on August 21, 1789, in Paris, France.
@@ -97,7 +112,7 @@ He continued to teach and conduct research until his death on May 23, 1857, in S
 \section{Introduction to Complex Analysis}
 Complex analysis is the study of functions of complex variables.
 Compared to real analysis, complex analysis is often considered to be much more elegant and beautiful, due to the special properties of complex numbers and functions.
-First, complex numbers are numbers of the form $z = a + bi$, where $a, b \in \mathbb{R}$ and $i^2 = -1$.
+First, complex numbers are numbers of the form $z = a + bi$, where $a, b \in \mathbb{R}$ and $i^2 = -1$. \cite{WeissteinComplexNumber}
 Thus, complex numbers have both a real and imaginary part, and they can be visualized as points in the complex plane, where the real part is the $x$-coordinate and the imaginary part is the $y$-coordinate.
 It is often useful to think of complex numbers as vectors in the complex plane, or tuples $(a, b)$ in $\mathbb{R}^2$.
 Complex functions are functions of the form $f: \mathbb{C} \to \mathbb{C}$, where $\mathbb{C}$ is the set of complex numbers.
@@ -115,11 +130,92 @@ Complex differentiability is defined as follows:
 \end{theorem}
 
 This is a much stronger condition than real differentiability, which results in many of the nice properties of complex functions.
-For example, if a complex function is differentiable on some open disk in the complex domain, then it is called \textit{holomorphic}, and thus infinitely differentiable.
+For example, if a complex function is differentiable in the complex domain, then it is called \textit{holomorphic}, and thus infinitely differentiable. \cite{LangComplexAnalysis1998}
+This is in contrast to real functions, where differentiability once does not imply differentiability infinitely many times.
+
+Another important property of complex functions are their \textit{poles} and \textit{Laurent series} representations.
+A pole of a complex function is a point where the function is not holomorphic due to it going to infinity.
+This is analogous to the concept of a vertical asymptote in real functions.
+Recall that real functions can be represented as Taylor series, which are power series centered at a point.
+However, this power series representation is not possible when the function has a vertical asymptote.
+In complex functions, the Laurent series is a generalization of the Taylor series that allows for poles, and it is defined as:
+$$ f(z) = \sum_{n = -\infty}^{\infty} a_n (z - z_0)^n $$
+where $z_0$ is the center of the series.
+Notice here how the series includes negative powers of $(z - z_0)$, which allows for better understanding of poles in the function. \cite{LangComplexAnalysis1998}
 
 \section{Cauchy's Legacy in Complex Analysis}
+Here we will discuss some of the most important results in complex analysis that are named after Cauchy.
+
+\subsection{Cauchy's Integral Theorem}
+One of Cauchy's most famous results in complex analysis is the Cauchy's Integral Theorem.
+This theorem states that if $f(z)$ is a holomorphic function in a simply connected domain $D$, then the integral of $f(z)$ over any closed curve in $D$ is zero.
+In mathematical terms, this can be written as:
+$$ \oint_C f(z) dz = 0 $$
+where $C$ is a closed curve in $D$.
+
+To break this down, a simply connected domain is a domain in the complex plane that does not contain any holes.
+A simply connected domain has no holes in the sense of no ``islands" or ``lakes" in the domain that would prevent forming a single boundary around the domain.
+Another way to think about this would be that any domain that can be continuously shrunk to a point without leaving the domain is simply connected.
+For example, suppose we have a domain in the complex plane that looks like a circle.
+This would be a simply connected domain.
+However, if we have a domain in the shape of a donut, this would not be simply connected, as there is a hole in the middle of the domain, and we cannot continuously shrink the domain to a point without leaving the domain.
+Next, a closed curve is a curve that starts and ends at the same point.
+This is analagous to a closed line integral in vector calculus.
+
+The upshot of Cauchy's Integral Theorem is that it allows us to compute integrals of holomorphic functions over closed curves without having to evaluate the integral directly.
+This result is incredibly powerful and has many applications not only in complex analysis but also in fields like physics and engineering.
+
+A simple proof of Cauchy's Integral Theorem can be given using Green's Theorem.
+\begin{proof}
+    Let $f = u + iv$ be a holomorphic function in a simply connected domain $D$.
+    We can break up the differential $dz$ into its real and imaginary parts:
+    $$ dz = dx + i dy $$
+    Then, the integral of $f(z)$ over a closed curve $C$ can be written as:
+    \begin{align*}
+        \oint_C f(z) dz &= \oint_C (u + iv)(dx + i dy) \\
+        &= \oint_C (u dx - v dy) + i \oint_C (v dx + u dy).
+    \end{align*}
+    Now, this looks like a direct application of Green's Theorem:
+    $$ \oint_C P dx + Q dy = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dA $$
+    where $P = u$ and $Q = v$, resulting in:
+    $$ \oint_C u dx - v dy = \iint_D \left( - \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right) dx dy $$
+    $$ \oint_C v dx + u dy = \iint_D \left( \frac{\partial u}{\partial x} - \frac{\partial v}{\partial y} \right) dx dy .$$
+    Since $f$ is holomorphic, it satisfies the Cauchy-Riemann equations, or in other words:
+    $$ \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad \text{and} \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}. $$
+    Thus, both integrands are zero, so we have:
+    $$ \oint_C f(z) dz = 0. $$
+\end{proof}
+
+\subsection{Residue Theorem}
+In complex analysis, residues are an important concept when discussing complex integration.
+Intuitively, one can think of a residue as something that measures how a complex function behaves around a singularity or pole. 
+More precisely, the residue of a function $f(z)$ at a pole $z_0$ is the unique complex number $a_{-1}$ such that $f(z)$ can be written as:
+$$f(z) = \frac{a_{-1}}{z-z_0} + a_0 + a_1(z-z_0) + a_2(z-z_0)^2 + \cdots$$
+near $z_0$. 
+The residue is the coefficient $a_{-1}$ of the term $(z-z_0)^{-1}$ in this Laurent series expansion.
+
+The Residue Theorem, due to Cauchy, relates the integral of a meromorphic function (a function holomorphic except at a set of isolated poles) around a closed curve to the sum of the residues at the poles enclosed by the curve. 
+In simpler, terms, this just means that instead of doing an annoying integral, we can just add up the residues of the poles inside the curve.
+Mathematically, if $f$ is a meromorphic function with poles at $z_1, z_2, \ldots, z_n$ inside a positively oriented simple closed curve $\gamma$, then the Residue Theorem states:
+$$\oint_\gamma f(z) , dz = 2\pi i \sum_{k=1}^n \text{Res}(f, z_k)$$
+where $\text{Res}(f, z_k)$ denotes the residue of $f$ at the pole $z_k$.
+
+\subsection{Cauchy-Schwarz Inequality (Complex Case)}
+The Cauchy-Schwarz inequality is another significant result attributed to Cauchy, although he proved it only for real vector spaces. 
+The inequality was later extended to complex vector spaces by Hermann Schwarz. 
+In the complex case, the Cauchy-Schwarz inequality states that for any two complex vectors $\mathbf{x} = (x_1, \ldots, x_n)$ and $\mathbf{y} = (y_1, \ldots, y_n)$, we have:
+$$\left| \sum_{k=1}^n x_k \overline{y_k} \right|^2 \leq \left(\sum_{k=1}^n |x_k|^2\right) \left(\sum_{k=1}^n |y_k|^2\right)$$
+where $\overline{y_k}$ denotes the complex conjugate of $y_k$. \cite{BerkeleyNotes}
+
+The inequality also leads to useful bounds in harmonic analysis, quantum mechanics, and information theory. 
+Like many other results initially proven by Cauchy for real numbers, the extension of the Cauchy-Schwarz inequality to the complex domain has greatly expanded its reach and applicability.
 
 \section{Conclusion}
+Augustin-Louis Cauchy's life and work had a profound impact on the development of modern mathematics, particularly in the field of complex analysis. 
+Despite facing personal and professional challenges, he remained dedicated to his passion for mathematics and made significant contributions to the field of complex analysis today.
+Cauchy's approach to analysis set a new standard for mathematical rigor, which helped establish many of the fundamental concepts and theorems in complex analysis. 
+As we reflect on Cauchy's life and work, we are reminded of the beauty and elegance of mathematics. 
+Cauchy's contributions to complex analysis have indeed been profound and are still very relevant to mathematics today.
 
 \section{References}
 \printbibliography
