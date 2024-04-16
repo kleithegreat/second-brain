@@ -3,9 +3,9 @@
    First, study how this class should work with the test code in SimMain.java
    carefully!
 
-   Student Name:
-   Student UIN:
-   Acknowledgements:
+   Student Name: Kevin Lei
+   Student UIN: 432009232
+   Acknowledgements: canvas lectures, java textbook
 */
 
 import java.util.*;
@@ -17,6 +17,7 @@ class SimBox implements Runnable {
     String sender;
     String recipient;
     String msg;
+
     Message(String sender, String recipient, String msg) {
       this.sender = sender;
       this.recipient = recipient;
@@ -43,15 +44,21 @@ class SimBox implements Runnable {
     new Thread(this).start();
   }
 
-  public String getId() { return myId; }
+  public String getId() {
+    return myId;
+  }
 
   public void stop() {
     // make it so that this Runnable will stop
+    stop = true;
   }
 
   public void send(String recipient, String msg) {
     // add a message to the shared message queue (messages)
     // you will have to synchronize the message queue
+    synchronized (messages) {
+      messages.add(new Message(myId, recipient, msg));
+    }
   }
 
   public List<String> retrieve() {
@@ -59,23 +66,33 @@ class SimBox implements Runnable {
     // and empty myMessages
     // you will have to synchronize myMessages
     // each message should be in the following format:
-    //   From (the sender) to (the recipient) (actual message)
+    // From (the sender) to (the recipient) (actual message)
+    List<String> formattedMessages = new ArrayList<String>();
+
+    synchronized (myMessages) {
+      for (Message m : myMessages) {
+        formattedMessages.add("From " + m.sender + " to " + m.recipient + " " + m.msg);
+      }
+      myMessages.clear();
+    }
+
+    return formattedMessages;
   }
 
   public void run() {
-  // loop forever
-  // 1. Approximately once every second move all messages
-  //    addressed to this mailbox from the shared message queue
-  //    to the private myMessages queue
-  //    To do so, you need to synchronize messages and myMessages.
-  //    Furthermore, you need to explicitly use the iterator() of messages
-  //    with a while loop.  A for-each loop will not work here.
-  // 2. Also approximately once every second, if the message
-  //    queue has more than MAX_SIZE messages, delete oldest messages
-  //    so that size is at most MAX_SIZE. This part of code is provided
-  //    below.
+    // loop forever
+    // 1. Approximately once every second move all messages
+    // addressed to this mailbox from the shared message queue
+    // to the private myMessages queue
+    // To do so, you need to synchronize messages and myMessages.
+    // Furthermore, you need to explicitly use the iterator() of messages
+    // with a while loop. A for-each loop will not work here.
+    // 2. Also approximately once every second, if the message
+    // queue has more than MAX_SIZE messages, delete oldest messages
+    // so that size is at most MAX_SIZE. This part of code is provided
+    // below.
 
-    for(;;) { // loop forever
+    for (;;) { // loop forever
       // synchronize messages and myMessages
 
       // have the iterator of messages referred by iter of
@@ -86,12 +103,30 @@ class SimBox implements Runnable {
       // if the message's recipient is equal to myId, then remove the
       // message from messages and add the message to myMessages
 
-
-      // end of synchronized myMessages
-      while (messages.size() > MAX_SIZE) { messages.removeFirst(); }
+      synchronized (messages) {
+        synchronized (myMessages) {
+          Iterator<Message> i = messages.iterator();
+          while (i.hasNext()) {
+            Message m = i.next();
+            if (m.recipient.equals(myId)) {
+              myMessages.add(m);
+              i.remove();
+            }
+          }
+        }
+        // end of synchronized myMessages
+        while (messages.size() > MAX_SIZE) {
+          messages.removeFirst();
+        }
+      }
+      
       // end of synchronized messages
-      if (stop) return;
-      try { Thread.sleep(1000); } catch (InterruptedException e) {}
+      if (stop)
+        return;
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+      }
     } // endfor
   } // end run()
 } // end SimBox
