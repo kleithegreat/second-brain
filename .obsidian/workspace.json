@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4f4d2442a899b4f7",
+        "id": "289c31910f6cc161",
         "type": "tabs",
         "children": [
           {
-            "id": "211646d35d5e1732",
+            "id": "384509cca8d4a59d",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -146,8 +146,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "70b22a13d8e23d6b",
+  "active": "384509cca8d4a59d",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
     "tamu/3S24/CSCE_314/homework/hw5/P3/Cell.class",
     "tamu/3S24/CSCE_314/homework/hw5/P3/Cell$CellIterator.class",
@@ -158,11 +159,9 @@
     "tamu/3S24/CSCE_312/homework/hw3/output.aux",
     "tamu/3S24/CSCE_312/homework/hw3/output.log",
     "tamu/3S24/CSCE_312/homework/hw3/output.tex",
-    "tamu/3S24/CSCE_312/homework/hw3/lmao.pdf",
     "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
     "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
-    "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/10_Interactive_programming.md",
     "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
