@@ -11,7 +11,7 @@
 ===================
 
 === Problem 2
-To compile and run the code, navigate to the hw6skeleton directory and run the following commands:
+To compile and run the code, run the following commands:
 ```
 javac *.java
 java Main
