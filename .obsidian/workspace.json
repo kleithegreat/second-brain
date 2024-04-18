@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "289c31910f6cc161",
+        "id": "9c590c281251a40b",
         "type": "tabs",
         "children": [
           {
-            "id": "384509cca8d4a59d",
+            "id": "8ae9345ff714994f",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -146,14 +146,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "384509cca8d4a59d",
+  "active": "70b22a13d8e23d6b",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
     "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
     "tamu/3S24/CSCE_314/homework/hw5/P3/Cell.class",
     "tamu/3S24/CSCE_314/homework/hw5/P3/Cell$CellIterator.class",
     "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
-    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
     "tamu/3S24/CSCE_312/homework/hw3/output.html",
     "tamu/3S24/CSCE_312/homework/hw3/output.pdf",
     "tamu/3S24/CSCE_312/homework/hw3/output.aux",
