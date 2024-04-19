@@ -77,6 +77,10 @@ Assume that $g \circ f$ is injective.
 To show that $f$ is injective, assume that $x_1, x_2 \in X$ and $f(x_1) = f(x_2)$.
 Then, $(g \circ f)(x_1) = (g \circ f)(x_2)$.
 Since $g \circ f$ is injective, $x_1 = x_2$.
+To show that $g$ need not be injective, consider the following counterexample.
+Let $X = \{1, 2\}$, $Y = \{3, 4\}$, and $Z = \{5\}$.
+Let the functions $f: X \to Y$ and $g: Y \to Z$ be defined by the graphs $G_f = \{(1, 3), (2, 4)\}$ and $G_g = \{(3, 5), (4, 5)\}$.
+Then, the graph of $g \circ f$ is $G_{g \circ f} = \{(1, 5), (2, 5)\}$.
 \end{proof}
 
 \section*{Question 4}
