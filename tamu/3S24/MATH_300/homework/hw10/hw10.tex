@@ -77,10 +77,14 @@ Assume that $g \circ f$ is injective.
 To show that $f$ is injective, assume that $x_1, x_2 \in X$ and $f(x_1) = f(x_2)$.
 Then, $(g \circ f)(x_1) = (g \circ f)(x_2)$.
 Since $g \circ f$ is injective, $x_1 = x_2$.
-To show that $g$ need not be injective, consider the following counterexample.
-Let $X = \{1, 2\}$, $Y = \{3, 4\}$, and $Z = \{5\}$.
-Let the functions $f: X \to Y$ and $g: Y \to Z$ be defined by the graphs $G_f = \{(1, 3), (2, 4)\}$ and $G_g = \{(3, 5), (4, 5)\}$.
-Then, the graph of $g \circ f$ is $G_{g \circ f} = \{(1, 5), (2, 5)\}$.
+To show that $g$ need not be injective, consider the following example.
+Let $X = \{1, 2\}$, $Y = \{a, b, c\}$, and $Z = \{0, 1\}$.
+Additionally, let $f: X \to Y$ be defined by its graph 
+$$G_f = \{(1, a), (2, b)\}$$ and $g: Y \to Z$ be defined by its graph $$G_g = \{(a, 0), (b, 1), (c, 1)\}.$$
+Now consider the composition $g \circ f$, defined by the graph $$G_{g \circ f} = \{(1, 0), (2, 1)\}.$$
+Here it is obvious that $g \circ f$ is injective, since all elements in the range have no common preimage.
+However, $g$ is not injective, since $g(b) = g(c) = 1$.
+Thus, $f$ is injective, but $g$ need not be injective.
 \end{proof}
 
 \section*{Question 4}
@@ -121,18 +125,44 @@ Then, the graph of $g \circ f$ is $G_{g \circ f} = \{(1, 5), (2, 5)\}$.
 \end{proof}
 
 \section*{Question 6}
-\begin{proof}
+Given that $f: \mathbb{R} \to \mathbb{R}$ is defined by $f(x) = 2024 - 2x$, we claim that $f([-3, 5]) = [2030, 2014]$.
 
+\begin{proof}
+Let $x \in [-3, 5]$.
+Then, $-3 \leq x \leq 5$.
+Plugging these bounds into $f(x)$, we have
+\begin{align*}
+    f(-3) &= 2024 - 2(-3) = 2030, \\
+    f(5) &= 2024 - 2(5) = 2014.
+\end{align*}
+Since $f$ is a linear function, it is continuous and also strictly decreasing by the negative slope.
+Thus, for any $x \in [-3, 5]$, $f(x) \in [2030, 2014]$.
 \end{proof}
 
 \section*{Question 7}
-\begin{proof}
+Given that $f: \mathbb{R} \to \mathbb{R}$ is defined by $f(x) = x^4$, we claim that $f((0, 2)) = (0, 16)$.
 
+\begin{proof}
+Let $x \in (0, 2)$.
+Then, $0 < x < 2$.
+Plugging these bounds into $f(x)$, we have
+\begin{align*}
+    f(0) &= 0^4 = 0, \\
+    f(2) &= 2^4 = 16.
+\end{align*}
+We know that $f$ is a 4th degree polynomial, so it is continuous.
+Since $f'(x) = 4x^3 > 0$ for all $x \in (0, 2)$, $f$ is strictly increasing.
+Thus, for any $x \in (0, 2)$, $f(x) \in (0, 16)$.
 \end{proof}
 
 \section*{Question 8}
+\renewcommand*{\proofname}{Disproof}
 \begin{proof}
-
+Consider the following counterexample.
+Let $X = \{1, 2\}$, $Y = \{a\}$ and $G_f = \{(1, a), (2, a)\}$.
+Also, let $A_1 = \{1\}$ and $A_2 = \{2\}$.
+Then, $f(A_1) = f(A_2) = \{a\}$, but $A_1 \nsubseteq A_2$.
+Thus, the statement is false.
 \end{proof}
 
 \end{document}
