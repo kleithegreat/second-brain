@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "9c590c281251a40b",
+        "id": "fefd9ea567eed361",
         "type": "tabs",
         "children": [
           {
-            "id": "8ae9345ff714994f",
+            "id": "8221cdac89783b8e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "tamu/3S24/CSCE_312/notes/bryant_ch4.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/3S24/CSCE_312/notes/bryant_ch4.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/3S24/CSCE_312/notes/bryant_ch4.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/3S24/CSCE_312/notes/bryant_ch4.md"
+              }
             }
           }
         ]
@@ -146,19 +154,26 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "70b22a13d8e23d6b",
+  "active": "8221cdac89783b8e",
   "lastOpenFiles": [
-    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
+    "tamu/3S24/CSCE_221/LEs/LE10/Kevin-Lei-432009232-LE10.zip",
+    "tamu/3S24/CSCE_221/LEs/LE10/New Compressed (zipped) Folder.zip",
+    "tamu/3S24/CSCE_221/LEs/LE10/src/temp_executable",
+    "tamu/3S24/CSCE_221/LEs/LE10/src/graph_test",
+    "tamu/3S24/CSCE_221/LEs/LE10/src/main",
+    "tamu/3S24/MATH_300/homework/hw11/hw11.tex",
+    "tamu/3S24/MATH_300/homework/hw11/MATH300HW11.pdf",
+    "tamu/3S24/CSCE_221/PAs/PA6/src/test_graph.cpp",
+    "tamu/3S24/CSCE_221/PAs/PA6/src/test.py",
+    "tamu/3S24/CSCE_221/PAs/PA6/src/main.cpp",
+    "tamu/3S24/CSCE_221/PAs/PA6/src/Makefile",
+    "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch10.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch4.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
     "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
-    "tamu/3S24/CSCE_314/Ken Arnold, James Gosling, David Holmes - The Java(TM) Programming Language (4th Edition) (2005).pdf",
-    "tamu/3S24/CSCE_314/homework/hw5/P3/Cell.class",
-    "tamu/3S24/CSCE_314/homework/hw5/P3/Cell$CellIterator.class",
-    "tamu/3S24/CSCE_314/Graham Hutton - Programming in Haskell-Cambridge University Press (2018).pdf",
-    "tamu/3S24/CSCE_312/homework/hw3/output.html",
-    "tamu/3S24/CSCE_312/homework/hw3/output.pdf",
-    "tamu/3S24/CSCE_312/homework/hw3/output.aux",
-    "tamu/3S24/CSCE_312/homework/hw3/output.log",
-    "tamu/3S24/CSCE_312/homework/hw3/output.tex",
     "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
     "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
@@ -172,24 +187,18 @@
     "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
     "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
     "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
-    "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
     "tamu/3S24/CSCE_221/notes/L9V9_Tree_ADT.md",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.21.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.12.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.13.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.3.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.2.png",
-    "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
     "tamu/3S24/CSCE_314/exercises/exercise6.md",
     "tamu/3S24/CSCE_314/homework/notes/haskell/2_First_steps.md",
     "tamu/3S24/CSCE_314/homework/notes/haskell/3_Types_and_classes.md",
-    "tamu/3S24/CSCE_314/homework/notes/haskell/1_Introduction.md",
-    "tamu/3S24/CSCE_314/homework/notes/haskell/7_Higher-order_functions.md",
-    "tamu/3S24/CSCE_314/homework/notes/haskell/8_Declaring_types_and_classes.md",
     "tamu/3S24/CSCE_221/LEs/LE3/report/images/log.png",
     "tamu/3S24/CSCE_221/LEs/LE3/report/images/linear.png",
     "tamu/3S24/CSCE_221/LEs/LE2/report/images/algo5.png"

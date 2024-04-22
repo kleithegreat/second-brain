@@ -286,9 +286,9 @@ multstore:
     - For `movb`, `movw`, `movq`, only the specific register bytes/memory locations indicated will be changed.
         - For `movl`, the upper 4 bytes will also be set to `0` if the destination is a register.
         - This is because x86 has a convention where any instruction generating a 32-bit value for a register must set the higher-order bytes of the register to 0.
-    - The regular `movq` instrucction can only have *immediate* source operands (also limited to 32-bit twos complement)
+    - The regular `movq` instruction can only have *immediate* source operands (also limited to 32-bit twos complement)
     - The `movabsq` can have an arbitrary 64-bit immediate value as its source and a register as its destination.
-- The `movz` and `movs` instruction classs deals with copying smaller source values to a larger destination.
+- The `movz` and `movs` instruction classes deals with copying smaller source values to a larger destination.
     - All of these instructions copy data to a *register* destination.
     - The difference here is that `movz` will fill out the remaining bytes of the destination with 0s, while `movs` fills out the remaining bytes by sign extension.
     - Each instruction has two size designator at the end--the former to designate the source size, and latter for destination.

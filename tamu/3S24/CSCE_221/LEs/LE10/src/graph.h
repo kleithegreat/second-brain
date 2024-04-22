@@ -19,7 +19,8 @@ class Graph {
         }
 
         void addEdge(int x, int y, int w) {
-  
+            v[x].push_back(make_pair(y, w));
+            v[y].push_back(make_pair(x, w));
         }
 
         void print() {
@@ -35,12 +36,50 @@ class Graph {
         }
 
         vector<pair<int, int>> dijkstra(int startNode) {
-            vector<pair<int, int>> p(n);
+            vector<pair<int, int>> p(n, make_pair(INT_MAX, -1));
+            p[startNode] = make_pair(0, startNode);
+
+            priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+            pq.push(make_pair(0, startNode));
+
+            while (!pq.empty()) {
+                int currNode = pq.top().second;
+                int currDist = pq.top().first;
+                pq.pop();
+
+                if (currDist > p[currNode].first) {
+                    continue;
+                }
+
+                for (auto neighbor : v[currNode]) {
+                    int nextNode = neighbor.first;
+                    int nextDist = currDist + neighbor.second;
+
+                    if (nextDist < p[nextNode].first) {
+                        p[nextNode] = make_pair(nextDist, currNode);
+                        pq.push(make_pair(nextDist, nextNode));
+                    }
+                }
+            }
+
             return p;
         }
 
         string printShortestPath(int startNode, int endNode) {
-           return "  ";
+            vector<pair<int, int>> p = dijkstra(startNode);
+            if (p[endNode].first == INT_MAX) {
+                return "";
+            }
+
+            string path = "";
+            int currNode = endNode;
+            while (currNode != startNode) {
+                path = to_string(currNode) + " " + path;
+                currNode = p[currNode].second;
+            }
+            path = to_string(startNode) + " " + path;
+
+            return path;
         }
 };
 

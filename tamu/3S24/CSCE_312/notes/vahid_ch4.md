@@ -34,16 +34,16 @@
 - Controlling whether a register is loaded or not can be done by adding a 2x1 multiplexer in from of each flip-flop in a basic register
     - When the `load` control input is 0 and the clock signal rises, the flip-flop just stores its own `Q` output
     - When the `load` control input is 1 and the clock signal rises, the flip-flop stores the value of the given input
-- A register with a load line that control whether the register is loaded with external inputs,with those inputs loaded in parallel, is called a **parallel-load register**
+- A register with a load line that control whether the register is loaded with external inputs, with those inputs loaded in parallel, is called a **parallel-load register**
     - This means there is one load line for the entire register
 - A **block symbol** is just a representation of an abstract component that does not show its implementation, but just its inputs and outputs
 > Why the name "register"?
 > Historically, a "register" was a sign or chalkboard that people used to temporarily write cash transactions, and the use it later for bookkeeping. Since a register can store data temporarily, the name "register" was used for the digital component that can store data temporarily.
 #### Buses
-- Data tends to consits of numerous bits
+- Data tends to consist of numerous bits
 - A group of N wires in a circuits that transports a data item is called a **data bus** or just a **bus**
     - N is the bus width
-- Drawing each bus wise can be very cluttered, so a simpler version is just one thich line with a slanted line through it and the bus width written next to it
+- Drawing each bus wise can be very cluttered, so a simpler version is just one thick line with a slanted line through it and the bus width written next to it
 ### Shift Register
 - Sometimes people want to shift a registers contents to the left or right
 - **Shifting** means moving each stored bit one position to the right or left
