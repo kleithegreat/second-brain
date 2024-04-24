@@ -21,10 +21,37 @@
 \section*{Bryant Chapter 4}
 
 \section*{4.13}
-
+\begin{tabular}{l l l}
+    Stage & Generic & Specific \\
+    & \texttt{irmovq} V, rB & \texttt{irmovq \$128, \%rsp} \\
+    \hline
+    Fetch & icode:ifun $\leftarrow$ $M_1$[PC] & icode:ifun $\leftarrow$ $M_1$[0x016] = 0x3:0x0 \\
+    & rA:rB $\leftarrow$ $M_1$[PC+1] & rA:rB $\leftarrow$ $M_1$[0x017] = 0xF:0x4 \\
+    & valC $\leftarrow$ $M_8$[PC+2] & valC $\leftarrow$ $M_8$[0x018] = 0x80 \\
+    & valP $\leftarrow$ PC + 10 & valP $\leftarrow$ 0x016 + 0xA = 0x020 \\
+    Decode & & \\
+    Execute & valE $\leftarrow$ 0 + valC & valE $\leftarrow$ 0x0 + 0x80 = 0x80 \\
+    Memory & & \\
+    Write back & R[rB] $\leftarrow$ valE & R[\%rsp] $\leftarrow$ 0x80 \\
+    PC update & PC $\leftarrow$ valP & PC $\leftarrow$ valP = 0x020 \\
+\end{tabular}
 
 \section*{4.14}
-
+\begin{tabular}{l l l}
+    Stage & Generic & Specific \\
+    & \texttt{popq} rA & \texttt{popq \%rax} \\
+    \hline
+    Fetch & icode:ifun $\leftarrow$ $M_1$[PC] & icode:ifun $\leftarrow$ $M_1$[0x02C] = 0xB:0x0 \\
+    & rA:rB $\leftarrow$ $M_1$[PC+1] & rA:rB $\leftarrow$ $M_1$[0x02D] = 0x0:0xF \\
+    & valP $\leftarrow$ PC + 2 & valP $\leftarrow$ 0x02C + 0x2 = 0x02E \\
+    Decode & valA $\leftarrow$ R[\%rsp] & valA $\leftarrow$ R[\%rsp] = 
+    & valB $\leftarrow$ R[\%rsp] \\
+    Execute & valE $\leftarrow$ valB + 8 \\
+    Memory & valM $\leftarrow$ $M_8$[valA] \\
+    Write back & R[\%rsp] $\leftarrow$ valE \\
+    & R[rA] $\leftarrow$ valM \\
+    PC update & PC $\leftarrow$ valP \\
+\end{tabular}
 
 \section*{4.43}
 
