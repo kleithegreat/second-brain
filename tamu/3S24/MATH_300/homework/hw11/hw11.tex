@@ -13,6 +13,74 @@
 \begin{document}
 
 \section*{Question 1}
+\begin{proof}
+    Let $f: X \to Y$ and $A_1, A_2 \subseteq X$.
+    Assume $y \in f[A_1 \cup A_2]$.
+    Then,
+    \begin{align*}
+        y \in f[A_1 \cup A_2] &\iff y = f(x), x \in A_1 \cup A_2 \\
+        &\iff y = f(x), x \in A_1 \lor x \in A_2 \\
+        &\iff y \in f[A_1] \lor y \in f[A_2] \\
+        &\iff y \in f[A_1] \cup f[A_2].
+    \end{align*}
+    Thus, $f[A_1 \cup A_2] = f[A_1] \cup f[A_2]$.
+\end{proof}
 
+\section*{Question 2}
+$f^{-1}([-3, 5]) = [1009.5, 1013.5]$
+
+\section*{Question 3}
+$D^{-1}(\{4x^3\}) = \{x^4\}$
+
+\section*{Question 4}
+\begin{enumerate}
+    \item $s^{-1}(\{4\}) = \{(0, 4), (1, 3), (2, 2), (3, 1), (4, 0)\}$
+    \item $s^{-1}(\{1\}) = \{(0, 1), (1, 0)\}$
+\end{enumerate}
+
+\section*{Question 5}
+\begin{proof}
+    Let $f: X \to Y$ and $B_1, B_2 \subseteq Y$.
+    Assume $x \in f^{-1}[B_1 \cup B_2]$.
+    Then,
+    \begin{align*}
+        x \in f^{-1}[B_1 \cup B_2] &\iff f(x) \in B_1 \cup B_2 \\
+        &\iff f(x) \in B_1 \lor f(x) \in B_2 \\
+        &\iff x \in f^{-1}[B_1] \lor x \in f^{-1}[B_2] \\
+        &\iff x \in f^{-1}[B_1] \cup f^{-1}[B_2].
+    \end{align*}
+    Thus, $f^{-1}[B_1 \cup B_2] = f^{-1}[B_1] \cup f^{-1}[B_2]$.
+\end{proof}
+
+\section*{Question 6}
+
+\subsection*{Part a}
+\begin{proof}
+    Let $f: X \to Y$ and $A \subseteq X$.
+    Assume $x \in A$.
+    Then $f(x) \in f[A]$.
+    Since $x \in f^{-1}[f[A]]$, $A \subseteq f^{-1}[f[A]]$.
+\end{proof}
+
+\subsection*{Part b}
+\begin{proof}
+    Let $f: X \to Y$ and $A \subseteq X$.
+    Assume that $f$ is injective.
+    From part a, we know that $A \subseteq f^{-1}[f[A]]$.
+    Now let $x \in f^{-1}[f[A]]$.
+    Then, $f(x) \in f[A]$.
+    Thus, there exists $a \in A$ such that $f(x) = f(a)$.
+    Since $f$ is injective, $x = a$.
+    Since $x = a$, $x \in A$.
+    Therefore, $f^{-1}[f[A]] \subseteq A$, so $f^{-1}[f[A]] = A$.
+\end{proof}
+
+\section*{Question 7}
+
+\subsection*{Part a}
+Iteration 1: $a = 1207, b = 569$ \\
+$569 \nmid 1207$, so $q = \frac{1207}{569}$
+
+\subsection*{Part b}
 
 \end{document}
