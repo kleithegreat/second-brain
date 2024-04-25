@@ -183,11 +183,68 @@ just use the new keyword bruh
     }
     ```
 # 5: Nested Classes and Interfaces
+yap
 # 6: Enumeration Types
+more yap
 # 7: Tokens, Values, and Variables
+- `null`, `false`, and `true` are not keywords, they are literals like the number 12
 # 8: Primitives as Types
+- The following is a hierarchy for primitive wrappers:
+    - Object
+        - Boolean
+        - Character
+        - Number
+            - Byte
+            - Short
+            - Integer
+            - Long
+            - Float
+            - Double
+        - Void
+- They have constructors like `Character(char)` or `Integer(int)`
+- They have a `valueOf(String str)` method that returns an object with the specified type
+    - e.g. `Integer.valueOf("42")` returns an `Integer` object with the value 42
+- They have constants like `Integer.MAX_VALUE` and `Integer.MIN_VALUE`
+- They implement the `Comparable<T>` interface, so they have the `compareTo(T obj)` method
+- Void cannot be instantiated
 # 9: Operators and Expressions
+yap
 # 10: Control Flow
+yap
 # 11: Generic Types
+- Generic types are great for collections
+- Type parameters are assumed to be objects
+- Types can be bounded
+    - `T extends Comparable` means `T` must implement the `Comparable` interface
+    - They can have multiple bounds too
+    - `T extends Comparable & Serializable` means `T` must implement both interfaces
+        - If either bound is a class, it must be the first bound
+- *extends* can be used for classes and interfaces
+- Wildcards are both for convenience and supporting co/contra-variance
+- **F-bounded quantification** allows for the type to appear in its own bounds
+    - e.g. `E extends Comparable<E>`
+- **Variance** refers to how subtyping between complex types relates to subtyping between their components
+    - **Covariance** preserves the ordering of types, going from specific to generic
+        - Suppose `C1() <: C2()` and `A <: B`, then `C1<A> <: C2<B>`
+        - Typically read only data types
+    - **Contravariance** reverses the ordering of types, going from generic to specific
+        - `C1<B> <: C2<A>`
+        - Write only data types can be contravariant
+    - **Invariance** if neither of the above apply
+        - `C1<A> <: C2<A>` for example
+        - Mutable types with both read and write can be invariant
+- Wildcards can be bounded
+    - `? extends T` is an upper bound
+        - This is covariant
+    - `? super T` is a lower bound
+        - This is contravariant
+        - Due to type erasure, the compiler cannot determine the type of the wildcard, so it is treated as `Object`
+- Wildcards cannot be used in places other than type parameters
+    - e.g. `List<?> aList = new ArrayList<String>(); aList.add("hello");` is not allowed
+    - However **wildcard capture** can be used to get around this in some situations
+    - **Type erasure** happens when generic types are used during type checking, and erased during compilation according to these rules:
+        - A type parameter is replaced by its first bound
+        - Parameterized types throw away their type parameters
+        - Casts are inserted where necessary
 # 14: Threads
 # 16: Reflection

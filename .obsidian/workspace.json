@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "ef15d919a163e8d3",
+        "id": "0a6bddfe29db4b67",
         "type": "tabs",
         "children": [
           {
-            "id": "756852ff55c5e2e7",
+            "id": "fb6c73e9f4b8bce4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
+                "file": "tamu/3S24/CSCE_314/notes/java.md",
                 "mode": "preview",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
+                "file": "tamu/3S24/CSCE_314/notes/java.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
+                "file": "tamu/3S24/CSCE_314/notes/java.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md"
+                "file": "tamu/3S24/CSCE_314/notes/java.md"
               }
             }
           }
@@ -154,8 +154,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "756852ff55c5e2e7",
+  "active": "fb6c73e9f4b8bce4",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_314/test_prep/final/prepareForFinalSp2024.pdf",
+    "tamu/3S24/CSCE_314/test_prep/final",
+    "tamu/3S24/CSCE_314/test_prep/New folder",
+    "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/java.md",
     "tamu/3S24/CSCE_314/notes/java/6_Enumeration_Types.md",
@@ -172,8 +176,6 @@
     "tamu/3S24/CSCE_221/LEs/LE10/src/graph_test",
     "tamu/3S24/CSCE_221/LEs/LE10/src/main",
     "tamu/3S24/MATH_300/homework/hw11/hw11.tex",
-    "tamu/3S24/MATH_300/homework/hw11/MATH300HW11.pdf",
-    "tamu/3S24/CSCE_221/PAs/PA6/src/test_graph.cpp",
     "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch10.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
@@ -181,7 +183,6 @@
     "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
     "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
-    "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/10_Interactive_programming.md",
     "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/5_List_comprehensions.md",
@@ -193,7 +194,6 @@
     "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
-    "tamu/3S24/CSCE_221/notes/L9V9_Tree_ADT.md",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.21.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.12.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.13.png",
