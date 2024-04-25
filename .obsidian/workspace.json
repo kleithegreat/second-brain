@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "6a42e0d4b61efa2d",
+        "id": "ef15d919a163e8d3",
         "type": "tabs",
         "children": [
           {
-            "id": "65050f6d6fed25c8",
+            "id": "756852ff55c5e2e7",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md"
+              }
             }
           }
         ]
@@ -146,8 +154,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "70b22a13d8e23d6b",
+  "active": "756852ff55c5e2e7",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/java.md",
     "tamu/3S24/CSCE_314/notes/java/6_Enumeration_Types.md",
     "tamu/3S24/CSCE_314/notes/java/5_Nested_Classes_and_Interfaces.md",
@@ -173,7 +182,6 @@
     "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
     "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
-    "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/10_Interactive_programming.md",
     "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/5_List_comprehensions.md",
