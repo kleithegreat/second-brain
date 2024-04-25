@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "0a6bddfe29db4b67",
+        "id": "2bf36f869598ec80",
         "type": "tabs",
         "children": [
           {
-            "id": "fb6c73e9f4b8bce4",
+            "id": "83dd0f8682236624",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tamu/3S24/CSCE_314/notes/java.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -93,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/3S24/CSCE_314/notes/java.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/3S24/CSCE_314/notes/java.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,9 +126,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "tamu/3S24/CSCE_314/notes/java.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -154,14 +146,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fb6c73e9f4b8bce4",
+  "active": "70b22a13d8e23d6b",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_314/notes/java.md",
     "tamu/3S24/CSCE_314/test_prep/final/prepareForFinalSp2024.pdf",
     "tamu/3S24/CSCE_314/test_prep/final",
     "tamu/3S24/CSCE_314/test_prep/New folder",
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
-    "tamu/3S24/CSCE_314/notes/java.md",
     "tamu/3S24/CSCE_314/notes/java/6_Enumeration_Types.md",
     "tamu/3S24/CSCE_314/notes/java/5_Nested_Classes_and_Interfaces.md",
     "tamu/3S24/CSCE_314/notes/java/17_Garbage_Collection_and_Memory.md",
@@ -175,7 +167,6 @@
     "tamu/3S24/CSCE_221/LEs/LE10/src/temp_executable",
     "tamu/3S24/CSCE_221/LEs/LE10/src/graph_test",
     "tamu/3S24/CSCE_221/LEs/LE10/src/main",
-    "tamu/3S24/MATH_300/homework/hw11/hw11.tex",
     "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch10.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
