@@ -78,9 +78,24 @@ $D^{-1}(\{4x^3\}) = \{x^4\}$
 \section*{Question 7}
 
 \subsection*{Part a}
-Iteration 1: $a = 1207, b = 569$ \\
-$569 \nmid 1207$, so $q = \frac{1207}{569}$
+\begin{align*}
+    1207 &= 569 \cdot 2 + 69 \\
+    569 &= 69 \cdot 8 + 17 \\
+    69 &= 17 \cdot 4 + 1 \\
+\end{align*}
+Thus, $\gcd(1207, 569) = 1$.
 
 \subsection*{Part b}
+\begin{align*}
+    \gcd(1207, 569) &= 1 \\
+    &= 69 - 17 \cdot 4 \\
+    &= 69 - (569 - 69 \cdot 8) \cdot 4 \\
+    &= 69 - 569 \cdot 4 + 69 \cdot 32 \\
+    &= 69 \cdot 33 - 569 \cdot 4 \\
+    &= (1207 - 569 \cdot 2) \cdot 33 - 569 \cdot 4 \\
+    &= 1207 \cdot 33 - 569 \cdot 66 - 569 \cdot 4 \\
+    &= 1207 \cdot 33 - 569 \cdot 70.
+\end{align*}
+Thus, $x = 33$ and $y = -70$.
 
 \end{document}
