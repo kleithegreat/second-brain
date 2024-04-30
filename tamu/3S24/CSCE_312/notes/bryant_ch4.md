@@ -117,3 +117,57 @@ whatever
 - In our design we will not attempt to predict the return address, and instead we will not process instructions until the `ret` passes through the write back stage
 - The PIPE- fetch stage is responsible for predicting the next PC and selecting the actual PC for instruction fetch
 ### 4.5.5 Pipeline Hazards
+- Pipelining can cause issues when there are dependencies between instructions
+- These dependencies can be of two forms:
+    1. **Data** dependencies: The results computed from one instruction are used by another instruction later in the pipeline
+    2. **Control** dependencies: The control flow of the program depends on the result of an instruction (e.g. call and ret instructions)
+- The potential issues that can arise from these dependencies are called *hazards*
+- Like the dependencides, hazards are respectively called *data* and *control* hazards
+#### Avoiding Data Hazards by Stalling
+- Stalling is where the process holds back one or more instructions in the pipeline until the hazard is resolved
+- Hold back an instruction in the *decode* stage until the instructions generating the source values have passed through the *write back* stage
+- Holding back instructions can be done by keeping the PC at a fixed value
+- Suppose we have the following code:
+    ```asm
+    irmovq $50, %rax
+    addq %rax, %rbx
+    ```
+- The `addq` instruction depends on the `irmovq` instruction
+- We can hold back the `addq` instruction in the decode stage until the `irmovq` instruction has passed through the write back stage
+- While the `addq` instruction is held in the decode stage, we need to insert **bubble** instructions in the execute stage until the `irmovq` instruction has passed through the write back stage
+> A bubble instruction is like a dynamically generated `nop` instruction for stalling purposes
+#### Avoiding Data Hazards by Forwarding
+- Forwarding is where we pass the result of an instruction directly to the stage that needs it
+- For example, say we have the following code:
+    ```asm
+    irmovq $10, %rdx
+    irmovq $3, %rax
+    addq %rdx, %rax
+    ```
+- The `addq` instruction depends on the `irmovq` instructions
+- The `%rax` register is a source operand for `valB` in the `addq` instruction, and there is also a pending write to `%rax` from the `irmovq` instruction
+- We can avoid stalling by forwarding the value of `%rax` to the execute stage
+- This requires extra hardware to detect when forwarding is necessary and to actually forward the value
+- This also works for pending memory writes
+- We can forward to either `valA` or `valB` in the execute stage
+- We can forward from the following sources:
+    - e_valE (from the execute stage)
+    - m_valM (from the memory stage)
+    - M_valE (from the memory stage)
+    - W_valM (from the write back stage)
+    - W_valE (from the write back stage)
+#### Load/Use Data Hazards
+- A special case of data hazards is the load/use hazard
+- This is where a load instruction is followed by an instruction that uses the loaded value
+- For example, consider the following code:
+    ```asm
+    mrmovq 0(%rdx), %rax
+    addq %ebx, %eax
+    ```
+- Since we have no forwarding paths that can help us here, we must stall the `addq` instruction for one cycle
+- The use of a stall to handle a load/use hazard is called a *load interlock*
+#### Avoiding Control Hazards
+- Control hazards happen when the processor cannot reliably determine the next PC based on the current instruction in the fetch stage
+- This only happens for `ret` and `jXX` instructions
+- We can use the same stalling technique to handle control hazards, and insert bubble instructions until the correct PC is determined
+- To handle a mispredicted branch, we can *cancel* the instructions that were fetched after the mispredicted branch by inserting bubble instructions

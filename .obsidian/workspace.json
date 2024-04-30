@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "2bf36f869598ec80",
+        "id": "321553f73bf18a05",
         "type": "tabs",
         "children": [
           {
-            "id": "83dd0f8682236624",
+            "id": "679c55a5c1c3a0fa",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -73,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "5b251c471476f84d",
@@ -89,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +133,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/3S24/CSCE_312/notes/bryant_ch6.md"
+              }
             }
           }
         ]
@@ -146,10 +155,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "70b22a13d8e23d6b",
+  "active": "679c55a5c1c3a0fa",
   "lastOpenFiles": [
+    "nohup.out",
     "tamu/3S24/CSCE_314/notes/java.md",
     "tamu/3S24/CSCE_314/test_prep/final/prepareForFinalSp2024.pdf",
+    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch4.md",
     "tamu/3S24/CSCE_314/test_prep/final",
     "tamu/3S24/CSCE_314/test_prep/New folder",
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
@@ -158,10 +172,8 @@
     "tamu/3S24/CSCE_314/notes/java/5_Nested_Classes_and_Interfaces.md",
     "tamu/3S24/CSCE_314/notes/java/17_Garbage_Collection_and_Memory.md",
     "tamu/3S24/CSCE_314/notes/java/16_Reflection.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch4.md",
     "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
     "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
-    "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
     "tamu/3S24/CSCE_221/LEs/LE10/Kevin-Lei-432009232-LE10.zip",
     "tamu/3S24/CSCE_221/LEs/LE10/New Compressed (zipped) Folder.zip",
     "tamu/3S24/CSCE_221/LEs/LE10/src/temp_executable",
@@ -181,8 +193,6 @@
     "tamu/3S24/CSCE_312/homework/hw3/code.md",
     "tamu/3S24/CSCE_314/homework/hw4/README.md",
     "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
-    "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
-    "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.21.png",
