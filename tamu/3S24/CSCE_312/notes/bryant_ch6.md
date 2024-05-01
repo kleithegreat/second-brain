@@ -151,11 +151,171 @@ $$ \text{Capacity} = \frac{\text{\# bytes}}{\text{sector}} \times \frac{\text{av
     - **Transfer time**
         - The transfer time for one sector depends on the rotational speed and the number of sectors per track
         - The transfer time can be estimated by $T_{\text{avg transfer}} = \frac{1}{\text{RPM}} \times \frac{1}{\text{(average \# sectors/track)}} \times \frac{60 \text{ secs}}{1 \text{ min}}$
-- We can estimate the average a
+- We can estimate the average access time as average seek time + average rotational latency + average transfer time
+- Access times are dominated by the seek time and rotational latency
 #### Logical Disk Blocks
+- Modern disks abstract away the complex physical layout of the disk from the operating system with **logical disk blocks**
+- They present a simpler view of a sequence of $B$ sector-size logical blocks, numbered from $0$ to $B-1$
+- A small hardware/firmware device in the disk package called the **disk controller** translates logical block numbers to physical sector numbers
+- The OS will request a read or write of a logical block, and the disk controller will translate this to a physical sector number using a fast lookup table
+- Logical block numbers get translated into a (*surface*, *track*, *sector*) triple, which effectively identifies a sector on the disk
 #### Connecting I/O Devices
+- Input/output (I/O) devices like GPUs, monitors, mice, keyboards, and disks are connected to the CPU and main memory with an **I/O bus**
+- The I/O bus is unlike the system bus and memory buses since its design is CPU independent (recall that the system bus connects the CPU to the IO bridge, and the memory bus connects the IO bridge to main memory)
+- The I/O bus is slower but must accomodate a wide variety of devices
+- Here are some examples of devices that can be attached to the I/O bus:
+    - A *universal serial bus* (USB) can connect a wide variety of devices
+    - A *graphics card* can paint pixels on the display on behalf of the CPU
+    - A *host bus adapter* can connect disks to the I/O bus, and the two most popular interfaces are *SATA* and *SCSI*
+    - *Network adapters* can be plugged into *expansion slots* on the motherboard
 #### Accessing Disks
+- I/O is actually quite complicated, but this is a simplified rundown
+- The CPU issues commands to I/O devices using **memory-mapped I/O**
+    - A block of address space is reserved for I/O devices, and each of these addresses is known as an **I/O port**
+    - Each device has one or more I/O ports when it is connected to the I/O bus
+- Example: Suppose a disk controller has an address of `0xa0`
+    - The CPU can read the disk by executing three store instructions to the address `0xa0`
+    - The first instruction tells the disk to initiate a read and other parameters like whehter to interrupt the CPU when the read is complete
+    - The second instruction tells the disk the logical block number to read
+    - The third instruction tells the disk where to store the data in main memory
+- The CPU will typically do working while the disk is reading (recall that disks are slow)
+- After receiving the read command from the CPU, the disk controller will translate the logical block number to a sector address, read the sector, and transfer the data to main memory
+    - This does not require CPU intervention
+    - This is called **direct memory access (DMA)**
+- After the DMA the disk controller will interrupt the CPU to let it know that the read is complete
+    - This will cause the CPU to stop what it is doing and jump to an OS routine to handle the interrupt
+    - After the interrupt is handled, the CPU will resume what it was doing
 ### 6.1.3 Solid State Disks
+- A solid state disk (SSD) is based on flash memory
+- They usually plug into USB or SATA
+- An SSD consists of flash memory chips and a **flash translation layer** which serves the same purpose as the disk controller for a disk (translates logical block numbers to physical sector numbers)
+- A flash memory consists of a sequence of $B$ **blocks** and each block consists of $P$ **pages**
+    - Typically pages are 512 byte to 4KB
+    - Blocks are typically 32-128 pages
+- Pages can only be written to after the entire block it belongs to has been **erased**
+- Being erased typically means all the bits in the block are set to 1
+- Blocks wear out after a certain number of writes
+- Random writes are slower for two reasons:
+    - Erasing a block is slow
+    - Writing to a page with existing data outside of the block requires copying the entire block to a new block and then writing the new data
 ## 6.2 Locality
+- Well written programs exhibit good **locality**
+- This means it uses data that are near other data that have been used recently or recently used itself
+- Locality has two main forms:
+    - **Temporal locality**: If a data item is referenced, it will tend to be referenced again soon
+    - **Spatial locality**: If a data item is referenced, data items whose addresses are close to it will tend to be referenced soon
+- Programs with good locality run faster
+- We speed up memory accesses with small fast memories called **cache memories**
+### 6.2.1 Locality of References to Program Data
+- Consider the following function:
+    ```c
+    int sumvec(int v[N]) {
+        int i, sum = 0;
+        for (i = 0; i < N; i++) {
+            sum += v[i];
+        }
+        return sum;
+    }
+    ```
+
+| Address | 0 | 4 | 8 | 12 | 16 | 20 | 24 | 28 |
+|---|---|---|---|---|---|---|---|---|
+| Contents | $v_0$ | $v_1$ | $v_2$ | $v_3$ | $v_4$ | $v_5$ | $v_6$ | $v_7$ |
+| Access order | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+
+- To determine if the program has good locality, we should look at the reference pattern for each variable
+- This function has good spatial locality since it accesses $v_i$ in order
+- This function has poor temporal locality since it only accesses each $v_i$ once
+- This kind of function is said to have a **stride-1 reference pattern** (with respect to element size)
+- Visintg every *k*th element of a contiguous array is called a **stride-k reference pattern**
+    - Stride-1 pattersn are common and a good source of spacial locality
+    - Generally, as stride increases, locality decreases
+- Stride is an important issue for multi-dimensional arrays
+    - For example, consider the following function:
+        ```c
+        int sumarrayrows(int a[M][N]) {
+            int i, j, sum = 0;
+            for (i = 0; i < M; i++)
+                for (j = 0; j < N; j++)
+                    sum += a[i][j];
+            return sum;
+        }
+    - This reads the array in **row-major order**, i.e. it reads the first row, then the second row, etc.
+    - This function has good spatial locality since it reads the array in order
+    - Indexing by column-major order would have poor spatial locality, with a stride of $N$
+### Locality of Instruction Fetches
+- We can also evaluate the locality of a programs instruction fetches
+- For example, the `sumvec` function from before has good spatial locality since it reads the instructions in order with a for loop
+- Since the for loop also repeats, it has good temporal locality
 ## 6.3 The Memory Hierarchy
+> "In one of the happier coincidences of computing, these fundamental properties of hardware and software complement each other beautifully. Their complementary nature suggests an approach for organizing memory systems, known as the **memory hierarchy**, that is used in all modern computers."
+- The storage devices get slowerm cheaper, and larger as we move down the hierarchy
+- L0: Registers
+- L1: L1 cache (SRAM)
+- L2: L2 cache (SRAM)
+- L3: L3 cache (SRAM)
+- L4: Main memory (DRAM)
+- L5: Local secondary storage
+- L6: Remote secondary storage
+### 6.3.1 Caching in the Memory Hierarchy
+- Generally, a **cache** is a small and fast storage device used as a staging area for frequently accessed data from a larger and slower storage device
+- Using a cache is called **caching**
+- The *central* idea of the memory hierarchy is that for each $k$, the faster and smaller storage device at level $k$ is a cache for the slower and larger storage device at level $k+1$
+#### Cache Hits
+- When a program wants some data from level $k+1$, it first checks if the data is in the cache at level $k$
+- If the data is in the cache, this is called a **cache hit**
+- Cache hits are faster than accessing the slower storage device
+#### Cache Misses
+- If the data is not in the cache, this is called a **cache miss**
+- During a miss, the cache at level $k$ is updated with the data from level $k+1$, possibly overwriting some other data if the cache is full
+- This process is called **replacing** or **evicting**
+- The removed block is called the **victim** block
+- How a cache decides which block to replace is called the **replacement policy**
+    - Random replacement is a simple policy
+    - Least recently used (LRU) performs well in practice
+#### Kinds of Cache Misses
+- Distinguishing between different kinds of cache misses can be useful
+- An empty cache is called a **cold cache**
+    - The first access to a block in a cold cache is called a **cold miss** or **compulsory miss**
+    - These are often transient and not a big deal, as they won't occur in a steady state
+- Whenever there is a cache miss, the cache must implement some **placement policy** to decide where to put the block
+    - The most flexible would be to allow any block from the lower level to be placed in any block in the cache
+        - This is too expensive for caches higher in the hierarchy
+        - Randomly placed blocks are expensive to find
+    - Hardware caches typically restrict the placement to a small number of blocks
+        - For exampe, we might decide a block $i$ at level $k+1$ must be placed in block $i \mod 4$ at level $k$
+        - This means that blocks 0, 4, 8, 12, etc. at level $k+1$ must be placed in block 0 at level $k$
+- Cache misses due to restrictive placement policies are called **conflict misses**
+    - This is where the cache is large enough to hold the referenced data, but the placement policy maps the data to the same cache block as some other data
+    - For example if we keep on referencing blocks 0, 4, 8, 12, etc. at level $k+1$, they will all be placed in block 0 at level $k$, causing conflict misses
+- Programs tend to run as a sequence of phases (like loops, or just different parts of the program that do different things)
+- Each phase may reference some reasonably constant set of cache blocks, which is called the **working set** of the phase
+- When the working set is larger than the cache, we call that a **capacity miss**
+#### Cache Management
+- Some kind of logic must manage the cache
+- Something must partition the cache into blocks, transfer blocks between levels, decide when there are hits and misses, and how to deal with misses
+- This logic can be hardware, software, or a combination of both
+- For example, the compiler manages the register file, decides when to issue loads for misses, and where to store the data in
 ## 6.4 Cache Memories
+### 6.4.1 Generic Cache Memory Organization
+### 6.4.2 Direct-Mapped Caches
+#### Set Selection in Direct-Mapped Caches
+#### Line Matching in Direct-Mapped Caches
+#### Word Selection in Direct-Mapped Caches
+#### Line Replacement in Direct-Mapped Caches
+#### Putting It Together: A Direct-Mapped Cache in Action
+#### Conflict Misses in Direct-Mapped Caches
+### 6.4.3 Set-Associative Caches
+#### Set Selection in Set-Associative Caches
+#### Line Matching and Word Selection in Set-Associative Caches
+#### Line Replacement on Misses in Set-Associative Caches
+### 6.4.4 Fully Associative Caches
+#### Set Selection in Fully Associative Caches
+#### Line Matching and Word Selection in Fully Associative Caches
+### 6.4.5 Issues with Writes
+### 6.4.6 Anatomy of a Real Cache Hierarchy
+### 6.4.7 Performance Impact of Cache Parameters
+#### Impact of Cache Size
+#### Impact of Block Size
+#### Impact of Associativity
+#### Impact of Write Strategy

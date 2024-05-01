@@ -1,2 +1,0 @@
-info: Opening plain database via sqlite backend.
-warning: sqlite database already exists. Set your database backend to sqlite
