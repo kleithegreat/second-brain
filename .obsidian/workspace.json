@@ -11,8 +11,12 @@
             "id": "16a3aa2c6fbf8536",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/3S24/CSCE_312/notes/bryant_ch6.md"
+              }
             }
           }
         ]
@@ -146,7 +154,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "70b22a13d8e23d6b",
+  "active": "16a3aa2c6fbf8536",
   "lastOpenFiles": [
     "tamu/3S24/CSCE_314/test_prep/final/prepareForFinalSp2024.pdf",
     "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",

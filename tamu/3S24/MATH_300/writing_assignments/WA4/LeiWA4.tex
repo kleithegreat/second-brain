@@ -10,7 +10,7 @@
 
 \usepackage[backend=biber, style=numeric]{biblatex}
 \DeclareLanguageMapping{english}{english-apa}
-\addbibresource{wa4.bib}
+\addbibresource{LeiWA4.bib}
 \defbibheading{bibliography}[\bibname]{}
 
 \newtheorem{theorem}{Theorem}
@@ -118,7 +118,7 @@ It is often useful to think of complex numbers as vectors in the complex plane, 
 Complex functions are functions of the form $f: \mathbb{C} \to \mathbb{C}$, where $\mathbb{C}$ is the set of complex numbers.
 Much of the elegance of complex analysis stems from the many special properties of these complex functions, which are not present in real functions.
 For example, complex differentiability is quite different from functions of real variables.
-Recall that complex numers can be thought of as pairs of real numbers.
+Recall that complex numbers can be thought of as pairs of real numbers.
 Complex differentiability is defined as follows:
 
 \begin{theorem}{Complex Differentiability}
@@ -194,11 +194,13 @@ $$f(z) = \frac{a_{-1}}{z-z_0} + a_0 + a_1(z-z_0) + a_2(z-z_0)^2 + \cdots$$
 near $z_0$. 
 The residue is the coefficient $a_{-1}$ of the term $(z-z_0)^{-1}$ in this Laurent series expansion.
 
-The Residue Theorem, due to Cauchy, relates the integral of a meromorphic function (a function holomorphic except at a set of isolated poles) around a closed curve to the sum of the residues at the poles enclosed by the curve. 
-In simpler, terms, this just means that instead of doing an annoying integral, we can just add up the residues of the poles inside the curve.
+The Residue Theorem, due to Cauchy, relates the integral of a meromorphic function around a closed curve to the sum of the residues at the poles enclosed by the curve. 
+A function is said to be meromorphic if it is holomorphic except at a set of isolated poles. 
+In simpler terms, the residue theorem just means that instead of doing an annoying integral, we can just add up the residues of the poles inside the curve.
 Mathematically, if $f$ is a meromorphic function with poles at $z_1, z_2, \ldots, z_n$ inside a positively oriented simple closed curve $\gamma$, then the Residue Theorem states:
-$$\oint_\gamma f(z) , dz = 2\pi i \sum_{k=1}^n \text{Res}(f, z_k)$$
+$$\oint_\gamma f(z) dz = 2\pi i \sum_{k=1}^n \text{Res}(f, z_k)$$
 where $\text{Res}(f, z_k)$ denotes the residue of $f$ at the pole $z_k$.
+This theorem is incredibly useful for mathematicians, since it can help simplify complex integrals, and even evalauate some integrals that would be otherwise impossible to compute.
 
 \subsection{Cauchy-Schwarz Inequality (Complex Case)}
 The Cauchy-Schwarz inequality is another significant result attributed to Cauchy, although he proved it only for real vector spaces. 

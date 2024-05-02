@@ -297,25 +297,138 @@ $$ \text{Capacity} = \frac{\text{\# bytes}}{\text{sector}} \times \frac{\text{av
 - This logic can be hardware, software, or a combination of both
 - For example, the compiler manages the register file, decides when to issue loads for misses, and where to store the data in
 ## 6.4 Cache Memories
+- Early computer systems only had three levels in the memory hierarchy: registers, main memory, and disk storage
+- The growing gap between the speed of the CPU and the speed of main memory led to the development of cache memories
+- The **L1 cache** is a small SRAM cache memory between the register file and main memory
+    - L1 is connected to the bus interface
+    - Recall the bus interface is connected to the register file and the memory bus
+    - L1 can be as fast as the registers
+- As the performance gap between the CPU and main memory grew, more levels of cache were added
+    - **L2 cache**: A larger and slower cache between L1 and main memory
+    - **L3 cache**: An even larger and slower cache between L2 and main memory
 ### 6.4.1 Generic Cache Memory Organization
+- Suppose we have a computer with $m$ bit memory addresses and thus $M = 2^m$ unique memory addresses
+- A cache for this computer would have $S = 2^s$ **cache sets**
+- Each cache set consists of E **cache lines**
+- Each line consists of
+    - A data **block** of $B = 2^b$ bytes
+    - A **valid bit** that indicates whether the block contains meaningful data
+    - $t = m - (b + s)$ **tag bits** that unique identify the block
+        - This is a subset of the current blocks memory address
+- Generally a cache's organization can be described as the tuple $(S, E, B, m)$
+    - The size (or capacity) of a cache $C$ is in terms of aggregate size of all blocks (i.e. tag bits and valid bits are not included)
+    - This is given by $C = S \times E \times B$
+- When the CPU needs to access memory, it first checks the cache
+    - The cache is organizes so that it can find the requested word by inspecting the bits of the address
+    - This is similar to how a hash table works
+- The parameters $S$ and $B$ induce a partitioning of the $m$ address bits into three fields
+    - The address has the form of Tag, Set index, and Block offset
+    - The $s$ **set index bits** in the memory address form an index that selects one of the $S$ sets
+        - The first set is 0, the second is 1, etc.
+        - The set index bits are used to select the set
+    - After indexing the set, the $t$ tag bits in the memory address tell us which line (if any) contains the word
+    - A line in the set contains the word if and only if the valid bit is set and the tag bits match the tag bits in the address
+    - The $b$ **block offset bits** in the memory address tells us the offset of the word within the block
 ### 6.4.2 Direct-Mapped Caches
+- Caches are grouped into different classes based on $E$: number of cache lines per set
+- A **direct-mapped cache** is a cache with $E = 1$, or one cache line per set
+- These are the simplest to implement and understand
+- Say we have a CPU, register file, and L1 cache
+    - The CPU reads a memory word *w*
+    - It first checks the L1 cache
+        - Cache hit: The CPU reads *w* from the cache
+        - Cache miss: The CPU reads *w* from main memory and updates the cache
+- Determining if a memory word is in the cache has three steps: set selection, line matching, and word extraction
 #### Set Selection in Direct-Mapped Caches
+- The cache extracts the $s$ set index bits from the middle of the address
+- This is an unsigned integer and is used to index the set
+- We can think of the cache as a 1D array of sets
 #### Line Matching in Direct-Mapped Caches
+- Line matching is easy in a direct-mapped cache, since there is only one line per set
+- If the valid bit is set and the tag bits match, the cache has a hit
 #### Word Selection in Direct-Mapped Caches
+- Once we have a hit, we know *w* is somewhere in that block
+- The block offset bits tell us where *w* is in the block
+- We can think of a block as an array of bytes, and the block offset bits tell us which byte to select
 #### Line Replacement in Direct-Mapped Caches
+- When there is a miss, the cache must replace the line in the set
+- The replacement policy is trivial in a direct-mapped cache: the cache line is replaced with the new block
 #### Putting It Together: A Direct-Mapped Cache in Action
 #### Conflict Misses in Direct-Mapped Caches
 ### 6.4.3 Set-Associative Caches
+- The issue of common conflict misses in direct mapped caches comes from the fact that they have one line per set
+- A cache with $1 < E < C/B$ is called an **E-way set-associative cache**
 #### Set Selection in Set-Associative Caches
+- Identical to direct-mapped caches
 #### Line Matching and Word Selection in Set-Associative Caches
+- An associative memory is an arrya of key-value pairs
+- The keys of the pairs are the concatenation of the tag bits and the valid bits, and the values are the data contained in the block
+- The cache must search each line for a matching tag
 #### Line Replacement on Misses in Set-Associative Caches
+- If there is an empty line in the set, the block is placed in the empty line
+- The simplest policy is random replacement
+- **Least recently used (LRU)** and **least frequently used (LFU)** are more complex and require more hardware
+- The cost of cache misses become more expensive further down the hierarchy
 ### 6.4.4 Fully Associative Caches
+- A **fully associative cache** is a cache with $E = C/B$
+- In other words, one set containing all the cache lines
 #### Set Selection in Fully Associative Caches
+- Trivial--there is only one set
+- There are no set index bits in the address here, and it only gets partitioned into a tag and block offset
 #### Line Matching and Word Selection in Fully Associative Caches
+- Works the same as set-associative caches
+- However, since the cache must search for many lines in parallel, these caches are typically smaller
 ### 6.4.5 Issues with Writes
+- Updating caches on writes is more complicated than reads
+- Suppose we have a write to a memory word *w* that exists in the cache
+    - The cache and memory must be updated
+    - This is called a **write-through** policy
+    - While simple, this can cause a lot of traffic on the memory bus
+- A **write-back** policy only updates the cache, and only updates the memory when the block is replaced
+    - Write back can significantly reduce memory traffic
+    - This way the cache must contain an additional **dirty bit** that indicates whether the block has been modified
+- We must also deal with write misses
+- A **write-allocate** policy fetches the block from memory on a write miss and updates the cache
+- The alternative is a **write-no-allocate** policy, which writes the block to memory without updating the cache
+- Write back caches are typically write-allocate
+- Optimizing caches is very difficult
+- Lower level caches should tend to use write-back policies due to transfer times
 ### 6.4.6 Anatomy of a Real Cache Hierarchy
+- Caches can hold not only data but also instructions
+    - An instruction only cache is called an **i-cache**
+    - A data only cache is called a **d-cache**
+    - A cache that holds both is called a **unified cache**
+- Modern processors have separate i-caches and d-caches
+    - This allows for simultaneous instruction and data fetches
+    - i-caches are also typically simpler and smaller than d-caches since they are read-only
+    - Reduces conflict misses
 ### 6.4.7 Performance Impact of Cache Parameters
+- Cache performance can be measured with the following metrics:
+    - **Miss rate**: The fraction of memory accesses that result in a miss. Computed as $\frac{\text{\# misses}}{\text{\# accesses}}$
+    - **Hit rate**: The fraction of memory accesses that result in a hit. Computed as $1 - \text{miss rate}$
+    - **Hit time**: The time to deliver a word from the cache to the CPU on a hit, which includes the time for set selection, line identification, and word selection
+    - **Miss penalty**: Any additional time required due to a miss
 #### Impact of Cache Size
+- A larger cache will increase hit rate
+- However, a larger cache will also increase hit time
 #### Impact of Block Size
+- Larger blocks can help hit rate due to spatial locality
+- Larger blocks may also imply less cache lines, which can hurt hit rate
+- Larger blocks can also increase miss penalty
 #### Impact of Associativity
+- This is the choice of $E$: the number of cache lines per set
+- Higher associativity can help prevent thrashing due to conflict misses
+> Recall that thrashing is when the cache is constantly replacing blocks right after they are used
+- Higher associativity is expensive to implement and hard to make fast
+    - Requires more tag bits per line
+    - Additional LRU state bits per line
+    - Additional control logic
+- Higher associativity can also increase hit time due to increased complexity
+- The choice of associativity comes down to a trade-off between hit time and miss penalty
+- Typically high performance systems use less associativity for high level caches and more associativity for lower level caches
 #### Impact of Write Strategy
+- Write-through caches are simpler and can use a **write buffer** independent of the cache
+- Write-through also make read misses less expensive since they don't need to write the block back to memory
+- Write back results in fewer transfers
+- Decreasing transfers is more important lower in the hierarchy, since transfer times are higher
+- Caches further down are more likely to use write-back

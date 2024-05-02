@@ -247,5 +247,18 @@ yap
         - Parameterized types throw away their type parameters
         - Casts are inserted where necessary
 # 14: Threads
-
+- Threads can do tasks independently of each other
+- A **race hazard** is when two threads can potentially modify the same data that can lead to incorrect results
+The `java.util.concurrent` package has classes for thread management
+- To create a new thread, you create a new thread object: `Thread worker = new Thread()`
+    - You can configure it an run it
+    - You can only invoke `start()` once, otherwise you get an `IllegalThreadStateException`
+    - When a threads run method returns the thread terminates
+    - You can stop a thread with the `interrupt()` method
+    - The standard `thread.run()` method is empty
+        - You can make a class that extends the `Thread` class and override the `run()` method
+        - You can also create a class that implements the `Runnable` interface and pass it to a `Thread` object as a constructor argument
+- The `Runnable` interface has a single method `public void run()`
+- The thread class technically implements the `Runnable` interface
+- To implement runnable, you override the `run()` method
 # 16: Reflection
