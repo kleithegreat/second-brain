@@ -262,3 +262,17 @@ The `java.util.concurrent` package has classes for thread management
 - The thread class technically implements the `Runnable` interface
 - To implement runnable, you override the `run()` method
 # 16: Reflection
+- Theres a class object representing every type
+    - Includes each class, enum, interface, array, and primitive type
+    - Includes void
+- The Class class is the starting point for reflection
+    - It allows you to manipulate classes, create objects of types whose names are strings, and loading classes dynamically
+- Four ways to obtain a class object:
+    - `getClass()` method
+    - The .class syntax like `String.class`
+    - The `Class.forName(String className)` static method
+    - One of the reflection that returns a class object like `Class.getClasses()`
+- Class is a generic type, defined as `Class<T>`
+    - `String.class` is of type `Class<String>`
+    - `Integer.class` is of type `Class<Integer>`
+    - etc.
