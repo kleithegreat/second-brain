@@ -8,3 +8,6 @@ safetail' xs | null xs = []
 safetail'' ::[a] -> [a]
 safetail'' [] = []
 safetail'' xs = tail xs
+
+fuckkoreans [] = [[]]
+fuckkoreans (x:xs) = fuckkoreans xs ++ [x:s | s <- fuckkoreans xs]
