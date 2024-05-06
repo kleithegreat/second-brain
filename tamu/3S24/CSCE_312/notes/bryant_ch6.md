@@ -1,7 +1,7 @@
 # The Memory Hierarchy
 - To this point, we have studied a simple model of a computer that uses a single memory system as a linear array of bytes
 - This is effective to a point, but it is not how modern computers are designed
-- A **memory system** is a *hierearchy* of storage devices with different capacities, costs, and access times
+- A **memory system** is a *hierarchy* of storage devices with different capacities, costs, and access times
     - Registers hold the most frequently accessed data
     - Small **cache memories** near the CPU hold some of the more frequently accessed data from the main memory
     - Main memory holds the data and instructions that are currently being used
@@ -322,7 +322,7 @@ $$ \text{Capacity} = \frac{\text{\# bytes}}{\text{sector}} \times \frac{\text{av
     - The cache is organizes so that it can find the requested word by inspecting the bits of the address
     - This is similar to how a hash table works
 - The parameters $S$ and $B$ induce a partitioning of the $m$ address bits into three fields
-    - The address has the form of Tag, Set index, and Block offset
+    - The address has the form of *Tag, Set index, and Block offset*
     - The $s$ **set index bits** in the memory address form an index that selects one of the $S$ sets
         - The first set is 0, the second is 1, etc.
         - The set index bits are used to select the set

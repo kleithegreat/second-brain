@@ -7,6 +7,7 @@
 \usepackage{float}
 \usepackage{xcolor}
 \usepackage{listings}
+\usepackage{ulem}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -20,7 +21,7 @@
 
 \section*{Bryant Chapter 4}
 
-\section*{4.13}
+\section*{4.13 - correct}
 \begin{tabular}{l l l}
     Stage & Generic & Specific \\
     & \texttt{irmovq} V, rB & \texttt{irmovq \$128, \%rsp} \\
@@ -36,7 +37,7 @@
     PC update & PC $\leftarrow$ valP & PC $\leftarrow$ valP = 0x020 \\
 \end{tabular}
 
-\section*{4.14}
+\section*{4.14 - correct}
 \begin{tabular}{l l l}
     Stage & Generic & Specific \\
     & \texttt{popq} rA & \texttt{popq \%rax} \\
@@ -44,27 +45,198 @@
     Fetch & icode:ifun $\leftarrow$ $M_1$[PC] & icode:ifun $\leftarrow$ $M_1$[0x02C] = 0xB:0x0 \\
     & rA:rB $\leftarrow$ $M_1$[PC+1] & rA:rB $\leftarrow$ $M_1$[0x02D] = 0x0:0xF \\
     & valP $\leftarrow$ PC + 2 & valP $\leftarrow$ 0x02C + 0x2 = 0x02E \\
-    Decode & valA $\leftarrow$ R[\%rsp] & valA $\leftarrow$ R[\%rsp] = 
-    & valB $\leftarrow$ R[\%rsp] \\
-    Execute & valE $\leftarrow$ valB + 8 \\
-    Memory & valM $\leftarrow$ $M_8$[valA] \\
-    Write back & R[\%rsp] $\leftarrow$ valE \\
-    & R[rA] $\leftarrow$ valM \\
-    PC update & PC $\leftarrow$ valP \\
+    Decode & valA $\leftarrow$ R[\%rsp] & valA $\leftarrow$ R[\%rsp] = 120 \\
+    & valB $\leftarrow$ R[\%rsp] & valB $\leftarrow$ R[\%rsp] = 120 \\
+    Execute & valE $\leftarrow$ valB + 8 & valE $\leftarrow$ 120 + 8 = 128 \\
+    Memory & valM $\leftarrow$ $M_8$[valA] & valM $\leftarrow$ $M_8$[120] = 9 \\
+    Write back & R[\%rsp] $\leftarrow$ valE & R[\%rsp] $\leftarrow$ 128 \\
+    & R[rA] $\leftarrow$ valM & R[\%rax] $\leftarrow$ 9 \\
+    PC update & PC $\leftarrow$ valP & PC $\leftarrow$ 0x02E \\
 \end{tabular}
 
-\section*{4.43}
+\section*{4.43 - correct}
+\begin{tabular}{l c c c c c}
+    Cause & Name & Instruction frequency & Condition frequency & Bubbles & Product \\
+    \hline
+    Load/use  & $lp$ & 0.25 & 0.20 & 1 & 0.05 \\
+    Mispredict & $mp$ & 0.20 & 0.35 & 2 & 0.14 \\
+    Return & $rp$ & 0.02 & 1.00 & 3 & 0.06 \\
+    Total penalty & & & & & 0.25 \\
+\end{tabular}
 
+\vspace{1em}\noindent
+Thus, the CPI is $1 + 0.25 = 1.25$.
 
 \section*{Bryant Chapter 6}
 
-\section*{6.12}
+\section*{6.12 - correct}
+Set index: 3 bits since 8 sets $\rightarrow \log_2 8 = 3$ bits \\
+Block offset: 2 bits since 4-byte block size $\rightarrow \log_2 4 = 2$ bits \\
+Tag: 13 - (3 + 2) = 8 bits \\
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    CT & CT & CT & CT & CT & CT & CT & CT & CI & CI & CI & CO & CO \\
+    \hline
+    12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\
+    \hline
+\end{tabular}
 
+\section*{6.17 - correct}
 
-\section*{6.17}
+\subsection*{A.}
+Given the following properties:
+\begin{itemize}
+    \item \texttt{sizeof(int) = 4}
+    \item \texttt{src} is at address 0
+    \item \texttt{dst} is at address 16
+    \item One L1 cache - direct mapped, write-through, write-allocate, 8-byte blocks
+    \item Cache has 16 bytes total, is initially empty
+    \item Accesses to \texttt{src} and \texttt{dst} are the only sources of hits and misses
+\end{itemize}
 
+\noindent
+Set index: Direct mapped $\rightarrow E = 1$, so $\log_2 \frac{16}{8} = 1$ bit \\
+\noindent
+Block offset: 8-byte blocks $\rightarrow \log_2 8 = 3$ bits \\
+\noindent
+Memory addresses will have the form of: \\
 
-\section*{6.18}
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \ldots & CT & CI & CO & CO & CO \\
+        \hline
+        \ldots & 4 & 3 & 2 & 1 & 0 \\
+        \hline
+    \end{tabular}
+\end{center}
 
+\noindent Thus,
+\begin{center}
+    \begin{tabular}{|l|c|c|c|c|c|}
+        \hline
+        Array element & Decimal address & Binary address & Tag & Index & Offset \\
+        \hline
+        \texttt{src[0][0]} & 0 & \ldots 00000 & 0 & 0 & 000 \\
+        \texttt{src[0][1]} & 4 & \ldots 00100 & 0 & 0 & 100 \\
+        \texttt{src[1][0]} & 8 & \ldots 01000 & 0 & 1 & 000 \\
+        \texttt{src[1][1]} & 12 & \ldots 01100 & 0 & 1 & 100 \\
+        \texttt{dst[0][0]} & 16 & \ldots 10000 & 1 & 0 & 000 \\
+        \texttt{dst[0][1]} & 20 & \ldots 10100 & 1 & 0 & 100 \\
+        \texttt{dst[1][0]} & 24 & \ldots 11000 & 1 & 1 & 000 \\
+        \texttt{dst[1][1]} & 28 & \ldots 11100 & 1 & 1 & 100 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\noindent So the cache will have this kind of history:
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        Set & Tag + Array access \\
+        \hline
+        0 & 1: dst[0][1] \\
+        & \sout{0: src[0][1]} \\
+        & \sout{1: dst[0][0]} \\
+        & \sout{0: src[0][0]} \\
+        \hline
+        1 & 1: dst[1][1] \\
+        & \sout{0: src[1][1]} \textbf{hit} \\
+        & \sout{0: src[1][0]} \\
+        & \sout{1: dst[1][0]} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{l c c c l c c}
+        & \texttt{dst} array & & \quad & & \texttt{src} array & \\
+        \hline
+        & Col. 0 & Col. 1 & & & Col. 0 & Col. 1 \\
+        \hline
+        Row 0 & m & m & & Row 0 & m & m \\
+        Row 1 & m & m & & Row 1 & m & h \\
+    \end{tabular}
+\end{center}
+
+\subsection*{B.}
+Now, with a cache size of 32 bytes, the cache will have 4 sets. \\
+Set index: 2 bits since $\log_2 \frac{32}{8} = 2$ bits \\
+Block offset: Still 3 bits since 8-byte blocks $\rightarrow \log_2 8 = 3$ bits \\
+Thus, memory addresses will have the form of: \\
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \ldots & CT & CI & CI & CO & CO & CO \\
+        \hline
+        \ldots & 6 & 5 & 4 & 3 & 2 & 1 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\noindent Therefore,
+\begin{center}
+    \begin{tabular}{|l|c|c|c|c|c|}
+        \hline
+        Array element & Decimal address & Binary address & Tag & Index & Offset \\
+        \hline
+        \texttt{src[0][0]} & 0 & \ldots 000000 & 0 & 00 & 000 \\
+        \texttt{src[0][1]} & 4 & \ldots 000100 & 0 & 00 & 100 \\
+        \texttt{src[1][0]} & 8 & \ldots 001000 & 0 & 01 & 000 \\
+        \texttt{src[1][1]} & 12 & \ldots 001100 & 0 & 01 & 100 \\
+        \texttt{dst[0][0]} & 16 & \ldots 010000 & 0 & 10 & 000 \\
+        \texttt{dst[0][1]} & 20 & \ldots 010100 & 0 & 10 & 100 \\
+        \texttt{dst[1][0]} & 24 & \ldots 011000 & 0 & 11 & 000 \\
+        \texttt{dst[1][1]} & 28 & \ldots 011100 & 0 & 11 & 100 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\noindent So the cache will have this kind of history:
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        Set & Tag + Array access \\
+        \hline
+        0 & 0: src[0][1] \textbf{hit} \\
+        & 0: src[0][0] \\
+        \hline
+        1 & 0: src[1][1] \textbf{hit} \\
+
+        & 0: src[1][0] \\
+        \hline
+        2 & 0: dst[0][1] \textbf{hit} \\
+
+        & 0: dst[0][0] \\
+        \hline
+        3 & 0: dst[1][1] \textbf{hit} \\
+
+        & 0: dst[1][0] \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{l c c c l c c}
+        & \texttt{dst} array & & \quad & & \texttt{src} array & \\
+        \hline
+        & Col. 0 & Col. 1 & & & Col. 0 & Col. 1 \\
+        \hline
+        Row 0 & m & h & & Row 0 & m & h \\
+        Row 1 & m & h & & Row 1 & m & h \\
+    \end{tabular}
+\end{center}
+
+\section*{6.18 - correct}
+
+\subsection*{A.}
+Each array element is read twice, so $32 \times 32 \times 2 = 2048$ read operations.
+
+\subsection*{B.}
+Each block consists of two structs, so each access will alternate in hit/miss.
+Therefore, there should be 1024 cache misses.
+
+\subsection*{C.}
+The miss rate is 50\%
 
 \end{document}

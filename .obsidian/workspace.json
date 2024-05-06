@@ -4,15 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "b12b38e826a012b5",
+        "id": "3230f2e86529b963",
         "type": "tabs",
         "children": [
           {
-            "id": "3faa01b7a67af1f0",
+            "id": "3d4a93491f98eefe",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "pdf",
+              "state": {
+                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf"
+              }
             }
           }
         ]
@@ -89,6 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +108,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +130,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf"
+              }
             }
           }
         ]
@@ -146,8 +152,21 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3faa01b7a67af1f0",
+  "active": "3d4a93491f98eefe",
   "lastOpenFiles": [
+    "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch4.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
+    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
+    "tamu/3S24/CSCE_312/homework/hw4/hw4.aux",
+    "tamu/3S24/CSCE_312/homework/hw4/hw4.log",
+    "tamu/3S24/CSCE_312/syllabus.pdf",
     "tamu/3S24/CSCE_314/notes/pl_impl.md",
     "tamu/3S24/CSCE_314/notes/java.md",
     "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
@@ -165,25 +184,12 @@
     "tamu/1S23/POLS_207/Exam 4/textbook excerpts.md",
     "tamu/3S24/CSCE_312/homework/hw3/code.md",
     "tamu/1S23/ENGR_216/Lecture Notes/Lecture 3.md",
-    "tamu/2F23/CSCE_120/lecture/1 - Arrays.md",
-    "tamu/1S23/ENGR_216/Labs/Lab 6/info.md",
-    "mack/markdown/the bible made impossible.md",
-    "mack/markdown/matthew notes.md",
-    "tamu/0F22/MATH_151/Idiosyncrasies.md",
-    "tamu/2F23/CSCE_120/honors_artifacts/2/script.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
     "tamu/3S24/CSCE_314/test_prep/final/prepareForFinalSp2024.pdf",
-    "tamu/3S24/CSCE_314/notes/haskell/16_Reasoning_about_programs.md",
-    "tamu/3S24/CSCE_314/notes/haskell/15_Lazy_evaluation.md",
     "nohup.out",
     "tamu/3S24/CSCE_314/test_prep/final",
     "tamu/3S24/CSCE_314/test_prep/New folder",
-    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
     "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
     "tamu/3S24/CSCE_221/LEs/LE10/Kevin-Lei-432009232-LE10.zip",
-    "tamu/3S24/CSCE_221/LEs/LE10/New Compressed (zipped) Folder.zip",
-    "tamu/3S24/CSCE_221/LEs/LE10/src/temp_executable",
-    "tamu/3S24/CSCE_221/LEs/LE10/src/graph_test",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.21.png",

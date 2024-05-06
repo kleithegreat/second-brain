@@ -171,3 +171,29 @@ whatever
 - This only happens for `ret` and `jXX` instructions
 - We can use the same stalling technique to handle control hazards, and insert bubble instructions until the correct PC is determined
 - To handle a mispredicted branch, we can *cancel* the instructions that were fetched after the mispredicted branch by inserting bubble instructions
+### 4.5.9 Performance Analysis
+- Sometimes we need some special actions to avoid hazards in our pipeline
+- This can cause the processor to issue less than one instruction per cycle
+- This inefficiency can be measured by determining how often a bubble gets injected in the pipeline (since they cause unused pipeline cycles)
+	- Returns generate three bubbles
+	- Load/use hazard generates one
+	- Mispredicted branch generates two
+- We can estimate the effect of these penalties by calculating the average number of clocks PIPE would require per instruction
+- This measure is called **CPI** or **cycles per instruction**
+	- This is the reciprocal of the average throughput of the pipeline
+	- Its a useful measure of architectural efficiency
+- Suppose we ignore the performance implications of exceptions
+	- Imagine we run the processor on some benchmark program and observe the operation of the execute stage
+	- Each cycle the execute stage will either process and instruction or bubble
+	- Say it processes a total of $C_i$ instructions and $C_b$ bubbles
+	- Then the processor requires around $C_i + C_b$ total clocks to execute $C_i$ instructions
+	- We say around because we are ignoring the clocks needed to get the instructions to the execute stage
+- Thus CPI can be calculated as:
+$$ CPI = \frac{C_i + C_b}{C_i} = 1.0 + \frac{C_b}{C_i} $$
+- In other words, CPI equals 1.0 plus some penalty term $\frac{C_b}{C_i}$, which is average number of bubbles per instruction executed
+- Since there are three situations where bubbles can be inject, we can break this penalty into three components:
+$$ CPI = 1.0 + lp + mp + rp $$
+- $lp$: average frequency that bubbles are injected while stalling for load/use hazards
+- $mp$: average frequency that bubbles are injected for mispredicted branches
+- $rp$: average frequency that bubbles are injected for stalling for `ret`
+- To estimate the penalty term, we just need to know how frequently each of the relevant instructions occur and how often the conditions arise
