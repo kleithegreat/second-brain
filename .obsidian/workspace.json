@@ -4,17 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "3230f2e86529b963",
+        "id": "55533cffb67484a1",
         "type": "tabs",
         "children": [
           {
-            "id": "3d4a93491f98eefe",
+            "id": "b218d140e96903fa",
             "type": "leaf",
             "state": {
-              "type": "pdf",
-              "state": {
-                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf"
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -91,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,9 +126,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf"
-              }
+              "state": {}
             }
           }
         ]
@@ -152,18 +146,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3d4a93491f98eefe",
+  "active": "b218d140e96903fa",
   "lastOpenFiles": [
-    "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
-    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
+    "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
+    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
+    "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
+    "tamu/3S24/CSCE_312/notes/!lecture.md",
+    "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
+    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
+    "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch4.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
-    "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
-    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
     "tamu/3S24/CSCE_312/homework/hw4/hw4.aux",
     "tamu/3S24/CSCE_312/homework/hw4/hw4.log",
     "tamu/3S24/CSCE_312/syllabus.pdf",
@@ -182,13 +178,10 @@
     "tamu/99Aggienova/astro_talk.md",
     "tamu/1S23/ENGR_216/Homework/Homework 1/homework1.md",
     "tamu/1S23/POLS_207/Exam 4/textbook excerpts.md",
-    "tamu/3S24/CSCE_312/homework/hw3/code.md",
-    "tamu/1S23/ENGR_216/Lecture Notes/Lecture 3.md",
     "tamu/3S24/CSCE_314/test_prep/final/prepareForFinalSp2024.pdf",
     "nohup.out",
     "tamu/3S24/CSCE_314/test_prep/final",
     "tamu/3S24/CSCE_314/test_prep/New folder",
-    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
     "tamu/3S24/CSCE_221/LEs/LE10/Kevin-Lei-432009232-LE10.zip",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
