@@ -29,7 +29,8 @@ def extract_features_label(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series]:
 
 def data_split(features: pd.DataFrame, label:pd.Series, test_size:float
               ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
-    return train_test_split(features, label, test_size=test_size)
+    xtrain, xtest, ytrain, ytest = train_test_split(features, label, test_size=test_size)
+    return xtrain, ytrain, xtest, ytest
 
 
 # ## Write a function that returns score on test set with KNNs (use KNeighborsClassifier class)
@@ -60,7 +61,7 @@ if __name__ == "__main__":
     
     features, label = extract_features_label(df)
 
-    x_train, x_test, y_train, y_test = data_split(features, label, 0.33)
+    x_train, y_train, x_test, y_test = data_split(features, label, 0.33)
 
     print(knn_test_score(1, x_train, y_train, x_test, y_test))
 
