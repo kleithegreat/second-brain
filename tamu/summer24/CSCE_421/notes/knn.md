@@ -128,3 +128,16 @@ If classification:
     - Another way is called **boosting**
         - Models are trained sequentially
         - Each model tries to correct the errors of the previous model
+- Feature scaling can improve the performance of KNN
+    - Some attributes may have a larger range of values than others
+    - We can avoid bias towards one attribute by scaling all attributes to the same range
+    - z-score normalization is one way to scale the data: $x_i \leftarrow \frac{x_i - \mu}{\sigma}$
+        - Represents the feature value in terms of the standard deviation and mean
+        - Good for normally distributed data
+    - Min-max scaling is another way to scale the data: $x_i \leftarrow \frac{x_i - \min(x)}{\max(x) - \min(x)}$
+        - Also called unity-based normalization
+        - All features will be in the range $[0, 1]$
+- We can **assign weights** to certain attributes which we believe are more important
+    - If we know that some attributes are more important than others, we can assign them higher weights
+    - Higher weights give more importance to the attribute
+- We can tune the hyperparameter $k$ using a validation set
