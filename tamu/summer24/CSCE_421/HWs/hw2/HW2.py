@@ -23,10 +23,11 @@ def data_split(
 def extract_features_label(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series]:
     # Filter the dataframe to include only Setosa and Virginica rows
     # Extract the required features and labels from the filtered dataframe
-    ########################
-    ## Your Solution Here ##
-    ########################
-    pass
+    filtered = df[df["variety"].isin(["Setosa", "Virginica"])]
+    features = filtered[["sepal.length", "sepal.width"]]
+    label = filtered["variety"]
+    label = label.replace({"Setosa": 0, "Virginica": 1})
+    return features, label
 
 class Perceptron:
     def __init__(self, learning_rate=0.01, epochs=1000):
@@ -54,10 +55,18 @@ class Perceptron:
             weights (array-like): Learned weights.
             bias (float): Learned bias.
         """
-        ########################
-        ## Your Solution Here ##
-        ########################
-        pass
+        self.weights = np.zeros(X.shape[1])
+        self.bias = 0
+
+        for _ in range(self.epochs):
+            for xi, t in zip(X, y):
+                y_hat = self.activation(np.dot(self.weights, xi) + self.bias)
+                if y_hat != t:
+                    self.weights += self.learning_rate * (t - y_hat) * xi
+                    self.bias += self.learning_rate * (t - y_hat)
+        
+        return self.weights, self.bias
+
 
     def predict(self, X):
         """
@@ -69,10 +78,8 @@ class Perceptron:
         Returns:
             array-like: The predicted labels.
         """
-        ########################
-        ## Your Solution Here ##
-        ########################
-        pass
+        y_hat = [self.activation(np.dot(self.weights, xi) + self.bias) for xi in X]
+        return y_hat
 
     def _unit_step_func(self, x):
         """
@@ -85,10 +92,7 @@ class Perceptron:
         Returns:
             int or array-like: Result of the unit step function applied to the input(s).
         """
-        ########################
-        ## Your Solution Here ##
-        ########################
-        pass
+        return np.where(x >= 0, 1, 0)
 
 
 # Testing
@@ -97,7 +101,7 @@ if __name__ == "__main__":
         accuracy = np.sum(y_true == y_pred) / len(y_true)
         return accuracy
     
-    df=read_data("/Users/aduysak03/Desktop/Programs/CSCE421/Alp_Notes/HW/HW3/iris.csv")
+    df=read_data("./iris.csv")
     shape = get_df_shape(df)
     features, label = extract_features_label(df)
     X_train, y_train, X_test, y_test = data_split(features, label, 0.2)

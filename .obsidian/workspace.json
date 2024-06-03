@@ -11,8 +11,12 @@
             "id": "2218543d224132fc",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "tamu/summer24/CSCE_421/notes/perceptron.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/summer24/CSCE_421/notes/perceptron.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/summer24/CSCE_421/notes/perceptron.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/summer24/CSCE_421/notes/perceptron.md"
+              }
             }
           }
         ]
@@ -146,27 +154,32 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "70b22a13d8e23d6b",
+  "active": "2218543d224132fc",
   "lastOpenFiles": [
+    "tamu/summer24/CSCE_421/textbooks/Trevor Hastie, Robert Tibshirani, Jerome Friedman - The elements of statistical learning_ Data mining, inference, and prediction-Springer (2009).pdf",
+    "tamu/summer24/CSCE_421/textbooks/Kevin P. Murphy - Probabilistic Machine Learning_ An Introduction-The MIT Press (2022).pdf",
+    "tamu/summer24/CSCE_421/textbooks/(Springer Series in Statistics) Trevor Hastie, Robert Tibshirani, Jerome Friedman - The elements of statistical learning_ Data mining, inference, and prediction-Springer (2009).pdf",
+    "tamu/summer24/CSCE_421/textbooks/RLbook2020.pdf",
+    "tamu/summer24/CSCE_421/textbooks/Jeremy Watt_ Reza Borhani_ Aggelos Katsaggelos - Machine Learning Refined_ Foundations, Algorithms, and Applications-Cambridge University Press (2020).pdf",
+    "tamu/summer24/CSCE_421/textbooks/Ian Goodfellow, Yoshua Bengio, Aaron Courville - Deep Learning-The MIT Press (2016).pdf",
+    "tamu/summer24/CSCE_421/textbooks/Ethem Alpaydin - Introduction to Machine Learning-The MIT Press (2014).pdf",
+    "tamu/summer24/CSCE_421/textbooks/(Adaptive Computation and Machine Learning) Kevin P. Murphy - Probabilistic Machine Learning_ An Introduction-The MIT Press (2022).pdf",
+    "tamu/summer24/CSCE_421/textbooks",
+    "tamu/summer24/CSCE_421/(Springer Series in Statistics) Trevor Hastie, Robert Tibshirani, Jerome Friedman - The elements of statistical learning_ Data mining, inference, and prediction-Springer (2009).pdf",
+    "tamu/summer24/CSCE_421/(Adaptive Computation and Machine Learning) Kevin P. Murphy - Probabilistic Machine Learning_ An Introduction-The MIT Press (2022).pdf",
     "tamu/summer24/CSCE_421/notes/perceptron.md",
     "tamu/summer24/CSCE_421/notes/intro.md",
     "tamu/summer24/CSCE_421/notes/knn.md",
-    "tamu/summer24/CSCE_421/notes/knn.md~",
     "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
-    "tamu/3S24/CSCE_312/Frank Vahid - Digital Design with RTL Design, Verilog and VHDL-Wiley (2011).pdf",
     "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch3.md",
     "tamu/3S24/CSCE_312/notes/!lecture.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch2.md",
-    "tamu/3S24/CSCE_312/Randal E. Bryant, David R. O’Hallaron - Computer Systems. A Programmer’s Perspective [3rd ed.]-Pearson (2016).pdf",
     "tamu/3S24/CSCE_312/notes/bryant_ch6.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch4.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
-    "tamu/3S24/CSCE_312/homework/hw4/hw4.aux",
-    "tamu/3S24/CSCE_312/homework/hw4/hw4.log",
-    "tamu/3S24/CSCE_312/syllabus.pdf",
     "tamu/3S24/CSCE_314/notes/pl_impl.md",
     "tamu/3S24/CSCE_314/notes/java.md",
     "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
@@ -179,11 +192,6 @@
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
     "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
-    "tamu/99Aggienova/astro_talk.md",
-    "tamu/3S24/CSCE_314/test_prep/final/prepareForFinalSp2024.pdf",
-    "nohup.out",
-    "tamu/3S24/CSCE_314/test_prep/final",
-    "tamu/3S24/CSCE_314/test_prep/New folder",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.21.png",
