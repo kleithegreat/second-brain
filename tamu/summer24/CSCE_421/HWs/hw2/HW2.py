@@ -23,10 +23,10 @@ def data_split(
 def extract_features_label(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series]:
     # Filter the dataframe to include only Setosa and Virginica rows
     # Extract the required features and labels from the filtered dataframe
-    filtered = df[df["variety"].isin(["Setosa", "Virginica"])]
+    filtered = df[df["variety"].isin(["Versicolor", "Virginica"])]
     features = filtered[["sepal.length", "sepal.width"]]
     label = filtered["variety"]
-    label = label.replace({"Setosa": 0, "Virginica": 1})
+    label = label.replace({"Versicolor": 0, "Virginica": 1})
     return features, label
 
 class Perceptron:
@@ -57,15 +57,19 @@ class Perceptron:
         """
         self.weights = np.zeros(X.shape[1])
         self.bias = 0
+        errors = [0]
 
         for _ in range(self.epochs):
+            epoch_error = 0
             for xi, t in zip(X, y):
                 y_hat = self.activation(np.dot(self.weights, xi) + self.bias)
                 if y_hat != t:
+                    epoch_error += 1
                     self.weights += self.learning_rate * (t - y_hat) * xi
                     self.bias += self.learning_rate * (t - y_hat)
+            errors.append(errors[-1] + epoch_error)
         
-        return self.weights, self.bias
+        return errors
 
 
     def predict(self, X):
@@ -107,26 +111,32 @@ if __name__ == "__main__":
     X_train, y_train, X_test, y_test = data_split(features, label, 0.2)
     X_train, y_train, X_test, y_test = X_train.values, y_train.values, X_test.values, y_test.values
 
-    p = Perceptron(learning_rate=0.01, epochs=1000)
-    p.fit(X_train, y_train)
-    predictions = p.predict(X_test)
-
-    print("Perceptron classification accuracy", accuracy(y_test, predictions))
+    epoch_list = [1000]
+    learning_rates = [0.01]
 
     fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1)
     plt.scatter(X_train[:, 0], X_train[:, 1], marker="o", c=y_train)
 
-    x0_1 = np.amin(X_train[:, 0])
-    x0_2 = np.amax(X_train[:, 0])
+    for epoch in epoch_list:
+        for lr in learning_rates:
+            p = Perceptron(learning_rate=lr, epochs=epoch)
+            errors = p.fit(X_train, y_train)
+            predictions = p.predict(X_test)
+            print("Perceptron classification accuracy", accuracy(y_test, predictions))
 
-    x1_1 = (-p.weights[0] * x0_1 - p.bias) / p.weights[1]
-    x1_2 = (-p.weights[0] * x0_2 - p.bias) / p.weights[1]
+            x0_1 = np.amin(X_train[:, 0])
+            x0_2 = np.amax(X_train[:, 0])
 
-    ax.plot([x0_1, x0_2], [x1_1, x1_2], "k")
+            x1_1 = (-p.weights[0] * x0_1 - p.bias) / p.weights[1]
+            x1_2 = (-p.weights[0] * x0_2 - p.bias) / p.weights[1]
+
+            ax.plot([x0_1, x0_2], [x1_1, x1_2], label=f"Epochs: {epoch}, Learning Rate: {lr}")
+            #ax.plot(range(len(errors)), errors)
 
     ymin = np.amin(X_train[:, 1])
     ymax = np.amax(X_train[:, 1])
     ax.set_ylim([ymin, ymax])
+    # ax.legend()
 
     plt.show()
