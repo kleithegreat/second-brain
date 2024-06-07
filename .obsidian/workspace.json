@@ -11,8 +11,12 @@
             "id": "ca937be5b1f13384",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "tamu/summer24/CSCE_421/notes/linear_regression.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/summer24/CSCE_421/notes/linear_regression.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/summer24/CSCE_421/notes/linear_regression.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/summer24/CSCE_421/notes/linear_regression.md"
+              }
             }
           }
         ]
@@ -146,9 +154,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "70b22a13d8e23d6b",
+  "active": "ca937be5b1f13384",
   "lastOpenFiles": [
+    "tamu/summer24/CSCE_421/notes/naive_bayes.md",
+    "tamu/summer24/CSCE_421/notes/linear_regression.md",
     "tamu/summer24/CSCE_421/notes/perceptron.md",
+    "tamu/summer24/CSCE_421/notes/knn.md",
     "tamu/summer24/CSCE_421/textbooks/Trevor Hastie, Robert Tibshirani, Jerome Friedman - The elements of statistical learning_ Data mining, inference, and prediction-Springer (2009).pdf",
     "tamu/summer24/CSCE_421/textbooks/Kevin P. Murphy - Probabilistic Machine Learning_ An Introduction-The MIT Press (2022).pdf",
     "tamu/summer24/CSCE_421/textbooks/(Springer Series in Statistics) Trevor Hastie, Robert Tibshirani, Jerome Friedman - The elements of statistical learning_ Data mining, inference, and prediction-Springer (2009).pdf",
@@ -160,7 +171,6 @@
     "tamu/summer24/CSCE_421/textbooks",
     "tamu/summer24/CSCE_421/(Springer Series in Statistics) Trevor Hastie, Robert Tibshirani, Jerome Friedman - The elements of statistical learning_ Data mining, inference, and prediction-Springer (2009).pdf",
     "tamu/summer24/CSCE_421/notes/intro.md",
-    "tamu/summer24/CSCE_421/notes/knn.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
@@ -182,7 +192,6 @@
     "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
     "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
-    "tamu/3S24/CSCE_314/notes/haskell/1_Introduction.md",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.21.png",
