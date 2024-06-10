@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d210dca41309553f",
+        "id": "20f275f634dd04a7",
         "type": "tabs",
         "children": [
           {
-            "id": "ca937be5b1f13384",
+            "id": "bea13881d226d3ea",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -154,19 +154,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ca937be5b1f13384",
+  "active": "bea13881d226d3ea",
   "lastOpenFiles": [
     "tamu/summer24/CSCE_421/notes/naive_bayes.md",
     "tamu/summer24/CSCE_421/notes/linear_regression.md",
-    "tamu/summer24/CSCE_421/notes/perceptron.md",
-    "tamu/summer24/CSCE_421/notes/knn.md",
+    "tamu/summer24/CSCE_421/textbooks/Ethem Alpaydin - Introduction to Machine Learning-The MIT Press (2014).pdf",
+    "tamu/summer24/CSCE_421/textbooks/Jeremy Watt_ Reza Borhani_ Aggelos Katsaggelos - Machine Learning Refined_ Foundations, Algorithms, and Applications-Cambridge University Press (2020).pdf",
     "tamu/summer24/CSCE_421/textbooks/Trevor Hastie, Robert Tibshirani, Jerome Friedman - The elements of statistical learning_ Data mining, inference, and prediction-Springer (2009).pdf",
     "tamu/summer24/CSCE_421/textbooks/Kevin P. Murphy - Probabilistic Machine Learning_ An Introduction-The MIT Press (2022).pdf",
+    "tamu/summer24/CSCE_421/textbooks/Ian Goodfellow, Yoshua Bengio, Aaron Courville - Deep Learning-The MIT Press (2016).pdf",
+    "tamu/summer24/CSCE_421/notes/perceptron.md",
+    "tamu/summer24/CSCE_421/notes/knn.md",
     "tamu/summer24/CSCE_421/textbooks/(Springer Series in Statistics) Trevor Hastie, Robert Tibshirani, Jerome Friedman - The elements of statistical learning_ Data mining, inference, and prediction-Springer (2009).pdf",
     "tamu/summer24/CSCE_421/textbooks/RLbook2020.pdf",
-    "tamu/summer24/CSCE_421/textbooks/Jeremy Watt_ Reza Borhani_ Aggelos Katsaggelos - Machine Learning Refined_ Foundations, Algorithms, and Applications-Cambridge University Press (2020).pdf",
-    "tamu/summer24/CSCE_421/textbooks/Ian Goodfellow, Yoshua Bengio, Aaron Courville - Deep Learning-The MIT Press (2016).pdf",
-    "tamu/summer24/CSCE_421/textbooks/Ethem Alpaydin - Introduction to Machine Learning-The MIT Press (2014).pdf",
     "tamu/summer24/CSCE_421/textbooks/(Adaptive Computation and Machine Learning) Kevin P. Murphy - Probabilistic Machine Learning_ An Introduction-The MIT Press (2022).pdf",
     "tamu/summer24/CSCE_421/textbooks",
     "tamu/summer24/CSCE_421/(Springer Series in Statistics) Trevor Hastie, Robert Tibshirani, Jerome Friedman - The elements of statistical learning_ Data mining, inference, and prediction-Springer (2009).pdf",
@@ -191,7 +191,6 @@
     "tamu/3S24/CSCE_314/notes/haskell/5_List_comprehensions.md",
     "tamu/3S24/CSCE_314/notes/haskell/4_Defining_functions.md",
     "tamu/3S24/CSCE_314/notes/haskell/3_Types_and_classes.md",
-    "tamu/3S24/CSCE_314/notes/haskell/2_First_steps.md",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.21.png",
