@@ -11,8 +11,12 @@
             "id": "583800e3fa90d0ec",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "tamu/summer24/CSCE_421/notes/gradient_descent.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/summer24/CSCE_421/notes/gradient_descent.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/summer24/CSCE_421/notes/gradient_descent.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/summer24/CSCE_421/notes/gradient_descent.md"
+              }
             }
           }
         ]
@@ -146,8 +154,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "70b22a13d8e23d6b",
+  "active": "583800e3fa90d0ec",
   "lastOpenFiles": [
+    "tamu/summer24/CSCE_421/HWs/hw5/HW5_Starter_Code.py",
+    "tamu/summer24/CSCE_421/HWs/hw5/HW5.pdf",
+    "tamu/summer24/CSCE_421/HWs/hw5/data.csv",
+    "tamu/summer24/CSCE_421/HWs/hw5",
     "tamu/summer24/CSCE_421/notes/naive_bayes.md",
     "tamu/summer24/CSCE_421/notes/linear_regression.md",
     "tamu/summer24/CSCE_421/HWs/hw4/HW4_starterCode.py",
@@ -159,9 +171,6 @@
     "tamu/summer24/CSCE_421/textbooks/Ian Goodfellow, Yoshua Bengio, Aaron Courville - Deep Learning-The MIT Press (2016).pdf",
     "tamu/summer24/CSCE_421/notes/perceptron.md",
     "tamu/summer24/CSCE_421/notes/knn.md",
-    "tamu/summer24/CSCE_421/textbooks/(Springer Series in Statistics) Trevor Hastie, Robert Tibshirani, Jerome Friedman - The elements of statistical learning_ Data mining, inference, and prediction-Springer (2009).pdf",
-    "tamu/summer24/CSCE_421/textbooks/RLbook2020.pdf",
-    "tamu/summer24/CSCE_421/textbooks/(Adaptive Computation and Machine Learning) Kevin P. Murphy - Probabilistic Machine Learning_ An Introduction-The MIT Press (2022).pdf",
     "tamu/summer24/CSCE_421/notes/intro.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
