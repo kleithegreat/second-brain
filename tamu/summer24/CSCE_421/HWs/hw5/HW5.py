@@ -45,69 +45,65 @@ def split_data(filename: str, percent_train: float) -> pd.DataFrame:
     df_train = pd.DataFrame()
     df_test = pd.DataFrame()
 
-    ### YOUR CODE HERE
+    df = pd.read_csv(filename)
+
+    df_train = df.sample(frac=percent_train, random_state=1)
+    df_test = df.drop(df_train.index)
 
     return df_train, df_test
 
 # Implement LinearRegression class
-class LinearRegression:   
+class LinearRegression:
     def __init__(self, learning_rate=0.01, epoches=1000):        
         self.learning_rate = learning_rate
         self.iterations    = epoches
         self.W = None
         self.b = None
           
-    # Function for model training         
     def fit(self, X, Y):
-        # weight initialization
-        ### YOUR CODE HERE
-
-        # data
-        ### YOUR CODE HERE 
-        
-        # gradient descent learning                  
-        ### YOUR CODE HERE
-
-        # predict on data and calculate gradients 
-        ### YOUR CODE HERE
-          
-        # update weights
-        ### YOUR CODE HERE
-        pass
+        self.N, self.n = X.shape     
+        self.W = np.zeros((self.n, 1))          
+        self.b = 0
+                        
+        for _ in range(self.iterations):
+            y_pred = self.predict(X)
+            dW = (1/self.N) * np.dot(X.T, (Y - y_pred))
+            db = (1/self.N) * np.sum(Y - y_pred)
+            
+            self.W += self.learning_rate * dW
+            self.b -= self.learning_rate * db
 
       
-    # output      
     def predict(self, X):
         predictions = np.zeros([np.shape(X)[0], np.shape(X)[0]])
-
-        ### YOUR CODE HERE
-
+        predictions = np.dot(X, self.W) + self.b
         return predictions
 
 class RidgeRegression(): 
-      
     def __init__(self, learning_rate=.00001, iterations=1000, penalty=1) : 
-          
         self.learning_rate = learning_rate         
         self.iterations = iterations         
-        self.penalty = penalty 
-          
-    # Function for model training             
-    def fit(self, X, Y) :       
-        # weight initialization         
+        self.penalty = penalty
+        self.W = None
+        self.b = None
 
-        # gradient descent learning   
-          
-        # calculate gradients       
- 
-        # update weights     
-        pass    
+    def fit(self, X, Y) :
+        self.N, self.n = X.shape
+        self.W = np.zeros((self.n, 1))
+        self.b = 0
+
+        for _ in range(self.iterations):
+            y_pred = self.predict(X)
+            dW = (1/self.N) * np.dot(X.T, (y_pred - Y))
+            db = (1/self.N) * np.sum(y_pred - Y)
+
+            self.W = (1 - self.learning_rate * self.penalty) * self.W - self.learning_rate * dW
+            self.b -= self.learning_rate * db
+
 
     def predict(self, X):     
         predictions = np.zeros([np.shape(X)[0], np.shape(X)[0]])
-
-        ### YOUR CODE HERE
-
+        predictions = np.dot(X, self.W) + self.b
         return predictions
 
 def kFold(folds: int, data: pd.DataFrame):
@@ -122,8 +118,27 @@ def kFold(folds: int, data: pd.DataFrame):
             min_mse - Float value of the minimum MSE. 
     '''   
     models = []
+    mse_vals = []
+    kf = KFold(n_splits=folds)
 
-    ### YOUR CODE HERE
+    for train_index, vali_index in kf.split(data):
+        train_data = data.iloc[train_index]
+        vali_data = data.iloc[vali_index]
+
+        train_X, train_y, vali_X, vali_y = prepare_data(train_data, vali_data)
+
+        model = RidgeRegression()
+        model.fit(train_X, train_y)
+
+        vali_preds = model.predict(vali_X)
+        mse = MSE(vali_y, vali_preds[:, :1])
+
+        models.append(model)
+        mse_vals.append(mse)
+    
+    mse_avg = np.mean(mse_vals)
+    min_mse = np.min(mse_vals)
+    min_model = mse_vals.index(min_mse)
 
     return mse_avg, min_model, models, min_mse
 
@@ -132,6 +147,7 @@ if __name__ == "__main__":
 
     data_path = "./data.csv"
     df_train, df_test = split_data(data_path, .80)
+    print(df_train.shape)
     
     train_X, train_y, test_X, test_y = prepare_data(df_train, df_test)
     lr = LinearRegression(learning_rate=0.0001, epoches=10)
