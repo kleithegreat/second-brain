@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "6e0d39c70c06a75c",
+        "id": "64598fb35d45ec97",
         "type": "tabs",
         "children": [
           {
-            "id": "0b92958b5cc6d851",
+            "id": "1393b54ad86b3ad1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tamu/summer24/CSCE_421/notes/model_eval_generalization.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -93,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/summer24/CSCE_421/notes/model_eval_generalization.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/summer24/CSCE_421/notes/model_eval_generalization.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,9 +126,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "tamu/summer24/CSCE_421/notes/model_eval_generalization.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -154,8 +146,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0b92958b5cc6d851",
+  "active": "1393b54ad86b3ad1",
   "lastOpenFiles": [
+    "tamu/summer24/CSCE_421/notes/svm.md",
+    "tamu/summer24/CSCE_421/notes/perceptron.md",
+    "tamu/summer24/CSCE_421/notes/knn.md",
+    "tamu/summer24/CSCE_421/notes/model_eval_generalization.md",
     "tamu/summer24/CSCE_421/HWs/hw5/report/ridge.png",
     "tamu/summer24/CSCE_421/HWs/hw5/report/linear.png",
     "tamu/summer24/CSCE_421/HWs/hw5/report/comparison.png",
@@ -163,11 +159,8 @@
     "tamu/summer24/CSCE_421/notes/logistic_regression.md",
     "tamu/summer24/CSCE_421/notes/linear_regression.md",
     "tamu/summer24/CSCE_421/notes/naive_bayes.md",
-    "tamu/summer24/CSCE_421/notes/perceptron.md",
-    "tamu/summer24/CSCE_421/notes/knn.md",
     "tamu/summer24/CSCE_421/notes/intro.md",
     "tamu/summer24/CSCE_421/notes/gradient_descent.md",
-    "tamu/summer24/CSCE_421/notes/model_eval_generalization.md",
     "tamu/summer24/CSCE_421/HWs/hw5/HW5.py",
     "tamu/summer24/CSCE_421/HWs/hw5/HW5_Starter_Code.py",
     "tamu/summer24/CSCE_421/HWs/hw5/HW5.pdf",
@@ -200,7 +193,6 @@
     "tamu/3S24/CSCE_312/homework/hw2/images/4.21.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.12.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.13.png",
-    "tamu/3S24/CSCE_312/homework/hw2/images/4.3.png",
-    "tamu/3S24/CSCE_312/homework/hw2/images/4.2.png"
+    "tamu/3S24/CSCE_312/homework/hw2/images/4.3.png"
   ]
 }

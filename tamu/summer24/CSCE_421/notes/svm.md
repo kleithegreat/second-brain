@@ -1,0 +1,32 @@
+# Support Vector Machine
+- The perceptron does not care where it puts the decision boundary as long as it separates the classes.
+- Given two classes of data that are linearly separable, there are an infinite number of decision boundaries that can separate the two classes.
+- Initializing gradient descent with different starting points will result in different decision boundaries that all separate the two classes.
+- However, some decision boundaries are better than others.
+- One reasonable standard for judging the quality of a decision boundary is the margin between the two classes.
+- The **support vector machine** attempts to draw the decision boundary in such a way that the margin between the two classes is maximized.
+- SVM focuses on the *boundary* points (the closest sample points to the boundary)
+    - Fitting all points is not considered
+    - The subset of vectors that *support* the boundary are called **support vectors**
+- We want to find the optimal $w$ and $b$ such that:
+    - The training examples $\{(x^{(i)}, y^{(i)})\}_{i=1}^N$ are correctly classified
+    - The margin is maximized $\min_{w, b} \frac{1}{2}||w||^2 \text{ s.t. } \forall i (w^Tx^{(i)} + b)t^{(i)} \geq 1$
+- This is called the *primal formulation* of SVM
+    - Can be optimized with gradient descent
+    - Since this is a constrained optimization problem, we can use Lagrange multipliers to solve it
+- In the end we have that:
+$$ w = \sum_{i=1}^N \alpha_i t^{(i)} x^{(i)} $$
+- In this solution, $\alpha_i$ is either 0 or a positive number
+    - If $\alpha_i = 0$, then $x^{(i)}$ is not a support vector
+    - If $\alpha_i > 0$ and the constraint is tight, then $x^{(i)}$ is a support vector
+- Therefore, $w$ is a linear combination of the support vectors
+- Described above is called **hard margin** SVM
+- The **soft margin** SVM is similar but allows for some interesting tricks
+    - Can be used on non-linearly separable data
+    - Soft SVM error = margin error + classification error
+- The idea behind soft margin SVM is that the data becomes more linearly separable if you ignore some of the points
+- Thus, to find a good decision boundary that maximizes margin, we need to allow some violations of the margin constraint (some points will be in our margin)
+- We are now trying to find $\min_{w, b} w^T w \text{ s.t. } \forall i t^i (w^T x^i + b) \geq 1 - \xi_i$
+- The $\xi_i$ are called slack variables
+    - They allow us to ignore some points
+    - Any outlier can satisfy our constraint if we set $\xi_i$ to be large enough

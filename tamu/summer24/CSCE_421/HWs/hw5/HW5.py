@@ -42,13 +42,8 @@ def split_data(filename: str, percent_train: float) -> pd.DataFrame:
         Given the data filename and percentage of train data, split the data
         into training and test data. 
     '''
-    df_train = pd.DataFrame()
-    df_test = pd.DataFrame()
-
     df = pd.read_csv(filename)
-
-    df_train = df.sample(frac=percent_train, random_state=1)
-    df_test = df.drop(df_train.index)
+    df_train, df_test = train_test_split(df, train_size=percent_train, shuffle=False)
 
     return df_train, df_test
 
