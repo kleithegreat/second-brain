@@ -28,23 +28,15 @@ def extract_features_label(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.Series]:
 
 def cost(w, C, margin):
     #cots=(1/2)ww+C*SUM(max(0,1-margin))
-    
-    ### YOUR CODE HERE
+    return 0.5 * np.dot(w, w) + C * np.sum(np.maximum(0, 1 - margin))
 
-    pass
-
-def decision_function(w,b, X):
+def decision_function(w, b, X):
     ##decision=Xw+b
-    ### YOUR CODE HERE
+    return np.dot(X, w) + b
 
-    pass
-
-def margin(w,b, X, y):
+def margin(w, b, X, y):
     #margin=y(Xw+b)
-    
-    ### YOUR CODE HERE
-
-    pass
+    return y * decision_function(w, b, X)
     
 
 class LinearSVM:
@@ -62,15 +54,14 @@ class LinearSVM:
         self.b = 0
         ynew = np.where(y <= 0, -1, 1)
         
-        ### YOUR CODE HERE
+        for _ in range(epochs):
+            pass
 
         return self.loss_array, self._support_vectors, self.margin_array
 
     def predict(self, X):
         #sign(decision_function(..))
-        ### YOUR CODE HERE
-
-        pass
+        return np.sign(decision_function(self.w, self.b, X))
 
     def score(self, X, y):
         P = self.predict(X)
@@ -121,4 +112,4 @@ if __name__ == '__main__':
     #plot the decision boundary for test data
     model.plot_decision_boundary(X_test, y_test)
     #model.plot_cost_function(X_test, y_test)
-   # model.plot_decision_boundary(X_train, y_train)
+    #model.plot_decision_boundary(X_train, y_train)
