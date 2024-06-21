@@ -52,11 +52,18 @@ class LinearSVM:
         self.n, self.d = X.shape
         self.w = np.random.randn(self.d)
         self.b = 0
-        ynew = np.where(y <= 0, -1, 1)
-        
-        for _ in range(epochs):
-            pass
 
+        for epoch in range(epochs):
+            margins = margin(self.w, self.b, X, y)
+            misclassified_points_idx = np.where(margins < 1)[0]
+            dw = self.w - self.C * y[misclassified_points_idx].dot(X[misclassified_points_idx])
+            self.w -= lr * dw
+            self.b -= lr * -self.C * np.sum(y[misclassified_points_idx])
+            self.margin_array.append(margins)
+            self.loss_array.append(cost(self.w, self.C, margins))
+
+        self._support_vectors = np.where(margin(self.w, self.b, X, y) <= 1)[0]
+        print(self.margin_array)
         return self.loss_array, self._support_vectors, self.margin_array
 
     def predict(self, X):
@@ -65,9 +72,7 @@ class LinearSVM:
 
     def score(self, X, y):
         P = self.predict(X)
-        score = 0.00
-
-        ### YOUR TRAIN SCORE CODE HERE
+        score = np.mean(P == y)
 
         return P, score
         
