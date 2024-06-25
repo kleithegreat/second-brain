@@ -30,3 +30,31 @@ $$ w = \sum_{i=1}^N \alpha_i t^{(i)} x^{(i)} $$
 - The $\xi_i$ are called slack variables
     - They allow us to ignore some points
     - Any outlier can satisfy our constraint if we set $\xi_i$ to be large enough
+# Kernel Trick
+- SVMs work great in theory and practice
+- However, they are limited to linearly separable data
+- The **kernel trick** allows us to use SVMs on non-linearly separable data, by transforming the data into a higher-dimensional space
+- A linear operation in the feature space is a non-linear operation in the input space
+- The objective function of the SVM is only dependent on the dot product of the input vectors, not the weights
+- We can replace the dot product in the objective function with a kernel function
+- The kernel function is a function that computes the dot product of the input vectors in a higher-dimensional space
+- The way we form non-linear decision boundaries:
+    1. Map the input data into feature space $x \rightarrow \phi(x)$
+    2. Replce dot products bewteen points with kernel functions $x^{(i)} \cdot x^{(j)} \rightarrow \phi(x^{(i)}) \cdot \phi(x^{(j)})$
+- The problem becomes finding a good kernel function
+- $\phi(x)$ is called a feature vector
+- $\{\phi(x) : x \in \mathbb{R}^d\}$ is called a feature space, and typically 
+- The kernel trick is a way to avoid computing the feature vectors
+- We can just calculate the inner product in the feature space, no mapping required
+- Kernel functions measure the similarity between two points
+- Some kernel functions are:
+    - Polynomial kernel: $K(x^{(i)}, x^{(j)}) = (x^{(i)} \cdot x^{(j)} + 1)^d$ where $d$ is the degree of the polynomial
+    - Gaussian kernel: $K(x^{(i)}, x^{(j)}) = \exp(-\frac{||x^{(i)} - x^{(j)}||^2}{2\sigma^2})$
+    - Sigmoid kernel: $K(x^{(i)}, x^{(j)}) = \tanh(\beta (x^{(i)} \cdot x^{(j)}) + a)$
+    - Cosine similarity
+    - Chi-squared kernel
+    - String/tree/graph/wavelet kernels
+- Mercer's theorem states any reasonable kernel function corresponds to an inner product in some feature space
+- Reasonable means the **Gram matrix** is positive definite
+- A matrix that can be decomposed into $N^T N$ is symmetric and positive definite
+- Any function that creates a symmetric and positive definite matrix is a valid kernel function (meaning it is a valid inner product in some feature space)
