@@ -1,1 +1,70 @@
 # Decision Trees
+- The idea behind decision trees is that given a collection of labeled examples:
+    - We construct a tree representing the data
+    - Nodes are tests for feature values
+    - Leaves are class labels
+- Example:
+    - Suppose we want to guess an animal based on its features
+    - We would ask questions like mammal or not, has feathers or not, etc.
+    - We would then classify the animal based on the answers to these questions
+- Decision trees are a popular method for classification and regression
+- This is a **non-parametric** supervised learning method
+    - Parametric models are like linear regression, where we assume a functional form for the data
+    - Decision trees do not make this assumption
+- A decision tree partitions the feature space into axis-parallel hyper-rectangles
+- The tree must learn:
+    - The tree structure
+    - Thresholds for each feature (if continuous)
+    - Leaf values
+- Hyperparameters of decision trees:
+    - Maximum depth
+    - Maximum number of leaf nodes
+    - Maximum number of features to consider
+- Decision trees can take the form of a classification tree or a regression tree
+- Any boolean function of discrete attributes can be represented by a decision tree
+- The aim is to find the smallest tree that correctly classifies the training data
+- We build the tree by recursively choosing the "most significant" feature to split on at each node
+- Typically, trees are constructed top down and "pruned" to avoid overfitting
+- Algorithm:
+    - If all samples are the same class, create a leaf
+    - Otherwise, pick the best test to split the data and recurse on the two subsets
+- The best tests are:
+    - For classification
+        - Information gain
+        - Gini index
+    - For regression - lowest MSE
+- Choosing the best test takes a greedy approach at each node
+- Information gain measures the reduction in entropy
+- **Entropy** is a measure of impurity in a set of examples
+    - If there are only two classes, entropy will range from 0 to 1
+    - For $n$ classes, entropy will range from 0 to $\log_2(n)$
+    - The minimum value represents complete homogeneity
+    - The maximum value means no group has even the slightest majority
+- The formula for entropy is:
+$$ H(S) = \sum_{i=1}^{c} -p_i \log_2(p_i) $$
+- Where $S$ is the set of examples, $c$ is the number of classes, and $p_i$ is the proportion of examples in class $i$
+- Can also be computed for continuous attributes
+- This is called the **Shannon entropy** (most frequently used in ML and especially NLP)
+- Information gain is the difference in entropy before and after the split
+- Thus, it is entropy(parent) - average entropy(children)
+- **Gini index** is another measure of impurity
+    - Always between 0 and 1
+    - 0 means all elements belong to a single class
+    - 1 means elements are randomly distributed across various classes
+    - 0.5 means elements are evenly distributed across all classes
+- For a data set $S$ with $r$ class labels $c_1, c_2, \ldots, c_r$, the Gini index is:
+$$ Gini(S) = 1 - \sum_{i=1}^{r} p_i^2 $$
+## Decision Tree Algorithms
+- The overall outline of creating a decision tree is:
+    - Use the best feature to split the data at the root
+    - Split the data into subsets
+    - Repeat the process on each subset
+    - Until all the data is classified
+- Some well known algorithms for decision trees are:
+    - ID (iterative dichotomiser 3)
+    - C4.5
+    - C5.0
+    - CART (classification and regression trees)
+    - 1R (one rule)
+    - RIPPER (Repeated Incremental Pruning to Produce Error Reduction)
+- ID3 uses information gain to split the data

@@ -88,8 +88,8 @@ if __name__ == "__main__":
         return accuracy
 
     # Read the data
-    train_df = read_data("/Users/aduysak03/Desktop/den23/iris_training_data.csv")
-    test_df = read_data("/Users/aduysak03/Desktop/den23/iris_testing_data.csv")
+    train_df = read_data("./iris_training_data.csv")
+    test_df = read_data("./iris_testing_data.csv")
     
     X, t =  extract_features_label(train_df)
     X_test, t_test = extract_features_label(test_df)
