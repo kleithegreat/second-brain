@@ -7,29 +7,35 @@ import matplotlib.pyplot as plt
 
 # Define the CNN architecture
 class SimpleCNN(nn.Module):
-    def __init__(self, num_classes=10, num_filters=16, kernel_size=3, padding=1):
-        """
-        Initializes the CNN.
-        Parameters:
-            num_classes (int): Number of output classes.
-            num_filters (int): Number of filters in the first convolutional layer. 
-              !!!!!!!!!  The second layer will have 2x this number.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-              
-            kernel_size (int): Size of the convolving kernel.
-            padding (int): Zero-padding added to both sides of the input.
-        """
+    def __init__(self, num_classes=10, num_filters=16, kernel_size=3, padding=1, dropout_rate=0):
         super(SimpleCNN, self).__init__()
+        self.layer1 = nn.Sequential(
+            nn.Conv2d(3, num_filters, kernel_size=kernel_size, padding=padding),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2, stride=2))
+        self.layer2 = nn.Sequential(
+            nn.Conv2d(num_filters, num_filters*2, kernel_size=kernel_size, padding=padding),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2, stride=2))
         
-        
+        self.feature_size = self._get_feature_size(32, kernel_size, padding)
+        self.fc = nn.Linear((num_filters*2) * self.feature_size * self.feature_size, num_classes)
+        self.dropout = nn.Dropout(dropout_rate)
+
+    def _get_feature_size(self, input_size, kernel_size, padding):
+        conv1_out = (input_size - kernel_size + 2 * padding) + 1
+        pool1_out = conv1_out // 2
+        conv2_out = (pool1_out - kernel_size + 2 * padding) + 1
+        pool2_out = conv2_out // 2
+        return pool2_out
+
     def forward(self, x):
-        """
-        Performs forward pass of the input.
-        Parameters:
-            x (Tensor): Input tensor.
-        Returns:
-            out (Tensor): Output tensor.
-        """
-        pass
+        out = self.layer1(x)
+        out = self.layer2(out)
+        out = out.view(out.size(0), -1)
+        out = self.dropout(out)
+        out = self.fc(out)
+        return out
 
 
 # Define transformations for the train set
@@ -56,11 +62,10 @@ val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def train(model, train_loader, lr=0.01, momentum=0.9):
-    # Define the loss function and optimizer
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=momentum)
     
-    model.train()  # Set the model to training mode
+    model.train()
     for images, labels in train_loader:
         images, labels = images.to(device), labels.to(device)
         optimizer.zero_grad()
@@ -70,7 +75,7 @@ def train(model, train_loader, lr=0.01, momentum=0.9):
         optimizer.step()
 
 def validate(model, val_loader):
-    model.eval()  # Set the model to evaluation mode
+    model.eval()
     total = 0
     correct = 0
     with torch.no_grad():
@@ -92,56 +97,71 @@ def visulization(accuracies):
     plt.ylabel('Accuracy')
     plt.show()
     
-def task1(num_filters=16):
+def task1():
     print('Task 1 with different number of filters')
-    num_filters_list = [] # todo: try different number of filters
+    num_filters_list = [16, 32]
     for num_filters in num_filters_list:
+        print(f"\nTraining with {num_filters} filters")
         model = SimpleCNN(num_filters=num_filters) 
         model = model.to(device)
         accuracies = []
-        for epoch in range(10):  # Loop over the dataset multiple times
+        for epoch in range(10):
             print('Epoch {}/{}'.format(epoch+1, 10))
             train(model, train_loader)
             accuracy = validate(model, val_loader)
             accuracies.append(accuracy)
-        # visulization(accuracies) # You can use this function to visulize the trend of accuracy change
-        
-        
+        visulization(accuracies)
+
 def task2():
     print('Task 2 with different kernel sizes')
-    kernel_sizes = [] # todo: try different kernel sizes
+    kernel_sizes = [3, 5]
     for kernel_size in kernel_sizes:
+        print(f"\nTraining with {kernel_size}x{kernel_size} kernel size")
         model = SimpleCNN(kernel_size=kernel_size) 
         model = model.to(device)
         accuracies = []
-        for epoch in range(10):  # Loop over the dataset multiple times
+        for epoch in range(10):
             print('Epoch {}/{}'.format(epoch+1, 10))
             train(model, train_loader)
             accuracy = validate(model, val_loader)
             accuracies.append(accuracy)
-        # visulization(accuracies) # You can use this function to visulize the trend of accuracy change
-        
+        visulization(accuracies)
+
 def task3():
     print('Task 3 with different padding')
-    padding_list = [] # todo: try different padding
+    padding_list = [0, 1]
     for padding in padding_list:
+        print(f"\nTraining with padding={padding}")
         model = SimpleCNN(padding=padding) 
         model = model.to(device)
         accuracies = []
-        for epoch in range(10):  # Loop over the dataset multiple times
+        for epoch in range(10):
             print('Epoch {}/{}'.format(epoch+1, 10))
             train(model, train_loader)
             accuracy = validate(model, val_loader)
             accuracies.append(accuracy)
-        # visulization(accuracies) # You can use this function to visulize the trend of accuracy change
+        visulization(accuracies)
 
-def task4(best_num_filters ,best_kernel_size ,best_padding ,dropout_rate ):
+def task4(best_num_filters, best_kernel_size, best_padding, dropout_rate=0.3):
     print('Task 4: Train the best model with dropout')
-    ##YOUR CODE HERE##
-    
+    model = SimpleCNN(num_filters=best_num_filters, 
+                      kernel_size=best_kernel_size, 
+                      padding=best_padding, 
+                      dropout_rate=dropout_rate)
+    model = model.to(device)
+    accuracies = []
+    for epoch in range(10):
+        print('Epoch {}/{}'.format(epoch+1, 10))
+        train(model, train_loader)
+        accuracy = validate(model, val_loader)
+        accuracies.append(accuracy)
+    visulization(accuracies)
 
 if __name__ == "__main__":
     task1()
     task2()
     task3()
-    task4(best_num_filters,best_kernel_size ,best_padding,dropout_rate)
+    best_num_filters = 32
+    best_kernel_size = 3
+    best_padding = 1
+    task4(best_num_filters, best_kernel_size, best_padding, dropout_rate=0.3)
