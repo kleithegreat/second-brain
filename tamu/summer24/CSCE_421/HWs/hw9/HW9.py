@@ -56,10 +56,15 @@ train_dataset = datasets.CIFAR10(root='./data', train=True, download=True, trans
 val_dataset = datasets.CIFAR10(root='./data', train=False, download=True, transform=val_transforms)
 
 # Define data loaders
-train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True, pin_memory=True)
+val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, pin_memory=True)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(f"Using device: {device}")
+
+if device.type == 'cuda':
+    print(f"GPU Name: {torch.cuda.get_device_name(0)}")
+    print(f"GPU Memory: {torch.cuda.get_device_properties(0).total_memory / 1e9:.2f} GB")
 
 def train(model, train_loader, lr=0.01, momentum=0.9):
     criterion = nn.CrossEntropyLoss()
@@ -89,73 +94,81 @@ def validate(model, val_loader):
     print('Validation accuracy: {:.2f}%'.format((accuracy) * 100))
     return accuracy
 
-def visulization(accuracies):
+def visulization(accuracies, task, params):
     plt.figure(figsize=(10, 5))
     plt.plot(accuracies)
-    plt.title('Validation accuracy over epochs')
+    plt.title(f'Validation accuracy over epochs - {task}')
     plt.xlabel('Epochs')
     plt.ylabel('Accuracy')
-    plt.show()
     
+    filename = f'accuracy_{task}'
+    for key, value in params.items():
+        filename += f'_{key}_{value}'
+    filename += '.png'
+    
+    plt.savefig(filename)
+    plt.close()
+
 def task1():
     print('Task 1 with different number of filters')
     num_filters_list = [16, 32]
     for num_filters in num_filters_list:
         print(f"\nTraining with {num_filters} filters")
-        model = SimpleCNN(num_filters=num_filters) 
-        model = model.to(device)
+        model = SimpleCNN(num_filters=num_filters).to(device)
         accuracies = []
         for epoch in range(10):
             print('Epoch {}/{}'.format(epoch+1, 10))
             train(model, train_loader)
             accuracy = validate(model, val_loader)
             accuracies.append(accuracy)
-        visulization(accuracies)
+        visulization(accuracies, 'task1', {'num_filters': num_filters})
 
 def task2():
     print('Task 2 with different kernel sizes')
     kernel_sizes = [3, 5]
     for kernel_size in kernel_sizes:
         print(f"\nTraining with {kernel_size}x{kernel_size} kernel size")
-        model = SimpleCNN(kernel_size=kernel_size) 
-        model = model.to(device)
+        model = SimpleCNN(kernel_size=kernel_size).to(device)
         accuracies = []
         for epoch in range(10):
             print('Epoch {}/{}'.format(epoch+1, 10))
             train(model, train_loader)
             accuracy = validate(model, val_loader)
             accuracies.append(accuracy)
-        visulization(accuracies)
+        visulization(accuracies, 'task2', {'kernel_size': kernel_size})
 
 def task3():
     print('Task 3 with different padding')
     padding_list = [0, 1]
     for padding in padding_list:
         print(f"\nTraining with padding={padding}")
-        model = SimpleCNN(padding=padding) 
-        model = model.to(device)
+        model = SimpleCNN(padding=padding).to(device)
         accuracies = []
         for epoch in range(10):
             print('Epoch {}/{}'.format(epoch+1, 10))
             train(model, train_loader)
             accuracy = validate(model, val_loader)
             accuracies.append(accuracy)
-        visulization(accuracies)
+        visulization(accuracies, 'task3', {'padding': padding})
 
 def task4(best_num_filters, best_kernel_size, best_padding, dropout_rate=0.3):
     print('Task 4: Train the best model with dropout')
     model = SimpleCNN(num_filters=best_num_filters, 
                       kernel_size=best_kernel_size, 
                       padding=best_padding, 
-                      dropout_rate=dropout_rate)
-    model = model.to(device)
+                      dropout_rate=dropout_rate).to(device)
     accuracies = []
     for epoch in range(10):
         print('Epoch {}/{}'.format(epoch+1, 10))
         train(model, train_loader)
         accuracy = validate(model, val_loader)
         accuracies.append(accuracy)
-    visulization(accuracies)
+    visulization(accuracies, 'task4', {
+        'num_filters': best_num_filters,
+        'kernel_size': best_kernel_size,
+        'padding': best_padding,
+        'dropout_rate': dropout_rate
+    })
 
 if __name__ == "__main__":
     task1()

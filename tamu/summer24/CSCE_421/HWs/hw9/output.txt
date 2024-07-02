@@ -1,0 +1,167 @@
+
+󰍲 kevin  …\CSCE_421\HWs\hw9   master !   v3.10.10   17:57 
+ python HW9.py
+Files already downloaded and verified
+Files already downloaded and verified
+Using device: cuda
+GPU Name: NVIDIA GeForce RTX 3080
+GPU Memory: 10.74 GB
+Task 1 with different number of filters
+
+Training with 16 filters
+Epoch 1/10
+Validation accuracy: 61.08%
+Epoch 2/10
+Validation accuracy: 63.77%
+Epoch 3/10
+Validation accuracy: 66.13%
+Epoch 4/10
+Validation accuracy: 64.45%
+Epoch 5/10
+Validation accuracy: 68.17%
+Epoch 6/10
+Validation accuracy: 68.26%
+Epoch 7/10
+Validation accuracy: 69.01%
+Epoch 8/10
+Validation accuracy: 69.57%
+Epoch 9/10
+Validation accuracy: 68.34%
+Epoch 10/10
+Validation accuracy: 68.95%
+
+Training with 32 filters
+Epoch 1/10
+Validation accuracy: 61.19%
+Epoch 2/10
+Validation accuracy: 68.49%
+Epoch 3/10
+Validation accuracy: 70.30%
+Epoch 4/10
+Validation accuracy: 71.22%
+Epoch 5/10
+Validation accuracy: 71.84%
+Epoch 6/10
+Validation accuracy: 70.85%
+Epoch 7/10
+Validation accuracy: 72.04%
+Epoch 8/10
+Validation accuracy: 71.80%
+Epoch 9/10
+Validation accuracy: 72.26%
+Epoch 10/10
+Validation accuracy: 71.72%
+Task 2 with different kernel sizes
+
+Training with 3x3 kernel size
+Epoch 1/10
+Validation accuracy: 59.80%
+Epoch 2/10
+Validation accuracy: 64.80%
+Epoch 3/10
+Validation accuracy: 64.62%
+Epoch 4/10
+Validation accuracy: 66.84%
+Epoch 5/10
+Validation accuracy: 66.86%
+Epoch 6/10
+Validation accuracy: 67.80%
+Epoch 7/10
+Validation accuracy: 68.98%
+Epoch 8/10
+Validation accuracy: 67.70%
+Epoch 9/10
+Validation accuracy: 67.76%
+Epoch 10/10
+Validation accuracy: 67.94%
+
+Training with 5x5 kernel size
+Epoch 1/10
+Validation accuracy: 54.57%
+Epoch 2/10
+Validation accuracy: 61.10%
+Epoch 3/10
+Validation accuracy: 64.87%
+Epoch 4/10
+Validation accuracy: 67.13%
+Epoch 5/10
+Validation accuracy: 65.25%
+Epoch 6/10
+Validation accuracy: 65.38%
+Epoch 7/10
+Validation accuracy: 67.80%
+Epoch 8/10
+Validation accuracy: 67.21%
+Epoch 9/10
+Validation accuracy: 68.61%
+Epoch 10/10
+Validation accuracy: 67.25%
+Task 3 with different padding
+
+Training with padding=0
+Epoch 1/10
+Validation accuracy: 55.50%
+Epoch 2/10
+Validation accuracy: 62.83%
+Epoch 3/10
+Validation accuracy: 61.78%
+Epoch 4/10
+Validation accuracy: 62.37%
+Epoch 5/10
+Validation accuracy: 64.90%
+Epoch 6/10
+Validation accuracy: 63.44%
+Epoch 7/10
+Validation accuracy: 66.25%
+Epoch 8/10
+Validation accuracy: 66.88%
+Epoch 9/10
+Validation accuracy: 68.02%
+Epoch 10/10
+Validation accuracy: 68.06%
+
+Training with padding=1
+Epoch 1/10
+Validation accuracy: 59.53%
+Epoch 2/10
+Validation accuracy: 64.12%
+Epoch 3/10
+Validation accuracy: 62.97%
+Epoch 4/10
+Validation accuracy: 66.87%
+Epoch 5/10
+Validation accuracy: 67.28%
+Epoch 6/10
+Validation accuracy: 69.21%
+Epoch 7/10
+Validation accuracy: 67.42%
+Epoch 8/10
+Validation accuracy: 69.08%
+Epoch 9/10
+Validation accuracy: 68.83%
+Epoch 10/10
+Validation accuracy: 69.28%
+Task 4: Train the best model with dropout
+Epoch 1/10
+Validation accuracy: 61.57%
+Epoch 2/10
+Validation accuracy: 67.24%
+Epoch 3/10
+Validation accuracy: 69.71%
+Epoch 4/10
+Validation accuracy: 69.89%
+Epoch 5/10
+Validation accuracy: 69.41%
+Epoch 6/10
+Validation accuracy: 71.22%
+Epoch 7/10
+Validation accuracy: 71.94%
+Epoch 8/10
+Validation accuracy: 72.93%
+Epoch 9/10
+Validation accuracy: 73.05%
+Epoch 10/10
+Validation accuracy: 73.49%
+
+󰍲 kevin  …\CSCE_421\HWs\hw9   master !?   v3.10.10   18:14 
+
