@@ -2,6 +2,7 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{fancyhdr}
 \usepackage{enumerate}
+\usepackage{algorithm2e}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -14,9 +15,49 @@
 
 \section{Main Idea}
 
-\section{Pseudo Code}
+In the "Maximum Sum Contiguous Subsequence" problem, we are given a sequence $S$ of $n$ numbers, and asked to find the contiguous subsequence with the largest sum.
+Formally, we want to find $$\arg\max_{i, j} \sum_{k=i}^{j} S[k]$$ where $1 \leq i \leq j \leq n$.
+To solve this, we can apply dynamic programming, since this problem exhibits optimal substructure and overlapping subproblems.
+The main idea of this algorithm is keeping track of positive contributions to the sum.
+First, we initialize variables to keep track of the maximum sum, the current sum, and the indices of the maximum sum subsequence.
+Then, we loop through the sequence for each ending index $j \in \{1, 2, \ldots, n\}$.
+On each iteration, we add the current number to the current sum.
+If the current sum is greater than the maximum sum, we update the maximum sum and the indices of the maximum sum subsequence.
+If the current sum becomes negative, we reset the current sum to 0 and update the starting index of the subsequence to the next index.
+At the end of the loop, we use the saved indices to return the maximum sum subsequence.
 
-\section{Proving Correctness}
+\section{Pseudocode}
+
+\RestyleAlgo{ruled}
+\begin{algorithm}[H]
+\caption{Maximum Sum Contiguous Subsequence}
+\KwIn{A sequence $S$ of $n$ numbers}
+\KwOut{A contiguous subsequence of $S$ with the largest sum}
+$maxSum = -\infty$\;
+$currentSum = 0$\;
+$i_{max}$, $j_{max}$, $i = 1$\;
+\For{$j = 1$ \KwTo $n$}{
+    $currentSum$ += $S[j]$\;
+    \If{$currentSum > maxSum$}{
+        $maxSum = currentSum$\;
+        $i_{max} = i$\;
+        $j_{max} = j$\;
+    }
+    \If{$currentSum < 0$}{
+        $currentSum = 0$\;
+        $i = j$\;
+    }
+}
+\Return{$S[i_{max}: j_{max}]$}
+\end{algorithm}
+
+\section{Proof of Correctness}
+
+We will prove the correctness of the algorithm by induction.
+
+\begin{proof}
+
+\end{proof}
 
 \section{Runtime Analysis}
 
