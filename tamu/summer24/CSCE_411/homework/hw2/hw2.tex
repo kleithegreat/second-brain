@@ -44,16 +44,49 @@ $i = 1$\;
 \Return $P$\;
 \end{algorithm}
 
+\newpage
+
 \section{Proof of Correctness}
 
+We will use induction to prove the correctness of the algorithm.
 
+\subsection{Base Case}
+For $n=1$, the algorithm will place a phone station at $\min(x_1 + k, L)$.
+This is clearly optimal, as there is only one house to cover.
+
+\subsection{Inductive Hypothesis}
+Assume that the algorithm is correct for all $n \leq m$.
+
+\subsection{Inductive Step}
+We want to show that the algorithm is correct for $n = m + 1$.
+This algorithm will place the first phone station $p_1$ at $\min(x_1 + k, L)$.
+Thus, this will cover all the houses between $x_1$ and $x_i$ where $x_i \leq p_1 + k < x_{i+1}$.
+At this point, there are two cases to consider:
+\begin{enumerate}
+    \item If $x_{i+1} > L$, then $p_1$ is the only phone station needed.
+    This is clearly optimal, as no placement further east can cover the first house.
+    \item If $x_{i+1} \leq L$, then we need to cover the houses from $x_{i+1}$ to $x_{m+1}$.
+    By the inductive hypothesis, the algorithm will place the phone stations optimally to cover these houses.
+\end{enumerate}
+
+Now, seeking a contradiction, suppose that the algorithm is not optimal.
+In other words, there exists a solution that uses fewer phone stations.
+However, that would require either of the following:
+\begin{enumerate}
+    \item The first phone station is places further west of $p_1$.
+    This would cover fewer houses with the same number of phone stations, thus a contradiction.
+    \item The phone stations are placed further east of $p_1$.
+    This would not cover the first house at all, making the solution incorrect.
+\end{enumerate}
+
+Therefore, the algorithm is correct and optimal for any number of houses.
 
 \section{Runtime Analysis}
 
 Initializing the set of phone stations $P$ and index $i$ takes $O(1)$ time.
 The outer loop runs at most $n$ times.
 Calculating the position of the phone station $p_i$ and adding it to the set $P$ takes $O(1)$ time.
-The inner loop runs at most $n$ times acroos all iterations of the outer loop, since they share the same index $i$, meaning that each house is visited at most once.
+The inner loop runs at most $n$ times across all iterations of the outer loop, since they share the same index $i$, meaning that each house is visited at most once.
 Therefore, this algorithm runs in $O(n)$ time.
 
 \end{document}
