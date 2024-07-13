@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "64598fb35d45ec97",
+        "id": "2d05e3de8127d922",
         "type": "tabs",
         "children": [
           {
-            "id": "1393b54ad86b3ad1",
+            "id": "16012a04d4fee822",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tamu/summer24/CSCE_421/notes/svm.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -93,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/summer24/CSCE_421/notes/svm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/summer24/CSCE_421/notes/svm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,12 +126,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "tamu/summer24/CSCE_421/notes/svm.md"
-              }
+              "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -154,8 +147,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1393b54ad86b3ad1",
+  "active": "16012a04d4fee822",
   "lastOpenFiles": [
+    "tamu/summer24/CSCE_411/homework/hw3/test.py",
+    "tamu/summer24/CSCE_411/homework/hw3/hw3.tex",
+    "tamu/summer24/CSCE_411/homework/hw3/20_Gra_PourWater.pdf",
+    "tamu/summer24/CSCE_411/homework/hw3",
+    "tamu/summer24/CSCE_411/notes/16_amortized_analysis.md",
+    "tamu/summer24/CSCE_411/notes/15_greedy_algorithms.md",
+    "tamu/summer24/CSCE_411/notes/14_dynamic_programming.md",
+    "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md",
     "tamu/summer24/CSCE_421/notes/svm.md",
     "tamu/summer24/CSCE_421/notes/perceptron.md",
     "tamu/summer24/CSCE_421/notes/knn.md",
@@ -176,9 +177,6 @@
     "tamu/summer24/CSCE_421/HWs/hw5",
     "tamu/summer24/CSCE_421/HWs/hw4/HW4_starterCode.py",
     "tamu/summer24/CSCE_421/HWs/hw4/HW4.py",
-    "tamu/summer24/CSCE_421/textbooks/Ethem Alpaydin - Introduction to Machine Learning-The MIT Press (2014).pdf",
-    "tamu/summer24/CSCE_421/textbooks/Jeremy Watt_ Reza Borhani_ Aggelos Katsaggelos - Machine Learning Refined_ Foundations, Algorithms, and Applications-Cambridge University Press (2020).pdf",
-    "tamu/summer24/CSCE_421/textbooks/Trevor Hastie, Robert Tibshirani, Jerome Friedman - The elements of statistical learning_ Data mining, inference, and prediction-Springer (2009).pdf",
     "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
@@ -191,11 +189,6 @@
     "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
     "tamu/3S24/CSCE_314/notes/pl_impl.md",
     "tamu/3S24/CSCE_314/notes/java.md",
-    "tamu/3S24/CSCE_314/notes/haskell/12_Monads_and_more.md",
-    "tamu/3S24/CSCE_314/notes/haskell/10_Interactive_programming.md",
-    "tamu/3S24/CSCE_314/notes/haskell/8_Declaring_types_and_classes.md",
-    "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
-    "tamu/3S24/CSCE_314/notes/haskell/6_Recursive_functions.md",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.21.png",
