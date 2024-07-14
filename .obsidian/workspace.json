@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "2d05e3de8127d922",
+        "id": "017f3831b20422ee",
         "type": "tabs",
         "children": [
           {
-            "id": "16012a04d4fee822",
+            "id": "fa666132885f43aa",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md"
+              }
             }
           }
         ],
@@ -147,16 +155,24 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "16012a04d4fee822",
+  "active": "fa666132885f43aa",
   "lastOpenFiles": [
-    "tamu/summer24/CSCE_411/homework/hw3/test.py",
-    "tamu/summer24/CSCE_411/homework/hw3/hw3.tex",
-    "tamu/summer24/CSCE_411/homework/hw3/20_Gra_PourWater.pdf",
-    "tamu/summer24/CSCE_411/homework/hw3",
+    "tamu/summer24/CSCE_411/projects/project1/report.aux",
+    "tamu/summer24/CSCE_411/projects/project1/report.log",
+    "tamu/summer24/CSCE_411/projects/project1/code/tests/examples_of_solutions",
+    "tamu/summer24/CSCE_411/projects/project1/code/tests/examples_of_small_instances",
+    "tamu/summer24/CSCE_411/projects/project1/code/tests/examples_of_medium_instances",
+    "tamu/summer24/CSCE_411/projects/project1/code/tests/examples_of_large_instances",
+    "tamu/summer24/CSCE_411/projects/project1/code/tests/examples_of_instances",
+    "tamu/summer24/CSCE_411/projects/project1/code/tests",
+    "tamu/summer24/CSCE_411/projects/project1/code/algo.hs",
+    "tamu/summer24/CSCE_411/projects/project1/code/examples_of_solutions",
+    "tamu/summer24/CSCE_411/projects/project1/code/examples_of_small_instances",
+    "tamu/summer24/CSCE_411/notes/21_minimum_spanning_trees.md",
+    "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md",
     "tamu/summer24/CSCE_411/notes/16_amortized_analysis.md",
     "tamu/summer24/CSCE_411/notes/15_greedy_algorithms.md",
     "tamu/summer24/CSCE_411/notes/14_dynamic_programming.md",
-    "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md",
     "tamu/summer24/CSCE_421/notes/svm.md",
     "tamu/summer24/CSCE_421/notes/perceptron.md",
     "tamu/summer24/CSCE_421/notes/knn.md",
@@ -170,13 +186,6 @@
     "tamu/summer24/CSCE_421/notes/naive_bayes.md",
     "tamu/summer24/CSCE_421/notes/intro.md",
     "tamu/summer24/CSCE_421/notes/gradient_descent.md",
-    "tamu/summer24/CSCE_421/HWs/hw5/HW5.py",
-    "tamu/summer24/CSCE_421/HWs/hw5/HW5_Starter_Code.py",
-    "tamu/summer24/CSCE_421/HWs/hw5/HW5.pdf",
-    "tamu/summer24/CSCE_421/HWs/hw5/data.csv",
-    "tamu/summer24/CSCE_421/HWs/hw5",
-    "tamu/summer24/CSCE_421/HWs/hw4/HW4_starterCode.py",
-    "tamu/summer24/CSCE_421/HWs/hw4/HW4.py",
     "tamu/3S24/CSCE_312/notes/bryant_ch1.md",
     "tamu/3S24/CSCE_312/notes/bryant_ch3.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch1.md",
@@ -188,7 +197,6 @@
     "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
     "tamu/3S24/CSCE_314/notes/pl_impl.md",
-    "tamu/3S24/CSCE_314/notes/java.md",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.21.png",

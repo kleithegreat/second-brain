@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{algorithm2e}
+
+\title{Project of Algorithms on Condition Satisfiability}
+\author{Kevin Lei}
+\date{July 22, 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Main Idea}
+
+In the ``Condition Satisfiability Problem", we are given the following:
+\begin{enumerate}
+    \item $n$ boolean variables $x_1, x_2, \ldots, x_n$.
+    \item A set $L = \{T_1, T_2, \ldots, T_P\}$ of $P$ ``\textit{lead-to}" conditions.
+    A ``\textit{lead-to}" condition has the form $(x_{i_1} \land x_{i_2} \land \ldots \land x_{i_k}) \Rightarrow x_j$, 
+    meaning that if $x_{i_1} \land x_{i_2} \land \ldots \land x_{i_k}$ is true, then $x_j$ is true.
+    The degenerate case is when $k = 0$, in which case the condition is simply $x_j$.
+    \item A set $F = \{M_1, M_2, \ldots, M_Q\}$ of $Q$ ``\textit{False-must-exist}" conditions.
+    A ``\textit{False-must-exist}" condition has the form $(\neg x_{i_1} \lor \neg x_{i_2} \lor \ldots \lor \neg x_{i_k})$,
+    meaning that if at least one of $x_{i_1}, x_{i_2}, \ldots, x_{i_k}$ is false, then the condition is true.
+\end{enumerate}
+
+We want to find the truth values of the $n$ boolean variables $x_1, x_2, \ldots, x_n$ that satisfy all of the $P + Q$ conditions in $L$ and $F$.
+If there is no such assignment, then we want to output ``\textit{No satisfying solution exists}".
+\vspace{1em}
+\newline\noindent
+The main idea behind this algorithm is to initialize a set of $n$ boolean variables to be all false.
+Then, we will iteratively update the truth values based on the constraints in $L$ and $F$.
+
+\section{Pseudocode}
+
+\RestyleAlgo{ruled}
+\begin{algorithm}[H]
+\caption{Conditoin Satisfiability}
+\KwIn{$n$ boolean variables $x_1, x_2, \ldots, x_n$, set $L = \{T_1, T_2, \ldots, T_P\}$ of $P$ ``\textit{lead-to}" conditions, set $F = \{M_1, M_2, \ldots, M_Q\}$ of $Q$ ``\textit{False-must-exist}" conditions}
+\KwOut{Truth values of $x_1, x_2, \ldots, x_n$ that satisfy all of the $P + Q$ conditions in $L$ and $F$, or ``\textit{No satisfying solution exists}"}
+$x_i = \text{false}$ for $i = 1, 2, \ldots, n$\;
+$cont$ = true\;
+\While{$cont$}{
+    $cont$ = false\;
+    \For{$T$ in $L$}{
+        $lhs
+    }
+}
+\For{$i = 1$ to $P$}{
+
+}
+\For{$i = 1$ to $Q$}{
+
+}
+\Return{$x_1, x_2, \ldots, x_n$}
+\end{algorithm}
+
+\section{Proof of Correctness}
+
+\section{Runtime Complexity Analysis}
+
+\end{document}
