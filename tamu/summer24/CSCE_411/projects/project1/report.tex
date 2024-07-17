@@ -16,45 +16,70 @@
 
 In the ``Condition Satisfiability Problem", we are given the following:
 \begin{enumerate}
-    \item $n$ boolean variables $x_1, x_2, \ldots, x_n$.
-    \item A set $L = \{T_1, T_2, \ldots, T_P\}$ of $P$ ``\textit{lead-to}" conditions.
-    A ``\textit{lead-to}" condition has the form $(x_{i_1} \land x_{i_2} \land \ldots \land x_{i_k}) \Rightarrow x_j$, 
-    meaning that if $x_{i_1} \land x_{i_2} \land \ldots \land x_{i_k}$ is true, then $x_j$ is true.
-    The degenerate case is when $k = 0$, in which case the condition is simply $x_j$.
-    \item A set $F = \{M_1, M_2, \ldots, M_Q\}$ of $Q$ ``\textit{False-must-exist}" conditions.
-    A ``\textit{False-must-exist}" condition has the form $(\neg x_{i_1} \lor \neg x_{i_2} \lor \ldots \lor \neg x_{i_k})$,
-    meaning that if at least one of $x_{i_1}, x_{i_2}, \ldots, x_{i_k}$ is false, then the condition is true.
+    \item A number of $n$ boolean variables $x_1, x_2, \ldots, x_n$, where $x_i$ must be either true or false.
+    \item A set of $P$ ``lead-to'' conditions $L = \{T_1, T_2, \ldots, T_P\}$, where each $T_i$ has $k_i \geq 0$ boolean variables to the left of its $\Rightarrow$ symbol and always one boolean variable to the right.
+    A ``lead-to" condition takes the form of $(x_{i_1} \land x_{i_2} \land \ldots \land x_{i_k}) \Rightarrow x_j$.
+    The $k_i + 1$ variables for each $T_i \in L$ are unique, and the degenerate case with $k=0$ simply means that $x_j$ is true.
+    \item A set of $Q$ ``false-must-exist" conditions $F = \{M_1, M_2, \ldots, M_Q\}$, where each $M_i$ is a cumulative logical OR of $m_i > 0$ negated boolean variables.
+    A ``false-must-exist" condition takes the form of $(\neg x_{i_1} \lor \neg x_{i_2} \lor \ldots \lor \neg x_{m})$.
+    The $m_i$ variables for each $M_i \in F$ are unique.
 \end{enumerate}
 
-We want to find the truth values of the $n$ boolean variables $x_1, x_2, \ldots, x_n$ that satisfy all of the $P + Q$ conditions in $L$ and $F$.
+We want to find the truth values of $x_1, x_2, \ldots, x_n$ such that the $P$ conditions in $L$ and the $Q$ conditions in $F$ will all evaluate to true.
+Such an assignment of truth values is called a ``satisfying solution".
 If there is no such assignment, then we want to output ``\textit{No satisfying solution exists}".
 \vspace{1em}
 \newline\noindent
 The main idea behind this algorithm is to initialize a set of $n$ boolean variables to be all false.
-Then, we will iteratively update the truth values based on the constraints in $L$ and $F$.
+Then, we iterate through all of the conditions until no more changes are being made.
+We check the ``lead-to" conditions first, and if any has a true left-hand side and a false right-hand side, then we set the variable on the right-hand side to true.
+We then check the ``false-must-exist" conditions, and if any has all of its variables to be true, then we set the first variable in the statement to false.
+Once no more changes can be made according to our rules, we do a final check of all the conditions.
+If any of them fail, then we output ``\textit{No satisfying solution exists}".
+After we check all of the conditions and they all pass, then we output the satisfying solution.
 
 \section{Pseudocode}
 
 \RestyleAlgo{ruled}
 \begin{algorithm}[H]
-\caption{Conditoin Satisfiability}
-\KwIn{$n$ boolean variables $x_1, x_2, \ldots, x_n$, set $L = \{T_1, T_2, \ldots, T_P\}$ of $P$ ``\textit{lead-to}" conditions, set $F = \{M_1, M_2, \ldots, M_Q\}$ of $Q$ ``\textit{False-must-exist}" conditions}
-\KwOut{Truth values of $x_1, x_2, \ldots, x_n$ that satisfy all of the $P + Q$ conditions in $L$ and $F$, or ``\textit{No satisfying solution exists}"}
-$x_i = \text{false}$ for $i = 1, 2, \ldots, n$\;
-$cont$ = true\;
-\While{$cont$}{
-    $cont$ = false\;
-    \For{$T$ in $L$}{
-        $lhs
+\caption{Condition Satisfiability}
+\KwIn{$n$ boolean variables, a set $L = \{T_1, T_2, \ldots, T_P\}$ of $P$ ``lead-to" conditions, and a set $F = \{M_1, M_2, \ldots, M_Q\}$ of $Q$ ``false-must-exist" conditions.}
+\KwOut{A satisfying solution or ``No satisfying solution exists".}
+
+$x_1, x_2, \ldots, x_n$ = false\;
+changed = true\;
+
+\While{changed}{
+    changed = false\;
+    
+    \For{each $T_i \in L$}{
+        \If{$(x_{i_1} \land x_{i_2} \land \ldots \land x_{i_k}) \land \neg x_j$}{
+            $x_j$ = true\;
+            changed = true\;
+        }
+    }
+    
+    \For{each $M_i \in F$}{
+        \If{$\neg M_i$}{
+            $x_{i_1}$ = false\;
+            changed = true\;
+        }
     }
 }
-\For{$i = 1$ to $P$}{
 
+\For{each $T_i \in L$}{
+    \If{$(x_{i_1} \land x_{i_2} \land \ldots \land x_{i_k}) \land \neg x_j$}{
+        \Return ``No satisfying solution exists"\;
+    }
 }
-\For{$i = 1$ to $Q$}{
 
+\For{each $M_i \in F$}{
+    \If{$\neg M_i$}{
+        \Return ``No satisfying solution exists"\;
+    }
 }
-\Return{$x_1, x_2, \ldots, x_n$}
+
+\Return $x_1, x_2, \ldots, x_n$\;
 \end{algorithm}
 
 \section{Proof of Correctness}

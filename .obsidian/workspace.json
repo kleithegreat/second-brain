@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "017f3831b20422ee",
+        "id": "809f1e34277fc888",
         "type": "tabs",
         "children": [
           {
-            "id": "fa666132885f43aa",
+            "id": "a175493c8e4f6283",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -93,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,9 +126,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -155,10 +147,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fa666132885f43aa",
+  "active": "a175493c8e4f6283",
   "lastOpenFiles": [
     "tamu/summer24/CSCE_411/projects/project1/report.aux",
     "tamu/summer24/CSCE_411/projects/project1/report.log",
+    "tamu/3S24/CSCE_314/notes/haskell/7_Higher-order_functions.md",
+    "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md",
     "tamu/summer24/CSCE_411/projects/project1/code/tests/examples_of_solutions",
     "tamu/summer24/CSCE_411/projects/project1/code/tests/examples_of_small_instances",
     "tamu/summer24/CSCE_411/projects/project1/code/tests/examples_of_medium_instances",
@@ -167,9 +161,7 @@
     "tamu/summer24/CSCE_411/projects/project1/code/tests",
     "tamu/summer24/CSCE_411/projects/project1/code/algo.hs",
     "tamu/summer24/CSCE_411/projects/project1/code/examples_of_solutions",
-    "tamu/summer24/CSCE_411/projects/project1/code/examples_of_small_instances",
     "tamu/summer24/CSCE_411/notes/21_minimum_spanning_trees.md",
-    "tamu/summer24/CSCE_411/notes/20_elementary_graph_algorithms.md",
     "tamu/summer24/CSCE_411/notes/16_amortized_analysis.md",
     "tamu/summer24/CSCE_411/notes/15_greedy_algorithms.md",
     "tamu/summer24/CSCE_411/notes/14_dynamic_programming.md",
@@ -196,7 +188,6 @@
     "tamu/3S24/CSCE_312/notes/bryant_ch4.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch4.md",
     "tamu/3S24/CSCE_312/notes/vahid_ch5.md",
-    "tamu/3S24/CSCE_314/notes/pl_impl.md",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.62.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.40.png",
     "tamu/3S24/CSCE_312/homework/hw2/images/4.21.png",
