@@ -78,6 +78,38 @@ $labels[w]$ = $l$\;
 
 \section{Proof of Correctness}
 
+To prove the correctness of our algorithm, we need to show the following:
+\begin{enumerate}
+    \item If a valid labeling exists, our algorithm will find it.
+    \item If our algorithm returns a labeling, it is valid.
+    \item If no valid labeling exists, our algorithm will return "No".
+\end{enumerate}
+
+First, suppose that a valid labeling exists.
+Our DFS traversal is guaranteed to visit every connected component of the graph.
+For each vertex, we assign the opposite label of its parent in the DFS tree.
+This ensures that all rivalries are between a babyface and a heel.
+If a valid labeling exists, this process will find it, since it is basically the same as 2-coloring the graph.
+Now suppose that our algorithm returns a labeling.
+The DFS function only returns \texttt{True} if it can correctly assign labels to all vertices in the connected component, i.e., if a valid labeling exists.
+A conflict occurs when two rivals have the same label, which makes the function immediately return \texttt{False}.
+The main function only returns labels if DFS succeeds for all components.
+Therefore, if our algorithm returns a labeling, it is valid.
+Finally, suppose that no valid labeling exists.
+In this case, at some point during the DFS, there must be some point where we try to label two rivals with the same label.
+This will cause DFS to immediately return \texttt{False}, and the main function will return "No".
+Thus, the algorithm is correct.
+
 \section{Time Complexity Analysis}
+
+Initializing the adjacency list and label array takes $O(n)$ time.
+Populating the adjacency list takes $O(r)$ time.
+The dominant operation here is the DFS traversal.
+In the worst case, the DFS loop will visit all $n$ vertices and $r$ edges once.
+Each vertex is processed once when it is first discovered, and each edge processed twice (once for each endpoint).
+Both are $O(1)$ operations, done in $O(n)$ and $O(r)$ time, respectively.
+Therefore, the whole loop takes $O(n + r)$ time.
+In the end, we construct the lists of babyfaces and heels, which takes $O(n)$ time.
+Thus, the total time complexity of our algorithm is $O(n + r)$.
 
 \end{document}
