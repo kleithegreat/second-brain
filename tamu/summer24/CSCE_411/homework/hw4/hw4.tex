@@ -3,7 +3,7 @@
 \usepackage{fancyhdr}
 \usepackage{enumerate}
 \usepackage[ruled]{algorithm2e}
-\usepackage{geometry}[margin=1in]
+%\usepackage{geometry}[margin=1in]
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -16,7 +16,65 @@
 
 \section{Main Idea}
 
+In this problem, there are two types of professional wrestlers: babyfaces (``good guys") and heels (``bad guys"), and between any two wrestlers, there may or may not be a rivalry.
+Given $n$ professional wrestlers and a list of $r$ pairs of wrestlers with rivalries, we want to determine whether it is possible to designate some of the wrestlers as babyfaces and the remainder as heels such that each rivalry is between a babyface and a heel in $O(n+r)$ time.
+
+The main idea of the solution is to represent the wrestlers as vertices in a graph, and the rivalries as edges between the vertices.
+Then, we use DFS to traverse the graph and assign babyface and heel labels to the vertices.
+In the end, if we can assign labels to all the vertices, then we return the labels; otherwise, we return ``No".
+
 \section{Pseudocode}
+
+In this pseudocode, we represent the wrestlers as numbers from 1 to $n$.
+Arrays are indexed starting from 1.
+The graph $G$ is represented as an adjacency list, where $G[i]$ is the list of vertices adjacent to vertex $i$.
+We assume that $r$ is a list of pairs of wrestlers with rivalries, where each pair is represented as a tuple $(u, v)$.
+We have an array of labels $labels$ where the index $i$ corresponds to the label of wrestler $i$.
+
+\vspace{1em}
+
+\begin{algorithm}[H]
+\caption{Assign Labels to Wrestlers}
+\KwIn{A list of $n$ professional wrestlers and $r$ pairs of wrestlers with rivalries}
+\KwOut{A list of labels for the wrestlers or ``No" if no such assignment exists}
+\BlankLine
+$G$ = [[] for $i = 1$ to $n$] \tcp*{Adjacency list}
+$labels$ = [``" for $i = 1$ to $n$] \tcp*{Array of labels}
+\For{$(w_1, w_2)$ in $r$}{
+    $G[w_1]$.append($w_2$)\;
+    $G[w_2]$.append($w_1$)\;
+}
+\For{$i = 1$ to $n$}{
+    \If{$labels[i]$ = ``"}{
+        \If{not DFS($G, labels, i, ``babyface"$)}{
+            \Return ``No"\;
+        }
+    }
+}
+$babyfaces$ = [i for $i = 1$ to $n$ if $labels[i]$ = ``babyface"]\;
+$heels$ = [i for $i = 1$ to $n$ if $labels[i]$ = ``heel"]\;
+\Return $babyfaces, heels$\;
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{DFS}
+\KwIn{Reference to the graph $G$, reference to the array of labels $labels$, wrestler $w$, label $l$}
+\KwOut{True if the labels can be assigned, False otherwise}
+\BlankLine
+$labels[w]$ = $l$\;
+\For{$rival$ in $G[w]$}{
+    \If{$labels[rival]$ = $l$}{
+        \Return False\;
+    }
+    \If{$labels[rival]$ = ``"}{
+        $opposite$ = ``babyface" if $l$ = ``heel" else ``heel"\;
+        \If{not DFS($G, labels, rival, opposite$)}{
+            \Return False\;
+        }
+    }
+    \Return True\;
+}
+\end{algorithm}
 
 \section{Proof of Correctness}
 
