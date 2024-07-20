@@ -33,10 +33,9 @@ If there is no such assignment, then we want to output ``\textit{No satisfying s
 The main idea behind this algorithm is to initialize a set of $n$ boolean variables to be all false.
 Then, we iterate through all of the conditions until no more changes are being made.
 We check the ``lead-to" conditions first, and if any has a true left-hand side and a false right-hand side, then we set the variable on the right-hand side to true.
-We then check the ``false-must-exist" conditions, and if any has all of its variables to be true, then we set the first variable in the statement to false.
-Once no more changes can be made according to our rules, we do a final check of all the conditions.
-If any of them fail, then we output ``\textit{No satisfying solution exists}".
-After we check all of the conditions and they all pass, then we output the satisfying solution.
+In each iteration, after we check all of the ``lead-to" conditions, we check if any of the ``false-must-exist" conditions are broken.
+If any of them are broken, we can early return ``\textit{No satisfying solution exists}", since there must be a contradiction in the conditions.
+Once no more changes can be made according to our rules, we output the truth values of $x_1, x_2, \ldots, x_n$.
 
 \section{Pseudocode}
 
@@ -45,45 +44,50 @@ After we check all of the conditions and they all pass, then we output the satis
 \caption{Condition Satisfiability}
 \KwIn{$n$ boolean variables, a set $L = \{T_1, T_2, \ldots, T_P\}$ of $P$ ``lead-to" conditions, and a set $F = \{M_1, M_2, \ldots, M_Q\}$ of $Q$ ``false-must-exist" conditions.}
 \KwOut{A satisfying solution or ``No satisfying solution exists".}
-
+\BlankLine
 $x_1, x_2, \ldots, x_n$ = false\;
-changed = true\;
-
+$changed$ = true\;
+\BlankLine
 \While{changed}{
-    changed = false\;
-    
+    $changed$ = false\;
+    \BlankLine
     \For{each $T_i \in L$}{
         \If{$(x_{i_1} \land x_{i_2} \land \ldots \land x_{i_k}) \land \neg x_j$}{
             $x_j$ = true\;
-            changed = true\;
+            $changed$ = true\;
         }
     }
-    
+    \BlankLine
     \For{each $M_i \in F$}{
         \If{$\neg M_i$}{
-            $x_{i_1}$ = false\;
-            changed = true\;
+            \Return ``No satisfying solution exists"\;
         }
     }
 }
-
-\For{each $T_i \in L$}{
-    \If{$(x_{i_1} \land x_{i_2} \land \ldots \land x_{i_k}) \land \neg x_j$}{
-        \Return ``No satisfying solution exists"\;
-    }
-}
-
-\For{each $M_i \in F$}{
-    \If{$\neg M_i$}{
-        \Return ``No satisfying solution exists"\;
-    }
-}
-
+\BlankLine
 \Return $x_1, x_2, \ldots, x_n$\;
 \end{algorithm}
 
 \section{Proof of Correctness}
 
+Initially, the algorithm will set all of the variables $x_1, x_2, \ldots, x_n$ to false.
+In the main while loop, we enforce the conditions in $L$ by setting the right-hand side of any $T_i \in L$ to true if and only if the entire left-hand side is true and the right-hand side is false.
+When this happens, the right hand side \textit{must} be true, or else the condition would be broken.
+Thus, we only change the variables in $L$ if they need to be changed.
+After we have iterated through all of the conditions in $L$, we check the conditions in $F$.
+If we break any of the conditions in $F$ in an attempt to satisfy the conditions in $L$, then we early return ``\textit{No satisfying solution exists}".
+This is because all of the conditions in $F$ will initially be true, and if we break any of them, then it is broken out of necessity to satisfy some condition in $L$.
+This loop will run until no more changes can be made, i.e. all of the conditions in $L$ and $F$ are satisfied.
+Thus, the algorithm will output a satisfying solution if one exists, and ``\textit{No satisfying solution exists}" otherwise.
+The algorithm is correct.
+
 \section{Runtime Complexity Analysis}
+
+Initializing the $n$ boolean variables takes $O(n)$ time.
+The main while loop will run until no more changes can be made, so the worst case is that the loop runs $n$ times.
+Inside the main while loop, the first for loop will run up to $P$ times per main loop iteration, and the second for loop will run up to $Q$ times per main loop iteration.
+The first for loop will need to evaluate $k_i$ logical ANDs for each $T_i \in L$, and the second for loop will need to evaluate $m_i$ logical ORs for each $M_i \in F$.
+We shall call $k_{\text{max}} = \max\{k_1, k_2, \ldots, k_P\}$ and $m_{\text{max}} = \max\{m_1, m_2, \ldots, m_Q\}$.
+Thus, the runtime complexity of the algorithm is $O(n (P \cdot k_{\text{max}} + Q \cdot m_{\text{max}}))$.
 
 \end{document}
