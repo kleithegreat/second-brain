@@ -57,12 +57,17 @@ def print_solutions(predicted: List[List[int]], actual: List[List[int]]):
     print("\nOverall match:", "✓" if predicted == actual else "✗")
 
 if __name__ == '__main__':
-    test_file = './tests/examples_of_instances'
-    solutions_file = './tests/examples_of_solutions'
+    with open('./tests/test_set_small_instances', 'rb') as f:
+        small_instances = pickle.load(f)
+    with open('./tests/test_set_medium_instances', 'rb') as f:
+        medium_instances = pickle.load(f)
+    with open('./tests/test_set_large_instances', 'rb') as f:
+        large_instances = pickle.load(f)
 
-    with open(test_file, 'rb') as f:
-        instances = pickle.load(f)
-    with open(solutions_file, 'rb') as f:
-        given_solutions = pickle.load(f)
-    
-    print_solutions(solve_all_instances(instances), given_solutions)
+    small_predicted = solve_all_instances(small_instances)
+    medium_predicted = solve_all_instances(medium_instances)
+    large_predicted = solve_all_instances(large_instances)
+
+    pickle.dump(small_predicted, open('small_solutions', 'wb'))
+    pickle.dump(medium_predicted, open('medium_solutions', 'wb'))
+    pickle.dump(large_predicted, open('large_solutions', 'wb'))
