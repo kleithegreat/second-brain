@@ -11,28 +11,70 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\arraystretch}{1.2}
 
+\newtheorem{theorem}{Theorem}
+
 \begin{document}
 
-\section{Main Idea}
+\noindent In this exercise, we want to show that the subgraph isomorphism problem is NP-complete.
+The subgraph isomorphism problem takes two undirected graphs $G_1$ and $G_2$ as input and asks whether $G_1$ is isomorphic to a subgraph of $G_2$.
 
+\begin{theorem}
+The subgraph isomorphism problem is NP-complete.
+\end{theorem}
 
+\begin{proof}
+    A problem is NP-complete if it is in NP and every problem in NP is reducible to it in polynomial time.
+    First, we show that the subgraph isomorphism problem is in NP, i.e. we can verify a proposed solution in polynomial time.
+    Given graphs $G_1$ and $G_2$ and a mapping $f: V_{G_1} \to V_{G_2}$, we must determine the following in polynomial time:
+    \begin{enumerate}
+        \item Whether $f$ is an injection.
+        \item Whether for all edges $(u, v) \in E_{G_1}$, $(f(u), f(v)) \in E_{G_2}$.
+    \end{enumerate}
+    The function $f$ is an injection if and only if for all $u, v \in V_{G_1}$, $f(u) = f(v)$ implies $u = v$.
+    A simple algorithm to verify this is as follows:
 
-\section{Pseudocode}
+    \begin{algorithm}[H]
+        \caption{Verify Injection}
+        \KwIn{Graphs $G_1$ and $G_2$, mapping $f: V_{G_1} \to V_{G_2}$}
+        \KwOut{Whether $f$ is an injection}
+        Initialize hash map $H$\;
+        \For{$u \in V_{G_1}$}{
+            \If{$H[f(u)]$ is defined}{
+                \Return false\;
+            }
+            $H[f(u)] = u$\;
+        }
+        \Return true\;
+    \end{algorithm}
 
-\begin{algorithm}[H]
-\caption{}
-\KwIn{}
-\KwOut{}
-\BlankLine
+    The runtime of this algorithm is bounded solely by the number of vertices in $G_1$, i.e. $O(|V_{G_1}|)$, so it runs in polynomial time.
+    To verify the second condition, we simply iterate over all edges in $G_1$ and check whether the corresponding edges exist in $G_2$.
+    A simple algorithm to verify this is as follows:
 
-\end{algorithm}
+    \begin{algorithm}[H]
+        \caption{Verify Edge Mapping}
+        \KwIn{Graphs $G_1$ and $G_2$, mapping $f: V_{G_1} \to V_{G_2}$}
+        \KwOut{Whether $f$ maps edges of $G_1$ to edges of $G_2$}
+        Initialize hash set $S$ from $E_{G_2}$\;
+        \For{$(u, v) \in E_{G_1}$}{
+            \If{$(f(u), f(v)) \notin S$}{
+                \Return false\;
+            }
+        }
+        \Return true\;
+    \end{algorithm}
 
-\section{Proof of Correctness}
+    The runtime of this algorithm is bounded by the number of edges in $G_1$, i.e. $O(|E_{G_1}|)$, so it runs in polynomial time.
+    Therefore, the subgraph isomorphism problem is in NP.
 
+    Next, we want to show the following:
+    \begin{enumerate}
+        \item The NP-complete problem 3-SAT can be reduced to the subgraph isomorphism problem.
+        \item The reduction from 3-SAT to the subgraph isomorphism problem preserves answers.
+        \item The reduction from 3-SAT to the subgraph isomorphism problem can be done in polynomial time.
+    \end{enumerate}
 
-
-\section{Runtime Analysis}
-
-
+    Given a 3-SAT formula $\varphi$ with $n$ boolean variables $x_1, x_2, \ldots, x_n$ and $m$ clauses $C_1, C_2, \ldots, C_m$, we can construct the graphs $G_1$ and $G_2$ as follows:
+\end{proof}
 
 \end{document}
