@@ -1,0 +1,206 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+% ---------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-5pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\huge \scshape Kevin Lei} \\ \vspace{1pt}
+    \small (908) 200-8063 $|$ \href{mailto:x@x.com}{\underline{kevinlei@tamu.edu}} $|$ 
+    \href{https://www.linkedin.com/in/kevin-lei-b88410216/}{\underline{linkedin.com/in/kevin-lei-b88410216}} $|$
+    \href{https://www.github.com/kleithegreat}{\underline{github.com/kleithegreat}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Texas A\&M University}{August 2022 -- May 2026}
+      {Bachelor of Science in Computer Science}{College Station, TX}
+      \resumeItemListStart
+        \resumeItem{\textbf{Overall GPA: 4.0/4.0}}
+        \resumeItem{Craig and Galen Brown Engineering Honors Program}
+        \resumeItem{Relevant Coursework: Machine Learning, Analysis of Algorithms, Data Structures, Computer Organization}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+    \textbf{Languages}{: Python, C/C++, Java, JavaScript, HTML, CSS} \\
+    \textbf{Developer Tools}{: Git, Linux, Bash} \\
+    \textbf{Technologies/Frameworks}{: React, Node.js, Next.js, PostgreSQL, scikit-learn} \\
+    }}
+\end{itemize}
+
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Aggienova Plots} $|$ \emph{TypeScript, React, Next.js, PostgreSQL}}{August 2023}
+          \resumeItemListStart
+            \resumeItem{Developed a full-stack web application for easily plotting supernova light curves}
+            \resumeItem{Utilized the React context API for state management}
+            \resumeItem{Designed a relational database schema for PostgreSQL to store and organize photometry data}
+            \resumeItem{Hosted the frontend on Vercel and database on Supabase}
+            \resumeItem{Showcased to the faculty of the Texas A\&M Astronomy Department during a research conference}
+          \resumeItemListEnd
+      \resumeProjectHeading
+        {\textbf{RISC Processor} $|$ \emph{Logisim}}{March 2024}
+        \resumeItemListStart
+          \resumeItem{Designed and implemented a fully functional 64-bit x86-like RISC processor as a Logisim circuit}
+          \resumeItem{Supports basic arithmetic, logic, control flow, memory access, and stack operations}
+          \resumeItem{Follows a subset of the x86 instruction set architecture}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Undergraduate Research Assistant}{August 2023 -- Present}
+      {Dr. Peter J. Brown}{College Station, TX}
+      \resumeItemListStart
+        \resumeItem{Visualizing and organizing observational data from the Neil Gehrels Swift Observatory}
+        \resumeItem{Developing and maintaining a full stack web app displaying supernova light curves}
+        \resumeItem{Reducing complexity and increasing efficiency of internal tooling by up to \textbf{300\%}}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Enterprise Resource Planning Intern}{June 2023 -- August 2023}
+      {Princetel Inc.}{Hamilton, NJ}
+      \resumeItemListStart
+        \resumeItem{Managed the receiving and distribution of parts for the production floor}
+        \resumeItem{Automated certain manual tasks for detecting inventory discrepancies, reducing time spent by \textbf{80\%}}
+        \resumeItem{Utilized Epicor software for various administrative tasks, including data entry, order processing, and
+        scheduling}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+% -------------------------------------------
+
+
+\section{Volunteering}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Chemistry Instructor}{September 2019 -- June 2022}
+    {Huaxia Chinese School}{Montgomery, NJ}
+    \resumeItemListStart
+      \resumeItem{Developed lesson plans and supplemental resources to aid in understanding of material}
+      \resumeItem{Organized team meetings and agendas to plan weekly lessons with other instructors}
+      \resumeItem{Taught students fundamental knowledge regarding college level introductory chemistry courses}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+
+%-------------------------------------------
+\end{document}
