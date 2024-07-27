@@ -15,7 +15,8 @@
 
 \begin{document}
 
-\noindent In this exercise, we want to show that the subgraph isomorphism problem is NP-complete.
+\noindent
+In this exercise, we want to show that the subgraph isomorphism problem is NP-complete.
 The subgraph isomorphism problem takes two undirected graphs $G_1$ and $G_2$ as input and asks whether $G_1$ is isomorphic to a subgraph of $G_2$.
 
 \begin{theorem}
@@ -23,7 +24,7 @@ The subgraph isomorphism problem is NP-complete.
 \end{theorem}
 
 \begin{proof}
-    A problem is NP-complete if it is in NP and every problem in NP is reducible to it in polynomial time.
+    A problem is NP-complete if and only if it is in NP and it is NP-hard.
     First, we show that the subgraph isomorphism problem is in NP, i.e. we can verify a proposed solution in polynomial time.
     Given graphs $G_1$ and $G_2$ and a mapping $f: V_{G_1} \to V_{G_2}$, we must determine the following in polynomial time:
     \begin{enumerate}
@@ -67,14 +68,64 @@ The subgraph isomorphism problem is NP-complete.
     The runtime of this algorithm is bounded by the number of edges in $G_1$, i.e. $O(|E_{G_1}|)$, so it runs in polynomial time.
     Therefore, the subgraph isomorphism problem is in NP.
 
-    Next, we want to show the following:
+    \noindent Next, to show that the subgraph isomorphism problem is NP-hard, we reduce the clique problem to the subgraph isomorphism problem.
+    The clique problem takes an undirected graph $G$ and an integer $k$ as input and asks whether $G$ contains a clique of size $k$, where a clique is a complete subgraph.
+    Given an instance of the clique problem $(G, k)$, we construct the following instance of the subgraph isomorphism problem $(G_1, G_2)$:
+
+    \begin{algorithm}
+        \caption{Construct Subgraph Isomorphism Instance}
+        \KwIn{Graph $G$, integer $k$}
+        \KwOut{Graphs $G_1$, $G_2$}
+        Initialize graph $G_1$\;
+        \For{$i = 1$ to $k$}{
+            Add vertex $v_i$ to $G_1$\;
+        }
+        \For{$i = 1$ to $k$}{
+            \For{$j = 1$ to $k$}{
+                \If{$i \neq j$}{
+                    Add edge $(v_i, v_j)$ to $G_1$\;
+                }
+            }
+        }
+        Initialize graph $G_2$ as a copy of $G$\;
+        \Return $(G_1, G_2)$\;
+    \end{algorithm}
+
+    This construction algorithm runs in polynomial time due to the following factors:
+    
     \begin{enumerate}
-        \item The NP-complete problem 3-SAT can be reduced to the subgraph isomorphism problem.
-        \item The reduction from 3-SAT to the subgraph isomorphism problem preserves answers.
-        \item The reduction from 3-SAT to the subgraph isomorphism problem can be done in polynomial time.
+        \item Creating $G_1$ (a complete graph with $k$ vertices) takes $O(k^2)$ time.
+        \item $G_2$ is just a copy of the original graph $G$, so copying it takes $O(|V_G| + |E_G|)$ time.
     \end{enumerate}
 
-    Given a 3-SAT formula $\varphi$ with $n$ boolean variables $x_1, x_2, \ldots, x_n$ and $m$ clauses $C_1, C_2, \ldots, C_m$, we can construct the graphs $G_1$ and $G_2$ as follows:
+    Now, we need to show that this reduction is correct, i.e., $G$ has a clique of size $k$ if and only if $G_1$ is isomorphic to a subgraph of $G_2$.
+    First we show the forward direction:
+    \paragraph{($\Rightarrow$)}
+    Assume that $G$ contains a clique of size $k$.
+    That means there exists some subgraph of $G$ that is a complete graph on $k$ vertices.
+    By construction, $G_1$ is a complete graph on $k$ vertices, so $G_1$ is isomorphic to this subgraph of $G$.
+    Since $G_2$ is a copy of $G$, $G_1$ is isomorphic to a subgraph of $G_2$.
+    This proves that this reduction preserves the answer in the forward direction.
+    
+    \vspace{1em}
+    \noindent
+    And now the backward direction:
+    \paragraph{($\Leftarrow$)}
+    Now assume that $G_1$ is isomorphic to a subgraph of $G_2$.
+    By construction, $G_1$ is a complete graph on $k$ vertices.
+    By our initial assumption, there then exists a clique of size $k$ in $G_2$.
+    Since $G_2$ is a copy of $G$, there exists a clique of size $k$ in $G$,
+    and thus the reduction preserves the answer in both directions.
+
+    \vspace{1em}
+    \noindent
+    At this point we have proven the following:
+    \begin{enumerate}
+        \item There exists a polynomial-time checking algorithm for the subgraph isomorphism problem.
+        \item The reduction from the clique problem to the subgraph isomorphism problem is correct.
+        \item The reduction runs in polynomial time.
+    \end{enumerate}
+    Therefore, the subgraph isomorphism problem is in NP and is NP-hard, so it is NP-complete.
 \end{proof}
 
 \end{document}
