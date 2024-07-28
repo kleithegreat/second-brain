@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[ruled]{algorithm2e}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{7th Homework - CSCE 411 700}
+\rhead{Kevin Lei}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\arraystretch}{1.2}
+
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+
+\noindent
+In this exercise, we discuss the multiway cut problem, which is defined as follows.
+Given an undirected graph $G = (V, E)$, a set of terminal nodes $s_1, s_2, \ldots, s_k \in V$,
+find a minimum set of edges in $E$ whose removal disconnects all $k$ terminal nodes from each other.
+We want to show that when $k = 3$, this problem has a polynomial-time 2-approximation algorithm.
+
+\begin{theorem}
+The multiway cut problem with $k = 3$ has a polynomial-time 2-approximation algorithm.
+\end{theorem}
+
+\begin{proof}
+    Let $G = (V, E)$ be an undirected graph with a set of terminal nodes $s_1, s_2, s_3 \in V$,
+    and assume that there exists an algorithm that solves this problem in polynomial time when $k = 2$.
+    Consider the following algorithm.
+    \begin{algorithm}[H]
+        \caption{2-approximation algorithm for multiway cut with $k = 3$}
+        \KwIn{An undirected graph $G = (V, E)$ and terminal nodes $s_1, s_2, s_3 \in V$}
+        \KwOut{A minimum set of edges in $E$ whose removal disconnects all terminal nodes from each other}
+        $C_{12}$ = minimum cut between $s_1$ and $s_2$ in $G$\;
+        $C_{13}$ = minimum cut between $s_1$ and $s_3$ in $G$\;
+        $C_{23}$ = minimum cut between $s_2$ and $s_3$ in $G$\;
+        \If{$|C_{12}| \leq |C_{23}|$ and $|C_{13}| \leq |C_{23}|$}{
+            \Return $C_{12} \cup C_{13}$\;
+        }
+        \If{$|C_{12}| \leq |C_{13}|$ and $|C_{23}| \leq |C_{13}|$}{
+            \Return $C_{12} \cup C_{23}$\;
+        }
+        \Return $C_{13} \cup C_{23}$\;
+    \end{algorithm}
+    First we prove that this algorithm is a 2-approximation algorithm for the multiway cut problem with $k = 3$.
+    Let $C^*$ be the optimal solution to the multiway cut problem with $k = 3$.
+    We have that $|C_{12}| \leq |C^*|$, $|C_{13}| \leq |C^*|$, and $|C_{23}| \leq |C^*|$, since a three terminal cut must be at least as large as the minimum cut between any two terminal nodes.
+    Thus we have
+    $$ |C_{12}| + |C_{13}| + |C_{23}| \leq 3|C^*| .$$
+    Let $C$ be the set of edges returned by the algorithm.
+    Since the algorithm returns the minimum two of the three cuts, we have that
+    $$C \leq \frac{2}{3}(|C_{12}| + |C_{13}| + |C_{23}|) \leq \frac{2}{3} \cdot |3 C^*| = 2 |C^*|$$
+    and the algorithm is a 2-approximation algorithm for the multiway cut problem with $k = 3$.
+    Now, we show that the algorithm runs in polynomial time.
+    The algorithm computes the minimum cut between each pair of terminal nodes, which is assumed to be solvable in polynomial time.
+    After that, the comparison and union operations are done in constant time.
+    Thus the algorithm runs in polynomial time.
+    Therefore, the multiway cut problem with $k = 3$ has a polynomial-time 2-approximation algorithm.
+\end{proof}
+
+\end{document}
