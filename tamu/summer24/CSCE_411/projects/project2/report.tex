@@ -8,11 +8,87 @@
 \author{Kevin Lei}
 \date{August 2, 2024}
 
+\newtheorem{theorem}{Theorem}
+
 \begin{document}
 
 \maketitle
 
-\section{Main Idea}
+\section{Introduction}
+
+In this project we discuss the ``Node Labeling Problem'', in which we attempt to label the nodes of a graph with unique labels from a set of labels.
+We have the following definitions:
+\begin{itemize}
+    \item Let $G = (V, E)$ be an undirected graph.
+    \item Let $d(u, v)$ be the distance between nodes $u$ and $v$.
+    \item For all nodes $v \in V$, let $N(v, h) \subseteq V$ be the set of nodes that are at most $h$ hops away from $v$.
+    \item Let $K = \{0, 1, \ldots, k-1\}$ be the set of $k$ integers, where $k \leq |V|$.
+    \item For all $v \in V$, let $c(v) \in K$ be the label of node $v$, where different nodes may have the same label.
+    \item Let $C(v, h)$ be the set of labels of nodes in $N(v, h)$.
+    \item A labelling of the nodes is \textit{valid} if every label in $K$ is used at least once.
+    \item Let $r(v)$ be the smallest integer such that the node $v$ has all the labels in $K$ in $N(v, r(v))$.
+    \item Let $m(v)$ be the smallest integer such that the node $v$ has at least $k$ nodes in $N(v, m(v))$.
+\end{itemize}
+
+Formally, our relevant sets and values can be defined as follows:
+\begin{align*}
+    N(v, h) &\triangleq \{u \in V \mid d(u, v) \leq h\} \\
+    C(v, h) &\triangleq \{c(u) \mid u \in N(v, h)\} \\
+    r(v) &\triangleq \min\{h \mid |C(v, h)| = k\} \\
+    m(v) &\triangleq \min\{h \mid |N(v, h)| \geq k\}.
+\end{align*}
+
+Note that in general, we have $|C(v, h)| \leq |N(v, h)|$, since the labels of nodes in $N(v, h)$ are not necessarily distinct, 
+and $r(v) \geq m(v)$, since there must be at least one label per node.
+
+\newpage\noindent
+The Node-Labelling Decision Problem is defined as follows:
+
+\vspace{1em}\noindent
+Given:
+\begin{itemize}
+    \item An undirected graph $G = (V, E)$
+    \item A set of $k \leq |V|$ labels $K = \{0, 1, \ldots, k-1\}$
+    \item A nonnegative integer $R$,
+\end{itemize}
+does there exist a labeling $c(v)$ for all $v \in V$ such that $|C(v, R)| = k$ for all $v \in V$?
+
+\vspace{1em}\noindent
+Now consider this as an optimization problem.
+The Node-Labelling Optimization Problem is defined as follows:
+
+\vspace{1em}\noindent
+Given:
+\begin{itemize}
+    \item An undirected graph $G = (V, E)$
+    \item A set of $k \leq |V|$ labels $K = \{0, 1, \ldots, k-1\}$,
+\end{itemize}
+find a valid labeling for all the nodes such that $\max_{v \in V} \frac{r(v)}{m(v)}$ is minimized.
+
+\vspace{1em}
+
+In the case of the optimization problem, if an algorithm that solves it has $\max_{v \in V} \frac{r(v)}{m(v)} \leq \rho$ for all possible instances, 
+then we say that the algorithm has a \textit{proximity ratio} of $\rho$, and the algorithm is a $\rho$-proximity algorithm.
+
+\vspace{1em}
+
+First, we will prove that the Node-Labelling Decision Problem is NP-Complete.
+Then, we will present a polynomial-time algorithm for the Node-Labelling Optimization Problem where the graph is a tree,
+analyze the proximity ratio of the algorithm, and finally analyze the runtime complexity of the algorithm.
+
+\section{NP-Completeness Proof}
+
+\begin{theorem}
+    The Node-Labelling Decision Problem is NP-Complete.
+\end{theorem}
+
+\begin{proof}
+    A problem is NP-Complete if it is in NP and every problem in NP can be reduced to it in polynomial time.
+    We will show the former by presenting a polynomial time algorithm to verify a solution to the Node-Labelling Decision Problem,
+    and the latter by reducing ... to the Node-Labelling Decision Problem.
+\end{proof}
+
+\section{Main Idea of the Algorithm}
 
 
 
@@ -26,7 +102,7 @@
 
 \end{algorithm}
 
-\section{Proof of Correctness}
+\section{Proximity Ratio Analysis}
 
 
 
