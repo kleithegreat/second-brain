@@ -25,7 +25,7 @@ We have the following definitions:
     \item Let $K = \{0, 1, \ldots, k-1\}$ be the set of $k$ integers, where $k \leq |V|$.
     \item For all $v \in V$, let $c(v) \in K$ be the label of node $v$, where different nodes may have the same label.
     \item Let $C(v, h)$ be the set of labels of nodes in $N(v, h)$.
-    \item A labelling of the nodes is \textit{valid} if every label in $K$ is used at least once.
+    \item A labeling of the nodes is \textit{valid} if every label in $K$ is used at least once.
     \item Let $r(v)$ be the smallest integer such that the node $v$ has all the labels in $K$ in $N(v, r(v))$.
     \item Let $m(v)$ be the smallest integer such that the node $v$ has at least $k$ nodes in $N(v, m(v))$.
 \end{itemize}
@@ -39,10 +39,10 @@ Formally, our relevant sets and values can be defined as follows:
 \end{align*}
 
 Note that in general, we have $|C(v, h)| \leq |N(v, h)|$, since the labels of nodes in $N(v, h)$ are not necessarily distinct, 
-and $r(v) \geq m(v)$, since there must be at least one label per node.
+and $r(v) \geq m(v)$, since there must be at least one node per label but not necessarily one label per node.
 
 \newpage\noindent
-The Node-Labelling Decision Problem is defined as follows:
+The Node-Labeling Decision Problem is defined as follows:
 
 \vspace{1em}\noindent
 Given:
@@ -55,7 +55,7 @@ does there exist a labeling $c(v)$ for all $v \in V$ such that $|C(v, R)| = k$ f
 
 \vspace{1em}\noindent
 Now consider this as an optimization problem.
-The Node-Labelling Optimization Problem is defined as follows:
+The Node-Labeling Optimization Problem is defined as follows:
 
 \vspace{1em}\noindent
 Given:
@@ -72,24 +72,100 @@ then we say that the algorithm has a \textit{proximity ratio} of $\rho$, and the
 
 \vspace{1em}
 
-First, we will prove that the Node-Labelling Decision Problem is NP-Complete.
-Then, we will present a polynomial-time algorithm for the Node-Labelling Optimization Problem where the graph is a tree,
+First, we will prove that the Node-Labeling Decision Problem is NP-Complete.
+Then, we will present a polynomial-time algorithm for the Node-Labeling Optimization Problem where the graph is a tree,
 analyze the proximity ratio of the algorithm, and finally analyze the runtime complexity of the algorithm.
 
 \section{NP-Completeness Proof}
 
 \begin{theorem}
-    The Node-Labelling Decision Problem is NP-Complete.
+    The Node-Labeling Decision Problem is NP-Complete.
 \end{theorem}
 
 \begin{proof}
     A problem is NP-Complete if it is in NP and every problem in NP can be reduced to it in polynomial time.
-    We will show the former by presenting a polynomial time algorithm to verify a solution to the Node-Labelling Decision Problem,
-    and the latter by reducing ... to the Node-Labelling Decision Problem.
+    We will show the former by presenting a polynomial time algorithm to verify a solution to the Node-Labeling Decision Problem,
+    and the latter by reducing HAM-CYCLE to the Node-Labeling Decision Problem.
+    
+    First, consider the following algorithm to verify a solution to the Node-Labeling Decision Problem:
+
+    \begin{algorithm}[H]
+        \caption{Verify a Solution to the Node-Labeling Decision Problem}
+        \KwIn{An undirected graph $G = (V, E)$, a set of $k \leq |V|$ labels $K = \{0, 1, \ldots, k-1\}$, a nonnegative integer $R$, and a labeling $c: V \to K$}
+        \KwOut{True if the labeling is valid and $|C(v, R)| = k$ for all $v \in V$, False otherwise}
+        \BlankLine
+        
+        \For{$v \in V$}{
+            $l = \emptyset$
+            
+            \If{$\neg$ BFS($v$, $0$, $l$)}{
+                \Return False
+            }
+        }
+        \Return True
+    \end{algorithm}
+    
+    \begin{algorithm}[H]
+        \caption{BFS}
+        \KwIn{A node $v$, current depth $d$, set of labels seen $l$}
+        \KwOut{True if all $k$ labels are seen within depth $R$, False otherwise}
+        \BlankLine
+        
+        \If{$d > R$}{
+            \Return False
+        }
+        
+        $l = l \cup \{c(v)\}$
+        
+        \If{$|l| = k$}{
+            \Return True
+        }
+        
+        \For{each neighbor $u$ of $v$}{
+            \If{BFS($u$, $d + 1$, $l$)}{
+                \Return True
+            }
+        }
+        
+        \Return False
+    \end{algorithm}
+    
+    This algorithm works by performing a breadth-first search from each node $v$ in the graph,
+    and checking if all $k$ labels are seen within depth $R$.
+    If a depth of $R$ is reached without seeing all $k$ labels, the algorithm returns False.
+    Otherwise, the algorithm returns True.
+    The algorithm runs in $O(|V| \cdot (|V| + |E|))$ time, which is polynomial in the size of the input.
+    Thus, the Node-Labeling Decision Problem is in NP.
+
+    Now we perform a reduction from HAM-CYCLE to the Node-Labeling Decision Problem.
+    Given an instance of HAM-CYCLE with the graph $G = (V, E)$, we construct an instance of the Node-Labeling Decision Problem as follows:
+    \begin{itemize}
+        \item The graph is the same: $G = (V, E)$.
+        \item $k = |V|$.
+        \item $R = |V| - 1$.
+    \end{itemize}
+    We claim that there exists a Hamiltonian cycle in $G$ if and only if there exists a valid labeling for the corresponding instance of the Node-Labeling Decision Problem.
+    \paragraph{($\Rightarrow$)} Assume there exists a Hamiltonian cycle in $G$.
+    Label the nodes in the Hamiltonian cycle from $0$ to $|V| - 1$ in order.
+    Thus, for all $v \in V$, all other nodes are at least $|V| - 1$ hops away.
+    This means that $N(v, R)$ contains all nodes in $V$, so $|C(v, R)| = |V| = k$.
+    Thus, the labeling is valid.
+    \paragraph{($\Leftarrow$)} Assume that there exists a labeling $c(V)$ for all $v \in V$ such that $|C(v, R)| = k$ for all $v \in V$ where $k = |V|$ and $R = |V| - 1$.
+    Seeking a contradiction, assume that there is no Hamiltonian cycle in $G$.
+    For all nodes $v \in V$, since $|C(v, R)| = |V| = k$, $v$ must be able to reach all the other nodes in $V$ within $|V| - 1$ hops.
+    Now consider the shortest path starting from $v$ that visits all other nodes in $V$.
+    From our assumption that there is no Hamiltonian cycle, this path must visit some node more than once.
+    If the shortest path visits some node more than once, then its length is greater than $|V| - 1$, contradicting the fact that $v$ can reach all other nodes in $V$ within $|V| - 1$ hops.
+    Thus, there must be a Hamiltonian cycle in $G$.
+    
+    \vspace{1em}
+    This reduction can be done in polynomial time, since the graph is the same, and if we really need to, we can count $|V|$ in $O(|V|)$ time.
+    Since the Node-Labeling Decision Problem is in NP and HAM-CYCLE can be reduced to it in polynomial time, the Node-Labeling Decision Problem is NP-Complete.
 \end{proof}
 
-\section{Main Idea of the Algorithm}
+\section{Approximation Algorithm}
 
+Here we discuss an algorithm to solve the Node-Labeling \textit{Optimization} Problem when the input graph is a tree.
 
 
 \section{Pseudocode}
