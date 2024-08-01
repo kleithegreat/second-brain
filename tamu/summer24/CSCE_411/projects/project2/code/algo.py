@@ -1,22 +1,67 @@
 import pickle
+from random import randint
 from typing import List, Set
 
-def label_nodes(adj_list: List[List[int]], k: int) -> List[int]:
-    n = len(adj_list)
-    K = [-1] * n
-    current_label = 0
-
-    def dfs(node, parent):
-        nonlocal current_label
-        K[node] = current_label
-        current_label = (current_label + 1) % k
-        for n in adj_list[node]:
-            if n != parent:
-                dfs(n, node)
+def get_nvk(adj_list: List[List[int]], v: int, k: int) -> List[int]:
+    '''Return the set of nodes that are at most k hops away from node v'''
+    if k == 0:
+        return [v]
     
-    dfs(0, -1)
-    assert is_valid(k, K)
-    return K
+    visited: Set[int] = {v}
+    Q: List[int] = [v]
+    for _ in range(k):
+        if not Q:
+            break
+        level_size = len(Q)
+        for _ in range(level_size):
+            u = Q.pop(0)
+            for w in adj_list[u]:
+                if w not in visited:
+                    visited.add(w)
+                    Q.append(w)
+
+    return list(visited)
+
+
+def label_nodes(adj_list: List[List[int]], k: int) -> List[int]:
+    '''
+    Label the nodes of the tree such that \max_{v \in V} r_v / m_v = 1
+    This is a special case of the node labeling problem that is NP-hard in general, but can be solved in polynomial time for trees.
+    
+    pseudo:
+    initialize random labeling
+    initialize proximity ratio hash table
+    while max proximity ratio is not 1 and last ten iterations did not change max proximity ratio:
+        get highest proximity ratio node v
+        get C(v, k)
+        replace one instance of the highest frequency label in C(v, k) with the lowest frequency label
+        update proximity ratio hash table
+    return labeling
+    '''
+    n = len(adj_list)
+    labeling = [randint(0, k-1) for _ in range(n)]
+    proximity_ratios = {v: r_v(adj_list, k, labeling, v) / m_v(adj_list, k, v) for v in range(n)}
+    previous_proximity_ratios = [0] * 10
+    previous_proximity_ratios[0] = max(proximity_ratios.values())
+    i = 1
+    for _ in range(n * k):
+        # print(f"Current max proximity ratio: {max(proximity_ratios.values())}")
+        v = max(proximity_ratios, key=proximity_ratios.get)
+        C = get_nvk(adj_list, v, k)
+        freq = {i: labeling.count(i) for i in range(k)}
+        highest_freq_label = max(freq, key=freq.get)
+        lowest_freq_label = min(freq, key=freq.get)
+        for u in C:
+            if labeling[u] == highest_freq_label:
+                labeling[u] = lowest_freq_label
+                break
+        proximity_ratios[v] = r_v(adj_list, k, labeling, v) / m_v(adj_list, k, v)
+        i = (i + 1) % 10
+        previous_proximity_ratios[i] = max(proximity_ratios.values())
+        if set(previous_proximity_ratios) == {previous_proximity_ratios[0]}:
+            break
+
+    return labeling
 
 
 def is_valid(k: int, labeling: List[int]) -> bool:

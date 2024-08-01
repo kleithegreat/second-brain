@@ -85,7 +85,7 @@ analyze the proximity ratio of the algorithm, and finally analyze the runtime co
 \begin{proof}
     A problem is NP-Complete if it is in NP and every problem in NP can be reduced to it in polynomial time.
     We will show the former by presenting a polynomial time algorithm to verify a solution to the Node-Labeling Decision Problem,
-    and the latter by reducing HAM-CYCLE to the Node-Labeling Decision Problem.
+    and the latter by reducing k-coloring to the Node-Labeling Decision Problem.
     
     First, consider the following algorithm to verify a solution to the Node-Labeling Decision Problem:
 
@@ -110,23 +110,18 @@ analyze the proximity ratio of the algorithm, and finally analyze the runtime co
         \KwIn{A node $v$, current depth $d$, set of labels seen $l$}
         \KwOut{True if all $k$ labels are seen within depth $R$, False otherwise}
         \BlankLine
-        
         \If{$d > R$}{
             \Return False
         }
-        
         $l = l \cup \{c(v)\}$
-        
         \If{$|l| = k$}{
             \Return True
         }
-        
         \For{each neighbor $u$ of $v$}{
             \If{BFS($u$, $d + 1$, $l$)}{
                 \Return True
             }
         }
-        
         \Return False
     \end{algorithm}
     
@@ -137,27 +132,34 @@ analyze the proximity ratio of the algorithm, and finally analyze the runtime co
     The algorithm runs in $O(|V| \cdot (|V| + |E|))$ time, which is polynomial in the size of the input.
     Thus, the Node-Labeling Decision Problem is in NP.
 
-    Now we perform a reduction from HAM-CYCLE to the Node-Labeling Decision Problem.
-    Given an instance of HAM-CYCLE with the graph $G = (V, E)$, we construct an instance of the Node-Labeling Decision Problem as follows:
+    Now we perform a reduction from the 3-coloring problem to the Node-Labeling Decision Problem.
+    Let $G' = (V', E')$ be an instance of the 3-coloring problem.
+    We can construct an instance of the node labeling problem $(G=(V, E), K, R)$ as follows:
     \begin{itemize}
-        \item The graph is the same: $G = (V, E)$.
-        \item $k = |V|$.
-        \item $R = |V| - 1$.
+        \item $V = V'$
+        \item $E = E'$
+        \item $K = \{0, 1, 2\}$
+        \item $R = 2$
     \end{itemize}
-    We claim that there exists a Hamiltonian cycle in $G$ if and only if there exists a valid labeling for the corresponding instance of the Node-Labeling Decision Problem.
-    \paragraph{($\Rightarrow$)} Assume there exists a Hamiltonian cycle in $G$.
-    Label the nodes in the Hamiltonian cycle from $0$ to $|V| - 1$ in order.
-    Thus, for all $v \in V$, all other nodes are at least $|V| - 1$ hops away.
-    This means that $N(v, R)$ contains all nodes in $V$, so $|C(v, R)| = |V| = k$.
-    Thus, the labeling is valid.
-    \paragraph{($\Leftarrow$)} Assume that there exists a labeling $c(V)$ for all $v \in V$ such that $|C(v, R)| = k$ for all $v \in V$ where $k = |V|$ and $R = |V| - 1$.
-    This means that for any node $v$, it can see all other nodes within $|V| - 1$ hops.
-    By the way the reduction is constructed, this is only possible if there is a path starting from $v$ that visits all other nodes exactly once.
-    In other words, there exists a Hamiltonian cycle in $G$.
+    This transformation can be done in polynomial time, since we only copy the graph and set $K$ and $R$ to constant values.
+    We claim that $G'$ is 3-colorable if and only if $G$ has a valid labeling such that $|C(v, R)| = 3$ for all $v \in V$.
+
+    \paragraph{$(\Rightarrow)$} Assume that $G'$ is 3-colorable.
+    Then there exists some valid 3-coloring $c': V' \to \{0, 1, 2\}$ of $G'$.
+    Let $c: V \to K$ be the labeling of $G$ such that $c(v) = c'(v)$ for all $v \in V'$.
+    Since $c'$ is a valid 3-coloring, it uses all the colors, so $c$ will also be a valid labeling of $G$.
+    Then, for all $v \in V$, $N(v, 2)$ must contain at least 3 nodes, so in order for the labeling to be valid, at least 3 distinct labels must be used.
+    Thus, $|C(v, 2)| = 3$ for all $v \in V$.
+
+    \paragraph{$(\Leftarrow)$} Assume that there exists a valid labeling $c: V \to K$ of $G$ such that $|C(v, 2)| = 3$ for all $v \in V$.
+    We can use the same coloring $c'$ of $G'$ such that $c'(v) = c(v)$ for all $v \in V'$.
+    For all edges $(u, v) \in E'$, we have that $u \in N(v, 2)$ and $v \in N(u, 2)$.
+    Since $|C(u, 2)| = 3$ and $|C(v, 2)| = 3$, we have that $c'(u) \neq c'(v)$, or else one of them would only see 2 distinct labels in 2 hops.
+    Thus, $c'$ is a valid 3-coloring of $G'$.
     
     \vspace{1em}
-    This reduction can be done in polynomial time, since the graph is the same, and if we really need to, we can count $|V|$ in $O(|V|)$ time.
-    Since the Node-Labeling Decision Problem is in NP and HAM-CYCLE can be reduced to it in polynomial time, the Node-Labeling Decision Problem is NP-Complete.
+    Now we have shown that the Node-Labeling Decision Problem is in NP and that the 3-coloring problem can be reduced to it in polynomial time.
+    Therefore, the Node-Labeling Decision Problem is also NP-hard, and thus NP-Complete.
 \end{proof}
 
 \section{Approximation Algorithm}
