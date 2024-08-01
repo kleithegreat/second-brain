@@ -2,8 +2,25 @@ import pickle
 from typing import List, Set
 
 def label_nodes(adj_list: List[List[int]], k: int) -> List[int]:
-    from random import randint
-    return [randint(0, k - 1) for _ in range(len(adj_list))]
+    n = len(adj_list)
+    labels = [-1] * n
+    current_label = 0
+
+    def dfs(node, parent):
+        nonlocal current_label
+        labels[node] = current_label
+        current_label = (current_label + 1) % k
+        for neighbor in adj_list[node]:
+            if neighbor != parent:
+                dfs(neighbor, node)
+    
+    dfs(0, -1)
+    assert is_valid(adj_list, k, labels)
+    return labels
+
+
+def is_valid(k: int, labeling: List[int]) -> bool:
+    return set(labeling) == set(range(k))
 
 
 def r_v(adj_list: List[List[int]], k: int, labeling: List[int], v: int) -> int:
