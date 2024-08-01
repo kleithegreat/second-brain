@@ -151,12 +151,9 @@ analyze the proximity ratio of the algorithm, and finally analyze the runtime co
     This means that $N(v, R)$ contains all nodes in $V$, so $|C(v, R)| = |V| = k$.
     Thus, the labeling is valid.
     \paragraph{($\Leftarrow$)} Assume that there exists a labeling $c(V)$ for all $v \in V$ such that $|C(v, R)| = k$ for all $v \in V$ where $k = |V|$ and $R = |V| - 1$.
-    Seeking a contradiction, assume that there is no Hamiltonian cycle in $G$.
-    For all nodes $v \in V$, since $|C(v, R)| = |V| = k$, $v$ must be able to reach all the other nodes in $V$ within $|V| - 1$ hops.
-    Now consider the shortest path starting from $v$ that visits all other nodes in $V$.
-    From our assumption that there is no Hamiltonian cycle, this path must visit some node more than once.
-    If the shortest path visits some node more than once, then its length is greater than $|V| - 1$, contradicting the fact that $v$ can reach all other nodes in $V$ within $|V| - 1$ hops.
-    Thus, there must be a Hamiltonian cycle in $G$.
+    This means that for any node $v$, it can see all other nodes within $|V| - 1$ hops.
+    By the way the reduction is constructed, this is only possible if there is a path starting from $v$ that visits all other nodes exactly once.
+    In other words, there exists a Hamiltonian cycle in $G$.
     
     \vspace{1em}
     This reduction can be done in polynomial time, since the graph is the same, and if we really need to, we can count $|V|$ in $O(|V|)$ time.
