@@ -3,20 +3,20 @@ from typing import List, Set
 
 def label_nodes(adj_list: List[List[int]], k: int) -> List[int]:
     n = len(adj_list)
-    labels = [-1] * n
+    K = [-1] * n
     current_label = 0
 
     def dfs(node, parent):
         nonlocal current_label
-        labels[node] = current_label
+        K[node] = current_label
         current_label = (current_label + 1) % k
-        for neighbor in adj_list[node]:
-            if neighbor != parent:
-                dfs(neighbor, node)
+        for n in adj_list[node]:
+            if n != parent:
+                dfs(n, node)
     
     dfs(0, -1)
-    assert is_valid(adj_list, k, labels)
-    return labels
+    assert is_valid(k, K)
+    return K
 
 
 def is_valid(k: int, labeling: List[int]) -> bool:
