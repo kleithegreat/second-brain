@@ -63,15 +63,12 @@ def improve_labeling(adj_list: List[List[int]], k: int, labeling: List[int]) -> 
         
         if max_ratio == 1.0:
             return labeling
-
         if max_ratio >= best_max_ratio:
             no_improvement_count += 1
         else:
             best_max_ratio = max_ratio
             no_improvement_count = 0
-
         if no_improvement_count >= n:
-            # Reset the labeling and start over
             labeling = initial_labeling(adj_list, k)
             best_max_ratio = float('inf')
             no_improvement_count = 0
@@ -79,17 +76,13 @@ def improve_labeling(adj_list: List[List[int]], k: int, labeling: List[int]) -> 
 
         worst_nodes = [v for v, r in ratios.items() if r == max_ratio]
         worst_node = random.choice(worst_nodes)
-        
         distances = bfs(tuple(map(tuple, adj_list)), worst_node)
-        neighborhood = list(distances.keys()) if math.isinf(max_ratio) else [node for node, dist in distances.items() if dist <= math.ceil(max_ratio)]
-        
+        neighborhood =list(distances.keys()) if math.isinf(max_ratio) else [node for node, dist in distances.items() if dist <= math.ceil(max_ratio)]
         label_counts = Counter(labeling[v] for v in neighborhood)
-        most_common_label = label_counts.most_common(1)[0][0]
+        most_common_label = max(range(k), key=lambda l: label_counts[l])
         least_common_label = min(range(k), key=lambda l: label_counts[l])
-        
         nodes_with_most_common = [v for v in neighborhood if labeling[v] == most_common_label]
         node_to_swap = max(nodes_with_most_common, key=lambda v: ratios.get(v, 0))
-        
         labeling[node_to_swap] = least_common_label
 
 def label_nodes(adj_list: List[List[int]], k: int) -> List[int]:
@@ -100,13 +93,13 @@ def label_nodes(adj_list: List[List[int]], k: int) -> List[int]:
         if max_ratio == 1.0:
             return final_labeling
 
-def proximity_ratio(adj_list: List[List[int]], k: int, labeling: List[int]) -> float:
+def proximity_ratio_labels(adj_list: List[List[int]], k: int, labeling: List[int]) -> float:
     return max(calculate_proximity_ratios(adj_list, k, labeling).values())
 
 def process_graph(args: Tuple[List[List[int]], int]) -> float:
     adj_list, k = args
     labeling = label_nodes(adj_list, k)
-    return proximity_ratio(adj_list, k, labeling)
+    return proximity_ratio_labels(adj_list, k, labeling)
 
 def max_proximity_ratio(adj_lists: List[List[List[int]]], k_values: List[int]) -> float:
     with mp.Pool() as pool:
@@ -122,8 +115,8 @@ def print_comparison(adj_list: List[List[int]], k: int, produced_labeling: List[
     print("Example Labeling:")
     print(" ".join(map(str, example_labeling)))
     
-    produced_ratio = proximity_ratio(adj_list, k, produced_labeling)
-    example_ratio = proximity_ratio(adj_list, k, example_labeling)
+    produced_ratio = proximity_ratio_labels(adj_list, k, produced_labeling)
+    example_ratio = proximity_ratio_labels(adj_list, k, example_labeling)
     
     print(f"\nProximity Ratio (Produced): {produced_ratio:.4f}")
     print(f"Proximity Ratio (Example): {example_ratio:.4f}")
