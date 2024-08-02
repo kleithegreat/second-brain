@@ -52,13 +52,12 @@ def initial_labeling(adj_list: List[List[int]], k: int) -> List[int]:
             labeling[i] = random.choice(list(available_labels) or list(range(k)))
     return labeling
 
-def improve_labeling(adj_list: List[List[int]], k: int, labeling: List[int], max_iterations: int = None) -> List[int]:
+def improve_labeling(adj_list: List[List[int]], k: int, labeling: List[int]) -> List[int]:
     n = len(adj_list)
-    max_iterations = max_iterations or n * k
     no_improvement_count = 0
     best_max_ratio = float('inf')
 
-    for _ in range(max_iterations):
+    while True:
         ratios = calculate_proximity_ratios(adj_list, k, labeling)
         max_ratio = max(ratios.values())
         
@@ -72,7 +71,11 @@ def improve_labeling(adj_list: List[List[int]], k: int, labeling: List[int], max
             no_improvement_count = 0
 
         if no_improvement_count >= n:
-            return labeling
+            # Reset the labeling and start over
+            labeling = initial_labeling(adj_list, k)
+            best_max_ratio = float('inf')
+            no_improvement_count = 0
+            continue
 
         worst_nodes = [v for v, r in ratios.items() if r == max_ratio]
         worst_node = random.choice(worst_nodes)
@@ -89,19 +92,13 @@ def improve_labeling(adj_list: List[List[int]], k: int, labeling: List[int], max
         
         labeling[node_to_swap] = least_common_label
 
-    return labeling
-
-def label_nodes_attempt(args):
-    adj_list, k, _ = args
-    initial_labels = initial_labeling(adj_list, k)
-    final_labeling = improve_labeling(adj_list, k, initial_labels)
-    max_ratio = max(calculate_proximity_ratios(adj_list, k, final_labeling).values())
-    return final_labeling, max_ratio
-
-def label_nodes(adj_list: List[List[int]], k: int, max_attempts: int = 5) -> List[int]:
-    results = [label_nodes_attempt((adj_list, k, i)) for i in range(max_attempts)]
-    best_labeling, best_max_ratio = min(results, key=lambda x: x[1])
-    return best_labeling
+def label_nodes(adj_list: List[List[int]], k: int) -> List[int]:
+    while True:
+        initial_labels = initial_labeling(adj_list, k)
+        final_labeling = improve_labeling(adj_list, k, initial_labels)
+        max_ratio = max(calculate_proximity_ratios(adj_list, k, final_labeling).values())
+        if max_ratio == 1.0:
+            return final_labeling
 
 def proximity_ratio(adj_list: List[List[int]], k: int, labeling: List[int]) -> float:
     return max(calculate_proximity_ratios(adj_list, k, labeling).values())

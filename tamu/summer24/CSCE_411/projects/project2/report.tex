@@ -170,12 +170,49 @@ Here we discuss an algorithm to solve the Node-Labeling \textit{Optimization} Pr
 \section{Pseudocode}
 
 \begin{algorithm}[H]
-\caption{}
-\KwIn{}
-\KwOut{}
-\BlankLine
-
-\end{algorithm}
+    \caption{Node Labeling Algorithm for Trees}
+    \KwIn{A tree $T = (V, E)$, number of labels $k$}
+    \KwOut{A labeling $c: V \to \{0, 1, \ldots, k-1\}$ that minimizes $\max_{v \in V} \frac{r(v)}{m(v)}$}
+    \BlankLine
+    
+    Initialize $c(v) \gets -1$ for all $v \in V$\;
+    Initialize queue $Q \gets \emptyset$\;
+    Choose an arbitrary root node $r \in V$\;
+    $Q$.enqueue($r$)\;
+    
+    \While{$Q$ is not empty}{
+        $v \gets Q$.dequeue()\;
+        $L \gets$ set of unused labels in $\{0, 1, \ldots, k-1\}$\;
+        \If{$L$ is empty}{
+            $L \gets \{0, 1, \ldots, k-1\}$\;
+        }
+        $c(v) \gets$ random label from $L$\;
+        \For{each child $u$ of $v$}{
+            $Q$.enqueue($u$)\;
+        }
+    }
+    
+    \While{true}{
+        Initialize $ratios \gets \emptyset$\;
+        \For{each $v \in V$}{
+            Compute $r(v)$ and $m(v)$ using BFS\;
+            $ratios[v] \gets r(v) / m(v)$\;
+        }
+        $max\_ratio \gets \max(ratios)$\;
+        \If{$max\_ratio = 1.0$}{
+            \Return $c$\;
+        }
+        $worst\_nodes \gets \{v \in V \mid ratios[v] = max\_ratio\}$\;
+        $v \gets$ random node from $worst\_nodes$\;
+        $N_v \gets$ nodes within $\lceil max\_ratio \rceil$ hops of $v$\;
+        $label\_counts \gets$ count of each label in $N_v$\;
+        $most\_common \gets$ label with highest count in $label\_counts$\;
+        $least\_common \gets$ label with lowest count in $label\_counts$\;
+        $nodes\_to\_swap \gets \{u \in N_v \mid c(u) = most\_common\}$\;
+        $node\_to\_swap \gets \argmax_{u \in nodes\_to\_swap}(ratios[u])$\;
+        $c(node\_to\_swap) \gets least\_common$\;
+    }
+    \end{algorithm}
 
 \section{Proximity Ratio Analysis}
 
