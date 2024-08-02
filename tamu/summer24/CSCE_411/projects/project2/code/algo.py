@@ -1,67 +1,93 @@
 import pickle
-from random import randint
-from typing import List, Set
+import random
+from typing import List, Set, Dict
+from collections import Counter, deque
+import math
 
-def get_nvk(adj_list: List[List[int]], v: int, k: int) -> List[int]:
-    '''Return the set of nodes that are at most k hops away from node v'''
-    if k == 0:
-        return [v]
-    
-    visited: Set[int] = {v}
-    Q: List[int] = [v]
-    for _ in range(k):
-        if not Q:
+def bfs(adj_list: List[List[int]], start: int, k: int) -> Dict[int, int]:
+    distances = {start: 0}
+    queue = deque([(start, 0)])
+    while queue:
+        node, dist = queue.popleft()
+        if len(distances) == k:
             break
-        level_size = len(Q)
-        for _ in range(level_size):
-            u = Q.pop(0)
-            for w in adj_list[u]:
-                if w not in visited:
-                    visited.add(w)
-                    Q.append(w)
+        for neighbor in adj_list[node]:
+            if neighbor not in distances:
+                distances[neighbor] = dist + 1
+                queue.append((neighbor, dist + 1))
+    return distances
 
-    return list(visited)
-
-
-def label_nodes(adj_list: List[List[int]], k: int) -> List[int]:
-    '''
-    Label the nodes of the tree such that \max_{v \in V} r_v / m_v = 1
-    This is a special case of the node labeling problem that is NP-hard in general, but can be solved in polynomial time for trees.
-    
-    pseudo:
-    initialize random labeling
-    initialize proximity ratio hash table
-    while max proximity ratio is not 1 and last ten iterations did not change max proximity ratio:
-        get highest proximity ratio node v
-        get C(v, k)
-        replace one instance of the highest frequency label in C(v, k) with the lowest frequency label
-        update proximity ratio hash table
-    return labeling
-    '''
-    n = len(adj_list)
-    labeling = [randint(0, k-1) for _ in range(n)]
-    proximity_ratios = {v: r_v(adj_list, k, labeling, v) / m_v(adj_list, k, v) for v in range(n)}
-    previous_proximity_ratios = [0] * 10
-    previous_proximity_ratios[0] = max(proximity_ratios.values())
-    i = 1
-    for _ in range(n * k):
-        # print(f"Current max proximity ratio: {max(proximity_ratios.values())}")
-        v = max(proximity_ratios, key=proximity_ratios.get)
-        C = get_nvk(adj_list, v, k)
-        freq = {i: labeling.count(i) for i in range(k)}
-        highest_freq_label = max(freq, key=freq.get)
-        lowest_freq_label = min(freq, key=freq.get)
-        for u in C:
-            if labeling[u] == highest_freq_label:
-                labeling[u] = lowest_freq_label
+def calculate_proximity_ratios(adj_list: List[List[int]], k: int, labeling: List[int]) -> Dict[int, float]:
+    ratios = {}
+    for v in range(len(adj_list)):
+        distances = bfs(adj_list, v, k)
+        r_v = float('inf')
+        m_v = float('inf')
+        for dist in sorted(set(distances.values())):
+            labels_within_dist = set(labeling[n] for n in distances if distances[n] <= dist)
+            nodes_within_dist = sum(1 for d in distances.values() if d <= dist)
+            if len(labels_within_dist) == k and r_v == float('inf'):
+                r_v = dist
+            if nodes_within_dist >= k and m_v == float('inf'):
+                m_v = dist
+            if r_v != float('inf') and m_v != float('inf'):
                 break
-        proximity_ratios[v] = r_v(adj_list, k, labeling, v) / m_v(adj_list, k, v)
-        i = (i + 1) % 10
-        previous_proximity_ratios[i] = max(proximity_ratios.values())
-        if set(previous_proximity_ratios) == {previous_proximity_ratios[0]}:
+        ratios[v] = r_v / m_v if m_v != 0 else float('inf')
+    return ratios
+
+def initial_labeling(adj_list: List[List[int]], k: int) -> List[int]:
+    n = len(adj_list)
+    labeling = [-1] * n
+    for i in range(n):
+        if labeling[i] == -1:
+            available_labels = set(range(k)) - set(labeling[j] for j in adj_list[i] if labeling[j] != -1)
+            labeling[i] = random.choice(list(available_labels) or list(range(k)))
+    return labeling
+
+def improve_labeling(adj_list: List[List[int]], k: int, labeling: List[int]) -> List[int]:
+    n = len(adj_list)
+    max_iterations = n * k  # Set a maximum number of iterations
+    for _ in range(max_iterations):
+        ratios = calculate_proximity_ratios(adj_list, k, labeling)
+        max_ratio = max(ratios.values())
+        
+        if max_ratio == 1.0:
             break
 
+        worst_nodes = [v for v, r in ratios.items() if r == max_ratio]
+        worst_node = random.choice(worst_nodes)
+        
+        distances = bfs(adj_list, worst_node, k)
+        if math.isinf(max_ratio):
+            neighborhood = list(distances.keys())
+        else:
+            neighborhood = [node for node, dist in distances.items() if dist <= int(max_ratio)]
+        
+        label_counts = Counter(labeling[v] for v in neighborhood)
+        
+        most_common_label = label_counts.most_common(1)[0][0]
+        least_common_label = min(range(k), key=lambda l: label_counts[l])
+        
+        nodes_with_most_common = [v for v in neighborhood if labeling[v] == most_common_label]
+        node_to_swap = max(nodes_with_most_common, key=lambda v: ratios[v])
+        
+        labeling[node_to_swap] = least_common_label
+
     return labeling
+
+def label_nodes(adj_list: List[List[int]], k: int, max_attempts: int = 100) -> List[int]:
+    best_labeling = None
+    best_max_ratio = float('inf')
+    for _ in range(max_attempts):
+        initial_labels = initial_labeling(adj_list, k)
+        final_labeling = improve_labeling(adj_list, k, initial_labels)
+        max_ratio = max(calculate_proximity_ratios(adj_list, k, final_labeling).values())
+        if max_ratio < best_max_ratio:
+            best_labeling = final_labeling
+            best_max_ratio = max_ratio
+        if max_ratio == 1.0:
+            return final_labeling
+    return best_labeling
 
 
 def is_valid(k: int, labeling: List[int]) -> bool:
