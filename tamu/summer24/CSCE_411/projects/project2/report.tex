@@ -165,7 +165,9 @@ analyze the proximity ratio of the algorithm, and finally analyze the runtime co
 \section{Approximation Algorithm}
 
 Here we discuss an algorithm to solve the Node-Labeling \textit{Optimization} Problem when the input graph is a tree.
-
+This is a random heuristic greedy algorithm that starts with a random valid labeling at first, and then iteratively improves the labeling by identifying the ``worst'' node each time and changing its label such that label diversity in its neighborhood is maximized.
+Due to the nature of the algorithm, it is not guaranteed to find the optimal solution every time, so it will restart if it gets stuck in local optima.
+The algorithm is as follows:
 
 \section{Pseudocode}
 
@@ -174,52 +176,61 @@ Here we discuss an algorithm to solve the Node-Labeling \textit{Optimization} Pr
     \KwIn{A tree $T = (V, E)$, number of labels $k$}
     \KwOut{A labeling $c: V \to \{0, 1, \ldots, k-1\}$ that minimizes $\max_{v \in V} \frac{r(v)}{m(v)}$}
     \BlankLine
-    
-    Initialize $c(v) \gets -1$ for all $v \in V$\;
-    Initialize queue $Q \gets \emptyset$\;
-    Choose an arbitrary root node $r \in V$\;
-    $Q$.enqueue($r$)\;
-    
-    \While{$Q$ is not empty}{
-        $v \gets Q$.dequeue()\;
-        $L \gets$ set of unused labels in $\{0, 1, \ldots, k-1\}$\;
-        \If{$L$ is empty}{
-            $L \gets \{0, 1, \ldots, k-1\}$\;
-        }
-        $c(v) \gets$ random label from $L$\;
-        \For{each child $u$ of $v$}{
-            $Q$.enqueue($u$)\;
+    \For{$i = 1$ to $|V| \cdot k$}{
+        Initialize $c$ to random valid labeling\;
+        $\alpha = 0$\;
+        $\beta = \infty$\;
+        $\gamma = c$\;
+        \For{$j = 1$ to $|V| \cdot k$}{
+            \If {$\max_{v \in V} \frac{r(v)}{m(v)} = 1$}{
+                \Return $c$\;
+            }
+            \If {$\max_{v \in V} \frac{r(v)}{m(v)} \geq \beta$}{
+                $\alpha = \alpha + 1$\;
+            } \Else {
+                $\alpha = 0$\;
+                $\beta = \max_{v \in V} \frac{r(v)}{m(v)}$\;
+                $\gamma = c$\;
+            }
+            \If {$\alpha \geq |V|$}{
+                Reset $c(v)$ to random valid labeling\;
+                $\alpha = 0$\;
+                $\beta = \infty$\;
+                continue\;
+            }
+            $w = $ random node in $\arg\max_{v \in V} \frac{r(v)}{m(v)}$\;
+            $M = N(w, \lceil \max_{v \in V} \frac{r(v)}{m(v)} \rceil)$\;
+            $S = \{v \in N \mid c(v) = \text{most common label in } M\}$\;
+            $c(\arg\max_{v \in S} \frac{r(v)}{m(v)}) = $ least common label in $M$\;
         }
     }
-    
-    \While{true}{
-        Initialize $ratios \gets \emptyset$\;
-        \For{each $v \in V$}{
-            Compute $r(v)$ and $m(v)$ using BFS\;
-            $ratios[v] \gets r(v) / m(v)$\;
-        }
-        $max\_ratio \gets \max(ratios)$\;
-        \If{$max\_ratio = 1.0$}{
-            \Return $c$\;
-        }
-        $worst\_nodes \gets \{v \in V \mid ratios[v] = max\_ratio\}$\;
-        $v \gets$ random node from $worst\_nodes$\;
-        $N_v \gets$ nodes within $\lceil max\_ratio \rceil$ hops of $v$\;
-        $label\_counts \gets$ count of each label in $N_v$\;
-        $most\_common \gets$ label with highest count in $label\_counts$\;
-        $least\_common \gets$ label with lowest count in $label\_counts$\;
-        $nodes\_to\_swap \gets \{u \in N_v \mid c(u) = most\_common\}$\;
-        $node\_to\_swap \gets \argmax_{u \in nodes\_to\_swap}(ratios[u])$\;
-        $c(node\_to\_swap) \gets least\_common$\;
-    }
-    \end{algorithm}
+    \Return $\gamma$\;
+\end{algorithm}
 
 \section{Proximity Ratio Analysis}
 
+Let $T = (V, E)$ be the input tree with $n$ nodes, $k$ labels, and a diameter of $D$.
+First, the lower bound for $\rho$ is 1, since there must be at least one node per label.
+The algorithm will always produce a valid labeling, since it starts with a random valid labeling and only changes the most common labels to the least common labels in some neighborhood.
+Consider the path of the diameter of the tree.
+Since the diameter is the longest path in the tree, and we have a valid labeling, it must be that $C(v, D) = K$ for all $v \in V$.
+Thus, an upper bound for $\rho$ is $D$, and this algorithm is a $D$-proximity algorithm for all instances of the problem where the input tree has a diameter of $D$.
 
 
 \section{Runtime Complexity Analysis}
 
-
+This algorithm contains an outer loop for each ``attempt'' and an inner loop for each ``improvement'' of the solution.
+The outer loop is executed at most $|V| \cdot k$ times, and the inner loop is executed at most $|V| \cdot k$ times.
+Inside the inner loop, we have the following tasks:
+\begin{itemize}
+    \item Calculate proximity ratios for each node. This takes $O(|V|)$ time for each node, so $O(|V|^2)$ time in total.
+    \item Find the node with the highest proximity ratio. This takes $O(|V|)$ time.
+    \item Find the neighborhood of the node. This takes $O(|V|)$ time.
+    \item Find the most common label in the neighborhood. This takes $O(|V|)$ time.
+    \item Find the nodes with the most common label. This takes $O(|V|)$ time.
+    \item Find the least common label in the neighborhood. This takes $O(|V|)$ time.
+    \item Update the label of the node. This takes $O(1)$ time.
+\end{itemize}
+Thus, the algorithm runs in $O(|V|^4 k^2)$ time in the worst case.
 
 \end{document}
