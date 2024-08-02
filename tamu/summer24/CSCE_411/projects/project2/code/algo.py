@@ -1,16 +1,15 @@
 import pickle
 import random
-from typing import List, Set, Dict
-from collections import Counter, deque
 import math
+from typing import List, Dict
+from collections import Counter, deque
 
-def bfs(adj_list: List[List[int]], start: int, k: int) -> Dict[int, int]:
+def bfs(adj_list: List[List[int]], start: int) -> Dict[int, int]:
+    '''Return a dictionary of distances from the start node to all other nodes in the graph.'''
     distances = {start: 0}
     queue = deque([(start, 0)])
     while queue:
         node, dist = queue.popleft()
-        if len(distances) == k:
-            break
         for neighbor in adj_list[node]:
             if neighbor not in distances:
                 distances[neighbor] = dist + 1
@@ -18,11 +17,11 @@ def bfs(adj_list: List[List[int]], start: int, k: int) -> Dict[int, int]:
     return distances
 
 def calculate_proximity_ratios(adj_list: List[List[int]], k: int, labeling: List[int]) -> Dict[int, float]:
+    '''Return a dictionary of proximity ratios for each node in the graph.'''
     ratios = {}
     for v in range(len(adj_list)):
-        distances = bfs(adj_list, v, k)
-        r_v = float('inf')
-        m_v = float('inf')
+        distances = bfs(adj_list, v)
+        r_v = m_v = float('inf')
         for dist in sorted(set(distances.values())):
             labels_within_dist = set(labeling[n] for n in distances if distances[n] <= dist)
             nodes_within_dist = sum(1 for d in distances.values() if d <= dist)
@@ -36,6 +35,7 @@ def calculate_proximity_ratios(adj_list: List[List[int]], k: int, labeling: List
     return ratios
 
 def initial_labeling(adj_list: List[List[int]], k: int) -> List[int]:
+    '''Return a random initial labeling of the nodes in the graph.'''
     n = len(adj_list)
     labeling = [-1] * n
     for i in range(n):
@@ -46,8 +46,7 @@ def initial_labeling(adj_list: List[List[int]], k: int) -> List[int]:
 
 def improve_labeling(adj_list: List[List[int]], k: int, labeling: List[int]) -> List[int]:
     n = len(adj_list)
-    max_iterations = n * k  # Set a maximum number of iterations
-    for _ in range(max_iterations):
+    for _ in range(n * k):
         ratios = calculate_proximity_ratios(adj_list, k, labeling)
         max_ratio = max(ratios.values())
         
@@ -57,14 +56,10 @@ def improve_labeling(adj_list: List[List[int]], k: int, labeling: List[int]) -> 
         worst_nodes = [v for v, r in ratios.items() if r == max_ratio]
         worst_node = random.choice(worst_nodes)
         
-        distances = bfs(adj_list, worst_node, k)
-        if math.isinf(max_ratio):
-            neighborhood = list(distances.keys())
-        else:
-            neighborhood = [node for node, dist in distances.items() if dist <= int(max_ratio)]
+        distances = bfs(adj_list, worst_node)
+        neighborhood = list(distances.keys()) if math.isinf(max_ratio) else [node for node, dist in distances.items() if dist <= math.ceil(max_ratio)]
         
         label_counts = Counter(labeling[v] for v in neighborhood)
-        
         most_common_label = label_counts.most_common(1)[0][0]
         least_common_label = min(range(k), key=lambda l: label_counts[l])
         
@@ -75,7 +70,7 @@ def improve_labeling(adj_list: List[List[int]], k: int, labeling: List[int]) -> 
 
     return labeling
 
-def label_nodes(adj_list: List[List[int]], k: int, max_attempts: int = 100) -> List[int]:
+def label_nodes(adj_list: List[List[int]], k: int, max_attempts: int = 5) -> List[int]:
     best_labeling = None
     best_max_ratio = float('inf')
     for _ in range(max_attempts):
@@ -83,82 +78,17 @@ def label_nodes(adj_list: List[List[int]], k: int, max_attempts: int = 100) -> L
         final_labeling = improve_labeling(adj_list, k, initial_labels)
         max_ratio = max(calculate_proximity_ratios(adj_list, k, final_labeling).values())
         if max_ratio < best_max_ratio:
-            best_labeling = final_labeling
-            best_max_ratio = max_ratio
+            best_labeling, best_max_ratio = final_labeling, max_ratio
         if max_ratio == 1.0:
             return final_labeling
     return best_labeling
 
-
-def is_valid(k: int, labeling: List[int]) -> bool:
-    return set(labeling) == set(range(k))
-
-
-def r_v(adj_list: List[List[int]], k: int, labeling: List[int], v: int) -> int:
-    r = 0
-    Q: List[int] = [v]
-    visited: List[bool] = [False] * len(adj_list)
-    visited[v] = True
-    distinct_labels: Set[int] = {labeling[v]}
-
-    while Q:
-        if len(distinct_labels) == k:
-            return r
-        r += 1
-        level_size = len(Q)
-        for _ in range(level_size):
-            u = Q.pop(0)
-            for w in adj_list[u]:
-                if not visited[w]:
-                    visited[w] = True
-                    Q.append(w)
-                    distinct_labels.add(labeling[w])
-                    if len(distinct_labels) == k:
-                        return r
-    
-    return r
-
-def m_v(adj_list: List[List[int]], k: int, v: int) -> int:
-    if k == 1:
-        return 0
-    
-    r = 0
-    Q: List[int] = [v]
-    visited: List[bool] = [False] * len(adj_list)
-    visited[v] = True
-    num_visited = 1
-
-    while Q:
-        if num_visited >= k:
-            return r
-        r += 1
-        level_size = len(Q)
-        for _ in range(level_size):
-            u = Q.pop(0)
-            for w in adj_list[u]:
-                if not visited[w]:
-                    visited[w] = True
-                    Q.append(w)
-                    num_visited += 1
-                    if num_visited >= k:
-                        return r
-    
-    return r
-
 def proximity_ratio(adj_list: List[List[int]], k: int, labeling: List[int]) -> float:
-    max_r = 0
-    for v in range(len(adj_list)):
-        ratio = float(r_v(adj_list, k, labeling, v)) / m_v(adj_list, k, v)
-        max_r = max(max_r, ratio)
-    return max_r
+    return max(calculate_proximity_ratios(adj_list, k, labeling).values())
 
 def max_proximity_ratio(adj_lists: List[List[List[int]]], k_values: List[int]) -> float:
-    max_ratio = 0
-    for adj_list, k in zip(adj_lists, k_values):
-        labeling = label_nodes(adj_list, k)
-        ratio = proximity_ratio(adj_list, k, labeling)
-        max_ratio = max(max_ratio, ratio)
-    return max_ratio
+    return max(proximity_ratio(adj_list, k, label_nodes(adj_list, k))
+               for adj_list, k in zip(adj_lists, k_values))
 
 def print_comparison(adj_list: List[List[int]], k: int, produced_labeling: List[int], example_labeling: List[int], index: int):
     print(f"Tree {index}:")
