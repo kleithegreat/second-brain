@@ -96,67 +96,53 @@ def label_nodes(adj_list: List[List[int]], k: int) -> List[int]:
 def proximity_ratio_labels(adj_list: List[List[int]], k: int, labeling: List[int]) -> float:
     return max(calculate_proximity_ratios(adj_list, k, labeling).values())
 
-def process_graph(args: Tuple[List[List[int]], int]) -> float:
+def process_graph(args: Tuple[List[List[int]], int]) -> Tuple[List[int], float]:
     adj_list, k = args
     labeling = label_nodes(adj_list, k)
-    return proximity_ratio_labels(adj_list, k, labeling)
+    ratio = proximity_ratio_labels(adj_list, k, labeling)
+    return labeling, ratio
 
-def max_proximity_ratio(adj_lists: List[List[List[int]]], k_values: List[int]) -> float:
+def max_proximity_ratio_with_solutions(adj_lists: List[List[List[int]]], k_values: List[int]) -> Tuple[float, List[List[int]]]:
     with mp.Pool() as pool:
         results = pool.map(process_graph, zip(adj_lists, k_values))
-    return max(results)
-
-def print_comparison(adj_list: List[List[int]], k: int, produced_labeling: List[int], example_labeling: List[int], index: int):
-    print(f"Tree {index}:")
-    print(f"Number of nodes: {len(adj_list)}")
-    print(f"Number of labels (k): {k}")
-    print("\nProduced Labeling:")
-    print(" ".join(map(str, produced_labeling)))
-    print("Example Labeling:")
-    print(" ".join(map(str, example_labeling)))
-    
-    produced_ratio = proximity_ratio_labels(adj_list, k, produced_labeling)
-    example_ratio = proximity_ratio_labels(adj_list, k, example_labeling)
-    
-    print(f"\nProximity Ratio (Produced): {produced_ratio:.4f}")
-    print(f"Proximity Ratio (Example): {example_ratio:.4f}")
-    print("\n" + "="*50 + "\n")
+    max_ratio = max(result[1] for result in results)
+    solutions = [result[0] for result in results]
+    return max_ratio, solutions
 
 if __name__ == "__main__":
-    with open('./tests/Examples_of_AdjLists_of_Trees', 'rb') as f:
-        adj_lists: List[List[List[int]]] = pickle.load(f)
-
-    with open('./tests/Examples_of_k_values', 'rb') as f:
-        k_values: List[int] = pickle.load(f)
-
-    with open('./tests/Examples_of_labelling', 'rb') as f:
-        example_labelings: List[List[int]] = pickle.load(f)
-
-    with open('./tests/Small_Examples_of_AdjLists_of_Trees', 'rb') as f:
+    with open('./tests/Test_Set_Small_AdjLists_of_Trees', 'rb') as f:
         small_adj_lists: List[List[List[int]]] = pickle.load(f)
 
-    with open('./tests/Small_Examples_of_k_values', 'rb') as f:
+    with open('./tests/Test_Set_Small_of_k_values', 'rb') as f:
         small_k_values: List[int] = pickle.load(f)
 
-    with open('./tests/Medium_Examples_of_AdjLists_of_Trees', 'rb') as f:
+    with open('./tests/Test_Set_Medium_AdjLists_of_Trees', 'rb') as f:
         medium_adj_lists: List[List[List[int]]] = pickle.load(f)
 
-    with open('./tests/Medium_Examples_of_k_values', 'rb') as f:
+    with open('./tests/Test_Set_Medium_of_k_values', 'rb') as f:
         medium_k_values: List[int] = pickle.load(f)
 
-    with open('./tests/Large_Examples_of_AdjLists_of_Trees', 'rb') as f:
+    with open('./tests/Test_Set_Large_AdjLists_of_Trees', 'rb') as f:
         large_adj_lists: List[List[List[int]]] = pickle.load(f)
 
-    with open('./tests/Large_Examples_of_k_values', 'rb') as f:
+    with open('./tests/Test_Set_Large_of_k_values', 'rb') as f:
         large_k_values: List[int] = pickle.load(f)
 
-    print("Examples:\n")
+    print("Processing and saving solutions...")
 
-    for i, (adj_list, k, example_labeling) in enumerate(zip(adj_lists, k_values, example_labelings)):
-        produced_labeling = label_nodes(adj_list, k)
-        print_comparison(adj_list, k, produced_labeling, example_labeling, i)
+    small_max_ratio, small_solutions = max_proximity_ratio_with_solutions(small_adj_lists, small_k_values)
+    with open('small_solutions.pkl', 'wb') as f:
+        pickle.dump(small_solutions, f)
+    print(f"Small Examples: {small_max_ratio:.4f}")
 
-    print("Maximum Proximity Ratios:")
-    print(f"Small Examples: {max_proximity_ratio(small_adj_lists, small_k_values):.4f}")
-    print(f"Medium Examples: {max_proximity_ratio(medium_adj_lists, medium_k_values):.4f}")
-    print(f"Large Examples: {max_proximity_ratio(large_adj_lists, large_k_values):.4f}")
+    medium_max_ratio, medium_solutions = max_proximity_ratio_with_solutions(medium_adj_lists, medium_k_values)
+    with open('medium_solutions.pkl', 'wb') as f:
+        pickle.dump(medium_solutions, f)
+    print(f"Medium Examples: {medium_max_ratio:.4f}")
+
+    large_max_ratio, large_solutions = max_proximity_ratio_with_solutions(large_adj_lists, large_k_values)
+    with open('large_solutions.pkl', 'wb') as f:
+        pickle.dump(large_solutions, f)    
+    print(f"Large Examples: {large_max_ratio:.4f}")
+    
+    print("\nSolutions have been saved as 'small_solutions.pkl', 'medium_solutions.pkl', and 'large_solutions.pkl'")
